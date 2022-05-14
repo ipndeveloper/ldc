@@ -1,0 +1,38 @@
+<fieldset [formGroup]="cupoForm">
+    <legend class="col-form-label">Cupo</legend>
+      <div class="pt-2 row">
+        <div class="col-sm-2" *ngIf="ingresoConCupo || esConsulta">
+            <div class="form-check">
+                <input type="radio" id="radioConCupo" class="form-check-input" formControlName="conCupo" [value]="true">
+                <label for="radioConCupo" class="form-check-label">Con Cupo</label>
+            </div>
+        </div>
+        <div class="col-sm-4" *ngIf="ingresoConCupo || esConsulta">
+            <yrd-texto-mascara-con-etiqueta 
+                #inputCodigoCupo
+                [cssClassEtiqueta]="'col-sm'"
+                [cssClassControl]="'col-sm-8'"
+                formControlName="codigoCupo" 
+                [control]="cupoForm.get('codigoCupo')"         
+                [etiqueta]="'Codigo Cupo'"
+                [mascara]="maskRegex"
+                [validationMessages]="validationMessagesCodigoCupo">
+            </yrd-texto-mascara-con-etiqueta>
+        </div>
+        <div class="col-sm-2" *ngIf="ingresoSinCupo || esConsulta">
+            <div class="form-check">
+                <input type="radio" id="radioSinCupo" class="form-check-input" formControlName="conCupo" [value]="false">
+                <label for="radioSinCupo" class="form-check-label">Sin Cupo</label>
+            </div>
+        </div>
+        <div class="col-sm-4" *ngIf="ingresoConCupo || esConsulta">
+            <yrd-texto-con-etiqueta 
+              formControlName="usuarioSAN"
+              [cssClassEtiqueta]="'col-sm-4'"
+              [cssClassControl]="'col-sm-7'"
+              [control]="cupoForm.get('usuarioSAN')"
+              [etiqueta]="'Usuario de SAN'">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>    
+  </fieldset>

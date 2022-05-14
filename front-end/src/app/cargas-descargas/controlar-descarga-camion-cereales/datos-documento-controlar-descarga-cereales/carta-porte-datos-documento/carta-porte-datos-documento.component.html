@@ -1,0 +1,74 @@
+<fieldset>
+  <legend class="col-form-label">Carta de Porte</legend>
+  <div class="row form-group" [formGroup]="formDocumentoPorte">
+      <div class= "col-sm-4" *ngIf= "muestraNumeroDocPorte">
+        <yrd-desplegable-tipo-documento-porte
+          formControlName="tipoDocumentoPorte"
+          [tieneOpcionSeleccione]="false"
+          [tipoProducto]="tipoProducto"
+          [tipoTransporte]="tipoTransporte"
+          [control]="formDocumentoPorte.get('tipoDocumentoPorte')">
+        </yrd-desplegable-tipo-documento-porte>
+      </div>
+      <div class= "col-sm-4" *ngIf= "muestraNumeroDocPorte">
+        <yrd-texto-mascara-con-etiqueta 
+          formControlName="numeroDocumentoPorteInf"
+          #inputNumeroDocumentoPorte 
+          [control]="formDocumentoPorte.get('numeroDocumentoPorteInf')"         
+          [etiqueta]="'Número'"
+          [mascara]="maskRegex"
+          [validationMessages]="validationMessagesNroPorte">
+        </yrd-texto-mascara-con-etiqueta>
+      </div>
+    <div class="col-sm-4" [formGroup]="form" *ngIf="!esCartaPorteElectronica">
+      <yrd-numero-con-etiqueta 
+        formControlName="numeroCEE"
+        #inputNumeroCEE
+        [etiqueta]="'C.E.E.'"
+        [idForm]="'numeroCEE'"
+        [control]="form.get('numeroCEE')"
+        [validationMessages]="validationMessagesNumeroCEE"
+        yrdMaxLength [maxLength]=14>
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group" [formGroup]="form">
+    <div class="col-sm-2" formGroupName="confirmacionArriboCtg" *ngIf="(esCartaPorteElectronica && !circuitoContemplaCupo) || !esCartaPorteElectronica || esModificacionFueraDePuesto || !movimientoPrecargado">
+      <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        #inputNumeroCTG
+        [etiqueta]="'CTG'" 
+        [control]="form.get('confirmacionArriboCtg.ctg')"
+        [validationMessages]="validationMessagesCTG"
+        [allowLeadingZeroes]="true"
+        (blur)="OnBlurRecuperarDatoCpe()"
+        yrdMaxLength [maxLength]="maximo +1">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2" formGroupName="confirmacionArriboCtg" *ngIf="terminal.usaFleteCorto">
+      <yrd-checkbox-con-etiqueta
+        formControlName="fleteCorto" 
+        [cssClassEtiqueta]="'col-sm-6'"
+        [cssClassControl]="'col-sm-6'"
+        [etiqueta]="'Flete corto'"
+        [control]="form.get('confirmacionArriboCtg.fleteCorto')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaCarga" 
+        [etiqueta]="'Fecha Carga'"
+        [validationMessages]="validationMessagesFechaCarga" 
+        [control]="form.get('fechaCarga')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaVencimiento" 
+        [etiqueta]="'Fecha Vencimiento'"
+        [validationMessages]="validationMessagesFechaVencimiento" 
+        [control]="form.get('fechaVencimiento')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <form [formGroup]="registrarPesoForm" novalidate>
+    <yrd-busqueda-movimiento-pesaje
+      #busquedaMovimiento
+      [esTren]="esTren"
+      [esFueraCircuito]="true"
+      [busquedaMovimientoForm]="registrarPesoForm.controls.busquedaMovimiento">
+    </yrd-busqueda-movimiento-pesaje>
+    <yrd-circuito
+      [circuitoForm]="registrarPesoForm.controls.circuito"
+      [completarTipoProducto]="false">
+    </yrd-circuito>      
+    <yrd-estado-movimiento
+      [estadoMovimientoForm]="registrarPesoForm.controls.estadoMovimiento">
+    </yrd-estado-movimiento>
+    <yrd-datos-movimiento-pesaje
+      [esCarga]= "esCarga"
+      [esFueraCircuito]="true"
+      [datosMovimientoForm]="registrarPesoForm.controls.datosMovimiento">
+    </yrd-datos-movimiento-pesaje>
+    <yrd-fecha-periodo-stock-san *ngIf="productoImputaStock"
+      #fechaStock
+      [fechaPeriodoStockSanForm]="registrarPesoForm.controls.fechaPeriodoStockSan">
+    </yrd-fecha-periodo-stock-san>
+    <yrd-datos-pesaje
+      #datosPesaje
+      [esConsulta]="false"
+      [esAutomatico]="true"
+      [esFueraCircuito]="true"
+      [datosPesajeForm]="registrarPesoForm.controls.datosPesaje">
+    </yrd-datos-pesaje>
+    
+    <fieldset *ngIf= "esCarga" class="container-fluid">
+      <legend class="col-form-label">Destino Físico</legend>
+      <div class="col-sm-6">
+        <yrd-texto-con-etiqueta 
+          formControlName="lugarDescargaCarga" 
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-6'"
+          [etiqueta]="'Lugar de Descarga/Carga'"
+          [control]="registrarPesoForm.get('lugarDescargaCarga')">
+        </yrd-texto-con-etiqueta>
+      </div>
+    </fieldset>
+  </form>
+  <div class="mt-3">        
+    <div class="float-right">      
+      <button type="button" class="btn btn-success" (click)="onClickAceptar()">Aceptar</button>
+      <button type="button" class="btn btn-danger" (click)="onClickCancelar()">Cancelar</button>
+    </div>
+  </div>
+</div>

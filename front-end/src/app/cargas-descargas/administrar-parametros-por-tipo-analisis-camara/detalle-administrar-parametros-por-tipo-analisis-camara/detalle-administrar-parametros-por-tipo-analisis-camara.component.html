@@ -1,0 +1,70 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-terminal
+        #terminal
+        formControlName="terminal"
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarParametrosPorTipoAnalisisCamara"
+        [opcionSeleccione]="true"
+        [cssClassControl]="'col-sm-6'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [validationMessages]="validationMessagesTerminal">
+      </yrd-desplegable-terminal>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-6">    
+      <yrd-buscador-producto
+        formControlName="producto" 
+        [control]="form.get('producto')"
+        [cssClassControl]="'col-sm-2'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-6">
+      <yrd-desplegable-grupo-rubro-analisis
+        formControlName="tipoAnalisis"
+        [control]="form.get('tipoAnalisis')"
+        [opcionSeleccione]="true"
+        [terminal]="terminalSeleccionada" 
+        [producto]="productoSeleccionado"
+        [cssClassControl]="'col-sm-6'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [entidadSeleccionada]="entidadSeleccionada"
+        [validationMessages]="validationMessagesTipoAnalisis">
+      </yrd-desplegable-grupo-rubro-analisis>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="esEspecial" class="col-sm-3 col-form-label">Es Especial:</label>
+        <div class="col-sm-3 pt-2">
+          <input
+            #checkboxEsEspecial
+            type="checkbox"
+            class="checkbox"
+            id="esEspecial"
+            formControlName="esEspecial"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="codigoCamara"        
+        [control]="form.get('codigoCamara')"
+        [cssClassControl]="'col-sm-3'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [etiqueta]="'Código de Cámara'"
+        [validationMessages]="validationMessagesCodigoCamara">        
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>  
+</div>

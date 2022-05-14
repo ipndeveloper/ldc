@@ -1,0 +1,65 @@
+<div class="form-horizontal">
+  <label for="inputLocalidad" class="{{ cssClassEtiqueta }}">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}">
+    <div class="input-group">
+      <input type="number" id="inputLocalidad" maxlength="11" #inputLocalidad class="form-control" [value]="currentEntity?.codigo"
+        [disabled]="isDisabled" (blur)="buscar(inputLocalidad.value)" [ngClass]="{
+            'is-valid' : validControl,
+            'is-invalid' : validControl === false
+              }">
+      <div class="input-group-append" *ngIf="advancedSearch">
+        <button class="btn btn-outline-secondary" (click)="abrirBusquedaAvanzada()" [disabled]="isDisabled" type="button">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </div>
+      <div class="invalid-feedback">
+        <p>{{errorMessage}}</p>
+      </div>
+    </div>       
+  </div>
+  <strong class="col-sm-5 col-form-label">{{ currentEntity?.descripcion }}</strong>
+</div>
+
+<yrd-advanced-search-form
+  #advancedComponent
+  [rows]="rows" 
+  [selected]="selected" 
+  [columns]="columns"
+  [service]="service"
+  [filters]="filters"
+  [entityName]="etiqueta"
+  (accepted)="setCurrentEntity($event); this.notifyChange(); setFocus()"
+  (closing)="setFocus()">
+  
+  <ng-template #controlFiltersContainer>
+    <div [formGroup]="advancedSearchForm" class="form-horizontal">
+      <yrd-texto-con-etiqueta 
+        class="col-sm-6"
+        formControlName="codigoPostal"
+        [isFocused]="true" 
+        [control]="advancedSearchForm.get('codigoPostal')"
+        [etiqueta]="'Código Postal'">
+      </yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta 
+        class="col-sm-6"
+        formControlName="descripcion"
+        [control]="advancedSearchForm.get('descripcionLocalidad')"
+        [etiqueta]="'Localidad'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </ng-template>
+
+</yrd-advanced-search-form>
+
+<ng-template 
+  #selectCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" 
+        [checked]="isSelected" 
+        (change)="onCheckboxChangeFn($event)" />
+  </label>
+</ng-template>

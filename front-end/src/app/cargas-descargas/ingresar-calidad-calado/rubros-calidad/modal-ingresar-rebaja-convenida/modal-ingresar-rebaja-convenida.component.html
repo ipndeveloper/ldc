@@ -1,0 +1,21 @@
+<yrd-modal #modalComponent [formGroup]="rebajaConvenidaForm" [closeOnAccept]="false" 
+          (accepted)="onAccept()" (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+      <div class="form-horizontal">
+          <label for="selectRubro" class="col-sm-3 col-form-label">Rubro:</label>
+          <div class="col-sm-9">
+            <select #selectRubro class="form-control" id="selectRubro" formControlName="rubro">
+              <option *ngFor="let rubro of rubrosCalidad" [value]="rubro.controls.id.value">{{ rubro.controls.descripcion.value }}</option>
+            </select>
+          </div>
+        </div>
+      <yrd-numero-con-etiqueta [idForm]="'valor'" formControlName="valor" [etiqueta]="'Valor'"
+          [control]="rebajaConvenidaForm.controls.valor"></yrd-numero-con-etiqueta>
+      <yrd-numero-con-etiqueta [idForm]="'porcentajeRebajaConvenida'" 
+          formControlName="porcentajeRebajaConvenida" [etiqueta]="'Rebaja Convenida'"
+          [maxLength]=7 [maxDecimalPlaces]="2" 
+          [control]="rebajaConvenidaForm.controls.porcentajeRebajaConvenida"
+          [validationMessages]="validationMessagesPorcentajeRebajaConvenida"></yrd-numero-con-etiqueta>    
+  </ng-template>
+</yrd-modal>

@@ -1,0 +1,42 @@
+<div (click)="onContainerClicked($event.target.classList)"
+  class="modal fade bd-example-modal-xl"
+  role="dialog"
+  tabindex="-1"
+  [ngClass]="{'in': visibleAnimate}"
+  [ngStyle]="{'display': visible ? 'block' : 'none', 'opacity': visible ? 1 : 0}"
+  #modal
+  yrdModalFocus
+  *ngIf="visible">
+
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" [ngStyle]="{ 'width': isLoadingModal ? '75%' : '100%' }">
+
+      <div class="modal-header" *ngIf="showHeader">
+        <ng-container *ngTemplateOutlet="header"></ng-container>
+        <button *ngIf="hasCloseButton" #closeModal class="close" data-dismiss="modal" type="button" aria-label="Close" (click)="close()" (keydown)='closeTabPressed($event)'>×</button>
+      </div>
+
+      <div class="modal-body" *ngIf="showBody">
+        <ng-container *ngTemplateOutlet="body"></ng-container>
+      </div>
+
+      <div class="modal-footer" *ngIf="showFooter">
+        <ng-container *ngIf="hasFooter; else otherFooter">
+          <ng-container *ngTemplateOutlet="footer"></ng-container>
+        </ng-container>
+
+        <ng-template #otherFooter>
+          <div class="float-right">
+            <button id="btnAcceptModal" type="button" class="btn btn-success"
+              #acceptModal
+              (click)="accept()"
+              [disabled]="disableAcceptButton">Aceptar</button>
+            <button #cancelModal id="btnCancelModal" #cancelButton type="button" class="btn btn-danger" (click)="close()" (keydown)="cancelTabPressed($event)">Cancelar</button>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+
+</div>

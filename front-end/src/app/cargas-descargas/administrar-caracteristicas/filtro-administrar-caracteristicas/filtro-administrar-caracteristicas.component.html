@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+    <div class="form-horizontal">
+        <yrd-desplegable-circuito class="col-sm-6 form-group"
+            #desplegableCircuito
+            [opcionSeleccione]="true"
+            formControlName="circuito"
+            [cssClassControl]="'col-sm-7'"
+            [permiso]="Permission.AdministrarCaracteristicas"
+            [control]="form.get('circuito')">
+        </yrd-desplegable-circuito>
+        <yrd-desplegable-actividad class="col-sm-6 form-group"
+            [opcionSeleccione]="true"
+            formControlName="actividad"
+            [cssClassControl]="'col-sm-7'"
+            [control]="form.get('actividad')">
+        </yrd-desplegable-actividad>
+        <yrd-desplegable-caracteristica class="col-sm-6 form-group"
+            [opcionSeleccione]="true"
+            formControlName="caracteristica"
+            [cssClassControl]="'col-sm-5'"
+            [control]="form.get('caracteristica')">
+        </yrd-desplegable-caracteristica>
+        <yrd-desplegable-si-no class="col-sm-6 form-group"
+            formControlName="estaHabilitado"
+            [cssClassControl]="'col-sm-5'"
+            [control]="form.get('estaHabilitado')">
+        </yrd-desplegable-si-no>
+    </div>
+</div>
+  

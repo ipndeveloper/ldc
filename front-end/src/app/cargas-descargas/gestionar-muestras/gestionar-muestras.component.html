@@ -1,0 +1,34 @@
+<fieldset [formGroup]="gestionarMuestrasForm" novalidate>
+  <yrd-search-form-template #searchFormComponent 
+    [botonesHabilitados]="botonesHabilitados"
+    [permisosBotones]="permisosBotones"
+    [columns]="columns" 
+    [filtrosForm]="gestionarMuestrasForm.controls.filtros"
+    [rowsOptions]="rowsOptions">
+
+    <ng-template #controlFiltersContainer>
+      <yrd-filtro-busqueda-muestras #filtroBusquedaMuestra [filtrosForm]="gestionarMuestrasForm.controls.filtros"></yrd-filtro-busqueda-muestras>
+    </ng-template>
+
+    <ng-template #controlActionsContainer>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickAutorizarFormaAgil()"
+        *ngxPermissionsOnly="Permission.GestionarMuestrasAutorizarEnFormaAgil">Autorizar en Forma Ágil</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickReversarEstado()"
+        *ngxPermissionsOnly="Permission.GestionarMuestrasReversarEstadoMuestra">Reversar Estado Muestra</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickCambiarCodigoBarras()"
+        *ngxPermissionsOnly="Permission.GestionarMuestrasCambiarCodBarra">Cambiar Cód. Barra</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickDescartar()"
+        *ngxPermissionsOnly="Permission.GestionarMuestrasDescartar">Descartar</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickAutorizar()"
+        *ngxPermissionsOnly="Permission.GestionarMuestrasAutorizar">Autorizar</button>
+    </ng-template>
+  </yrd-search-form-template>
+</fieldset>
+
+<yrd-modal-cambiar-codigo-barras #modalCambiarCodigoBarras (accepted)="onConfirmCambiarCodigoBarras($event)"></yrd-modal-cambiar-codigo-barras>
+<yrd-modal-autorizar-muestra-agil #modalAutorizarFormaAgil (accepted)="onAutorizarFormaAgil($event)"></yrd-modal-autorizar-muestra-agil>

@@ -1,0 +1,70 @@
+<fieldset [formGroup]="form">
+  <fieldset formGroupName="filtros">
+    <legend class="col-form-label">Filtros</legend>
+    <div class="row">
+      <div class="col-sm-7">
+        <yrd-buscador-sociedad
+          #sociedad
+          formControlName="sociedad" 
+          [advancedSearch]="true"
+          [control]="form.get('filtros.sociedad')"
+          [validationMessages]="validationMessagesSociedad">
+        </yrd-buscador-sociedad>
+      </div>
+      <div class="col-sm-5">
+        <button type="button" class="btn btn-primary"
+          [disabled]="disableFiltros" 
+          (click)="onBuscar()"
+          i18n>Buscar
+        </button>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset formGroupName="detalle">
+    <legend class="col-form-label">Parámetros</legend>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <yrd-numero-con-etiqueta 
+          #sucursalDeEnvioACamara
+          formControlName="codigoSucursalEnvioCamara"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="form.get('detalle.codigoSucursalEnvioCamara')"
+          [etiqueta]="'Sucursal de envío a cámara'">
+        </yrd-numero-con-etiqueta>
+      </div>
+      <div class="form-group">
+        <yrd-checkbox-con-etiqueta
+          formControlName="esFerrocarril"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="form.get('detalle.esFerrocarril')"
+          [etiqueta]="'Empresa de Ferrocarril'">
+        </yrd-checkbox-con-etiqueta>
+      </div>
+      <div class="form-group">
+        <yrd-checkbox-con-etiqueta
+          formControlName="debeEnviarCodigoACamara"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="form.get('detalle.debeEnviarCodigoACamara')"
+          [etiqueta]="'Habilitado'">
+        </yrd-checkbox-con-etiqueta>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="float-right section-top-padding">
+    <button type="button" class="btn btn-success"
+      [disabled]="!disableFiltros" 
+      (click)="onAceptar()"
+      i18n>Aceptar
+    </button>
+    <button type="button" class="btn btn-danger"
+      [disabled]="!disableFiltros" 
+      (click)="onCancelar()" 
+      i18n>Cancelar
+    </button>
+  </div>
+</fieldset>
+

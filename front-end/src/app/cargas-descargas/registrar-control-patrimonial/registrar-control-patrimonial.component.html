@@ -1,0 +1,35 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template 
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions"
+      [editTitleButton]="'Registrar decisión'">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-registrar-control-patrimonial
+          #filtro
+          [form]="form.controls.filtros"
+          [terminal]="terminal"
+          (buscarClicked)="onClickBuscar()">
+        </yrd-filtro-registrar-control-patrimonial>
+      </ng-template>
+      
+    </yrd-search-form-template>    
+  </fieldset>
+
+  <yrd-modal-decision-registrar-control-patrimonial 
+    #detalle
+    [isLoading]="isLoading"
+    [form]="form.controls.detalle"
+    [idMovimiento]="idMovimiento"
+    [terminal]="terminal"
+    (accepted)="aceptar($event)"
+    (modalCancel)="cancelarModal()">
+  </yrd-modal-decision-registrar-control-patrimonial>
+</form>

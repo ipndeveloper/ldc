@@ -1,0 +1,30 @@
+<yrd-modal #modalComponent [hasCloseButton]="false">
+  <ng-template #modalHeader>
+    <h2>{{header}} <a href="" #foco class="foco">_</a></h2>
+  </ng-template>
+
+  <ng-template #modalBody>
+    <yrd-data-grid 
+      #dataGrid 
+      [rows]="rows" 
+      [selected]="selected" 
+      [columns]="columns" 
+      [pagination]="false"
+      [singleSelection]="true">
+    </yrd-data-grid>
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button 
+      type="button" 
+      class="btn btn-success" 
+      (click)="onAccept()"
+      [disabled]="selected.length !== 1">Aceptar
+    </button>
+    <button 
+      type="button" 
+      class="btn btn-danger" 
+      (click)="onCancel()">Cancelar
+    </button>
+  </ng-template>
+</yrd-modal>

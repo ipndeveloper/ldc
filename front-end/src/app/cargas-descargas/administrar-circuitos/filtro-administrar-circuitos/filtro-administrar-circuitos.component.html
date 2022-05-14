@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-terminal class="col-sm-6"
+      formControlName="terminal"
+      #terminal
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-5'"
+      [permiso]="Permission.AdministrarCircuitos"
+      [control]="form.get('terminal')">
+    </yrd-desplegable-terminal>
+    <yrd-desplegable-tipo-movimiento class="col-sm-6" 
+      formControlName="tipoMovimiento"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('tipoMovimiento')">
+    </yrd-desplegable-tipo-movimiento>  
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-tipo-transporte class="col-sm-6" 
+      formControlName="tipoTransporte"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('tipoTransporte')">
+    </yrd-desplegable-tipo-transporte>
+    <yrd-desplegable-tipo-producto class="col-sm-6" 
+      formControlName="tipoProducto" 
+      [completarTipoProducto]="true"
+      [opcionSeleccione]="true"
+      [etiqueta]="'Tipo Producto'"
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('tipoProducto')">
+    </yrd-desplegable-tipo-producto>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-si-no class="col-sm-6"
+      formControlName="habilitado"
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

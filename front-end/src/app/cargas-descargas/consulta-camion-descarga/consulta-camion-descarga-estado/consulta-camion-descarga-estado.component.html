@@ -1,0 +1,21 @@
+<fieldset [formGroup]="estadoMovimientoForm" novalidate>
+    <legend class="col-form-label">Estado</legend> 
+    <div class="form-horizontal">
+        <yrd-texto-con-etiqueta class="col-sm-3"
+                formControlName="estadoMovimienoDescripcion" 
+                [etiqueta]="'Estado'" 
+                [control]="estadoMovimientoForm.get('estadoMovimienoDescripcion')"></yrd-texto-con-etiqueta>
+        <yrd-texto-con-etiqueta class="col-sm-3" 
+                formControlName="fechaEntrada" 
+                [etiqueta]="'Fecha Entrada'" 
+                [control]="estadoMovimientoForm.get('fechaEntrada')"></yrd-texto-con-etiqueta>
+        <yrd-texto-con-etiqueta class="col-sm-3" 
+                formControlName="fechaOperacion" 
+                [etiqueta]="'Fecha Operación'" 
+                [control]="estadoMovimientoForm.get('fechaOperacion')"></yrd-texto-con-etiqueta>
+        <yrd-texto-con-etiqueta class="col-sm-3" 
+                formControlName="fechaSalida" 
+                [etiqueta]="'Fecha Salida'" 
+                [control]="estadoMovimientoForm.get('fechaSalida')"></yrd-texto-con-etiqueta>
+    </div>
+</fieldset>

@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <yrd-circuito
+      [circuitoForm]="form.controls.circuito"
+      [completarTipoProducto]="true"
+      [permiteSeleccion]="true"
+      [insumosVarios]="true">
+    </yrd-circuito>
+    <yrd-documento-porte
+      #documentoPorte
+      [tipoProducto]="tipoProductoSeleccionada"
+      [tipoTransporte]="tipoTransporte"
+      [tipoDocumento]="tipoDocumentoSeleccionado"
+      [maskRegex] = "tipoDocPorteRegex"
+      [documentoPorteForm]="form.controls.documentoPorte">
+    </yrd-documento-porte>  
+    <yrd-datos-documento-insumos
+      *ngIf="!esVarios"
+      [esAlta]="esAlta"
+      [tipoProducto]="tipoProductoSeleccionada"
+      [esConsulta]="esConsulta"
+      [esModificacionFueraPuesto]="false"
+      [circuito]="circuito">
+    </yrd-datos-documento-insumos>
+    <yrd-datos-documento-transportes-varios
+      *ngIf="esVarios"
+      [esAlta]="esAlta"
+      [tipoProducto]="tipoProductoSeleccionada"
+      [esConsulta]="esConsulta"
+      [esModificacionFueraPuesto] = "false">
+    </yrd-datos-documento-transportes-varios>
+    <div class="mt-3">
+      <div class="float-left">        
+        <button type="button" class="btn btn-primary" (click)="openModalMotivo()" [hidden]="esConsulta" i18n>Dejar Pendiente</button>
+        <button type="button" class="btn btn-primary" (click)="modalRechazarDescarga.abrir(idMovimiento)" [hidden]="!esModificacion">Rechazar</button>
+      </div>
+      <div class="float-right" style="margin-bottom: 20pt">
+        <button type="button" class="btn btn-primary" (click)="abrirModalTarjeta(true)" [hidden]="esConsulta || !terminal.usaAceptarYContinuar" i18n>Aceptar y Continuar</button>
+        <button type="button" class="btn btn-success" (click)="abrirModalTarjeta(false)" [hidden]="esConsulta" i18n>Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelar()" i18n>Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<yrd-modal-motivo
+  #modalMotivo
+  (accepted)="dejarPendiente()"
+  [labelHeader]="'Dejar Pendiente'">
+</yrd-modal-motivo>
+
+<yrd-modal-rechazar-descarga
+  #modalRechazarDescarga
+  (descargaRechazada)="onDescargaRechazada()">
+</yrd-modal-rechazar-descarga>
+
+<yrd-modal-asignar-tarjeta 
+  #modalAsignarTarjeta 
+  (tarjetaAsignada)="onTarjetaAsignada()">
+</yrd-modal-asignar-tarjeta>

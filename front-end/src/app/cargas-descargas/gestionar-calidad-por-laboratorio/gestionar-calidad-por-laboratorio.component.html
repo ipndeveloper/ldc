@@ -1,0 +1,35 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template  #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="form.controls.filtros"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-calidad-por-laboratorio [filtrosForm]="form.controls.filtros"></yrd-filtro-calidad-por-laboratorio>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onClickConsultarMuestras()" 
+            *ngxPermissionsOnly="Permission.GestionarCalidadPorLaboratorioConsultarMuestras"
+            i18n>Consultar Muestras</button>
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onClickRegistrarDecision()"
+            *ngxPermissionsOnly="Permission.GestionarCalidadPorLaboratorioRegistrarDecision"
+            i18n>Registrar Decisión</button>
+        
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>
+
+<yrd-modal-detalle-muestras #modalDetalleMuestras></yrd-modal-detalle-muestras>
+<yrd-modal-registrar-decision-laboratorio [accionesHabilitadas] = "accionesHabilitadas" #modalRegistrarDecision (decisionRegistrada)="onDecisionRegistrada()"></yrd-modal-registrar-decision-laboratorio>

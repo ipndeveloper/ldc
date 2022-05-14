@@ -1,0 +1,11 @@
+<yrd-modal #modal [formGroup]="rechazarDescargaForm" (accepted)="aceptar($event)" [acceptedAsync]="true" (closing)="reset()">
+  <ng-template #modalHeader><h2>Rechazar Camión</h2></ng-template>
+
+  <ng-template #modalBody>
+    <yrd-text-area-con-etiqueta formControlName="observacion"
+      [idForm]="'textObservacion'" [etiqueta]="'Observación'"
+      [control]="rechazarDescargaForm.get('observacion')" [validationMessages]="validationMessagesObservacion"
+      [isFocused]="true">
+    </yrd-text-area-con-etiqueta>  
+  </ng-template>
+</yrd-modal>

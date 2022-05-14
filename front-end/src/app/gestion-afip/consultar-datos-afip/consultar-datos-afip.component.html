@@ -1,0 +1,65 @@
+<fieldset class="col-sm-12" [formGroup]="datosAfipForm">
+  <legend class="col-form-label">Datos de CTG</legend>
+  <div class="form-horizontal">
+    <label class="col-sm-2 col-form-label">CTG</label>  
+    <input type="text" class="col-sm-4 form-control"  formControlName="codigoCtg"/>    
+    <label class="col-sm-2 col-form-label">Carta Porte</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cartaPorte" />
+    <label class="col-sm-2 col-form-label">Solicitante</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="solicitante" /> 
+    <label class="col-sm-2 col-form-label">Estado</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="estado" /> 
+    <label class="col-sm-2 col-form-label">Fecha Emisión</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="fechaEmision" />
+    <label class="col-sm-2 col-form-label">Especie</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="especie" />
+    <label class="col-sm-2 col-form-label">Fecha Vigencia Desde</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="fechaVigenciaDesde" />
+    <label class="col-sm-2 col-form-label">Fecha Vigencia Hasta</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="fechaVigenciaHasta" /> 
+    <label class="col-sm-2 col-form-label">CUIT Canjeador</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cuitCanjeador" />
+    <label class="col-sm-2 col-form-label">CUIT Destino</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cuitDestino" />    
+    <div class="col-sm-6 form-horizontal">
+        <label class="col-form-label">Canjeador como Remitente Comercial</label>
+        <input id="canjeadorComoRemitenteComercialSi" name="canjeadorComoRemitenteComercial" formControlName="canjeadorComoRemitenteComercial" type="radio" [value]="'S'"/>
+        <label for="canjeadorComoRemitenteComercialSi" class="form-label">Si   </label>
+        <input id="canjeadorComoRemitenteComercialNo" name="canjeadorComoRemitenteComercial" formControlName="canjeadorComoRemitenteComercial" type="radio" [value]="'N'"/>
+        <label for="canjeadorComoRemitenteComercialNo" class="form-label">No   </label>
+    </div>
+    <div class="col-sm-6"></div>
+    <label class="col-sm-2 col-form-label">CUIT Destinatario</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cuitDestinatario" /> 
+    <label class="col-sm-2 col-form-label">Establecimiento</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="establecimiento" /> 
+    <label class="col-sm-2 col-form-label">Localidad Origen</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="localidadOrigen" /> 
+    <label class="col-sm-2 col-form-label">Localidad Destino</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="localidadDestino" /> 
+    <label class="col-sm-2 col-form-label">Cosecha</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cosecha" /> 
+    <label class="col-sm-2 col-form-label">CUIT Transportista</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cuitTransportista" /> 
+    <label class="col-sm-2 col-form-label">Detalle</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="detalle" /> 
+    <label class="col-sm-2 col-form-label">Cantidad Horas</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cantidadHoras" /> 
+    <label class="col-sm-2 col-form-label">Patente Vehículo</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="patenteVehiculo" /> 
+    <label class="col-sm-2 col-form-label">Peso Neto Carga</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="pesoNetoCarga" /> 
+    <label class="col-sm-2 col-form-label">Km a Recorrer</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="kmARecorrer" /> 
+    <label class="col-sm-2 col-form-label">Tarifa Referencia</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="tarifaReferencia" /> 
+    <label class="col-sm-2 col-form-label">Fecha Confirmación Def.</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="fechaHoraConfirmacionDefinitiva" /> 
+    <label class="col-sm-2 col-form-label">CTG Código</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="ctcCodigo" /> 
+    <label class="col-sm-2 col-form-label">CUIT Corredor</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="cuitCorredor" /> 
+    <label class="col-sm-2 col-form-label">Código Cupo</label> 
+    <input type="text" class="col-sm-4 form-control"  formControlName="turno" /> 
+  </div>
+</fieldset>

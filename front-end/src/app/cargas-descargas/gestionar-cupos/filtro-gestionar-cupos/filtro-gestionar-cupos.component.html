@@ -1,0 +1,108 @@
+<form [formGroup]="filtrosForm">
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-tipo-documento-porte
+        #tipoDocPorte 
+        formControlName="tipoDocPorte"
+        [control]="filtrosForm.get('tipoDocPorte')" 
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+
+    <div class="col-sm-4 form-group">
+        <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [control]="filtrosForm.get('ctg')"
+        [allowLeadingZeroes]="true"
+        yrdMaxLength [maxLength]=12>
+      </yrd-numero-con-etiqueta>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4 form-group">
+    <div class="form-horizontal">
+      <label for="nroDocPorte" class="col-sm-3 col-form-label">Nro. Doc. Porte:</label>
+      <input class="form-control col-sm-9" 
+        #nroDocPorte
+        id="nroDocPorte"
+        type="text"
+        oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+        formControlName="nroDocPorte" 
+        maxlength="13"/>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <yrd-fecha-con-etiqueta
+      formControlName="fechaCupo"
+      [idForm]="'fechaCupo'"
+      [etiqueta]="'Fecha de entrada'"
+      [control]="filtrosForm.get('fechaCupo')"
+      [cssClassEtiqueta]="'col-sm-3'"
+      [cssClassControl]="'col-sm-5'">
+    </yrd-fecha-con-etiqueta>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+        formControlName="producto"
+        [advancedSearch]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-3'">
+      </yrd-buscador-producto>
+  </div>
+    <div class="col-sm-4 pb-4">
+      <yrd-texto-con-etiqueta
+        formControlName="turno" 
+        [etiqueta]="'Turno'" 
+        [control]="filtrosForm.get('turno')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-motivo-estado-movimiento
+        formControlName="motivo"
+        [control]="filtrosForm.get('motivo')"
+        [opcionSeleccione]= "true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'">
+      </yrd-desplegable-motivo-estado-movimiento>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        formControlName="codigoCupo" 
+        [etiqueta]="'Codigo Cupo'" 
+        [control]="filtrosForm.get('codigoCupo')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-estado-movimiento 
+        formControlName="estado"
+        [filters]="filtroEstadoMovimiento"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'">
+      </yrd-desplegable-estado-movimiento>
+    </div>
+    
+    <div class="col-sm-4">
+      <yrd-desplegable-estado-cupo
+        formControlName="estadoCupo"
+        [opcionSeleccione]="true"
+        [control]="filtrosForm.get('estadoCupo')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [estadosValidosGestionarCupos]="true">
+      </yrd-desplegable-estado-cupo> 
+    </div>
+  </div>
+</form>

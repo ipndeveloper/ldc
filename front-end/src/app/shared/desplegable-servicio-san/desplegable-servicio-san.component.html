@@ -1,0 +1,13 @@
+<div class="form-horizontal">
+  <label for="selectServicioSan" class="col-sm-3 col-form-label">Servicio SAN:</label>
+  <div class="col-sm-9">
+    <select class="form-control" id="selectServicioSan" #selectServicioSan 
+      [disabled]="isDisabled" 
+      [value]="selectedEntityId"
+      (blur)="onTouched()"
+      (change)="onChange(selectServicioSan.value)">
+      <option *ngIf="opcionSeleccione" value=undefined selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+  </div>
+</div>

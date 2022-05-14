@@ -1,0 +1,32 @@
+.successIcon {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    color:  #28a745;
+  }
+
+  .errorIcon {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    color: #dc3545;
+  }
+
+  .warningIcon {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    color: #ffa500;
+  }
+
+  .button-icon {
+    display: inline-block;
+    text-align: left;
+  }
+
+  .labelAccion {
+    text-align: right;
+  }

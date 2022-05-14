@@ -1,0 +1,119 @@
+<fieldset [formGroup]="rubrosForm">
+  <legend class="col-form-label">Medición</legend>
+
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta class="col-sm-4" 
+      formControlName="numeroSerieDispositivo" 
+      [etiqueta]="'Nro Serie Dispositivo'">
+    </yrd-texto-con-etiqueta>
+
+    <div class="col-sm-2">
+      <button class="btn" 
+        [disabled]="!lecturaAutomatica || disableButtons" 
+        (click)="leerDispositivo()">Lectura Dispositivo
+      </button>
+    </div>
+  </div>
+
+  <div formArrayName="rubrosCalidad">
+    <yrd-data-grid 
+      [pagination]="false" 
+      [columns]="columns" 
+      [rows]="rows" 
+      [selected]="selectedRows"
+      [disableSelection]="disableSelectRubro"
+      [rubrosPorTipoAnalisis]="rubrosPorTipoAnalisis" 
+      (select)="onSelect($event)">
+    </yrd-data-grid>
+  </div>
+
+  <div class="form-horizontal">
+    <div class="col-sm-6"></div>
+
+    <div formGroupName="grado" class="col-sm-2">
+      <yrd-texto-con-etiqueta 
+        formControlName="descripcion" 
+        [etiqueta]="'Grado'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <yrd-numero-con-etiqueta class="col-sm-2" 
+      formControlName="factor" 
+      [control]="rubrosForm.controls.factor" 
+      [etiqueta]="'Factor'">
+    </yrd-numero-con-etiqueta>
+
+    <div class="col-sm-2">
+      <button class="btn" 
+        [disabled]="rubrosForm.disabled || deshabilitarCalculoCalidad || disableButtons" 
+        (click)="calcularCalidad()">Calcular
+      </button>
+      <button class="btn" 
+        [disabled]="rubrosForm.disabled || deshabilitarCalculoCalidad || disableButtons" 
+        (click)="ingresarRebajaConvenida()">Rebaja Conv.
+      </button>
+    </div>
+  </div>
+</fieldset>
+
+<ng-template
+  #selectRubroHeaderTemplate 
+  ngx-datatable-header-template 
+  let-value="value" 
+  let-allRowsSelected="allRowsSelected"
+  let-selectFn="selectFn">
+  <input type="checkbox" 
+    [checked]="allRowsSelected" 
+    (change)="selectFn(!allRowsSelected)" 
+    [disabled]="disableSelectRubro" />
+</ng-template>
+
+<ng-template 
+  #selectRubroCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <input type="checkbox" 
+    [checked]="isSelected" 
+    (change)="onCheckboxChangeFn($event)" 
+    [disabled]="disableSelectRubro" />
+</ng-template>
+
+<ng-template 
+  #valorRubroTemplate 
+  ngx-datatable-cell-template 
+  let-rowIndex="rowIndex" 
+  let-value="value" 
+  let-row="row">
+  <input #inputRow
+    type="number" 
+    class="form-control" 
+    oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+    [formControl]="row.controls.valorMedido" 
+    (blur)="valorRubroChanged(row)" 
+    [ngClass]="{
+      'is-valid' : row.controls.valorMedido.valid && row.controls.valorMedido.touched,
+      'is-invalid' : row.controls.valorMedido.invalid && row.controls.valorMedido.touched
+      }" 
+    [textMask]="{mask: mask}" />
+  <div class="invalid-feedback">
+    <div *ngIf="row.controls.valorMedido?.errors">
+      <div *ngIf="row.controls.valorMedido.errors.required">
+        <p>Campo Valor Requerido.</p>
+      </div>
+      <div *ngIf="row.controls.valorMedido.errors.min">
+        <p>Campo Valor debe ser mayor a {{ row.controls.valorMinimo.value }}.</p>
+      </div>
+      <div *ngIf="row.controls.valorMedido.errors.max">
+        <p>Campo Valor debe ser menor a {{ row.controls.valorMaximo.value }}.</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<yrd-modal-ingresar-rebaja-convenida
+  #modalRebajaConvenida 
+  [rubrosCalidad]="rows" 
+  (accepted)="onAcceptRebajaConvenida($event)">
+</yrd-modal-ingresar-rebaja-convenida>

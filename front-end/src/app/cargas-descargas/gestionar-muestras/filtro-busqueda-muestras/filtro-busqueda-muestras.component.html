@@ -1,0 +1,31 @@
+<form [formGroup]="filtrosForm" class="section-top-padding">
+  <div class="form-horizontal">
+    <yrd-numero-con-etiqueta #inputCodigoBarars class="col-sm-4"
+      formControlName="codigoBarras"
+      [idForm]="'codigoBarras'"
+      [etiqueta]="'Código Barra'"
+      [control]="filtrosForm.controls.codigoBarras"
+      [maxLength]="17"
+      [isFocused]="true"
+      [allowLeadingZeroes]="true"
+      [validationMessages]="validationMessagesCodigoBarras">
+    </yrd-numero-con-etiqueta>
+    <yrd-fecha-con-etiqueta class="col-sm-4"
+      formControlName="fechaDesde"
+      [etiqueta]="'Fecha Desde'"
+      [control]="filtrosForm.controls.fechaDesde"
+      [validationMessages]="validationMessagesFechaDesde">
+    </yrd-fecha-con-etiqueta>
+    <yrd-fecha-con-etiqueta class="col-sm-4"
+      formControlName="fechaHasta"
+      [etiqueta]="'Fecha Hasta'"
+      [control]="filtrosForm.controls.fechaHasta"
+      [validationMessages]="validationMessagesFechaHasta">
+    </yrd-fecha-con-etiqueta>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-estado-muestra class="col-sm-4"
+      formControlName="estado">
+    </yrd-desplegable-estado-muestra>
+  </div>
+</form>

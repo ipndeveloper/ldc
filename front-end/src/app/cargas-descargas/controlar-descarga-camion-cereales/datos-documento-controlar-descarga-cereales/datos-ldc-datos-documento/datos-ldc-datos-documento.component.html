@@ -1,0 +1,36 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Datos LDC</legend>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-carta-porte 
+        formControlName="tipoCartaPorte" 
+        [etiqueta]="'Tipo Comprobante AFIP'" 
+        [control]="form.get('tipoCartaPorte')">
+      </yrd-desplegable-tipo-carta-porte>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-autocomplete
+        formControlName="sedeOrigen"
+        [etiqueta]="'Sede Origen'"
+        [control]="form.get('sedeOrigen')"
+        [cssClassControl]="'col-sm-5'"
+        [minLengthToSearch]="1"
+        [service]="autocompleteSedeOrigenService"
+        [validationMessages]="validationMessagesSedeOrigen">
+      </yrd-autocomplete>
+    </div>
+    <div class="col-sm-6">
+      <yrd-autocomplete
+        formControlName="sedeDestino"
+        [etiqueta]="'Sede Destino'"
+        [control]="form.get('sedeDestino')"
+        [cssClassControl]="'col-sm-5'"
+        [minLengthToSearch]="1"
+        [service]="autocompleteSedeDestinoService"
+        [validationMessages]="validationMessagesSedeDestino">
+      </yrd-autocomplete>
+    </div>
+  </div>
+</fieldset>

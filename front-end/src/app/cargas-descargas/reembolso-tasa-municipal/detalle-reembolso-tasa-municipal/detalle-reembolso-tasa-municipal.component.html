@@ -1,0 +1,95 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Reembolsar Pago</legend>
+  <div class="row">
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="patenteCamion" 
+        [idForm]="'patenteCamion'" 
+        [etiqueta]="'Patente Camión'" 
+        [control]="form.get('patenteCamion')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="tipoDocumentoPorte" 
+        [idForm]="'tipoDocumentoPorte'" 
+        [etiqueta]="'Tipo Doc. Porte'" 
+        [control]="form.get('tipoDocumentoPorte')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="numeroDocumentoPorte" 
+        [idForm]="'numeroDocumentoPorte'" 
+        [etiqueta]="'Número'" 
+        [control]="form.get('numeroDocumentoPorte')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        #pesoBrutoInput
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="pesoBruto" 
+        [idForm]="'pesoBruto'" 
+        [etiqueta]="'Peso Bruto (kg)'" 
+        [control]="form.get('pesoBruto')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">      
+      <yrd-desplegable-moneda
+        #monedaControl
+        formControlName="moneda" 
+        [opcionSeleccione]="true"
+        [etiqueta]="'Moneda'" 
+        [control]="form.get('moneda')">
+      </yrd-desplegable-moneda>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="tarifa" 
+        [idForm]="'tarifa'" 
+        [etiqueta]="'Tarifa'" 
+        [control]="form.get('tarifa')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-medio-de-pago
+        #medioDePagoControl
+        formControlName="medioDePago" 
+        [opcionSeleccione]="true"
+        [etiqueta]="'Medio de Pago'" 
+        [control]="form.get('medioDePago')">
+      </yrd-desplegable-medio-de-pago>
+    </div>
+  </div>
+
+  <div class="mt-3">
+    <div class="float-right" style="margin-bottom: 20pt">
+      <button 
+        class="btn btn-primary" 
+        (click)="onClickReembolsar()"
+        [disabled]="disableButtons">Reembolsar
+      </button>
+      <button 
+        class="btn btn-primary" 
+        (click)="onClickLimpiar()"
+        [disabled]="disableButtons">Limpiar
+      </button>
+    </div>
+  </div>
+</fieldset>

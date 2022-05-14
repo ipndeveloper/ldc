@@ -1,0 +1,54 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-desplegable-terminal #terminal
+        formControlName="terminal"
+        [permiso]="Permission.AdministrarLeyendaGmpPorSociedad"
+        [opcionSeleccione]="true" 
+        [validationMessages]="validationMessagesTerminal" 
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-4">
+      <yrd-buscador-sociedad
+        formControlName="sociedad" 
+        [advancedSearch]="true"
+        [control]="form.get('sociedad')"
+        [validationMessages]="validationMessagesSociedad">
+      </yrd-buscador-sociedad>      
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+        formControlName="producto"
+        [control]="form.get('producto')"
+        [advancedSearch]="true" 
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-4">
+      <yrd-checkbox-con-etiqueta
+        #habilitado
+        formControlName="habilitado"
+        [control]="form.get('habilitado')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [etiqueta]="'Habilitado'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-12">
+      <yrd-text-area-con-etiqueta 
+        formControlName="leyendaGmp"
+        [etiqueta]="'Leyenda GMP'"
+        [rows]="3"
+        [control]="form.get('leyendaGmp')"
+        [cssClassEtiqueta]="'col-sm-1'" 
+        [cssClassControl]="'col-sm-10'"
+        [maxLength]="700"
+        [validationMessages]="validationMessagesLeyendaGmp">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+</div>

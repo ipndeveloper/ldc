@@ -1,0 +1,16 @@
+<div [formGroup]="datosStockForm" class="col-sm-12">
+    <div class="row">
+        <yrd-texto-con-etiqueta class="col-sm-6" formControlName="netoDescarga" [etiqueta]="'Neto'"></yrd-texto-con-etiqueta>
+        <yrd-texto-con-etiqueta class="col-sm-6" formControlName="coeficiente" [etiqueta]="'Coeficiente'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="row">
+        <yrd-texto-con-etiqueta class="col-sm-6" formControlName="destino" [etiqueta]="'Destino'"></yrd-texto-con-etiqueta>
+        <yrd-texto-con-etiqueta class="col-sm-6" formControlName="netoDescargaLitros" [etiqueta]="'Neto Litros'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="row">
+        <yrd-texto-con-etiqueta class="col-sm-6" formControlName="nroTicketPesaje" [etiqueta]="'Nro. Ticket Pesaje'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="row">
+        <yrd-fecha-con-etiqueta class="col-sm-6" formControlName="fechaStockSan" [etiqueta]="'Fecha Stock SAN'"></yrd-fecha-con-etiqueta>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<fieldset [formGroup]="ingresoCamaraForm">
+  <legend class="col-form-label">A Cámara</legend>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="chkTecnologia" formControlName="tecnologia">
+    <label class="form-check-label" for="chkTecnologia">
+      Tecnología
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" value="" id="chkCamara" formControlName="camara">
+    <label class="form-check-label" for="chkCamara">
+      Cámara / Laboratorio
+    </label>
+  </div>
+  <yrd-numero-con-etiqueta
+    formControlName="codigoBarra" 
+    [etiqueta]="'Código Barra'"
+    [control]="ingresoCamaraForm.get('codigoBarra')"
+    [validationMessages]="validationMessagesCodigoBarras"
+    [allowLeadingZeroes]="true"
+    [maxLength]=15>
+  </yrd-numero-con-etiqueta>
+  <yrd-fecha-con-etiqueta
+    formControlName="fechaEnvio" 
+    *ngIf="esConsulta"
+    [etiqueta]="'Fecha Envío'"
+    [control]="ingresoCamaraForm.get('fechaEnvio')">
+  </yrd-fecha-con-etiqueta>
+  <yrd-desplegable-grupo-rubro-analisis
+    formControlName="grupoRubroAnalisis" 
+    [producto]="producto" 
+    [requiereAnalisisCamara]="requiereAnalisisCamara" 
+    [control]="ingresoCamaraForm.get('grupoRubroAnalisis')"
+    [opcionSeleccione]="true">
+  </yrd-desplegable-grupo-rubro-analisis>
+  <yrd-desplegable-camara
+    formControlName="laboratorio"
+    [etiqueta]="'Laboratorio'"
+    [control]="ingresoCamaraForm.get('laboratorio')"
+    [opcionSeleccione]="true"
+    [validationMessages]="validationMessagesLaboratorio">
+  </yrd-desplegable-camara>
+</fieldset>

@@ -1,0 +1,52 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-terminal formControlName="terminal" #terminal [opcionSeleccione]="true"
+        [control]="form.get('terminal')" [permiso]="Permission.AdministrarDispositivos"
+        [validationMessages]="validationMessagesTerminal">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta formControlName="nombre" [control]="form.get('nombre')" [etiqueta]="'Nombre'"
+        [validationMessages]="validationMessagesNombre">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-tipo-dispositivo formControlName="tipoDispositivo" [opcionSeleccione]="true"
+        [control]="form.get('tipoDispositivo')" [validationMessages]="validationMessagesTipoDispositivo">
+      </yrd-desplegable-tipo-dispositivo>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta formControlName="numeroSerie" [control]="form.get('numeroSerie')"
+        [etiqueta]="'Número Serie'">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta formControlName="pathArchestra" [control]="form.get('pathArchestra')"
+        [etiqueta]="'Path Archestra'">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-sentido-balanza formControlName="sentidoBalanza" [opcionSeleccione]="true"
+        [control]="form.get('sentidoBalanza')" [validationMessages]="validationMessagesSentidoBalanza">
+      </yrd-desplegable-sentido-balanza>
+    </div>
+
+    <div class="col-sm-6 form-group" *ngIf = "habilitaBalancero">
+      <yrd-checkbox-con-etiqueta 
+      formControlName = "sinBalancero" 
+      [etiqueta]="'Sin Balancero'"
+      [control]="form.get('sinBalancero')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+
+    <div class="col-sm-6 form-group">
+      <div class="form-group form-horizontal">
+        <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

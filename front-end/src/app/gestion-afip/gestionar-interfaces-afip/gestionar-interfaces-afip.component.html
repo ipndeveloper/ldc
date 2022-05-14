@@ -1,0 +1,36 @@
+<form [formGroup]="gestionarInterfacesAfipForm" novalidate>
+  <fieldset>
+    <yrd-search-form-template #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-busqueda-interfaces-afip [filtrosForm]="gestionarInterfacesAfipForm.controls.filtros"></yrd-filtro-busqueda-interfaces-afip>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        <button type="button" class="btn btn-primary btn-space-left" 
+          (click)="onClickVerDetalle()" 
+          *ngxPermissionsOnly="Permission.GestionarInterfacesAFIPVerDetalle"
+          i18n>Ver Detalle</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          (click)="onClickConfirmacionManual()" 
+          *ngxPermissionsOnly="Permission.GestionarInterfacesAFIPConfirmacionManual"
+          i18n>Confirmación Manual</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          (click)="onClickReIntentar()" 
+          *ngxPermissionsOnly="Permission.GestionarInterfacesAFIPReIntentar"
+          i18n>Re-intentar</button>
+      </ng-template>
+
+    </yrd-search-form-template>    
+  </fieldset>
+</form>
+
+<yrd-modal-detalle #modalDetalleError [labelHeader]="'Detalle Error'"></yrd-modal-detalle>
+<yrd-modal-confirmacion-manual #modalConfirmacionManual (interfazConfirmada)="onInterfazConfirmada()"></yrd-modal-confirmacion-manual>
+<!-- <pre>Form value: {{ gestionarInterfacesAfipForm.value | json }}</pre>
+<pre>Form status: {{ gestionarInterfacesAfipForm.status | json }}</pre> -->

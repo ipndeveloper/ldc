@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-terminal
+        #terminal
+        formControlName="terminal"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarNotificaciones"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-tipo-notificacion
+        formControlName="tipoNotificacion"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('tipoNotificacion')"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-notificacion>
+    </div>
+  </div>
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta class="col-sm-6 form-group"
+      formControlName="usuario"
+      [cssClassControl]="'col-sm-5'"
+      [etiqueta]="'Usuario'"
+      [control]="form.get('usuario')">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="row" *ngIf="opcionFecha">
+    <div class="col-sm-6 form-group">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Desde'"
+        [control]="form.get('fechaDesde')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Hasta'"
+        [control]="form.get('fechaHasta')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+</div>

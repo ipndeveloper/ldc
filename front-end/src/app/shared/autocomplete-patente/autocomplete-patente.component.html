@@ -1,0 +1,31 @@
+<div class="form-horizontal">
+  <label for="{{ idForm }}"
+    class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:
+  </label>
+  <div class="{{ cssClassControl }}">
+    <input #inputPatenteCamion
+      id="{{ idForm }}"
+      type="text"
+      class="form-control"
+      [disabled]="isDisabled"
+      [class.is-invalid]="searchFailed"
+      (blur)="valueChanged(inputPatenteCamion.value)"
+      (selectItem)="setFocus()"
+      [value]="valor"
+      [ngbTypeahead]="search"
+      [ngClass]="{
+                  'is-valid' : validControl,
+                  'is-invalid' : validControl === false
+                 }"
+      yrdFocus
+      [isFocused]="isFocused"
+      [element]="patenteCamionElement" />
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+    <span *ngIf="searching">buscando...</span>
+    <div class="invalid-feedback"
+      *ngIf="searchFailed">Disculpe, no se pudieron cargar las sugerencias.
+    </div>
+  </div>
+</div>

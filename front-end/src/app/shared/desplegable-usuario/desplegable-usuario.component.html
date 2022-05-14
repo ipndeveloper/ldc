@@ -1,0 +1,16 @@
+<div class="form-horizontal">
+  <div class="col-sm-12">
+    <select class="form-control" id="selectrol" #usuario [disabled]="isDisabled" [value]="selectedEntityId"
+      (blur)="onTouched()" (change)="onChange(usuario.value)" 
+      [ngClass]="{
+          'is-valid' : validControl,
+          'is-invalid' : validControl === false
+          }">
+      <option value="undefined" selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

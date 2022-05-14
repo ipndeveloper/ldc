@@ -1,0 +1,111 @@
+<fieldset [formGroup]="datosDocumentoForm"
+  [ngClass]="{ 'main' : !mostrarEncabezado}">
+  <legend *ngIf="mostrarEncabezado"
+    class="col-form-label">Datos Documento
+  </legend>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-buscador-vendedor
+        formControlName="vendedor" 
+        [advancedSearch]="true"        
+        [control]="datosDocumentoForm.get('vendedor')"
+        [cssClassControl]="'col-sm-3'"
+        [validationMessages]="validationMessagesVendedor">
+      </yrd-buscador-vendedor>
+    </div>
+  </div>
+  <div class="pt-2 row">
+    <div class="col-sm">
+      <yrd-patentes
+        #patentes
+        [patentesForm]="datosDocumentoForm.controls.patentes"
+        [cssClassControlChasis]="'col-sm-3'"
+        [hidePatenteAcoplado]="true">
+      </yrd-patentes>
+    </div>
+    
+  </div>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-buscador-producto
+        formControlName="producto" 
+        [tipoProducto]="tipoProducto" 
+        [control]="datosDocumentoForm.get('producto')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-6" *ngIf="esModificacionFueraPuesto">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-6'"
+        formControlName="tarjeta" 
+        [etiqueta]="'Tarjeta'" 
+        [control]="datosDocumentoForm.get('tarjeta')">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6" formGroupName="kilosBrutosTaraGroup">
+      <yrd-numero-con-etiqueta
+        [idForm]="'kgBruto'"
+        formControlName="kilosBruto"
+        [etiqueta]="'Kgs Bruto'"
+        [control]="datosDocumentoForm.get('kilosBrutosTaraGroup.kilosBruto')"
+        [validationMessages]="validationMessagesKilosBrutos"
+        [maxLength]="5"
+        [cssClassControl]="'col-sm-3'">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-6" *ngIf="esModificacionFueraPuesto">
+      <yrd-texto-con-etiqueta
+        [cssClassControl]="'col-sm-6'"
+        [idForm]="'observaciones'"
+        formControlName="estado"
+        [etiqueta]="'Estado'"
+        [control]="datosDocumentoForm.get('estado')" >
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6" formGroupName="kilosBrutosTaraGroup">
+      <yrd-numero-con-etiqueta
+        [idForm]="'kgTara'"
+        formControlName="kilosTara"
+        [etiqueta]="'Kgs Tara'"
+        [control]="datosDocumentoForm.get('kilosBrutosTaraGroup.kilosTara')"
+        [validationMessages]="validationMessagesKilosTara"
+        [maxLength]="5"
+        [cssClassControl]="'col-sm-3'">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta
+        [idForm]="'kgNeto'"
+        formControlName="kilosNeto"
+        [control]="datosDocumentoForm.get('kilosNeto')"
+        [etiqueta]="'Kgs Neto'"
+        [cssClassControl]="'col-sm-3'">
+      </yrd-numero-con-etiqueta>  
+    </div>
+  </div>
+
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-text-area-con-etiqueta
+        formControlName="observaciones"
+        [idForm]="'observaciones'"
+        [etiqueta]="'Observaciones'"
+        [control]="datosDocumentoForm.get('observaciones')"
+        [validationMessages]="validationMessagesObservaciones"
+        [maxlength]="100">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

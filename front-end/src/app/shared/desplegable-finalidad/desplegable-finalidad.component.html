@@ -1,0 +1,16 @@
+<div class="form-horizontal">
+  <label for="selectFinalidad" class="col-sm-3 col-form-label">Finalidad:</label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control" id="selectFinalidad" #selectFinalidad [disabled]="isDisabled" [value]="selectedEntityId"
+      (blur)="onTouched()" (change)="onChange(selectFinalidad.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option *ngIf="opcionSeleccione" value="undefined" selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>El campo Finalidad es requerido.</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta
+        #descripcion
+        formControlName="descripcion" 
+        [control]="form.get('descripcion')"
+        [etiqueta]="'Descripción'"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-4'"
+        [validationMessages]="validationMessagesDescripcion">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</div>

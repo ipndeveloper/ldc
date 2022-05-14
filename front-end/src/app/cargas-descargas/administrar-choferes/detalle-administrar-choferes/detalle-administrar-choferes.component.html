@@ -1,0 +1,34 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="form-group">
+        <yrd-numero-con-etiqueta 
+          formControlName="cuil" 
+          #cuilDetalle
+          [control]="form.get('cuil')" 
+          [etiqueta]="'CUIL'"
+          [cssClassControl]="'col-sm-6'"
+          [validationMessages]="validationMessagesCuil"
+          [maxLength]="11">
+        </yrd-numero-con-etiqueta>
+      </div>
+      <div class="form-group">
+        <yrd-texto-con-etiqueta 
+          formControlName="apellidoYNombre" 
+          [control]="form.get('apellidoYNombre')"
+          [etiqueta]="'Apellido y Nombre'" 
+          [cssClassControl]="'col-sm-6'"
+          [validationMessages]="validationMessagesNombre">
+        </yrd-texto-con-etiqueta>
+      </div>
+      <div class="form-group">
+        <div class="form-group form-horizontal">
+          <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+          <div class="col-sm-9">
+            <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

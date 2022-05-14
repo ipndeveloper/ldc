@@ -1,0 +1,15 @@
+<div class="form-horizontal">
+  <label for="inputMercadoTermino" class="col-sm-3 col-form-label">{{ etiqueta }}:</label>
+  <div class="col-sm-3">
+    <input type="text" id="inputMercadoTermino" #inputMercadoTermino maxlength="11"
+     class="form-control" [value]="codigo" [disabled]="isDisabled"
+     (blur)="buscar(inputMercadoTermino.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+        <div class="invalid-feedback">
+            <p>El campo Mercado a Termino es requerido.</p>
+         </div>
+  </div>
+  <strong class="col-sm-6 col-form-label">{{ currentEntity?.descripcion }}</strong>
+</div>

@@ -1,0 +1,57 @@
+<fieldset [formGroup]="datosEntrega">
+ <legend class="col-form-label">Datos Entrega</legend>
+  <div class="pt-2 row">
+    <div class="col-sm-12">
+      <yrd-texto-con-etiqueta
+        formControlName="calle" 
+        [control]="datosEntrega.get('calle')"
+        [etiqueta]="'Calle'"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-10'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta
+        formControlName="numero" 
+        [control]="datosEntrega.get('numero')"
+        [etiqueta]="'Número'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8 fixNumeroDatosEntrega'">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta 
+        formControlName="codigoPostal" 
+        [control]="datosEntrega.get('codigoPostal')"
+        [etiqueta]="'C.P.'" 
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-10'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="pt-2 row">
+    <div class="col-sm-12">
+      <yrd-texto-con-etiqueta 
+        formControlName="localidad" 
+        [control]="datosEntrega.get('localidad')"
+        [etiqueta]="'Localidad'" 
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-10'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="pt-2 row">
+    <div class="col-sm-12">
+      <yrd-texto-con-etiqueta 
+        formControlName="provincia" 
+        [control]="datosEntrega.get('provincia')"
+        [etiqueta]="'Provincia'" 
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-10'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>
+

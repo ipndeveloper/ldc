@@ -1,0 +1,7 @@
+button {
+    height: 2.05rem;
+    cursor: pointer;  
+    color: black;
+    border-top-right-radius: .25rem !important;
+    border-bottom-right-radius: .25rem !important;
+}

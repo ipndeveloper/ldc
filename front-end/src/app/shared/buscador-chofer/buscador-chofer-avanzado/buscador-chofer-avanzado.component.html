@@ -1,0 +1,33 @@
+<div class="form-horizontal">
+  <label for="inputRazonSocialChofer" class="col-sm-3 col-form-label">Razón social:</label>
+  <div class="col-sm-6">
+    <input type="text" id="inputRazonSocialChofer" #inputRazonSocialChofer autocomplete="false" class="form-control" maxlength="11" (keydown.enter)="search(inputRazonSocialChofer.value)">
+  </div>
+  <div class="float-right">
+    <button type="button" class="btn btn-primary" (click)="search(inputRazonSocialChofer.value)">Buscar</button>
+  </div>
+</div>
+<br>
+<div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+            <td><strong>#</strong></td>
+            <td>Código</td>
+            <td>Razón social</td>
+            <td>Otro campo</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let chofer of currentEntities">
+            <td>
+                <input type="radio" name="radiogroup" (click)="setSelectedEntity(chofer)" [checked]="chofer.id == selectedEntity.id"
+                value= {{chofer.id}} />
+            </td>
+            <td>{{chofer.code}}</td>
+            <td>{{chofer.description}}</td>
+            <td>otro valor</td>
+        </tr>
+    </tbody>
+    </table>
+</div>

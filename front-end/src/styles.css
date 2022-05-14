@@ -1,0 +1,154 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'bootstrap.min.css';
+@import '~angular-tree-component/dist/angular-tree-component.css';
+
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+fieldset {
+  border: 1px solid #ddd !important;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0 10px 10px 10px;
+}	
+
+legend {
+  font-weight: bold;
+  width: auto;
+}
+
+.ldc-logo {
+  margin-left: 5px;
+  width: 86px;
+}
+
+.page-title {
+  color: #fff;
+  font-size: large;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-top-padding {
+  padding-top: 10px;
+}
+
+/* TODO: aplicar theming a bootstrap y eliminar estas reglas */
+.btn-primary {
+  background-color: #32556E;
+  border-color: #32556E;
+}
+.navbar {
+  background-color: #32556E;
+  padding: 0;
+}
+
+.navbar-text 
+{
+  font-size: 16px;
+  padding-top: 0.8rem;
+}
+
+div.col-sm-9 > div.invalid-feedback
+{
+  font-size: 12px !important;
+}
+
+.form-label, .col-form-label, .form-control, .btn, .dropdown-menu, .ngx-datatablem, .ngx-datatable *, .ngx- *
+{
+  font-size: 14px;
+  line-height: 1;
+}
+
+.datatable-header .datatable-header-cell {
+  padding: 0px !important;
+}
+
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+  padding: 0rem !important;
+  vertical-align: middle !important;
+}
+
+.datatable-body-row, .datatable-row-even
+{
+  padding-top: 0.2rem !important;
+  padding-right: 0.2rem !important;
+  padding-bottom: 0.2rem !important;
+  padding-left: 0.2rem !important;
+}
+
+input[type=checkbox]
+{
+  width: 17px;
+  height: 17px;
+}
+
+.form-check-input-right {
+  margin-top: .3rem;
+  margin-left: .5rem;
+  position: relative;
+}
+
+.tree-node-checkbox {
+  top: 5px;
+  position: relative;
+}
+
+.cfp-hotkeys-container tbody {
+  display:block;
+  height:500px;
+  width:500px;
+  overflow:auto;
+}
+
+@media (min-width: 576px) {
+  .advanced-search .modal-dialog {
+    max-width: 700px;
+    margin: 1.75rem auto;
+  }
+}
+
+.advanced-search .datatable {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 20px auto;
+  background-color: #32556E;
+
+  border-radius: 100%;  
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% { -webkit-transform: scale(0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+ngb-typeahead-window.dropdown-menu.show {
+  max-height: 155px;
+  overflow-y: auto;
+}

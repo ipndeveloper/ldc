@@ -1,0 +1,99 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Movimiento</legend>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="tipoDocumentoPorte"
+        [idForm]="'tipoDocumentoPorte'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Tipo Doc. Porte'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="nroDocumentoPorte"
+        [idForm]="'nroDocumentoPorte'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Nro. Doc. Porte'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="producto"
+        [idForm]="'producto'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [etiqueta]="'Producto'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="estado"
+        [idForm]="'estado'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Estado'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="ordenCarga"
+        [idForm]="'ordenCarga'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Orden Carga'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="nroViaje"
+        [idForm]="'nroViaje'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [etiqueta]="'Nro. Viaje'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="titularCP"
+        [idForm]="'titularCP'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Titular CP'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        [idForm]="'vendedor'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="vendedor"
+        [etiqueta]="'Vendedor'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="patente"
+        [idForm]="'patente'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        formControlName="patente"
+        [etiqueta]="'Patente'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+  <label for="selectSiNo"
+    class="{{ cssClassEtiqueta }} col-form-label">{{ label }}:
+  </label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control"
+      id="selectSiNo" 
+      #selectSiNo
+      [disabled]="isDisabled" 
+      [value]="selectedEntityId"
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }"
+      (blur)="onTouched(); touched()" 
+      (change)="onChange(selectSiNo.value)" >
+      <option *ngIf="opcionSeleccione"
+        value=undefined
+        selected>Seleccione
+      </option>
+      <option *ngFor="let entidad of entities"
+        [value]="entidad.id">{{ entidad.descripcion }}
+      </option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

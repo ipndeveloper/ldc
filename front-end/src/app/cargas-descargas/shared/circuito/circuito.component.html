@@ -1,0 +1,36 @@
+<fieldset [formGroup]="circuitoForm">
+  <legend class="col-form-label">Circuito:</legend>
+
+  <div class="form-horizontal">
+    <label for="inputTerminal" class="col-sm-1 col-form-label">Terminal:</label>
+    <div class="col-sm-2">
+      <input type="text" id="inputTerminal" class="form-control" formControlName="terminal">
+    </div>
+  
+    <label for="inputMovimiento" class="col-sm-1 col-form-label">Movimiento:</label>
+    <div class="col-sm-2">
+      <input type="text" id="inputMovimiento" class="form-control" formControlName="tipoMovimiento">
+    </div>
+
+    <label for="inputTransporte" class="col-sm-1 col-form-label">Transporte:</label>
+    <div class="col-sm-2">
+      <input type="text" id="inputTransporte" class="form-control" formControlName="tipoTransporte">
+    </div>
+
+    <label *ngIf="!permiteSeleccion" class="col-sm-1 col-form-label">Tipo Producto:</label>
+    <div *ngIf="!permiteSeleccion" class="col-sm-2">
+      <input type="text" class="form-control" formControlName="tipoProducto">
+    </div>
+
+    <yrd-desplegable-tipo-producto class="col-sm-3" 
+      *ngIf="permiteSeleccion" 
+      formControlName="tipoProducto"
+      [control]="circuitoForm.get('tipoProducto')"
+      [completarTipoProducto]="completarTipoProducto"
+      [subproductos]="subproductos"
+      [insumosVarios]="insumosVarios"
+      [conCupo]="conCupo"
+      [seleccionaPrimeraOpcion]="seleccionaPrimeraOpcion">
+    </yrd-desplegable-tipo-producto>
+  </div>
+</fieldset>

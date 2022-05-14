@@ -1,0 +1,24 @@
+<form [formGroup]="reversarSalidaForm" novalidate>
+  <yrd-search-form-template #searchFormComponent 
+    [botonesHabilitados]="botonesHabilitados"
+    [permisosBotones]="permisosBotones"
+    [columns]="columns" 
+    [filtrosForm]="reversarSalidaForm.controls.filtros"
+    [rowsOptions]="rowsOptions">
+    <ng-template #controlFiltersContainer>
+      <yrd-filtro-busqueda-reversar-salida #filtroBusquedaReversarSalida [filtrosForm]="reversarSalidaForm.controls.filtros"
+      [estadoMovimientoFilters]="estadoMovimientoFilters"></yrd-filtro-busqueda-reversar-salida>
+    </ng-template>
+
+    <ng-template #controlActionsContainer>
+      <button type="button" class="btn btn-primary" (click)="onClickReversarSalida()">Reversar salida</button>
+    </ng-template>
+  </yrd-search-form-template>
+</form>
+
+<yrd-modal-reversar-salida 
+  #modalReversarSalida 
+  [selectedRow]="selectedRow" 
+  [resultados]="resultados"
+  (accepted)="onConfirmReversarSalida($event)">
+</yrd-modal-reversar-salida>

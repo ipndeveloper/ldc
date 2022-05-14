@@ -1,0 +1,155 @@
+<fieldset [formGroup]="datosDocumento">
+  <legend class="col-form-label">Datos Documento</legend>
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-buscador-producto 
+        [cssClassControl]="'col-sm-3'"
+        formControlName="producto" 
+        [tipoProducto]="tipoProducto" 
+        [control]="datosDocumento.get('producto')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-6">
+      <yrd-buscador-vendedor
+        [debeMostrarMensajeOncca]= "true"
+        [cssClassControl]="'col-sm-4'"
+        formControlName="vendedor" 
+        [advancedSearch]="true"
+        [rol]="'Indistinto'"
+        [control]="datosDocumento.get('vendedor')"
+        [validationMessages]="validationMessagesVendedor">
+      </yrd-buscador-vendedor>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label for="sustentabilidad" class="col-form-label col-sm-3" i18n>Sustentabilidad:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="mt-2" 
+            id="sustentabilidad" 
+            checked="false" 
+            formControlName="sustentabilidad" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-buscador-corredor 
+        formControlName="corredorComprador" 
+        [cssClassControl]="'col-sm-4'"
+        [advancedSearch]="true"      
+        [etiqueta]="'Corredor Comprador'" 
+        [control]="datosDocumento.get('corredorComprador')"
+        [validationMessages]="validationMessagesCorredorComprador">
+      </yrd-buscador-corredor>
+    </div>
+    <div class="col-sm-6">
+      <yrd-buscador-destinatario 
+        formControlName="destinatario" 
+        [advancedSearch]="true"
+        [control]="datosDocumento.get('destinatario')"
+        [validationMessages]="validationMessagesDestinatario">
+      </yrd-buscador-destinatario>
+    </div>
+  </div>     
+  <div class="pt-2 row">
+    <div class="col-sm-6">
+      <yrd-desplegable-finalidad 
+        formControlName="finalidad"
+        [opcionSeleccione]= "true" 
+        [cssClassControl]="'col-sm-4'"
+        [control]="datosDocumento.get('finalidad')"
+        [circuito]="circuito"
+        [validationMessages]="validationMessagesFinalidad">
+      </yrd-desplegable-finalidad> 
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-motivo-cupo
+        [opcionSeleccione]="true"
+        [finalidad]="finalidad"
+        formControlName="motivoCupo" 
+        [control]="datosDocumento.get('motivoCupo')"
+        [validationMessages]="validationMessagesMotivoCupo">
+      </yrd-desplegable-motivo-cupo>
+    </div>
+  </div>
+  <div class= "pt-2 row">
+    <div class="col-sm-6">
+      <yrd-autocomplete
+        formControlName="sedeOrigen"
+        [etiqueta]="'Sede Origen'"
+        [control]="datosDocumento.get('sedeOrigen')"
+        [validationMessages]="validationMessagesSede"
+        [cssClassControl]="'col-sm-5'"
+        [minLengthToSearch]="1"
+        [service]="autocompleteSedeService">
+      </yrd-autocomplete>
+    </div>
+  </div>
+  <fieldset>
+    <legend class="col-form-label">Campo EPA/Sustentable</legend>
+    <div class="pt-2 row">
+      <div *ngIf="!esCartaPorteElectronica" class="col-sm-6">
+        <yrd-buscador-titular 
+          formControlName="titularCartaPorteSojaEPA" 
+          [advancedSearch]="true"
+          [control]="datosDocumento.get('titularCartaPorteSojaEPA')"
+          [validationMessages]="validationMessagesTitular">
+        </yrd-buscador-titular>
+      </div>
+      <div class="col-sm-6">
+        <yrd-desplegable-campo-epa-sustentable 
+          [cssClassControl]="'col-sm-6'"  
+          formControlName="campoEpa"
+          [producto]="datosDocumento.get('producto')?.value"
+          [titular]="titular" 
+          [control]="datosDocumento.get('campoEpa')"
+          [fillCampoEpa]="fillCampoEpa">
+        </yrd-desplegable-campo-epa-sustentable>
+      </div>
+    </div>
+    <div class="pt-2 row">
+      <div class="col-sm-6">
+        <yrd-desplegable-cosecha 
+          [cssClassControl]="'col-sm-4'"   
+          formControlName="cosecha" 
+          [producto]="datosDocumento.get('producto')?.value"
+          [control]="datosDocumento.get('cosecha')" 
+          [fillCampoEpa]="!fillCosecha" 
+          [campoEpaSustentable]="datosDocumento.get('campoEpa')?.value"
+          [validationMessages]="validationMessagesCosecha"
+          [debeCompletarCosechaPorDefecto]=debeCompletarCosechaPorDefecto>
+        </yrd-desplegable-cosecha>
+      </div>
+      <div class="col-sm-6">
+        <yrd-autocomplete-localidad 
+          [cssClassControl]="'col-sm-6'" 
+          formControlName="procedencia" 
+          [etiqueta]="'Procedencia'" 
+          [control]="datosDocumento.get('procedencia')"
+          [validationMessages]="validationMessagesProcedencia">
+        </yrd-autocomplete-localidad>
+      </div>
+    </div>
+  </fieldset>
+  <yrd-estado-cupo
+    [estadoCupoDataView]= 'estadoCupoDataView'
+    [estadoCupoForm]="datosDocumento.controls.estadoCupo">
+  </yrd-estado-cupo>
+  <yrd-confirmacion-arribo-ctg 
+    #confirmacionArribo
+    [esCartaPorteElectronica]="esCartaPorteElectronica"
+    [esPreIngreso]="true"
+    [tieneCaracteristicaDeCTG]="tieneCaracteristicaDeCTG"
+    [confirmacionArriboCtgForm]="datosDocumento.controls.confirmacionArriboCtg"
+    [confirmoCtg]="confirmoCtg">
+  </yrd-confirmacion-arribo-ctg>
+  <div class="row" *ngIf="esConsulta">
+    <div class="col-sm-12">
+      <yrd-datos-turno-circular
+        [turno]="turnoCircular">
+      </yrd-datos-turno-circular>
+    </div>
+  </div>

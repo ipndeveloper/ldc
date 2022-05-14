@@ -1,0 +1,22 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Movimiento</legend>
+  <div class="row form-group">
+    <div class="col-sm-6" *ngIf="!esConsulta">
+      <yrd-texto-con-etiqueta 
+        formControlName="estadoMovimiento" 
+        [cssClassControl]="'col-sm-5'"
+        [etiqueta]="'Estado'"
+        [control]="form.get('estadoMovimiento')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta 
+        formControlName="tarjeta" 
+        [etiqueta]="'Tarjeta'" 
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('tarjeta')"
+        yrdMaxLength [maxLength]=10>
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

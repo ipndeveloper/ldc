@@ -1,0 +1,39 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-terminal 
+        formControlName="terminal"
+        #terminal
+        [opcionSeleccione]="true"
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarDestinosPostCalado"
+        [validationMessages]="validationMessagesTerminal">
+      </yrd-desplegable-terminal>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="destino" 
+        [control]="form.get('destino')"
+        [etiqueta]="'Destino'" 
+        [validationMessages]="validationMessagesDestino">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <div class="form-group form-horizontal">
+        <label for="habilitado"
+              class="col-sm-3 col-form-label">Habilitado:
+        </label>
+        <div class="col-sm-9">
+          <input type="checkbox"
+                class="checkbox"
+                id="habilitado"
+                formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

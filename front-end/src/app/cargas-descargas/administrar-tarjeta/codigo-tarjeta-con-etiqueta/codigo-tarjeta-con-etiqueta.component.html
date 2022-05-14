@@ -1,0 +1,35 @@
+<div [formGroup]="form" class="col-sm-12 form-horizontal">
+  <label for="{{ idForm }}" class="col-sm-4 col-form-label">{{ etiqueta }}:</label>
+  <div class="col-sm-2">
+    <yrd-texto-mascara-con-etiqueta
+      #prefijo      
+      formControlName="prefijoTarjeta"
+      [cssClassControl]="'col-sm-12'"
+      [control]="form.get('prefijoTarjeta')"
+      [habilitarEtiqueta]="false"
+      [mascara]="maskRegex">
+    </yrd-texto-mascara-con-etiqueta>
+  </div>
+  <div class="col-sm-4">
+    <yrd-numero-con-etiqueta
+      #numero
+      formControlName="numeroTarjeta"
+      [cssClassControl]="'col-sm-12'"
+      [control]="form.get('numeroTarjeta')"
+      [habilitarEtiqueta]="false"
+      [allowLeadingZeroes]="true"
+      [validationMessages]="validationMessagesNumero">
+    </yrd-numero-con-etiqueta>
+  </div>
+  <div class="col-sm-2">
+    <yrd-numero-con-etiqueta
+      #subfijo      
+      formControlName="sufijoTarjeta"
+      [cssClassControl]="'col-sm-12'"
+      [control]="form.get('sufijoTarjeta')"
+      [habilitarEtiqueta]="false"
+      [allowLeadingZeroes]="true"      
+      [maxLength]=3>
+    </yrd-numero-con-etiqueta>
+  </div>
+</div>

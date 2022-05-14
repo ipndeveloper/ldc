@@ -1,0 +1,63 @@
+<div class="navbar-wrapper">
+  <div class="container-fluid">
+    <nav class="navbar navbar-fixed-top">
+      <div class="">
+        <div class="navbar-header">
+          <a class="navbar-brand" routerLink="/" tabindex="-1">
+            <img class="img-fluid ldc-logo" alt="Louis Dreyfus Company" title="Louis Dreyfus Company" src="assets/images/LDC_logo.svg"> YARD
+          </a>
+
+          <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-default" id="dropdownMenuButton" ngbDropdownToggle>Menu</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownMenu">
+
+              <ng-template #recursiveMenu let-menuItems>
+                <div *ngFor="let menuItem of menuItems" >
+                  <div [ngClass]="{ 'dropdown-submenu' : menuItem.children }">
+
+                    <div *ngIf="!menuItem.children">
+                      <button class="dropdown-item" 
+                        *ngxPermissionsOnly="menuItem.permissions" 
+                        routerLink='{{ menuItem.path }}'>{{ menuItem.title }}
+                      </button>
+                    </div>
+
+                    <div *ngIf="menuItem.children">
+                      <button class="dropdown-item" 
+                        *ngxPermissionsOnly="menuItem.permissions"
+                        (click)="$event.stopPropagation()">{{ menuItem.title }}
+                      </button>
+                    </div>
+                    
+                    <div *ngIf="menuItem.children" class="dropdown-menu">
+                      <ng-container *ngTemplateOutlet="recursiveMenu; context:{ $implicit: menuItem.children }"></ng-container>
+                    </div>
+                  
+                  </div>
+                </div>
+              </ng-template>
+              
+              <ng-container *ngTemplateOutlet="recursiveMenu; context:{ $implicit: menuItems }"></ng-container>
+
+              <span class="divider"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="navbar-right row">
+        <div class="container">
+          <div class="btn-group">
+            <button class="btn">{{ ambiente }}</button>
+            <button class="btn">{{ terminalLogueada }}</button>
+            <button class="btn">{{ usuarioLogueado }}</button>
+            <button class="btn" (click)="onCerrarSesion()">
+              <fa-icon [icon]="faPowerOff"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <p class='navbar-text navbar-center'>{{ title }}</p>
+  </div>
+</div>

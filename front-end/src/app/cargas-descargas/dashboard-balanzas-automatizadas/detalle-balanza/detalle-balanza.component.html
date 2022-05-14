@@ -1,0 +1,64 @@
+<form [formGroup]="form">
+  <fieldset>
+    <legend class="col-form-label">Balanza {{numeroBalanza}}</legend>
+    <div formArrayName="log">
+      <h2>{{balanza.terminal}} | {{balanza.nombre}}</h2>
+      <p>{{balanza.sentidoBalanza}} - {{balanza.activa ? 'Activa' : 'Inactiva'}}</p>
+      <div>
+        <yrd-data-grid #dataGrid
+          [columns]="columns"
+          [rows]="rows"
+          [selected]="selectedRows"
+          [pagination]="true"
+          [limitRecords]="5">
+        </yrd-data-grid>
+      </div>
+    </div>
+  </fieldset>
+</form>
+
+<yrd-modal-resolver-evento-plataforma-requerida
+  #modalResolverPlataformaRequerida>
+</yrd-modal-resolver-evento-plataforma-requerida>
+
+<yrd-modal-resolver-plataforma-descarga
+  #modalResolverPlataformaDescarga>
+</yrd-modal-resolver-plataforma-descarga>
+
+<yrd-modal-resolver-evento-tarjeta-matricula
+  #modalResolverTarjetaMatricula>
+</yrd-modal-resolver-evento-tarjeta-matricula>
+
+<yrd-modal-seleccionar-balanza-salida
+  #modalSeleccionarBalanzaSalida>
+</yrd-modal-seleccionar-balanza-salida>
+
+<yrd-modal-resolver-evento-autorizaciones
+  #modalResolverAutorizaciones>
+</yrd-modal-resolver-evento-autorizaciones>
+
+<ng-template
+  #tableCellTemplate
+  ngx-datatable-cell-template
+  let-rowIndex="rowIndex"
+  let-value="value"
+  let-row="row">
+      <button *ngIf="row.controls.requiereAccion.value && !row.controls.estadoEvento.value" (click)="onResolverAccion(row)" class="btn btn-light button-icon">
+        <fa-icon [icon]="faUserAlt" class="errorIcon"></fa-icon>
+      </button>
+      <button *ngIf="row.controls.estadoEvento.value" style= "cursor:default" class="btn btn-light button-icon">
+        <fa-icon [icon]="faUserCheck" class="successIcon"></fa-icon>
+      </button>
+      <label class="labelAccion" *ngIf="!row.controls.requiereAccion.value">{{row.controls.accion.value}}</label>
+</ng-template>
+
+<ng-template
+  #iconCellTemplate
+  ngx-datatable-cell-template
+  let-rowIndex="rowIndex"
+  let-value="value"
+  let-row="row">
+      <fa-icon *ngIf="row.controls.gravedad.value == 1" [icon]="faExclamationTriangle" class="successIcon"></fa-icon>
+      <fa-icon *ngIf="row.controls.gravedad.value == 2" [icon]="faExclamationTriangle" class="warningIcon"></fa-icon>
+      <fa-icon *ngIf="row.controls.gravedad.value == 3" [icon]="faExclamationTriangle" class="errorIcon"></fa-icon>
+</ng-template>

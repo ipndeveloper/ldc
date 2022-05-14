@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta class="col-sm-6"
+      formControlName="descripcion"
+      #descripcion
+      [cssClassControl]="'col-sm-5'"
+      [etiqueta]="'Descripción'"
+      [control]="form.get('descripcion')">
+    </yrd-texto-con-etiqueta>
+    <yrd-desplegable-si-no class="col-sm-6"
+      formControlName="habilitado"
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

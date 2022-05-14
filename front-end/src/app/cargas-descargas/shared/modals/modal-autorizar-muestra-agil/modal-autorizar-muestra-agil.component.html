@@ -1,0 +1,25 @@
+<yrd-modal #modalComponent 
+  [formGroup]="autorizarMuestraAgilForm" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()" 
+  (closing)="onClosing()">
+  
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  
+  <ng-template #modalBody>
+    <yrd-numero-con-etiqueta class="col-sm-6"
+      #codigoBarrasControl 
+      formControlName="codigoBarras"
+      [idForm]="'codigoBarras'" 
+      [etiqueta]="'Código de Barra'"
+      [control]="autorizarMuestraAgilForm.controls.codigoBarras" 
+      [validationMessages]="validationMessagesCodigoBarras"
+      [allowLeadingZeroes]="true"
+      [isFocused]="true" 
+      (blur)="onBlur()"
+      yrdMaxLength [maxLength]="17">
+    </yrd-numero-con-etiqueta>  
+  </ng-template>
+</yrd-modal>

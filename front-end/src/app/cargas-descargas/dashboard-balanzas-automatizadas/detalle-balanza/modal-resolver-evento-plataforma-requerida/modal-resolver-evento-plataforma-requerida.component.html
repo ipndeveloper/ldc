@@ -1,0 +1,43 @@
+<yrd-modal-action
+  #modalComponent>
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  <ng-template #modalBody>
+    <yrd-resolver-evento-plataforma-requerida
+      #resolverEventoPlataformaRequerida
+      [command]="command"
+      (cerrarPopUp)="onCerrarPopUp()">
+    </yrd-resolver-evento-plataforma-requerida>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button
+      #botonAprobar
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-success"
+      (click)="onAprobarRechazar(true)">Aprobar
+    </button>
+    <button
+      #cancelModal
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-success"
+      (click)="onAprobarRechazar(false)">Rechazar
+    </button>
+    <button
+      #cancelModal
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-danger"
+      (click)="onCerrarPopUp()">
+      Cancelar
+    </button>
+  </ng-template>
+</yrd-modal-action>
+
+
+

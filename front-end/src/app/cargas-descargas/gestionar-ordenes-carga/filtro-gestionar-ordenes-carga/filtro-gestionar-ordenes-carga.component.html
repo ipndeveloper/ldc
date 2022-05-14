@@ -1,0 +1,38 @@
+<form [formGroup]="filtrosForm">
+  <div class="form-horizontal">
+    <yrd-numero-con-etiqueta #nroOrdenCarga class="col-sm-4" [idForm]="'ordenCarga'" formControlName="ordenCarga" 
+              [etiqueta]="'Orden Carga'"
+              [allowLeadingZeroes]="true" 
+              [control]="filtrosForm.get('ordenCarga')"></yrd-numero-con-etiqueta>
+    <yrd-autocomplete-patente class="col-sm-4" formControlName="patente"
+      [idForm]="'patente'"
+      [etiqueta]="'Patente'"
+      [control]="filtrosForm.get('patente')">
+    </yrd-autocomplete-patente>
+    <yrd-desplegable-estado-orden-carga class="col-sm-4" formControlName="estadoCabecera"
+      [opcionSeleccione]="true">
+    </yrd-desplegable-estado-orden-carga>  
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-estado-viaje class="col-sm-4" formControlName="estadoViaje"
+      [opcionSeleccione]="true">
+    </yrd-desplegable-estado-viaje>  
+    <yrd-desplegable-tipo-producto class="col-sm-4" formControlName="tipoProducto" 
+      [opcionSeleccione]="true">
+    </yrd-desplegable-tipo-producto>  
+    <yrd-buscador-producto class="col-sm-4" formControlName="producto"
+        [control]="filtrosForm.get('producto')"
+        [advancedSearch]="true">
+    </yrd-buscador-producto>
+  </div>
+  <div class="form-horizontal vertical-space">
+    <yrd-buscador-destinatario class="col-sm-4" formControlName="destinatario" 
+      [advancedSearch]="true"
+      [control]="filtrosForm.get('destinatario')">
+    </yrd-buscador-destinatario>
+    <yrd-buscador-transportista class="col-sm-4" formControlName="transportista"
+      [advancedSearch]="true"
+      [control]="filtrosForm.get('transportista')">
+    </yrd-buscador-transportista>
+  </div>
+</form>

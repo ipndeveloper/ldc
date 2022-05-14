@@ -1,0 +1,28 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="form.controls.filtros"
+      [rowsOptions]="rowsOptions"
+      [singleSelection]="true">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-busqueda-gestion-transporte-circuito #filtrosGestionarTransporteCircuito
+          [filtrosForm]="form.controls.filtros"
+          [filtroEstadoMovimiento]="estadoMovimientoFilters">
+        </yrd-filtro-busqueda-gestion-transporte-circuito>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        <button type="button" class="btn btn-primary"  
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          (click)="onClickContinuarCircuito()"
+          *ngxPermissionsOnly="Permission.GestionarTransporteCircuitoContinuarCircuito" 
+          i18n>Continuar Circuito</button>
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>

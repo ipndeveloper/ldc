@@ -1,0 +1,82 @@
+<fieldset [formGroup]="filtrosForm" class="section-top-padding">
+    <div class="row">
+      <div class="col-sm-4">
+        <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocPorte" 
+        #tipoDocPorte 
+        [control]="filtrosForm.get('tipoDocPorte')" 
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-documento-porte>
+      </div>
+      <div class="col-sm-4">
+        <yrd-numero-con-etiqueta
+          formControlName="ctg" 
+          [etiqueta]="'CTG'" 
+          [control]="filtrosForm.get('ctg')"
+          [allowLeadingZeroes]="true"
+          yrdMaxLength [maxLength]=12>
+        </yrd-numero-con-etiqueta>
+      </div>
+      <div class="col-sm-4 form-horizontal">
+        <label class="col-sm-3 col-form-label">Nro. Doc. Porte</label>
+        <div class="col-sm-9">
+          <input type="text" 
+          formControlName="nroDocPorte" 
+          #nroDocPorte 
+          class="form-control" 
+          oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+          maxlength="13" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 pt-2">
+        <yrd-texto-con-etiqueta
+          formControlName="turno" 
+          [idForm]="'turno'" 
+          [etiqueta]="'Turno'" 
+          [control]="filtrosForm.get('turno')">
+        </yrd-texto-con-etiqueta>
+      </div>
+    </div>
+  <fieldset>
+    <legend class="col-form-label">Detalle</legend>
+    <div class="form-horizontal">
+      <div class="col-sm-6">
+        <input id="radioEnCircuito" name="enCircuito" formControlName="enCircuito" type="radio" [value]="true" />
+        <label for="radioEnCircuito" class="form-label">{{ textoEnCircuito }}</label>
+      </div>
+      <div class="col-sm-6">
+        <input id="radioRechazados" name="enCircuito" formControlName="enCircuito" type="radio" [value]="false" />
+        <label for="radioRechazados" class="form-label">{{ textoRechazados }}</label>
+      </div>
+    </div>
+
+    <div class="form-horizontal">
+      <yrd-desplegable-tipo-transporte class="col-sm-4" formControlName="tipoTransporte" 
+        [control]="filtrosForm.get('tipoTransporte')"
+        [opcionSeleccione]="true"></yrd-desplegable-tipo-transporte>
+      <yrd-fecha-con-etiqueta class="col-sm-4" formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Desde'"
+        [validationMessages]="validationMessagesFechaDesde" 
+        [control]="filtrosForm.get('fechaDesde')"></yrd-fecha-con-etiqueta>
+      <yrd-fecha-con-etiqueta class="col-sm-4" formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Hasta'"
+        [validationMessages]="validationMessagesFechaHasta" 
+        [control]="filtrosForm.get('fechaHasta')"></yrd-fecha-con-etiqueta>
+    </div>
+    <div class="form-horizontal">
+      <yrd-autocomplete-patente #autocompletePatente class="col-sm-4" formControlName="patente" 
+        [etiqueta]="'Patente Camión'"
+        [control]="filtrosForm.get('patente')"></yrd-autocomplete-patente>
+      <yrd-autocomplete-vagon class="col-sm-4" formControlName="vagon" 
+        [etiqueta]="'Número Vagón'"
+        [control]="filtrosForm.get('vagon')"></yrd-autocomplete-vagon>
+    </div>
+    <div class="form-horizontal">
+      <yrd-desplegable-estado-movimiento class="col-sm-4" formControlName="idEstadoMovimiento" 
+        [filters]="estadoMovimientoFilters"></yrd-desplegable-estado-movimiento>
+    </div>
+  </fieldset>
+
+</fieldset>

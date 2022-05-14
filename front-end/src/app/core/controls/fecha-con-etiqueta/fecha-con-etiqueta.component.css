@@ -1,0 +1,15 @@
+button {
+    height: 2.05rem;
+    cursor: pointer;  
+    color: black;
+    border-top-right-radius: .25rem !important;
+    border-bottom-right-radius: .25rem !important;
+}
+
+.ml-menos23 {
+    margin-left: -23px !important;
+}
+
+.ml-menos110 {
+    margin-left: -110px !important;
+}

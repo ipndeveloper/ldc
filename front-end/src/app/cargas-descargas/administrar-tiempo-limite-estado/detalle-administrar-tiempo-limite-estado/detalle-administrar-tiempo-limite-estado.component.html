@@ -1,0 +1,28 @@
+<div [formGroup]=form>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-estado-movimiento
+        #estado
+        formControlName="estado"
+        [opcionSeleccione]= "true"
+        [etiqueta]="'Estado'"
+        [validationMessages]="validationMessagesEstado"
+        [control]="form.get('estado')"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'">
+      </yrd-desplegable-estado-movimiento>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-numero-con-etiqueta 
+        formControlName="tiempoLimite"
+        [control]="form.get('tiempoLimite')"
+        [etiqueta]="'Tiempo Límite'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [validationMessages]="validationMessagesTiempoLimite">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="row">
+    <div class="col-sm-4 form-group">      
+      <yrd-autocomplete-patente
+        #autocompletePatente
+        formControlName="patenteCamion"
+        [idForm]="'patenteCamion'"
+        [etiqueta]="'Patente Camión'" 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('patenteCamion')"
+        [validationMessages]="validationMessagesPatenteCamion">
+      </yrd-autocomplete-patente>
+    </div>
+
+    <div class="col-sm-3 form-group">
+      <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocumentoPorte" 
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoDocumentoPorte')"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [validationMessages]="validationMessagesTipoDocumentoPorte">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+
+    <div class="col-sm-3 form-group">
+      <yrd-texto-con-etiqueta class="form-group"
+        formControlName="numeroDocumentoPorte"
+        [control]="form.get('numeroDocumentoPorte')"         
+        [etiqueta]="'Número'"
+        [validationMessages]="validationMessagesNroPorte">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-2 form-group">
+      <button type="button" class="btn btn-primary" [disabled]="botonBuscarDeshabilitado" (click)="onClickBuscar()" i18n>Buscar</button>
+        <button class="btn btn-primary btn-blanco" i18n>Buscar</button>
+    </div>
+  </div>
+</fieldset>

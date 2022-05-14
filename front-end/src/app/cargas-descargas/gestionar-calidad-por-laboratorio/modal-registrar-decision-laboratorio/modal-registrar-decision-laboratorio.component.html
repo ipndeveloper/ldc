@@ -1,0 +1,32 @@
+
+<yrd-modal #modalComponent [formGroup]="form">
+  <ng-template #modalHeader><h2>Registrar Decisión Laboratorio</h2></ng-template>
+  <ng-template #modalBody>  
+    <div class="form-horizontal"> 
+      <yrd-desplegable-decision-laboratorio class="col-sm-12"
+        [form]="form" 
+        [accionesHabilitadas]="accionesHabilitadas">
+      </yrd-desplegable-decision-laboratorio>
+      <yrd-numero-con-etiqueta class="col-sm-12"
+        formControlName="coeficiente" 
+        [idForm]="'coeficiente'" 
+        [etiqueta]="'Coeficiente'" 
+        [control]="form.get('coeficiente')"
+        [maxDecimalPlaces]="3"
+        [validationMessages]="validationMessagesCoeficiente">
+      </yrd-numero-con-etiqueta>
+      <yrd-text-area-con-etiqueta class="col-sm-12" 
+        formControlName="observacion"  
+        [idForm]="'observacion'" 
+        [etiqueta]="'Observación'"
+        [control]="form.get('observacion')">
+      </yrd-text-area-con-etiqueta>
+    </div> 
+  </ng-template>
+  <ng-template #modalFooter>
+    <button #aceptarModal id="btnAceptarModal" #cancelButton type="button" class="btn btn-success" (click)="aceptar()" >Aceptar</button>
+    <button #cancelModal id="btnCancelModal" #cancelButton type="button" class="btn btn-danger" (click)="modalComponent.close()" >Cancelar</button>
+  </ng-template>
+</yrd-modal>
+  
+  

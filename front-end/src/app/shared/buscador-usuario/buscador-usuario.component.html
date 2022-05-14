@@ -1,0 +1,59 @@
+<div class="form-horizontal">
+    <label for="inputUsuario" class="col-sm-3 col-form-label">{{ etiqueta }}:</label>
+    <div class="col-sm-3">
+      <div class="input-group">
+        <input type="text" id="inputUsuario" #inputUsuario class="form-control" [value]="codigo"
+          [disabled]="isDisabled" (blur)="buscar(inputUsuario.value)" [ngClass]="{
+              'is-valid' : validControl,
+              'is-invalid' : validControl === false
+                }">
+        <div class="input-group-append" *ngIf="advancedSearch">
+          <button class="btn btn-outline-secondary" (click)="abrirBusquedaAvanzada()" [disabled]="isDisabled" type="button">
+            <fa-icon [icon]="faSearch"></fa-icon>
+          </button>
+        </div>
+        <div class="invalid-feedback">
+          <p>{{errorMessage}}</p>
+        </div>
+      </div>       
+    </div>
+    <strong class="col-sm-6 col-form-label">{{ currentEntity?.descripcion }}</strong>
+  </div>
+  
+  <yrd-advanced-search-form
+    #advancedComponent
+    [rows]="rows" 
+    [selected]="selected" 
+    [columns]="columns"
+    [service]="service"
+    [filters]="filters"
+    [entityName]="etiqueta"
+    (accepted)="setCurrentEntity($event); this.notifyChange(); setFocus()"
+    (closing)="setFocus()">
+    
+    <ng-template #controlFiltersContainer>
+      <div [formGroup]="advancedSearchForm" class="form-horizontal">
+        <yrd-texto-con-etiqueta 
+          class="col-sm-6"
+          formControlName="nombre"
+          [isFocused]="true" 
+          [control]="advancedSearchForm.get('nombre')"
+          [etiqueta]="'Usuario'">
+        </yrd-texto-con-etiqueta>
+      </div>
+    </ng-template>
+  
+  </yrd-advanced-search-form>
+  
+  <ng-template 
+    #selectCellTemplate 
+    ngx-datatable-cell-template 
+    let-value="value" 
+    let-isSelected="isSelected" 
+    let-onCheckboxChangeFn="onCheckboxChangeFn">
+    <label class="datatable-checkbox">
+        <input type="checkbox" 
+          [checked]="isSelected" 
+          (change)="onCheckboxChangeFn($event)" />
+    </label>
+  </ng-template>

@@ -1,0 +1,37 @@
+<div class="row {{ cssClassRow}} " *ngIf="lecturaEnModoAutomatico">
+  <div class="{{ cssClassBoton }}">
+    <button type="button" class="{{ cssClassBotonInner }}" 
+      #botonLeerTarjeta
+      [disabled]="deshabilitarLecturaTarjeta"
+      (click)="onLeerTarjeta()">{{ textoBoton }}
+    </button>
+  </div>
+  <div class="col-sm-6" *ngIf="mostrarTarjeta">
+    {{ mensajeTarjetaLeida }}
+  </div>
+</div>
+
+<div *ngIf="!lecturaEnModoAutomatico" [formGroup]="form">
+  <yrd-numero-con-etiqueta
+    formControlName="tarjeta" 
+    #numeroTarjeta
+    [cssClassEtiqueta]="cssClassEtiquetaManual"
+    [cssClassControl]="cssClassControlManual"
+    [idForm]="'tarjeta'" 
+    [etiqueta]="'Tarjeta'" 
+    [disabled]="!terminalUtilizaTarjeta"
+    [control]="form.get('tarjeta')" 
+    [allowLeadingZeroes]="true" 
+    [validationMessages]="validationMessagesTarjeta"
+    (blur)="onBlurTarjeta()">
+  </yrd-numero-con-etiqueta>
+</div>
+
+<yrd-modal-lectura-tarjeta 
+  #modalComponent 
+  [contador]="contador" 
+  [prefijoPrimerKeycode]="prefijoPrimerKeycode"
+  [prefijoSegundoKeycode]="prefijoSegundoKeycode"
+  [sufijo]="sufijo"
+  (tarjetaLeida)="onTarjetaLeida($event)">
+</yrd-modal-lectura-tarjeta>

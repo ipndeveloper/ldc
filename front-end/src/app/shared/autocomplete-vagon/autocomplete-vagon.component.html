@@ -1,0 +1,23 @@
+<div class="form-horizontal">
+  <label for="{{ idForm }}" class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}">
+    <input #inputVagon id="{{ idForm }}" type="text" class="form-control" 
+      [disabled]="isDisabled"
+      [value]="valor"
+      [ngbTypeahead]="search"
+      [class.is-invalid]="searchFailed"
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+        }"
+      (blur)="valueChanged(inputVagon.value)"
+      (selectItem)="setFocus()"
+      yrdFocus [isFocused]="isFocused" [element]="vagonElement"
+      [textMask]="{mask: mask}" />
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+    <span *ngIf="searching">buscando...</span>
+    <div class="invalid-feedback" *ngIf="searchFailed">Disculpe, no se pudieron cargar las sugerencias.</div>
+  </div>
+</div>

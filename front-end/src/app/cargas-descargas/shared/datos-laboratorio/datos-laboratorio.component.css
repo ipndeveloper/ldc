@@ -1,0 +1,8 @@
+select {
+    width: 50%;
+}
+
+:host ::ng-deep textarea {
+    resize: none;
+    height: 70px;
+}

@@ -1,0 +1,24 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-rubro-calidad
+        #rubroCalidad
+        formControlName="nombre" 
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [control]="form.get('nombre')">
+      </yrd-desplegable-rubro-calidad>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        #codigoArchestra
+        formControlName="codigoArchestra"
+        [control]="form.get('codigoArchestra')"
+        [etiqueta]="'Equivalencia Archesta'"
+        [validationMessages]="validationMessagesEquivalenciaArchestra"
+        yrdMaxLength [maxLength]=50>
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>  
+</div>

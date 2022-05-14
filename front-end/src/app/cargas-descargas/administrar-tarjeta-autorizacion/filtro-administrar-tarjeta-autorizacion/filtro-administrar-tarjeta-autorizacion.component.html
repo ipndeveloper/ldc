@@ -1,0 +1,36 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-terminal class="col-sm-6 form-group"
+      formControlName="terminal"
+      #terminal
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('terminal')"
+      [permiso]="Permission.AdministrarTarjetasAutorizacion"
+      [opcionSeleccione]="true">
+    </yrd-desplegable-terminal>
+    <yrd-texto-con-etiqueta class="col-sm-6 form-group"
+      formControlName="numero"
+      #numero
+      [cssClassEtiqueta]="'col-sm-5'"
+      [cssClassControl]="'col-sm-7'"
+      [control]="form.get('numero')"
+      [etiqueta]="'Código de Tarjeta'">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-si-no class="col-sm-6 form-group"
+      formControlName="habilitada"
+      #habilitada
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('habilitada')">
+    </yrd-desplegable-si-no>
+    <yrd-texto-con-etiqueta class="col-sm-6 form-group"
+      formControlName="usuario"
+      #usuario
+      [cssClassEtiqueta]="'col-sm-5'"
+      [cssClassControl]="'col-sm-7'"
+      [etiqueta]="'Usuario'"
+      [control]="form.get('usuario')">
+    </yrd-texto-con-etiqueta>
+  </div>
+</div>

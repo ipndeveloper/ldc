@@ -1,0 +1,15 @@
+.divTabCotainer {
+    padding-top: 10px;
+}
+
+:host ::ng-deep .tabsetMain a.nav-link {    
+    font-weight:normal;
+    color: black;
+    font-size: 14px;
+    line-height: 1;
+}
+
+:host ::ng-deep .tabsetMain a.nav-link.active {
+    font-weight: bold;
+}
+

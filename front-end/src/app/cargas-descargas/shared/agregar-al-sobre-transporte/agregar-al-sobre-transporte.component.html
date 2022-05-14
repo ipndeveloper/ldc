@@ -1,0 +1,21 @@
+<div ngbDropdown placement="bottom-right" class="d-inline-block" *ngxPermissionsOnly="permission">
+  <button class="btn btn-primary btn-space-left dropdown-toggle"
+    ngbDropdownToggle
+    [disabled]="idEntidad === 0">Transportar
+  </button>
+
+  <div ngbDropdownMenu aria-labelledby="dropdownMenu" class="dropdown-menu">
+    <button class="dropdown-item" type="button"
+      *ngIf="!sobresTransporte || sobresTransporte.length === 0"
+      ngbDropdownItem
+      disabled>Sin sobres de transporte
+    </button>
+
+    <button class="dropdown-item" type="button"
+      *ngFor="let sobreTransporte of sobresTransporte"
+      ngbDropdownItem
+      (click)="onClickAgregarAlSobre(sobreTransporte.id)">{{ sobreTransporte.descripcion }}
+    </button>
+  </div>
+
+</div>

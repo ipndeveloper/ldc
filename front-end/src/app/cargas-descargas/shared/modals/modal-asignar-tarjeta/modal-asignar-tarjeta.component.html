@@ -1,0 +1,26 @@
+<yrd-modal #modal
+  [acceptedAsync]="true"
+  [hasCloseButton]="false"
+  [disableAcceptButton]="botonAceptarDeshabilitado"
+  (accepted)="aceptar($event)"
+  (closing)="reinicializar()">
+  
+  <ng-template #modalHeader><h4>Asignar Tarjeta<a href="" #foco class="foco">_</a></h4></ng-template>
+
+  <ng-template #modalBody>
+    <h5 *ngIf="lecturaEnModoAutomatico">Deslice la tarjeta por el lector...</h5>
+    <div *ngIf="!lecturaEnModoAutomatico" [formGroup]="asignarTarjetaForm">
+      <yrd-numero-con-etiqueta 
+        #numeroTarjeta
+        formControlName="numeroTarjeta" 
+        [idForm]="'numeroTarjeta'" 
+        [etiqueta]="'Tarjeta'" 
+        [control]="asignarTarjetaForm.get('numeroTarjeta')" 
+        [allowLeadingZeroes]="true" 
+        [validationMessages]="validationMessagesTarjeta"
+        (blur)="onBlurTarjeta()">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </ng-template>
+
+</yrd-modal>

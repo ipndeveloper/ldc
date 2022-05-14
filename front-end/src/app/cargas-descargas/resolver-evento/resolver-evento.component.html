@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <fieldset>
+      <legend class="col-form-label">Balanza</legend>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-8">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.planta.value"
+              [etiqueta]="'Planta'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-8">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.nombreBalanza.value"
+              [etiqueta]="'Nombre Balanza'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-8">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.pesoCapturado.value"
+              [etiqueta]="'Peso Capturado'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="col-form-label">Matrícula</legend>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-7">
+            <div class="form-group">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.matriculaCapturada.value"
+                [etiqueta]="'Matrícula Capturada'">
+              </yrd-etiqueta-con-valor>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <img style="width:56%;height:auto;" class="float-right" src="{{fotoChasis}}">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-9">
+              <div class="form-group">
+                <yrd-texto-con-etiqueta
+                  formControlName="nuevaMatricula"
+                  [etiqueta]="'Nueva Matrícula'"
+                  [control]=""
+                  [validationMessages]="">
+                </yrd-texto-con-etiqueta>
+              </div>
+          </div>
+          <div class="col-sm-9">
+            <div class="form-group">
+              <yrd-texto-con-etiqueta
+                formControlName="observaciones"
+                [etiqueta]="'Observaciones'"
+                [control]=""
+                [validationMessages]=""
+                yrdMaxLength [maxLength]=600>
+              </yrd-texto-con-etiqueta>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <img style="width:100%;height:auto;" class="float-right" src="{{fotoAcoplado}}">
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+</div>

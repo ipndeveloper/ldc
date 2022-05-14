@@ -1,0 +1,59 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        #nombre
+        formControlName="nombre"
+        [etiqueta]="'Nombre'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('nombre')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-estado-sobre-transporte
+        formControlName="estado"
+        [etiqueta]="'Estado'"
+        [cssClassControl]="'col-sm-5'"
+        [opcionSeleccione]="true"
+        [control]="form.get('estado')">
+      </yrd-desplegable-estado-sobre-transporte>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaCreacion"
+        [etiqueta]="'Fecha Creación'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('fechaCreacion')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="nombreUsuarioCreacion"
+        [etiqueta]="'Usuario Creación'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('nombreUsuarioCreacion')">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="ambienteOriginante"
+        [etiqueta]="'Ambiente Creación'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('ambienteOriginante')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-sobre-transporte
+        formControlName="tipo"
+        [opcionSeleccione]="true"
+        [etiqueta]="'Tipo'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('tipo')">
+      </yrd-desplegable-tipo-sobre-transporte>
+    </div>
+  </div>
+</div>

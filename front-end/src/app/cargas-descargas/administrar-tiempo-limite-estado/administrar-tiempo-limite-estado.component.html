@@ -1,0 +1,42 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template
+      #searchFormComponent
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns"
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>
+        <yrd-filtro-administrar-tiempo-limite-estado
+          #filtro
+          [form]="form.controls.filtros">
+        </yrd-filtro-administrar-tiempo-limite-estado>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+        <yrd-detalle-administrar-tiempo-limite-estado
+          #detalle
+          [form]="form.controls.detalle">
+        </yrd-detalle-administrar-tiempo-limite-estado>
+
+        <div class="float-right section-top-padding">
+          <button type="button" class="btn btn-success"
+            [disabled]="disableButtons || esConsulta || isLoading"
+            (click)="onClickAceptar()"
+            i18n> Aceptar
+          </button>
+          <button type="button" class="btn btn-danger"
+            [disabled]="disableButtons || isLoading"
+            (click)="onClickCancelar()"
+            i18n> Cancelar
+          </button>
+        </div>
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>

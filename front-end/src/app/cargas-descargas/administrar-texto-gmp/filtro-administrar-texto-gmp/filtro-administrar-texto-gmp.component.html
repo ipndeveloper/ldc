@@ -1,0 +1,37 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-desplegable-terminal #terminal
+        formControlName="terminal"
+        [opcionSeleccione]="true"
+        [cssClassControl]="'col-sm-6'" 
+        [permiso]="Permission.AdministrarLeyendaGmpPorSociedad"   
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-4">
+      <yrd-buscador-sociedad #sociedad
+        formControlName="sociedad" 
+        [advancedSearch]="true"
+        [control]="form.get('sociedad')"
+        [cssClassControl]="'col-sm-6'">
+      </yrd-buscador-sociedad>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+        formControlName="producto"
+        [control]="form.get('producto')"
+        [advancedSearch]="true">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-si-no
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="form.get('habilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

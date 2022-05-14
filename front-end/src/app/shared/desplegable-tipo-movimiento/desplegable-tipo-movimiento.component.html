@@ -1,0 +1,22 @@
+<div class="form-horizontal">
+  <label for="selectTipoMovimiento" class="{{ cssClassEtiqueta }} col-form-label" i18n>Tipo Movimiento:</label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control" 
+      id="selectTipoMovimiento" 
+      #selectTipoMovimiento 
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }"
+      [disabled]="isDisabled" 
+      [value]="selectedEntityId" 
+      (blur)="onTouched(); touched()"
+      (change)="onChange(selectTipoMovimiento.value)">
+      <option *ngIf="opcionSeleccione" value=undefined selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

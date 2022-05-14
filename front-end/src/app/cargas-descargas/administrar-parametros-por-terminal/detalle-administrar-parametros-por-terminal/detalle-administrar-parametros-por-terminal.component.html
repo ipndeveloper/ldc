@@ -1,0 +1,214 @@
+<div [formGroup]="form">   
+  <div class="col-sm-6">
+    <yrd-desplegable-terminal class="col-sm-6"
+      #terminal
+      formControlName="terminal"
+      [validationMessages]="validationMessagesTerminal"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-6'"
+      [permiso]="Permission.AdministrarParametrosPorTerminal"
+      [control]="form.get('terminal')">
+    </yrd-desplegable-terminal>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      #direccion
+      formControlName="direccion" 
+      [validationMessages]="validationMessagesDireccion"
+      [etiqueta]="'Dirección'"
+      [control]="form.get('direccion')">
+    </yrd-texto-con-etiqueta>
+  
+    <yrd-desplegable-tipo-tarjeta class="col-sm-6"
+      formControlName="tipoTarjeta"
+      [validationMessages]="validationMessagesTipoTarjeta"
+      [opcionSeleccione] = 'true'
+      [cssClassControl]="'col-sm-6'"
+      [control]="form.get('tipoTarjeta')">
+    </yrd-desplegable-tipo-tarjeta>
+  
+    <yrd-buscador-sede class="col-sm-6" 
+      formControlName="sede" 
+      [esSedeOrigenODestino] = "false"
+      [validationMessages]="validationMessagesSede"
+      [advancedSearch]="true"
+      [control]="form.get('sede')">
+    </yrd-buscador-sede>
+        
+    <yrd-texto-con-etiqueta class="col-sm-6"
+      formControlName="abreviatura" 
+      [validationMessages]="validationMessagesAbreviatura"
+      yrdMaxLength [maxLength]=3
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Abreviatura'"
+      [control]="form.get('abreviatura')">
+    </yrd-texto-con-etiqueta>
+    
+    <yrd-checkbox-con-etiqueta class="col-sm-6" 
+      formControlName="usaTarjeta"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Usa Tarjeta en Identificación de Movimiento'" 
+      [control]="form.get('usaTarjeta')">
+    </yrd-checkbox-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="copiasTicketCalidadVagon"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Cantidad de Copias de Tickets de Calado de Vagones'"
+      [control]="form.get('copiasTicketCalidadVagon')"
+      [validationMessages]="validationMessagesCopiasTicketCalidadVagon">
+    </yrd-numero-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="copiasTicketCalidad"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Cantidad de Copias de Tickets de Calado de Camiones'"
+      [control]="form.get('copiasTicketCalidad')"
+      [validationMessages]="validationMessagesCopiasTicketCalidadCamion">
+    </yrd-numero-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="copiasTicketPesaje"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Cantidad de Copias de Tickets de Pesaje'"
+      [control]="form.get('copiasTicketPesaje')"
+      [validationMessages]="validationMessagesCopiasTicketPesaje">
+    </yrd-numero-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="copiasRemito"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Cantidad de Copias del Remito'"
+      [control]="form.get('copiasRemito')"
+      [validationMessages]="validationMessagesCopiasRemito">
+    </yrd-numero-con-etiqueta>
+  
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="diferenciaDiasFiltroControlPeso"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Rango de días para filtro control de peso'"
+      [control]="form.get('diferenciaDiasFiltroControlPeso')"
+      [validationMessages]="validationMessagesdiferenciaDiasPeso">
+    </yrd-numero-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="diferenciaDiasFiltroGeneracionArchivoMuestra"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Rango de días para filtro de generacion archivo de muestra'"
+      [control]="form.get('diferenciaDiasFiltroGeneracionArchivoMuestra')"
+      [validationMessages]="validationMessagesdiferenciaDiasMuestra">
+    </yrd-numero-con-etiqueta>
+        
+    <yrd-texto-mascara-con-etiqueta
+      formControlName="horaCorteCupo" 
+      [validationMessages]="validationMessagesHoraCorteCupo"
+      [cssClassControl]="'col-sm-2'"
+      [control]="form.get('horaCorteCupo')"         
+      [etiqueta]="'Hora corte cupo (hh:mm)'"
+      [mascara]="horaCorteCupoRegex">
+    </yrd-texto-mascara-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="kgsBrutosEstimados"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Kgs. Brutos Estimados'"
+      [control]="form.get('kgsBrutosEstimados')"
+      [validationMessages]="">
+    </yrd-numero-con-etiqueta>
+          
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="kgsTaraEstimados"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Kgs. Tara Estimados'"
+      [control]="form.get('kgsTaraEstimados')"
+      [validationMessages]="">
+    </yrd-numero-con-etiqueta>
+
+    <yrd-checkbox-con-etiqueta class="col-sm-6" 
+      formControlName="leyendaBonificacionTrigo"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Leyenda Bonificación Trigo'" 
+      [control]="form.get('leyendaBonificacionTrigo')">
+    </yrd-checkbox-con-etiqueta>
+
+    <yrd-checkbox-con-etiqueta class="col-sm-6" 
+      formControlName="usaFleteCorto"
+      [etiqueta]="'Usa Flete Corto'" 
+      [control]="form.get('usaFleteCorto')">
+    </yrd-checkbox-con-etiqueta>
+
+    <yrd-checkbox-con-etiqueta class="col-sm-6" 
+      formControlName="usaMuestraIntacta"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Usa Muestra Tipo Acopio'" 
+      [control]="form.get('usaMuestraIntacta')">
+    </yrd-checkbox-con-etiqueta>
+
+    <yrd-checkbox-con-etiqueta class="col-sm-6" 
+      formControlName="usaAceptarYContinuar"
+      [cssClassControl]="'col-sm-3'"
+      [etiqueta]="'Usa Aceptar y Continuar'" 
+      [control]="form.get('usaAceptarYContinuar')">
+    </yrd-checkbox-con-etiqueta>
+    
+    <div class="form-group form-horizontal">
+      <label for="formatosPatente" class="col-sm-3 col-form-label">Formatos Patente:</label>
+      <div class="col-sm-6 form-control" style="height: 300px">
+        <tree-root #formatosPatenteTree id="formatosPatente" [nodes]="listaFormatosPatente" [options]="options">
+          <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+            <input class="tree-node-checkbox"
+              type="checkbox"
+              [disabled]="detalleDeshabilitado"
+              (click)="node.mouseAction('checkboxClick', $event)"
+              [checked]="node.isSelected"
+              [indeterminate]="node.isPartiallySelected"/>
+            <tree-node-expander [node]="node"></tree-node-expander>
+            <div class="node-content-wrapper"
+              [class.node-content-wrapper-active]="node.isActive"
+              [class.node-content-wrapper-focused]="node.isFocused"
+              (click)="node.mouseAction('click', $event)"
+              (dblclick)="node.mouseAction('dblClick', $event)"
+              (contextmenu)="node.mouseAction('contextMenu', $event)"
+              (treeDrop)="node.onDrop($event)"
+              (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+              (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+              (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+              [treeAllowDrop]="node.allowDrop"
+              [allowDragoverStyling]="node.allowDragoverStyling()"
+              [treeDrag]="node"
+              [treeDragEnabled]="node.allowDrag()">
+              <tree-node-content [node]="node" [index]="index">
+                <ng-template #treeNodeTemplate let-node let-index="index">
+                  <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                  <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                </ng-template>
+              </tree-node-content>
+            </div>
+          </ng-template>
+        </tree-root>
+      </div>
+    </div>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      #codigoAduana
+      formControlName="codigoAduana" 
+      [etiqueta]="'Cód. Aduana'"
+      [control]="form.get('codigoAduana')">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      #nroLote
+      formControlName="nroLote" 
+      [etiqueta]="'Nro. Lote'"
+      [control]="form.get('nroLote')"
+      yrdMaxLength [maxLength]=20>
+    </yrd-texto-con-etiqueta>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      #toleranciaCircular
+      formControlName="toleranciaTurnoCircular" 
+      [etiqueta]="'Tolerancia turno circular'"
+      [control]="form.get('toleranciaTurnoCircular')"
+      yrdMaxLength [maxLength]=20>
+    </yrd-texto-con-etiqueta>
+  </div>
+</div>

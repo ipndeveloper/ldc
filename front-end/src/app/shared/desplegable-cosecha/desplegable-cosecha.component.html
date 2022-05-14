@@ -1,0 +1,19 @@
+<div class="form-horizontal">
+  <label for="selectCosecha" class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}" class="col-sm-9">
+    <select class="form-control" id="selectCosecha" #selectCosecha 
+      [disabled]="isDisabled || entities === null" 
+      [value]="selectedEntity ? selectedEntity.id : undefined"
+      (blur)="onTouched()" 
+      (change)="onChange(selectCosecha.value)" 
+      [ngClass]="{
+          'is-valid' : control?.valid && control?.touched,
+          'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option *ngIf="opcionSeleccione" value=undefined>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad?.id">{{ entidad?.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>

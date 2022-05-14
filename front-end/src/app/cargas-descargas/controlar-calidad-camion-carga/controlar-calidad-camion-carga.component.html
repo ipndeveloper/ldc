@@ -1,0 +1,32 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template 
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions"
+      [editTitleButton]="'Registrar decisión'">
+
+      <ng-template #controlFiltersContainer>
+        <yrd-filtro-controlar-calidad-camion-carga
+          #filtro
+          [form]="form.controls.filtros"
+          (buscarClicked)="onClickBuscar()">
+        </yrd-filtro-controlar-calidad-camion-carga>
+      </ng-template>
+      
+    </yrd-search-form-template>    
+  </fieldset>
+
+  <yrd-modal-decision-controlar-calidad-camion-carga 
+    #detalle
+    [isLoading]="isLoading"
+    [form]="form.controls.detalle"
+    (accepted)="onClickAceptar()"
+    (modalCancel)="onClickCancelar()">
+  </yrd-modal-decision-controlar-calidad-camion-carga>
+</form>

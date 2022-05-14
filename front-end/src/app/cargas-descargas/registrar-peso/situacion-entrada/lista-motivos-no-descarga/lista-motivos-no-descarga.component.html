@@ -1,0 +1,9 @@
+<div class="form-horizontal">
+  <div class="col-sm-10">
+    <div class="form-horizontal" *ngFor="let motivo of motivosForm.value; let i=index">
+      <input type="checkbox" [value]="motivo.checked"
+        [checked]="motivo.checked" (click)="checkedChanged(i)" [disabled]="!motivo.esEditable || motivosForm.disabled"/>
+      <label class="col-sm-11">{{ motivo.descripcion }}</label>
+    </div>
+  </div>
+</div>

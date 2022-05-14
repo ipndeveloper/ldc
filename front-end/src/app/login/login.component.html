@@ -1,0 +1,59 @@
+<ng-progress id="loginProgress" [spinner]="true">
+</ng-progress>
+<div class="login">
+    <div class="offset-md-4 col-md-4 well">
+        <div class="ambiente-login">{{ ambiente }}</div>
+
+        <div class="logo-login">
+            <img class="img-fluid ldc-logo-login" alt="Louis Dreyfus Company" title="Louis Dreyfus Company" src="assets/images/LDC_logo.svg"> YARD
+        </div>
+        
+        <form [formGroup]="formUsuarioContrasenia" *ngIf="muestraContrasenia">
+
+            <div class="form-group">
+                <div class="input-group">
+                    <fa-icon [icon]="faUser" class="input-group-addon"></fa-icon>
+                    <input type="text" formControlName="usuario" class="form-control" maxlength="50" id="usuario" autofocus />
+                </div>
+            </div>
+            
+            <div class="form-group" >
+                <div class="input-group">
+                    <fa-icon [icon]="faLock" class="input-group-addon"></fa-icon>
+                    <input type="password" formControlName="contrasenia" class="form-control" maxlength="50" id="contrasenia" />
+                </div>
+            </div>
+        
+            <div class="offset-md-5 login-button">
+                <button type="submit" class="btn btn-info" (click)="buscarTerminales()" yrdButton>Ingresar</button>
+            </div>
+            
+        </form>
+
+        <form [formGroup]="formUsuarioTerminal" *ngIf="muestraTerminales" >
+            <div class="form-group">
+                <div class="input-group">
+                    <fa-icon [icon]="faUser" class="input-group-addon"></fa-icon>
+                    <input type="text" formControlName="usuario" class="form-control" maxlength="50" id="usuario" />
+                </div>
+            </div>
+            
+            <div class="form-group" *ngIf="muestraTerminales">
+                <yrd-desplegable-terminal-login formControlName="terminal" #terminal
+                    [control]="formUsuarioTerminal.get('terminal')"
+                    [validationMessages]="validationMessagesTerminal"
+                    [terminales]="terminales">
+                </yrd-desplegable-terminal-login>
+            </div>
+
+            <div class="offset-md-5 login-button">
+                <button type="submit" class="btn btn-info" (click)="ingresar()" yrdButton>Ingresar</button>
+            </div>
+        </form>
+        
+    </div>
+</div>
+<div class="fixed-bottom footer">
+    <span>{{ version }}</span>
+    <span class="side-right">{{ ubicacionFisica }}</span>
+</div>

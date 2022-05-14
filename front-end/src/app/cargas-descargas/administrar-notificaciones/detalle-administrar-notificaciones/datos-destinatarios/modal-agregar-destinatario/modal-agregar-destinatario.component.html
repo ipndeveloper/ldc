@@ -1,0 +1,60 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()" 
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="form-horizontal">
+      <div class="col-sm-3">
+        <input id="tipoDestinatarioRol" name="idTipo" 
+          type="radio"
+          formControlName="idTipo" 
+          [value]="1" id="tipoDestinatarioRol" />
+        <label for="tipoDestinatarioRol" class="form-label">Rol</label>
+      </div>
+      <div class="col-sm-9">
+        <yrd-desplegable-rol 
+          formControlName="rol"
+          #rol
+          [control]="form.controls.rol"
+          [opcionSeleccione]="true"
+          [validationMessages]="validationMessagesRol">
+        </yrd-desplegable-rol>
+      </div>
+    </div>
+    <div class="form-horizontal">
+      <div class="col-sm-3">
+        <input id="tipoDestinatarioUsuario" name="idTipo" 
+          type="radio"
+          formControlName="idTipo" 
+          [value]="2" id="tipoDestinatarioUsuario" />
+        <label for="tipoDestinatarioUsuario" class="form-label">Usuario</label>
+      </div>
+      <div class="col-sm-9">
+        <yrd-desplegable-usuario
+          formControlName="usuario"
+          [control]="form.controls.usuario"
+          [opcionSeleccione]="true"
+          [validationMessages]="validationMessagesUsuario">
+        </yrd-desplegable-usuario>
+      </div>
+    </div>
+    <div class="form-horizontal">
+      <div class="col-sm-3">
+        <input id="tipoDestinatarioMail" name="idTipo" 
+          type="radio"
+          formControlName="idTipo" 
+          [value]="3" id="tipoDestinatarioMail" />
+        <label for="tipoDestinatarioMail" class="form-label">Mail</label>
+      </div>
+      <div class="col-sm-9">
+        <yrd-texto
+          formControlName="mail"
+          [control]="form.controls.mail"
+          [validationMessages]="validationMessagesMail">
+        </yrd-texto>
+      </div>
+    </div>
+  </ng-template>
+</yrd-modal>

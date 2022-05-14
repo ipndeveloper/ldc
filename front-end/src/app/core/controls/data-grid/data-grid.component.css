@@ -1,0 +1,53 @@
+.ngx-datatable.bootstrap{
+    font-size: inherit;
+}
+
+.section-top-padding {
+    padding-top: 10px !important;
+}
+
+:host ::ng-deep .ngx-datatable.bootstrap .datatable-footer {
+    border-top: 2px solid rgba(0, 0, 0, 0.12);
+    color: #ededed;
+    margin-top: -1px;
+    background: transparent;
+}
+
+:host ::ng-deep .ngx-datatable.bootstrap .datatable-footer .datatable-pager a {
+    color: #212529;
+}
+
+:host ::ng-deep .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled).active a, .ngx-datatable.bootstrap .datatable-footer .datatable-pager ul li:not(.disabled):hover a {
+    background-color: rgba(158, 158, 158, 0.2) !important;
+} 
+
+:host ::ng-deep [class^="datatable-icon-"]:before, [class*=" datatable-icon-"]:before {
+    font-family: "data-table" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:host ::ng-deep .ngx-datatable .datatable-footer .page-count {
+    color: #212529;
+}
+
+:host ::ng-deep .datatable-icon-right:before {
+    content: ">";
+}
+
+:host ::ng-deep .datatable-icon-skip:before {
+    content: ">>";
+}
+
+:host ::ng-deep .datatable-icon-left:before {
+    content: "<";
+}
+
+:host ::ng-deep .datatable-icon-prev:before {
+    content: "<<";
+}

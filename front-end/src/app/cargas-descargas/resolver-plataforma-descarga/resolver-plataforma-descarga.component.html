@@ -1,0 +1,160 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate >
+    <fieldset>
+      <legend class="col-form-label">Balanza</legend>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.planta.value"
+              [etiqueta]="'Planta'">
+            </yrd-etiqueta-con-valor>
+          </div>
+
+          <div class="col-sm-4">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.nombreBalanza.value"
+              [etiqueta]="'Nombre Balanza'">
+            </yrd-etiqueta-con-valor>
+          </div>
+
+          <div class="col-sm-4">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.pesoCapturado.value"
+              [etiqueta]="'Peso Capturado'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="col-form-label">Circuito</legend>
+      <div class="row">
+        <div class="col-sm-6">
+          <yrd-etiqueta-con-valor
+            [valor]="form.controls.terminal.value"
+            [etiqueta]="'Terminal'">
+          </yrd-etiqueta-con-valor>
+        </div>
+        <div class="col-sm-6">
+          <yrd-etiqueta-con-valor
+            [valor]="form.controls.tipoMovimiento.value"
+            [etiqueta]="'Movimiento'">
+          </yrd-etiqueta-con-valor>
+        </div>
+        <div class="col-sm-6">
+          <yrd-etiqueta-con-valor
+            [valor]="form.controls.transporte.value"
+            [etiqueta]="'Transporte'">
+          </yrd-etiqueta-con-valor>
+        </div>
+        <div class="col-sm-6">
+          <yrd-etiqueta-con-valor
+            [valor]="form.controls.tipoProducto.value"
+            [etiqueta]="'Tipo de Producto'">
+          </yrd-etiqueta-con-valor>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="col-form-label">Estado</legend>
+      <div class="col-sm-4">
+        <yrd-etiqueta-con-valor
+          [valor]="form.controls.estado.value"
+          [etiqueta]="'Estado'">
+        </yrd-etiqueta-con-valor>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend class="col-form-label">Movimiento</legend>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.tipoDocPorte.value"
+              [etiqueta]="'Tipo de Doc. Porte'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.docPorte.value"
+              [etiqueta]="'Doc. de Porte'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.producto.value"
+              [etiqueta]="'Producto'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.cosecha.value"
+              [etiqueta]="'Cosecha'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.estadoCupo.value"
+              [etiqueta]="'Estado Cupo'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.turnoPlaya.value"
+              [etiqueta]="'Turno Playa'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.ordenCarga.value"
+              [etiqueta]="'Orden Carga'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.cantEstimada.value"
+              [etiqueta]="'Cant. Estimada'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.humedad.value"
+              [etiqueta]="'Humedad'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.proteina.value"
+              [etiqueta]="'Proteína'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-3">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.grado.value"
+              [etiqueta]="'Grado'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+    <!-- <fieldset>
+      <legend class="col-form-label">Destino</legend>
+      <yrd-desplegable-condicion-manipuleo
+        #desplegableCondicionManipuleo
+        formControlName="lugarDescargaCarga"
+        [control]="form.controls.lugarDescargaCarga"
+        [movimientoPesaje]="movimiento"
+        [esSalida]="false"
+        [esCarga]="esCarga"
+        [pesoNeto]="'4000'"
+        [deshabilitarActualizarManipuelo]="disableButtons"
+        [validationMessages]="validationMessagesCondicionManipuleo">
+      </yrd-desplegable-condicion-manipuleo>
+    </fieldset> -->
+  </form>
+</div>

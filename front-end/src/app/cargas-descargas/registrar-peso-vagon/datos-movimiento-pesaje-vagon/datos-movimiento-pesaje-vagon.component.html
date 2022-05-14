@@ -1,0 +1,22 @@
+<fieldset [formGroup]="datosMovimientoForm">
+  <legend class="col-form-label">Movimiento</legend>
+
+  <div class="form-horizontal">
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'tipoDocumentoPorte'" class="col-sm-3" formControlName="tipoDocumentoPorte" [etiqueta]="'Tipo Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'nroDocumentoPorte'" class="col-sm-3" formControlName="nroDocumentoPorte" [etiqueta]="'Nro. Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'ctg'" class="col-sm-3" formControlName="ctg" [etiqueta]="'CTG'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'estado'" class="col-sm-3" formControlName="estado" [etiqueta]="'Estado'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'producto'" class="col-sm-3" formControlName="producto" [etiqueta]="'Producto'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'humedad'" class="col-sm-3" formControlName="humedad" [etiqueta]="'Humedad'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'proteina'" class="col-sm-3" formControlName="proteina" [etiqueta]="'Proteína'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'grado'" class="col-sm-3" formControlName="grado" [etiqueta]="'Grado'"></yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-12 form-horizontal pt-2 row">
+      <yrd-texto-con-etiqueta [idForm]="'entregador'" class="col-sm-3" formControlName="entregador" [etiqueta]="'Entregador'"></yrd-texto-con-etiqueta>  
+    </div>
+  </div>
+</fieldset>

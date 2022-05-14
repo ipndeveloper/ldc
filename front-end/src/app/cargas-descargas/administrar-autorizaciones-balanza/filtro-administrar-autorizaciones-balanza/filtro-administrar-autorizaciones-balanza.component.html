@@ -1,0 +1,35 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-circuito class="col-sm-6 form-group"
+      [soloHabilitados]="true"
+      formControlName="circuito"
+      #circuito
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-7'"
+      [permiso]="Permission.AdministrarAutorizacionesBalanza"
+      [control]="form.get('circuito')">
+    </yrd-desplegable-circuito>
+    <yrd-desplegable-valor-booleano class="col-sm-6 form-group"
+      formControlName="esEntrada"
+      [control]="form.get('esEntrada')"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-3'"
+      [etiquetaPrincipal]="'Sentido Balanza:'"
+      [etiquetaTrue]="'Entrada'"
+      [etiquetaFalse]="'Salida'">
+    </yrd-desplegable-valor-booleano>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-motivo-error-balanza class="col-sm-6 form-group" 
+      formControlName="motivo"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-7'"
+      [control]="form.get('motivo')">
+    </yrd-desplegable-motivo-error-balanza>
+    <yrd-desplegable-si-no class="col-sm-6 form-group"
+      formControlName="habilitado"
+      [cssClassControl]="'col-sm-3'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

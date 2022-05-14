@@ -1,0 +1,9 @@
+<yrd-modal #modal [formGroup]="confirmacionManualForm" (accepted)="aceptar($event)" [acceptedAsync]="true" (closing)="reinicializar()">
+  <ng-template #modalHeader><h2>Confirmación Manual</h2></ng-template>
+
+  <ng-template #modalBody>
+    <yrd-numero-con-etiqueta class="col-sm-6" formControlName="codigoConfirmacion" [control]="confirmacionManualForm.get('codigoConfirmacion')"
+      [etiqueta]="'Código Confirmación'" [idForm]="'codigoManual'" yrdMaxLength [maxLength]="10" [isFocused]="true"
+      [validationMessages]="validationMessagesCodigo"></yrd-numero-con-etiqueta>
+  </ng-template>
+</yrd-modal>

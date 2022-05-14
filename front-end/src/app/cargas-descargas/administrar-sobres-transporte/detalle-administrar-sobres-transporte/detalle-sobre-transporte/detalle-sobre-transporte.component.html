@@ -1,0 +1,47 @@
+<fieldset>
+  <legend class="col-form-label">Entidades a transportar</legend>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Roles'"
+        [entidades]="roles">
+      </yrd-consulta-entidad-transportable>
+    </div>
+    <div class="col-sm-6">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Usuarios'"
+        [entidades]="usuarios">
+      </yrd-consulta-entidad-transportable>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Circuitos'"
+        [entidades]="circuitos">
+      </yrd-consulta-entidad-transportable>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Autorizaciones de Balanza'"
+        [entidades]="autorizacionesBalanza">
+      </yrd-consulta-entidad-transportable>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Equivalencias Archestra'"
+        [entidades]="rubrosCalidad">
+      </yrd-consulta-entidad-transportable>
+    </div>
+    <div class="col-sm-6">
+      <yrd-consulta-entidad-transportable
+        [titulo]="'Lectura Humedímetros'"
+        [entidades]="tipoDispositivoPorProducto">
+      </yrd-consulta-entidad-transportable>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,7 @@
+import { EntityWithDescription } from '../../core/models/entity-with-description';
+
+export class EstadoPagoTasaMunicipal extends EntityWithDescription {
+  constructor(id: number, descripcion: string) {
+    super(id, descripcion);
+  }
+}

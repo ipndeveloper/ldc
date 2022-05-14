@@ -1,0 +1,37 @@
+<div [formGroup]="form">
+  <div class="form-vertical">
+    <yrd-desplegable-terminal 
+        class="col-sm-6"
+        formControlName="terminal"
+        #terminal
+        [opcionSeleccione]="true"
+        [cssClassControl]="'col-sm-3'"
+        [permiso]="Permission.AdministrarPlataformas"
+        [control]="form.get('terminal')">
+    </yrd-desplegable-terminal>
+
+    <yrd-texto-con-etiqueta 
+        class="col-sm-6" 
+        [cssClassControl]="'col-sm-3'"
+        formControlName="plataforma" 
+        [etiqueta]="'Nombre Plataforma'"
+        [control]="form.get('plataforma')">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-texto-con-etiqueta 
+        class="col-sm-6" 
+        [cssClassControl]="'col-sm-3'"
+        formControlName="capacidadMaxima" 
+        [etiqueta]="'Capacidad Maxima'"
+        [control]="form.get('capacidadMaxima')">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-checkbox-con-etiqueta
+        class="col-sm-6"
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="form.get('habilitado')"
+        [etiqueta]="'Habilitado'">
+    </yrd-checkbox-con-etiqueta>
+  </div>
+</div>

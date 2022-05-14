@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-circuito class="col-sm-6 form-group"
+      formControlName="circuito"
+      #circuito
+      [cssClassControl]="'col-sm-7'"
+      [permiso]="Permission.AdministrarActividadesCircuitos"
+      [control]="form.get('circuito')"
+      [opcionSeleccione]="true">
+    </yrd-desplegable-circuito>
+    <yrd-desplegable-actividad class="col-sm-6 form-group" 
+      formControlName="actividad"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-7'"
+      [control]="form.get('actividad')">
+    </yrd-desplegable-actividad>  
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-estado-movimiento class="col-sm-6 form-group" 
+      formControlName="estadoInicial"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-7'"
+      [etiqueta]="'Estado Inicial'"
+      [control]="form.get('estadoInicial')">
+    </yrd-desplegable-estado-movimiento>
+    <yrd-desplegable-estado-movimiento class="col-sm-6 form-group" 
+      formControlName="estadoFinal"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-7'"
+      [etiqueta]="'Estado Final'"
+      [control]="form.get('estadoFinal')">
+    </yrd-desplegable-estado-movimiento>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-si-no class="col-sm-6 form-group"
+      formControlName="habilitado"
+      [cssClassControl]="'col-sm-3'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div [formGroup]="form">
+    <div class="form-horizontal">
+      <yrd-texto-con-etiqueta class="col-sm-6 form-group"
+        formControlName="descripcion"
+        #descripcion
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('descripcion')"
+        [etiqueta]="'Descripción'">
+      </yrd-texto-con-etiqueta>
+      <yrd-desplegable-tipo-producto
+            formControlName="tipoProducto"
+            #tipoProducto
+            [cssClassEtiqueta]="'col-sm-5'"
+            [cssClassControl]="'col-sm-7'"
+            [control]="form.get('tipoProducto')"
+            [opcionSeleccione]="true">
+          </yrd-desplegable-tipo-producto>
+    </div>
+    <div class="form-horizontal">
+      <yrd-desplegable-si-no class="col-sm-6 form-group"
+        formControlName="habilitado"
+        #habilitado
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('habilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+  

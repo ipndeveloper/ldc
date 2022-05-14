@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    
+    <yrd-filtro-pago-tasa-municipal
+      #filtro
+      [form]="form.controls.filtro"
+      (buscarClicked)="onClickBuscar()">
+    </yrd-filtro-pago-tasa-municipal>
+
+    <yrd-detalle-pago-tasa-municipal
+      #detalle
+      [form]="form.controls.movimiento"
+      (reembolsarClicked)="onClickReembolsar()"
+      (pagarClicked)="onClickPagar()"
+      (noPagarClicked)="onClickNoPagar()"
+      (limpiarClicked)="onClickCancelar()"
+      (qrAceptado)="onQrAceptado()"
+      [disableButtons]="disableButtons">
+    </yrd-detalle-pago-tasa-municipal>
+
+  </form>
+</div>

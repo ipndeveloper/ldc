@@ -1,0 +1,39 @@
+<fieldset [formGroup]="gestionarTareasProgramadasForm" novalidate>
+  <yrd-search-form-template #searchFormComponent 
+    [botonesHabilitados]="botonesHabilitados"
+    [permisosBotones]="permisosBotones"
+    [columns]="columns" 
+    [filtrosForm]="gestionarTareasProgramadasForm.controls.filtros"
+    [rowsOptions]="rowsOptions">
+
+    <ng-template #controlFiltersContainer>
+      <yrd-filtro-busqueda-trabajos-archivos-muestra #filtroBusquedaTareasProgramadas [filtrosForm]="gestionarTareasProgramadasForm.controls.filtros">        
+      </yrd-filtro-busqueda-trabajos-archivos-muestra>
+    </ng-template>
+
+    <ng-template #controlActionsContainer>
+      
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickVerError()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasVerError">Ver Error</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickGeneracionManual()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasGeneracionManual">Generación Manual</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickReintentar()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasReIntentar">Re-intentar</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickDescartar()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasDescartar">Descartar</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickDescargarArchivo()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasDescargarArchivo">Descargar Archivo</button>
+      <button type="button" class="btn btn-primary" 
+        (click)="onClickActualizarLista()"
+        *ngxPermissionsOnly="Permission.GestionarTrabajosGeneracionArchivosMuestrasActualizarLista">Actualizar Lista</button>
+    </ng-template>
+  </yrd-search-form-template>
+</fieldset>
+
+<yrd-modal-agregar-trabajo-generacion-archivos-muestra #modalGenerarArchivosMuestra (accepted)="onClickGenerar($event)"></yrd-modal-agregar-trabajo-generacion-archivos-muestra>
+<yrd-modal-mostrar-mensaje #modalError ></yrd-modal-mostrar-mensaje>

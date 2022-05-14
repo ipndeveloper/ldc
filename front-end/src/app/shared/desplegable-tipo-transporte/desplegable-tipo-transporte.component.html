@@ -1,0 +1,17 @@
+<div class="form-horizontal">
+  <label for="selectTipoTransporte" class="{{ cssClassEtiqueta }} col-form-label">Tipo Transporte:</label>
+  <div class="{{ cssClassControl }}">
+      <!-- [isFocused]="isFocused" [element]="selectTipoTransporteElement" -->
+    <select class="form-control" id="selectTipoTransporte" #selectTipoTransporte [disabled]="isDisabled" yrdFocus [isFocused]="isFocused" [element]="selectTipoTransporteElement" 
+      [value]="selectedEntityId"  (blur)="onTouched(); touched()" (change)="onChange(selectTipoTransporte.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched      
+        }">
+      <option *ngIf="opcionSeleccione" value=undefined selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+        <p>{{ errorMessage }}</p>
+    </div>
+  </div>
+</div>

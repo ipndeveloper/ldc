@@ -1,0 +1,15 @@
+<div class="form-horizontal">
+  <label for="selectPesada" class="col-sm-3 col-form-label">Tipo Pesada:</label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control" id="selectPesada" #selectPesada [disabled]="isDisabled" [value]="selectedEntityId" (blur)="onTouched()"
+      (change)="onChange(selectPesada.value)" [ngClass]="{
+          'is-valid' : control?.valid && control?.touched,
+           'is-invalid' : control?.invalid && control?.touched
+          }">
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>El campo Tipo Pesada es requerido.</p>
+    </div>
+  </div>
+</div>

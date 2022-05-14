@@ -1,0 +1,77 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-9 form-group">
+                        <yrd-buscador-chofer 
+                              #chofer
+                              formControlName="chofer" 
+                              [advancedSearch]="true"
+                              [control]="form.get('chofer')"
+                              [validationMessages]="validationMessagesChofer">
+                        </yrd-buscador-chofer>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <yrd-buscador-usuario
+        formControlName="responsablePenalizacion"
+        [etiqueta]="'Responsable Penalización'"
+        [control]="form.get('responsablePenalizacion')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesResponsablePenalizacion">
+      </yrd-buscador-usuario>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <yrd-text-area-con-etiqueta 
+        formControlName="motivoSancion"
+        [rows]="10"
+        [control]="form.get('motivoSancion')"
+        [etiqueta]="'Motivo Sanción'"
+        [maxLength]="500"
+        [validationMessages]="validationMessagesCuerpo">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-5">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Desde'"
+        [control]="form.get('fechaDesde')"
+        [cssClassEtiqueta]="'col-sm-6'"
+        [cssClassControl]="'col-sm-4 ml-menos23'"
+        [validationMessages]="validationMessagesFechaDesde">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-5">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Hasta'"
+        [control]="form.get('fechaHasta')"
+        [cssClassEtiqueta]="'col-sm-3 ml-menos110'"
+        [cssClassControl]="'col-sm-4 ml-menos23'"
+        [validationMessages]="validationMessagesFechaHasta">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <yrd-checkbox-con-etiqueta 
+        [etiqueta]="'Habilitado'" 
+        [control]="form.get('habilitado')"
+        formControlName="habilitado">
+      </yrd-checkbox-con-etiqueta>   
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9 form-group">
+      <yrd-buscador-usuario
+        formControlName="responsableLevantamiento"
+        [etiqueta]="'Responsable Levantamiento'"
+        [control]="form.get('responsableLevantamiento')"
+        [advancedSearch]="true">
+      </yrd-buscador-usuario>
+    </div>
+  </div>
+</div>

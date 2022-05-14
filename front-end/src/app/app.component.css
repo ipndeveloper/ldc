@@ -1,0 +1,60 @@
+:host ::ng-deep .jaspero__confirmation_dialog-actions button
+{
+    font-size: 14px;
+    line-height: 1;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog-actions .primary
+{
+  background: #28a745 !important;
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog-actions .primary:focus
+{
+  box-shadow: 0 0 0 0.2rem rgba(40,167,69,.5);
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog-actions .default
+{
+  background: #dc3545 !important;
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog-actions .default:focus
+{ 
+  box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog
+{
+  min-height:10px;
+  max-height: 250px;
+  display:flex;
+  justify-content: center;
+  word-wrap: normal;
+  flex-direction: column;
+} 
+
+:host ::ng-deep .jaspero__confirmation_dialog:after
+{
+  content:'';
+  min-height:inherit;
+  font-size:0;
+} 
+
+.mt-auto, .my-auto {
+  margin-top: auto!important;
+}
+
+.fixed-bottom.footer {
+  background-color: #32556e;
+  color: #fff;
+  padding-left: 15px;
+  font-size: 11px;
+}
+
+.side-right {
+  padding-right: 5px;
+  float: right;
+}

@@ -1,0 +1,35 @@
+<div class="row {{ cssClassRow}} " *ngIf="lecturaEnModoAutomatico">
+  <div class="{{ cssClassBoton }}">
+    <button type="button" class="{{ cssClassBotonInner }}" *ngIf="mostrarBoton"
+      #botonLeerQR
+      [disabled]="deshabilitarLecturaQR"
+      (click)="onLeerQR()">{{ textoBoton }}
+    </button>
+  </div>
+  <div class="col-sm-6" *ngIf="mostrarQR">
+    {{ mensajeQRLeido }}
+  </div>
+</div>
+
+<div *ngIf="!lecturaEnModoAutomatico" [formGroup]="form">
+  <yrd-texto-con-etiqueta
+    formControlName="qr" 
+    #codigoQR
+    [cssClassEtiqueta]="cssClassEtiquetaManual"
+    [cssClassControl]="cssClassControlManual"
+    [idForm]="'qr'" 
+    [etiqueta]="'QR'" 
+    [control]="form.get('qr')"  
+    [validationMessages]="validationMessagesQR"
+    (blur)="onBlurQR()">
+  </yrd-texto-con-etiqueta>
+</div>
+
+<yrd-modal-lectura-qr 
+  #modalComponent 
+  [contador]="contador" 
+  [prefijoPrimerKeycode]="prefijoPrimerKeycode"
+  [prefijoSegundoKeycode]="prefijoSegundoKeycode"
+  [sufijo]="sufijo"
+  (qrLeido)="onQRLeido($event)">
+</yrd-modal-lectura-qr>

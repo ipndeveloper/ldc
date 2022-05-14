@@ -1,0 +1,26 @@
+<div class="form-horizontal center-block" [formGroup]="establecimientoForm">
+  <label for="numeroEstablecimiento" class="{{ cssClassEtiqueta }} col-form-label">Establecimiento:</label>
+  <div class="form-horizontal {{ cssClassControl }}">
+    <yrd-checkbox-con-etiqueta class="{{ cssClassCheckbox }}" 
+      [etiqueta]="'No'" 
+      [cssClassControl]="'col-sm'"
+      [control]="establecimientoForm.get('noLlevaEstablecimiento')"
+      formControlName="noLlevaEstablecimiento">
+    </yrd-checkbox-con-etiqueta>
+
+    <input class="col-sm-6 form-control" type="number" id="numeroEstablecimiento" 
+      #numeroEstablecimiento
+      formControlName="numeroEstablecimiento" 
+      yrdMaxLength [maxLength]=6 
+      [control]="establecimientoForm.get('numeroEstablecimiento')"
+      [value]="numero" 
+      oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+      [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched      
+      }">
+    <div class="invalid-feedback">
+      <p>El campo Establecimiento es requerido.</p>
+    </div>
+  </div>
+</div>

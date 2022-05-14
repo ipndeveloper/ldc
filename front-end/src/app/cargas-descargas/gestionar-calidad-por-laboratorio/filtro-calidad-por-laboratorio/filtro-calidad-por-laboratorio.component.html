@@ -1,0 +1,30 @@
+<form [formGroup]="filtrosForm">
+  <div class="form-horizontal">
+    <yrd-numero-con-etiqueta class="col-sm-4"
+      formControlName="codigoMuestra"
+      [idForm]="'codigoMuestra'"
+      [etiqueta]="'Código Muestra'"
+      [control]="filtrosForm.get('codigoMuestra')"
+      [allowLeadingZeroes]="true"
+      [maxLength]="15">
+    </yrd-numero-con-etiqueta>
+    <yrd-autocomplete-patente #autocompletePatente class="col-sm-4"
+      formControlName="patente" 
+      [idForm]="'patente'"
+      [etiqueta]="'Patente'"
+      [control]="filtrosForm.get('patente')"
+      [isFocused]="true">
+    </yrd-autocomplete-patente>
+    <yrd-buscador-producto class="col-sm-4" 
+      formControlName="producto"
+      [advancedSearch]="true">
+    </yrd-buscador-producto>
+    <yrd-texto-con-etiqueta class="col-sm-4"
+      formControlName="turno"
+      [idForm]="'turno'"
+      [etiqueta]="'Turno'" 
+      [control]="filtrosForm.get('turno')">
+    </yrd-texto-con-etiqueta>
+  </div>
+</form>
+

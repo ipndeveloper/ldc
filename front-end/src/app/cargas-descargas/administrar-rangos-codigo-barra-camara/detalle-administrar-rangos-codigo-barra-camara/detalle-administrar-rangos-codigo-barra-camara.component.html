@@ -1,0 +1,62 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-terminal
+        formControlName="terminal"
+        #terminal 
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarRangosCodigoBarraCamara"
+        [validationMessages]="validationMessagesTerminal">
+      </yrd-desplegable-terminal>
+    </div>
+  </div>
+  <div class="row"
+    formGroupName="fechas">
+    <div class="col-sm-4 form-group">
+      <yrd-fecha-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Desde'"
+        [control]="form.get('fechas.fechaDesde')"
+        [validationMessages]="validationMessagesFechaDesde">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-fecha-con-etiqueta
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Hasta'"
+        [control]="form.get('fechas.fechaHasta')"
+        [validationMessages]="validationMessagesFechaHasta">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+  <div class="row"
+    formGroupName="codigos">
+    <div class="col-sm-4 form-group">
+      <yrd-numero-con-etiqueta 
+        formControlName="codigoDesde"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [etiqueta]="'Código Desde'"
+        [control]="form.get('codigos.codigoDesde')"
+        [validationMessages]="validationMessagesCodigoDesde">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-numero-con-etiqueta
+        formControlName="codigoHasta" 
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [etiqueta]="'Código Hasta'"
+        [control]="form.get('codigos.codigoHasta')"
+        [validationMessages]="validationMessagesCodigoHasta">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</div>

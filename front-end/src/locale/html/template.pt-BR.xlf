@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2c2f199c3c2b72069be27152eecdad9f8b9f94d0" datatype="html">
+        <target>Dejar pendentiño</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-transportes-varios/controlar-descarga-camion-transportes-varios.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

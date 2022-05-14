@@ -1,0 +1,123 @@
+<fieldset [formGroup]="form" class="section-top-padding">
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-movimiento #desplegableTipoMovimiento
+        formControlName="tipoMovimiento"
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoMovimiento')"
+        [validationMessages]="validationMessagesTipoMovimiento">
+      </yrd-desplegable-tipo-movimiento>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-plataforma-descarga *ngIf="!esCarga" #desplegablePlataforma
+        formControlName="plataforma" 
+        [etiqueta]="'Plataforma: '" 
+        [control]="form.get('plataforma')"
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesPlataforma">
+      </yrd-desplegable-plataforma-descarga>
+      <yrd-desplegable-punto-carga *ngIf="esCarga" #desplegablePuntoCarga
+        formControlName="puntoCarga" 
+        [etiqueta]="'Punto de Carga'" 
+        [control]="form.get('puntoCarga')"
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesPuntoCarga">
+      </yrd-desplegable-punto-carga>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-transporte 
+        formControlName="tipoTransporte"
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoTransporte')"
+        [validationMessages]="validationMessagesTipoTransporte">
+      </yrd-desplegable-tipo-transporte> 
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+        formControlName="producto"
+        [control]="form.get('producto')"
+        [advancedSearch]="true"
+        [filtraPorImputacionStock]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-silo
+        formControlName="silo" 
+        [etiqueta]="'Destino: '" 
+        [control]="form.get('silo')"
+        [producto]="form.get('producto')?.value"
+        [validationMessages]="validationMessagesSilo">
+      </yrd-desplegable-silo> 
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-grado
+        formControlName="grado" 
+        [opcionSeleccione]="true"
+        [etiqueta]="'Grado'" 
+        [control]="form.get('grado')">
+      </yrd-desplegable-grado>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="proteinaMinimo" 
+        [idForm]="'proteinaMinimo'"
+        [etiqueta]="'% Prot. Mín.'"
+        [control]="form.get('proteinaMinimo')"
+        [validationMessages]="validationMessagesProteinaMinimo"
+        [maxLength]="5"
+        [maxDecimalPlaces]="2">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="proteinaMaximo" 
+        [idForm]="'proteinaMaximo'"
+        [etiqueta]="'% Prot. Máx.'"
+        [control]="form.get('proteinaMaximo')"
+        [validationMessages]="validationMessagesProteinaMaximo"
+        [maxLength]="5"
+        [maxDecimalPlaces]="2">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label" for="estaHabilitado">Habilitado:</label>
+        <div class="col-sm-9">
+          <input id="estaHabilitado"
+            class="checkbox"
+            type="checkbox"
+            formControlName="estaHabilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="humedadMinimo" 
+        [idForm]="'humedadMinimo'"
+        [etiqueta]="'% Hum. Mín.'"
+        [control]="form.get('humedadMinimo')"
+        [validationMessages]="validationMessagesHumedadMinimo"
+        [maxLength]="5"
+        [maxDecimalPlaces]="2">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="humedadMaximo" 
+        [idForm]="'humedadMaximo'"
+        [etiqueta]="'% Hum. Máx.'" 
+        [control]="form.get('humedadMaximo')"
+        [validationMessages]="validationMessagesHumedadMaxima"
+        [maxLength]="5"
+        [maxDecimalPlaces]="2">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,55 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form"
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+
+  <ng-template #modalBody>
+    <div class="row">
+      <div class="col-sm form-group">
+          <yrd-desplegable-decision-calidad
+            #decision
+            [opcionSeleccione]="true"
+            formControlName="decision"
+            [validationMessages]= "validationMessagesDecision"
+            [control]="form.get('decision')"
+            [cssClassEtiqueta]="'col-sm-3'"
+            [cssClassControl]="'col-sm-6'">
+          </yrd-desplegable-decision-calidad>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm form-group">
+        <yrd-text-area-con-etiqueta 
+          formControlName="observacion"
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-8'"
+          [rows]="3"
+          [control]="form.get('observacion')"
+          [etiqueta]="'Observacion'"
+          [maxLength]="500"
+          [validationMessages]="validationMessagesDecision">
+        </yrd-text-area-con-etiqueta>
+      </div>
+    </div> 
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button #aceptarModal id="btnAceptarModal" 
+      [disabled]="isLoading"
+      type="button" 
+      class="btn btn-success"
+      (click)="onAccept()">Aceptar
+    </button>
+    <button #cancelModal id="btnCancelModal" 
+      [disabled]="isLoading"
+      type="button" 
+      class="btn btn-danger"
+      (click)="modal.close()">Cancelar
+    </button>
+  </ng-template>
+
+</yrd-modal>

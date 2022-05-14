@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    
+    <yrd-filtro-checklist-control-patrimonial
+      #filtro
+      [form]="form.controls.filtro"
+      (buscarClicked)="onClickBuscar()">
+    </yrd-filtro-checklist-control-patrimonial>
+
+    <yrd-datos-checklist-control-patrimonial
+      #datos
+      [form]="form.controls.movimiento">
+    </yrd-datos-checklist-control-patrimonial>
+
+    <yrd-lista-checklist-control-patrimonial
+      #lista
+      [form]="form.controls.lista">
+    </yrd-lista-checklist-control-patrimonial>
+
+    <div class="float-right section-top-padding">
+      <button
+        type="button"
+        class="btn btn-success"
+        [disabled]="disableButtons" 
+        (click)="onClickAceptar()"
+        i18n>Aceptar
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger"
+        [disabled]="disableButtons" 
+        (click)="onClickCancelar()" 
+        i18n>Cancelar
+      </button>
+    </div>
+
+  </form>
+</div>

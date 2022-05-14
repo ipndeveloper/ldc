@@ -1,0 +1,50 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Identificar Camión</legend>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocumentoPorte"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-8'"
+        [tieneOpcionSeleccione]="false" 
+        [tipoProducto]="tipoProducto"
+        [tipoTransporte]="tipoTransporte"
+        [control]="form.get('tipoDocumentoPorte')"
+        [validationMessages]="validationMessagesTipoDocPorte">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+    <div class="col-sm-2" *ngIf="esCartaPorteElectronica">
+      <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        #inputNumeroCTG
+        [etiqueta]="'CTG'" 
+        [control]="form.get('ctg')"
+        [validationMessages]="validationMessagesCTG"
+        [allowLeadingZeroes]="true"
+        (blur)="OnBlurRecuperarDatoCpe()"
+        yrdMaxLength [maxLength]=12
+        [allowLeadingZeroes]="true">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-mascara-con-etiqueta class="form-group"
+        formControlName="numeroDocumentoPorte"  
+        #inputNumeroDocumentoPorte 
+        [control]="form.get('numeroDocumentoPorte')"         
+        [etiqueta]="'Número de Carta de Porte'"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-6'"
+        [mascara]="maskRegex"
+        [isLoading]="spinnerDocumentoPorte"
+        [validationMessages]="validationMessagesNroPorte">
+      </yrd-texto-mascara-con-etiqueta>
+    </div>
+    <div class="col-sm">
+      <button class="btn btn-primary" 
+        (click)="buscarMovimiento()" 
+        [disabled]="disableBotonBuscar"
+        i18n>Buscar
+      </button>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,106 @@
+<div [formGroup]="form">
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <yrd-desplegable-terminal 
+                        #terminal
+                        formControlName="terminal"
+                        [control]="form.get('terminal')"
+                        [opcionSeleccione]="true"
+                        [cssClassControl]="'col-sm-4'"
+                        [permiso]="Permission.AdministrarNotificaciones"
+                        [validationMessages]="validationMessagesTerminal">
+                    </yrd-desplegable-terminal>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 form-group">
+                    <yrd-desplegable-tipo-notificacion
+                        formControlName="tipoNotificacion"
+                        [control]="form.get('tipoNotificacion')"
+                        [opcionSeleccione]="true"
+                        [cssClassEtiqueta]="'col-sm-5'"
+                        [cssClassControl]="'col-sm-7 fixPadding'"
+                        [validationMessages]="validationMessagesTipoNotificacion">
+                    </yrd-desplegable-tipo-notificacion>
+                </div>
+                <div class="col-sm-5 form-group">
+                    <div *ngIf="enableDesplegableMotivo">
+                        <yrd-desplegable-motivo-error-balanza
+                            formControlName="motivo"
+                            [opcionSeleccione]="true"
+                            [cssClassEtiqueta]="'col-sm-2'"
+                            [cssClassControl]="'col-sm-10'"
+                            [control]="form.get('motivo')"
+                            [validationMessages]="validationMessagesMotivo">
+                        </yrd-desplegable-motivo-error-balanza>
+                    </div>
+                    <div *ngIf="enableDesplegableEstado">
+                        <yrd-desplegable-tiempo-limite-estado
+                            formControlName="estado"
+                            [opcionSeleccione]="true"
+                            [cssClassEtiqueta]="'col-sm-2'"
+                            [cssClassControl]="'col-sm-10'"
+                            [control]="form.get('estado')"
+                            [validationMessages]="validationMessagesEstado">
+                        </yrd-desplegable-tiempo-limite-estado>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <yrd-texto-con-etiqueta 
+                        formControlName="asunto"
+                        #asunto
+                        [control]="form.get('asunto')"
+                        [etiqueta]="'Subject'"
+                        [validationMessages]="validationMessagesAsunto"
+                        yrdMaxLength [maxLength]="998">
+                    </yrd-texto-con-etiqueta>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <yrd-text-area-con-etiqueta 
+                        formControlName="cuerpo"
+                        [rows]="10"
+                        [control]="form.get('cuerpo')"
+                        [etiqueta]="'Cuerpo'"
+                        [maxLength]="16300"
+                        [validationMessages]="validationMessagesCuerpo">
+                    </yrd-text-area-con-etiqueta>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <yrd-datos-destinatarios 
+                        #datosDestinatarios
+                        [form]="form.controls.datosDestinatarios"
+                        [esConsulta]="esConsulta"
+                        [disableActions]="disableActionsDatos">
+                    </yrd-datos-destinatarios>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <yrd-multiselect-variable-template
+                    formControlName="variableTemplate"
+                    [height]="'305px'"
+                    [control]="form.get('variableTemplate')">
+                </yrd-multiselect-variable-template>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="float-right">
+                        <button class="btn btn-default" 
+                            (click)="onIncluirCuerpo()"
+                            [disabled]="disableActions || form.controls.variableTemplate.value.length === 0">Incluir en Cuerpo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

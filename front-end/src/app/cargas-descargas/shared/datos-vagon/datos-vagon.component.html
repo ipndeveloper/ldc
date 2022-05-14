@@ -1,0 +1,60 @@
+<fieldset [formGroup]="datosVagonForm">
+  <legend class="col-form-label" i18n>Vagón</legend>
+
+  <div class="form-horizontal">
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta class="col-sm-6" 
+        formControlName="numeroVagon" 
+        [etiqueta]="'Nro. Vagón'" 
+        [control]="datosVagonForm.get('numeroVagon')"
+        [validationMessages]="validationMessagesVagon"
+        yrdMaxLength [maxLength]=8
+        #numeroVagon>
+      </yrd-numero-con-etiqueta>
+      <yrd-numero-con-etiqueta class="col-sm-6" 
+        formControlName="tarjeta" 
+        [etiqueta]="'Tarjeta'" 
+        [control]="datosVagonForm.get('tarjeta')"
+        yrdMaxLength [maxLength]=10>
+      </yrd-numero-con-etiqueta>
+      <yrd-fecha-con-etiqueta class="col-sm-6" 
+        formControlName="fechaEntrada"
+        *ngIf="esFueraCircuito"
+        [etiqueta]="'Fecha Entrada'" 
+        [control]="datosVagonForm.get('fechaEntrada')">
+      </yrd-fecha-con-etiqueta>
+      <yrd-fecha-con-etiqueta class="col-sm-6" 
+        formControlName="fechaOperacion" 
+        *ngIf="esFueraCircuito"
+        [etiqueta]="'Fecha Operación'" 
+        [control]="datosVagonForm.get('fechaOperacion')">
+      </yrd-fecha-con-etiqueta>
+      <yrd-fecha-con-etiqueta class="col-sm-6" 
+        formControlName="fechaSalida" 
+        *ngIf="esFueraCircuito"
+        [etiqueta]="'Fecha Salida'" 
+        [control]="datosVagonForm.get('fechaSalida')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <div formGroupName="kilosBrutosTaraGroup">
+        <yrd-numero-con-etiqueta [idForm]="'kgBruto'" class="col-sm-6" formControlName="kilosBruto" [etiqueta]="'Kgs Bruto'"
+          [control]="datosVagonForm.get('kilosBrutosTaraGroup.kilosBruto')" 
+          [validationMessages]="validationMessagesKilosBrutos"
+          [maxLength]="5">
+        </yrd-numero-con-etiqueta>       
+        <yrd-numero-con-etiqueta [idForm]="'kgTara'" class="col-sm-6" formControlName="kilosTara" [etiqueta]="'Kgs Tara'"
+          [control]="datosVagonForm.get('kilosBrutosTaraGroup.kilosTara')" 
+          [validationMessages]="validationMessagesKilosTara"
+          [maxLength]="5">
+        </yrd-numero-con-etiqueta>
+      </div>
+      <yrd-numero-con-etiqueta class="col-sm-6" 
+        formControlName="kilosNeto" 
+        [idForm]="'kgNeto'" 
+        [etiqueta]="'Kgs Neto'"
+        [control]="datosVagonForm.get('kilosNeto')">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

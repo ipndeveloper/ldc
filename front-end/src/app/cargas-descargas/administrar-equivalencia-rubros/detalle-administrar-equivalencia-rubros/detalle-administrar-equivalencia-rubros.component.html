@@ -1,0 +1,74 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-camara 
+        formControlName="camara"
+        #camara
+        [opcionSeleccione]="true"
+        [control]="form.get('camara')"
+        [validationMessages]="validationMessagesCamara">
+      </yrd-desplegable-camara>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-buscador-producto
+        #producto
+        formControlName="producto"
+        [cssClassControl]="'col-sm-3'"
+        [control]="form.get('producto')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-rubro-calidad
+        formControlName="rubro"
+        #rubro
+        [opcionSeleccione]="true"
+        [control]="form.get('rubro')"
+        [producto]="formProducto"
+        [validationMessages]="validationMessagesRubro">
+      </yrd-desplegable-rubro-calidad>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="codigoTipo"
+        [control]="form.get('codigoTipo')"
+        [etiqueta]="'Código Tipo Ensayo'"
+        [cssClassControl]="'col-sm-3'"
+        [validationMessages]="validationMessagesCodigoTipo" 
+        yrdMaxLength [maxLength]="1">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-numero-con-etiqueta
+        formControlName="codigo"
+        [control]="form.get('codigo')"
+        [etiqueta]="'Código Ensayo'" 
+        [validationMessages]="validationMessagesCodigo">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <div class="form-group form-horizontal">
+        <label for="habilitado"
+              class="col-sm-3 col-form-label">Habilitado:
+        </label>
+        <div class="col-sm-9">
+          <input type="checkbox"
+                class="checkbox"
+                id="habilitado"
+                formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

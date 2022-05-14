@@ -1,0 +1,32 @@
+<yrd-modal-action
+  #modalComponent>
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  <ng-template #modalBody>
+    <yrd-seleccionar-balanza-salida
+      #seleccionarBalanzaSalida
+      [command] = "command"
+      (cerrarPopUp) = "onCancelar()">
+    </yrd-seleccionar-balanza-salida>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button
+      #botonAceptar
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-success"
+      (click)="onAceptar()">Aceptar
+    </button>
+    <button
+      #cancelModal
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-danger"
+      (click)="onCancelar()">
+      Cancelar
+    </button>
+  </ng-template>
+</yrd-modal-action>

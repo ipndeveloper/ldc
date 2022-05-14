@@ -1,0 +1,26 @@
+<div [formGroup]="form" class="section-top-padding">
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-buscador-producto #buscadorProducto
+        formControlName="producto"
+        [control]="form.get('producto')"
+        [advancedSearch]="true"
+        [filtraPorImputacionStock]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-transporte
+        formControlName="tipoTransporte" 
+        [control]="form.get('tipoTransporte')">
+      </yrd-desplegable-tipo-transporte>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-movimiento
+        formControlName="tipoMovimiento"
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoMovimiento')">
+      </yrd-desplegable-tipo-movimiento>
+    </div>
+  </div>
+</div>

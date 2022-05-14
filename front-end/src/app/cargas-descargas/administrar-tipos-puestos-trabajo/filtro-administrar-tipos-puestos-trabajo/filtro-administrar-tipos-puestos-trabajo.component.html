@@ -1,0 +1,14 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta
+        #tipoPuestoTrabajo
+        formControlName="tipoPuestoTrabajo"
+        [control]="form.get('tipoPuestoTrabajo')"
+        [etiqueta]="'Tipo Puesto Trabajo'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-4'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</div>

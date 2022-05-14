@@ -1,0 +1,27 @@
+:host ::ng-deep select.sentido-balanza.entrada::-ms-value {
+    background-color: #32556E;
+    color: white;
+    font-weight: 500;
+    font-size: large;
+}
+
+:host ::ng-deep select.sentido-balanza.entrada {
+    background-color: #32556E;
+    color: white;
+    font-weight: 500;
+    font-size: large;
+}
+
+:host ::ng-deep select.sentido-balanza.salida::-ms-value {
+    background-color: #ff6600;
+    color: white;
+    font-weight: 500;
+    font-size: large;
+}
+
+:host ::ng-deep select.sentido-balanza.salida {
+    background-color: #ff6600;
+    color: white;
+    font-weight: 500;
+    font-size: large;
+}

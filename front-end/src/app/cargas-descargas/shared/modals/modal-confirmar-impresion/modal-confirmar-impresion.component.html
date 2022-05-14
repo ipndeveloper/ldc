@@ -1,0 +1,35 @@
+<yrd-modal #modalComponent
+  [formGroup]="form"
+  [hasCloseButton]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader>
+    <h5>{{ labelHeader }}</h5>
+  </ng-template>
+  
+  <ng-template #modalBody>
+    <div class="row">
+      <div class="col-sm-12">
+        <yrd-desplegable-impresoras-por-usuario
+          #desplegableImpresora
+          formControlName="impresora"
+          [control]="form.get('impresora')"
+          [cssClassEtiqueta]="'col-sm'">
+        </yrd-desplegable-impresoras-por-usuario>
+      </div>
+    </div>
+  </ng-template>
+  
+  <ng-template #modalFooter>
+    <button id="btnAceptarModal" 
+      type="button" 
+      class="btn btn-success"
+      (click)="onAccept()">{{ btnAcceptText }}
+    </button>
+    <button id="btnCancelModal" 
+      type="button" 
+      class="btn btn-danger"
+      (click)="modal.close()">{{ btnCancelText }}
+    </button>
+  </ng-template>
+</yrd-modal>

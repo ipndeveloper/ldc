@@ -1,0 +1,65 @@
+<fieldset [formGroup]="busquedaMovimientoForm">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal">
+
+    <div class="col-sm-2" *ngIf="!esFueraCircuito">
+      <yrd-desplegable-valor-booleano
+        #desplegableValorBooleano
+        formControlName="esEntrada"
+        [control]="busquedaMovimientoForm.get('esEntrada')"
+        [etiquetaPrincipal]="'Sentido Balanza:'"
+        [etiquetaTrue]="'ENTRADA'"
+        [cssClassTrue]="'sentido-balanza entrada'"
+        [etiquetaFalse]="'SALIDA'"
+        [cssClassFalse]="'sentido-balanza salida'">
+      </yrd-desplegable-valor-booleano>
+    </div>
+
+    <div class="col-sm-2 float-left" *ngIf="!esFueraCircuito && esAutomatico">
+      <button class="btn btn-primary"
+        #botonHabilitarBalanza 
+        [disabled]="disableButtons || isLoading" 
+        (click)="habilitarBalanza()">Habilitar Balanza
+      </button>
+    </div>
+    
+    <yrd-autocomplete-patente class="col-sm-2"
+      formControlName="patenteCamion" 
+      #autocompletePatente 
+      *ngIf='!esTren' 
+      [idForm]="'patenteCamion'" 
+      [etiqueta]="'Patente Camión'" 
+      [control]="busquedaMovimientoForm.get('patenteCamion')" 
+      [validationMessages]="validationMessagesPatenteCamion">
+    </yrd-autocomplete-patente>
+
+    <yrd-numero-con-etiqueta class="col-sm-2" 
+      *ngIf='esTren' 
+      formControlName="numeroVagon" 
+      [idForm]="'numeroVagon'" 
+      [etiqueta]="'Nro. Vagón'" 
+      [control]="busquedaMovimientoForm.get('numeroVagon')">
+    </yrd-numero-con-etiqueta>
+
+    <yrd-lectura-tarjeta class="col-sm-3" 
+      #tarjeta
+      [form]="busquedaMovimientoForm" 
+      (tarjetaLeida)="onTarjetaLeida()">
+    </yrd-lectura-tarjeta>
+    
+    <div *ngIf="!esFueraCircuito" class="col-sm-1">
+      <input id="sinTarjeta" type="checkbox" formControlName="sinTarjeta"/>
+      <label for="sinTarjeta">Sin Tarjeta</label>
+    </div>
+
+    <div class="col-sm-1 float-left">
+      <button class="btn btn-primary" 
+        *ngIf="!esFueraCircuito" 
+        [disabled]="botonIdentificarCamionDeshabilitado"
+        (click)="onClickIdentificarCamion()"
+        i18n>Identificar Camión
+      </button>
+    </div>
+
+  </div>
+</fieldset>

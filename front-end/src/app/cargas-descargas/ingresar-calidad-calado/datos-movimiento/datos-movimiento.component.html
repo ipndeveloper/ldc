@@ -1,0 +1,29 @@
+<fieldset [formGroup]="datosMovimientoForm">
+  <legend class="col-form-label">Movimiento</legend>
+
+  <div class="form-horizontal">
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'tipoDocumentoPorte'" class="col-sm-4" formControlName="tipoDocumentoPorte" [etiqueta]="'Tipo Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'nroDocumentoPorte'" class="col-sm-4" formControlName="nroDocumentoPorte" [etiqueta]="'Nro. Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'ctg'" class="col-sm-4" formControlName="ctg" [etiqueta]="'CTG'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'estado'" class="col-sm-4" formControlName="estado" [etiqueta]="'Estado'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'estadoCupo'" class="col-sm-4" formControlName="estadoCupo" [etiqueta]="'Estado Cupo'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'producto'" class="col-sm-4" formControlName="producto" [etiqueta]="'Producto'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'titular'" class="col-sm-4" formControlName="titular" [etiqueta]="'Titular'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'vendedor'" class="col-sm-4" formControlName="vendedor" [etiqueta]="'Vendedor'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'turno'" class="col-sm-4" formControlName="turno" [etiqueta]="'Turno'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'corredor'" class="col-sm-4" formControlName="corredor" [etiqueta]="'Corredor'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'destinatario'" class="col-sm-4" formControlName="destinatario" [etiqueta]="'Destinatario'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'entregador'" class="col-sm-4" formControlName="entregador" [etiqueta]="'Entregador'"></yrd-texto-con-etiqueta>
+    </div>    
+    <div class="col-sm-12 form-horizontal aling-end">
+      <yrd-texto-con-etiqueta [idForm]="'sede'" class="col-sm-4" formControlName="sede" [etiqueta]="'Sede'"></yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

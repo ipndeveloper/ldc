@@ -1,0 +1,99 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">{{ LeyendaDetalle }}</legend>
+  <div class="row">
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        #pesoBrutoInput
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [validationMessages]="validationMessagesPesoBruto"
+        formControlName="pesoBruto" 
+        [idForm]="'pesoBruto'" 
+        [etiqueta]="'Peso Bruto (kg)'" 
+        [control]="form.get('pesoBruto')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-moneda
+        formControlName="moneda" 
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesMoneda"
+        [etiqueta]="'Moneda'" 
+        [control]="form.get('moneda')">
+      </yrd-desplegable-moneda>      
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="tarifa" 
+        [idForm]="'tarifa'" 
+        [etiqueta]="'Tarifa'" 
+        [control]="form.get('tarifa')">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta 
+        #ticketDePago
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [validationMessages]="validationMessagesTicketDePago"
+        formControlName="ticketDePago" 
+        [idForm]="'ticketDePago'" 
+        [etiqueta]="'Ticket de Pago'" 
+        [control]="form.get('ticketDePago')"
+        yrdMaxLength [maxLength]=50
+        (keypress)="keyPressAlphaNumeric($event)">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-medio-de-pago
+        formControlName="medioDePago" 
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesMedioDePago"
+        [etiqueta]="'Medio de Pago'" 
+        [control]="form.get('medioDePago')">
+      </yrd-desplegable-medio-de-pago>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-lectura-qr 
+        #qr
+        [form]="form" 
+        (qrLeido)="onQRLeido()"
+        [mostrarBoton]="false">
+      </yrd-lectura-qr>
+    </div>
+
+  </div>
+
+  <div class="mt-3">
+    <div class="float-right" style="margin-bottom: 20pt">
+      <button *ngIf="!modoPagar"
+        class="btn btn-primary" 
+        (click)="onClickReembolsar()"
+        [disabled]="disableButtons">Reembolsar
+      </button>
+      <button *ngIf="modoPagar"
+        class="btn btn-primary" 
+        (click)="onClickPagar()"
+        [disabled]="disableButtons">Pagar
+      </button>
+      <button *ngIf="modoPagar"
+        class="btn btn-primary" 
+        (click)="onClickNoPagar()"
+        [disabled]="disableButtons">Exceptuar Pago
+      </button>
+      <button 
+        class="btn btn-primary" 
+        (click)="onClickLimpiar()"
+        [disabled]="disableButtons">Limpiar
+      </button>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,12 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta
+      #producto      
+      class="col-sm-6"
+      formControlName="producto"
+      [cssClassControl]="'col-sm-5'"      
+      [control]="form.get('producto')"
+      [etiqueta]="'Producto'">
+    </yrd-texto-con-etiqueta>     
+  </div>
+</div>

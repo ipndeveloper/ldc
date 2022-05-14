@@ -1,0 +1,84 @@
+<div class="col-sm-12">
+  <fieldset [formGroup]="formTesteoTarjeta">
+    <legend class="col-form-label">Lectura de tarjeta</legend>
+
+    <div class="row">      
+      <div class="col-sm-4 form-group">
+        <yrd-texto-con-etiqueta
+          [idForm]="'primerPrefijo'"
+          formControlName="primerPrefijo"        
+          [etiqueta]="'Primer prefijo'"
+          [allowIcon]="true"
+          [successIcon]="primerPrefijoLeido"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-5'">             
+        </yrd-texto-con-etiqueta>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-texto-con-etiqueta
+          [idForm]="'segundoPrefijo'"
+          formControlName="segundoPrefijo"        
+          [etiqueta]="'Segundo prefijo'"
+          [allowIcon]="true"
+          [successIcon]="segundoPrefijoLeido"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-5'">
+        </yrd-texto-con-etiqueta>      
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-texto-con-etiqueta
+          [idForm]="'sufijo'"
+          formControlName="sufijo"
+          [etiqueta]="'Sufijo'"
+          [allowIcon]="true"
+          [successIcon]="sufijoLeido"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-5'">
+        </yrd-texto-con-etiqueta>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-texto-con-etiqueta 
+          [idForm]="'lecturaCompleta'"
+          formControlName="lecturaCompleta"
+          [etiqueta]="'Tarjeta Completa'"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-5'">
+        </yrd-texto-con-etiqueta>            
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-texto-con-etiqueta
+          [idForm]="'tarjetaLeida'"        
+          formControlName="tarjetaLeida"
+          [etiqueta]="'Tarjeta Leída'"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-5'">
+        </yrd-texto-con-etiqueta>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <div class="form-horizontal">
+          <div class="col-sm-4">
+            <button
+              #nuevaLectura
+              class="btn btn-primary"
+              type="button"
+              (click)="limpiar()">Nueva Lectura            
+            </button>
+          </div>
+          <div class="col-sm-7">
+            <p>{{ mensajeInformativo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>

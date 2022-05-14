@@ -1,0 +1,104 @@
+<form [formGroup]="filtrosForm">
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocPorte"
+        [control]="filtrosForm.get('tipoDocPorte')"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [control]="filtrosForm.get('ctg')"
+        [allowLeadingZeroes]="true"
+        yrdMaxLength [maxLength]=12>
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Nro. Doc. Porte:</label>
+        <div class="col-sm-9">
+            <input class="form-control" type="text"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+              #nroDocPorte
+              formControlName="nroDocPorte"
+              maxlength="13"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-movimiento
+        formControlName="tipoMovimiento"
+        [opcionSeleccione]= "true"
+        [control]="filtrosForm.get('tipoMovimiento')">
+      </yrd-desplegable-tipo-movimiento>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-motivo-estado-movimiento
+        formControlName="motivoEstadoMovimiento"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-motivo-estado-movimiento>  
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-estado-movimiento
+        formControlName="estadoMovimiento"
+        [filters]="filtroEstadoMovimiento">
+      </yrd-desplegable-estado-movimiento>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-transporte
+        formControlName="tipoTransporte" 
+        [control]="filtrosForm.get('tipoTransporte')"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-transporte>
+    </div>
+    <div class="col-sm-4">
+      <yrd-autocomplete-vagon
+        formControlName="numeroVagon"
+        [idForm]="'numeroVagon'"
+        [etiqueta]="'Numero Vagon'"
+        [control]="filtrosForm.get('numeroVagon')">
+      </yrd-autocomplete-vagon>
+    </div>
+    <div class="col-sm-4">
+      <yrd-autocomplete-patente
+        formControlName="patenteCamion"
+        [idForm]="'patenteCamion'"
+        [etiqueta]="'Patente Camion'"
+        [control]="filtrosForm.get('patenteCamion')">
+      </yrd-autocomplete-patente>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaEntrada"
+        [idForm]="'fechaEntrada'"
+        [etiqueta]="'Fecha Entrada'"
+        [control]="filtrosForm.get('fechaEntrada')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="tarjeta"
+        [idForm]="'tarjeta'" 
+        [etiqueta]="'Tarjeta'"
+        [allowLeadingZeroes]="true" 
+        [control]="filtrosForm.get('tarjeta')" 
+        [validationMessages]="validationMessagesTarjeta">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+        formControlName="producto"
+        [advancedSearch]="true">
+      </yrd-buscador-producto>
+    </div>
+  </div>
+</form>

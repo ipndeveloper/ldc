@@ -1,0 +1,19 @@
+<div class="form-horizontal">
+  <label *ngIf= "habilitarEtiqueta" for="inputCheckbox" class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}">
+    <input type="checkbox" id="inputCheckbox" 
+      [disabled]="isDisabled" 
+      #inputCheckbox
+      class="form-control checkbox form-check-input-right"
+      (change)="valueChanged(inputCheckbox.checked)" 
+      [checked]="valor"
+      [value]="valor" 
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+        }" (blur)='touched()' yrdFocus [isFocused]="isFocused" [element]="element"/>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

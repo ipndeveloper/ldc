@@ -1,0 +1,15 @@
+<fieldset [formGroup]="datosMovimientoForm">
+  <legend class="col-form-label">Movimiento</legend>
+
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="tipoDocumentoPorte" [etiqueta]="'Tipo Doc. Porte'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="nroDocumentoPorte" [etiqueta]="'Número Doc. Porte'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="titular" [etiqueta]="'Titular'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="patenteCamion" [etiqueta]="'Patente'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="vagon" [etiqueta]="'Vagón'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="netoBalanza" [etiqueta]="'Neto Balanza'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="fechaEntrada" [etiqueta]="'Fecha Entrada'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="fechaOperacion" [etiqueta]="'Fecha Operación'"></yrd-texto-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="fechaSalida" [etiqueta]="'Fecha Salida'"></yrd-texto-con-etiqueta>
+  </div>
+</fieldset>

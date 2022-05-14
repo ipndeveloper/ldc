@@ -1,0 +1,35 @@
+<fieldset [formGroup]="datosMovimientoForm">
+  <legend class="col-form-label">Movimiento</legend>
+  <div class="form-horizontal">
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'tipoTransporte'" class="col-sm-4" formControlName="tipoTransporte" [etiqueta]="'Tipo Transporte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'tipoMovimiento'" class="col-sm-4" formControlName="tipoMovimiento" [etiqueta]="'Tipo Movimiento'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'estadoMovimiento'" class="col-sm-4" formControlName="estadoMovimiento" [etiqueta]="'Estado'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal pt-2">
+      <yrd-texto-con-etiqueta [idForm]="'tipoDocumentoPorte'" class="col-sm-4" formControlName="tipoDocumentoPorte" [etiqueta]="'Tipo Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'nroDocumentoPorte'" class="col-sm-4" formControlName="nroDocumentoPorte" [etiqueta]="'Nro. Doc. Porte'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'numeroCTG'" class="col-sm-4" formControlName="numeroCTG" [etiqueta]="'CTG'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal pt-2">
+      <yrd-texto-con-etiqueta [idForm]="'patenteCamion'" class="col-sm-4" formControlName="patenteCamion" [etiqueta]="'Patente'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'numeroVagon'" class="col-sm-4" formControlName="numeroVagon" [etiqueta]="'Vagón'"></yrd-texto-con-etiqueta>        
+      <yrd-texto-con-etiqueta [idForm]="'producto'" class="col-sm-4" formControlName="producto" [etiqueta]="'Producto'"></yrd-texto-con-etiqueta>
+    </div>  
+    <div class="col-sm-12 form-horizontal pt-2">
+      <yrd-texto-con-etiqueta [idForm]="'titular'" class="col-sm-4" formControlName="titular" [etiqueta]="'Titular CP'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'vendedor'" class="col-sm-4" formControlName="vendedor" [etiqueta]="'Vendedor'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'fechaHoraEntrada'" class="col-sm-4" formControlName="fechaHoraEntrada" [etiqueta]="'Fecha/Hora Entrada'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal">
+      <yrd-texto-con-etiqueta [idForm]="'turnoPlaya'" class="col-sm-4" formControlName="turnoPlaya" [etiqueta]="'Turno Playa'"></yrd-texto-con-etiqueta>      
+      <yrd-texto-con-etiqueta [idForm]="'estadoCupo'" class="col-sm-4" formControlName="estadoCupo" [etiqueta]="'Estado Cupo'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'entregador'" class="col-sm-4" formControlName="entregador" [etiqueta]="'Entregador'"></yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-12 form-horizontal pt-2">
+      <yrd-texto-con-etiqueta [idForm]="'ordenCarga'" class="col-sm-4" formControlName="ordenCarga" [etiqueta]="'Orden Carga'"></yrd-texto-con-etiqueta>      
+      <yrd-texto-con-etiqueta [idForm]="'numeroViaje'" class="col-sm-4" formControlName="numeroViaje" [etiqueta]="'Nro. Viaje'"></yrd-texto-con-etiqueta>
+      <yrd-texto-con-etiqueta [idForm]="'nroCupo'" class="col-sm-4" formControlName="nroCupo" [etiqueta]="'Nro. Cupo'"></yrd-texto-con-etiqueta>
+    </div>    
+  </div>
+</fieldset>

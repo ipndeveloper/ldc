@@ -1,0 +1,20 @@
+<div class="datatable">
+  <ngx-datatable
+    [selected]="selected" 
+    [rows]="rows" 
+    [columns]="columns" 
+    [messages]="{
+      emptyMessage: 'No existen datos para mostrar',
+      totalMessage: 'registros'
+    }" 
+    class="bootstrap"
+    [columnMode]="'force'" 
+    [rowHeight]="rowHeight"
+    [limit]="limit"
+    [footerHeight]="footerHeight"
+    [selectionType]="selectionType"
+    [selectCheck]="singleSelectCheck"
+    (select)="onSelect($event)">
+  </ngx-datatable>
+  <br>
+</div>

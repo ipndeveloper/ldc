@@ -1,0 +1,190 @@
+<fieldset [formGroup]="datosDocumentoForm">
+    <legend *ngIf="mostrarEncabezado" class="col-form-label">Datos Documento</legend>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-producto formControlName="producto" [control]="datosDocumentoForm.get('producto')" [advancedSearch]="true">
+            </yrd-buscador-producto>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6">
+                    <yrd-texto-con-etiqueta formControlName="ordenCarga" [etiqueta]="'Orden Carga'" [cssClassControl]="'col-sm-6 fixPaddingOrdenCarga'" [cssClassEtiqueta]="'col-sm-6'" [control]="datosDocumentoForm.get('ordenCarga')">
+                    </yrd-texto-con-etiqueta>
+                </div>
+                <div class="col-sm-6">
+                    <yrd-texto-con-etiqueta formControlName="numeroViaje" [cssClassControl]="'col-sm-3 fixMarginViajeOrdenCarga'" [habilitarEtiqueta]="false" [control]="datosDocumentoForm.get('numeroViaje')">
+                    </yrd-texto-con-etiqueta>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta formControlName="patenteCamion" [etiqueta]="'Patente Camión'" [cssClassControl]="'col-sm-3'" [control]="datosDocumentoForm.get('patenteCamion')">
+            </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta formControlName="estadoViaje" [cssClassControl]="'col-sm-6'" [idForm]="'estadoViaje'" [etiqueta]="'Estado Viaje'" [control]="datosDocumentoForm.get('estadoViaje')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta formControlName="patenteAcoplado" [etiqueta]="'Patente Acoplado'" [cssClassControl]="'col-sm-3'" [control]="datosDocumentoForm.get('patenteAcoplado')">
+            </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="estadoCabecera" [etiqueta]="'Estado Cabecera'" [control]="datosDocumentoForm.get('estadoCabecera')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-remitente-comercial formControlName="remitenteComercial" [advancedSearch]="true" [control]="datosDocumentoForm.get('remitenteComercial')">
+            </yrd-buscador-remitente-comercial>
+        </div>
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="numeroContrato" [etiqueta]="'Numero Contrato'" [control]="datosDocumentoForm.get('numeroContrato')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-intermediario formControlName="intermediario" [advancedSearch]="true" [control]="datosDocumentoForm.get('intermediario')">
+            </yrd-buscador-intermediario>
+        </div>
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta formControlName="finalidad" [etiqueta]="'Finalidad'" [cssClassControl]="'col-sm-6'" [control]="datosDocumentoForm.get('finalidad')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-corredor formControlName="corredor" [advancedSearch]="true" [etiqueta]="'Corredor'" [control]="datosDocumentoForm.get('corredor')" [rol]="'Corredor'">
+            </yrd-buscador-corredor>
+        </div>
+        <div class="col-sm-6">
+            <yrd-buscador-sede 
+                formControlName="sedeOrigen" 
+                [esOrigen]="true" 
+                [advancedSearch]="true" 
+                [control]="datosDocumentoForm.get('sedeOrigen')"
+                [movimientoCarga]="movimientoCarga"
+                [idSedeOrigen]="datosDocumentoForm.get('sedeOrigen')?.value?.id">
+            </yrd-buscador-sede>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-transportista formControlName="transportista" [advancedSearch]="true" [control]="datosDocumentoForm.get('transportista')">
+            </yrd-buscador-transportista>
+        </div>
+        <div class="col-sm-6">
+            <yrd-buscador-sede 
+                formControlName="sedeDestino" 
+                [esOrigen]="false" 
+                [advancedSearch]="true" 
+                [control]="datosDocumentoForm.get('sedeDestino')" 
+                [validationMessages]="validationMessagesSedeDestino"
+                [movimientoCarga]="movimientoCarga"
+                [idSedeOrigen]="datosDocumentoForm.get('sedeOrigen')?.value?.id">
+            </yrd-buscador-sede>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-buscador-chofer formControlName="chofer" [advancedSearch]="true" [control]="datosDocumentoForm.get('chofer')">
+            </yrd-buscador-chofer>
+        </div>
+        <div class="col-sm-6">
+            <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="numeroCEE" [etiqueta]="'CEE Nro.'" [control]="datosDocumentoForm.get('numeroCEE')" [validationMessages]="validationMessagesNumeroCEE" yrdMaxLength [maxLength]=14>
+            </yrd-numero-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-6">
+            <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="cantidadEstimada" [etiqueta]="'Cantidad Est'" [control]="datosDocumentoForm.get('cantidadEstimada')">
+            </yrd-numero-con-etiqueta>
+        </div>
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="usuarioAlta" [etiqueta]="'Usuario alta Orden Carga'" [control]="datosDocumentoForm.get('usuarioAlta')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2 row" *ngIf="marcagestionaCot">
+        <div class="col-sm-6">
+            <yrd-texto-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="numeroTramiteCOT" [etiqueta]="'Nro. Trámite C.O.T.'" [control]="datosDocumentoForm.get('numeroTramiteCOT')">
+            </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-6">
+            <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="numeroCOT" [etiqueta]="'Nro C.O.T.'" [control]="datosDocumentoForm.get('numeroCOT')">
+            </yrd-numero-con-etiqueta>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <yrd-buscador-destinatario formControlName="destinatario" [advancedSearch]="true" [control]="datosDocumentoForm.get('destinatario')">
+            </yrd-buscador-destinatario>
+        </div>
+        <div class="col-sm-6">
+            <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="identificacionDestinacion" [etiqueta]="'Operacion aduanera'" [control]="datosDocumentoForm.get('identificacionDestinacion')">
+            </yrd-numero-con-etiqueta>
+        </div>
+        <div class="col-sm-6" *ngIf="esModificacionOConsultaMovimiento">
+            <yrd-texto-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="tarjeta" [etiqueta]="'Tarjeta'" [control]="datosDocumentoForm.get('tarjeta')">
+            </yrd-texto-con-etiqueta>
+        </div>
+    </div>
+    <div class="pt-2">
+        <div class="container-fluid">
+            <div class="row">
+                <fieldset class="col-sm-6" *ngIf="esModificacionOConsultaMovimiento">
+                    <legend class="col-form-label">Datos Pesaje</legend>
+                    <div class="pt-2">
+                        <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="kilosBruto" [etiqueta]="'Kgs Bruto'" [control]="datosDocumentoForm.get('kilosBruto')">
+                        </yrd-numero-con-etiqueta>
+                    </div>
+                    <div class="pt-2">
+                        <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="kilosTara" [etiqueta]="'Kgs Tara'" [control]="datosDocumentoForm.get('kilosTara')">
+                        </yrd-numero-con-etiqueta>
+                    </div>
+                    <div class="pt-2">
+                        <yrd-numero-con-etiqueta [cssClassControl]="'col-sm-6'" formControlName="kilosNeto" [etiqueta]="'Kgs Neto'" [control]="datosDocumentoForm.get('kilosNeto')">
+                        </yrd-numero-con-etiqueta>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <div class="pt-2 row">
+        <div class="col-sm-7" *ngIf="esMovimientoInsumo">
+            <fieldset>
+                <legend class="col-form-label">Carga</legend>
+                <yrd-desplegable-condicion-manipuleo
+                    formControlName="lugarCarga" 
+                    [control]="datosDocumentoForm.get('lugarCarga')"
+                    [movimientoCarga]="movimientoCarga"
+                    [idViaje]="idViaje"
+                    [esCarga]="true"
+                    [esConsulta]="esConsulta || esFueraDeCircuito"
+                    [deshabilitarActualizarManipuelo]="esConsulta || esFueraDeCircuito"
+                    [validationMessages]="validationMessagesCondicionManipuleo"
+                    (stockDisponible)="onStockDisponible($event)">
+                </yrd-desplegable-condicion-manipuleo>
+            </fieldset>
+        </div>
+        <div class="col-sm-5">
+            <yrd-datos-entrega [datosEntrega]="datosDocumentoForm.get('datosEntrega')">
+            </yrd-datos-entrega>
+        </div>
+    </div>
+    <div class="pt-2 row form-group">
+        <div class="col-sm-12">
+            <fieldset>
+                <legend class="col-form-label">Observaciones</legend>
+                <yrd-text-area-con-etiqueta formControlName="observaciones" [rows]="3" [control]="datosDocumentoForm.get('observaciones')" [mostrarEtiqueta]="false" [cssClassControl]="'col-sm-12'" [maxLength]="250" [validationMessages]="validationMessagesObservaciones">
+                </yrd-text-area-con-etiqueta>
+            </fieldset>
+        </div>
+    </div>
+</fieldset>

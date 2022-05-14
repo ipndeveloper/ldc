@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <form [formGroup]="cambiarTarjetaForm" novalidate>
+
+    <fieldset>
+      <yrd-filtro-cambiar-tarjeta #documentoPorte 
+      [documentoPorteForm]="filtroForm" 
+      [maskRegex]="maskRegex"
+      [tipoTransporte]="tipoTransporte"
+      [tipoDocumento]="tipoDocumentoPorte">
+      </yrd-filtro-cambiar-tarjeta>
+
+      <div class="float-right section-top-padding">
+        <button type="button" class="btn btn-primary" [disabled]="movimiento" (click)="buscar()">Buscar</button>
+        <button type="button" class="btn btn-warning" [disabled]="movimiento" (click)="limpiar()">Limpiar</button>
+      </div>
+    </fieldset>
+
+    <yrd-detalle-cambiar-tarjeta #detalle [detalleForm]="detalleForm" [modoEdicion]="movimiento" (aceptado)="onAceptado()" (cancelado)="onCancelado()"></yrd-detalle-cambiar-tarjeta>
+    <yrd-modal-seleccionar-remito #modalSeleccionarRemito (remitoSeleccionado)="buscarMovimientoPorId(0, $event)" [header]="'Movimientos'" [labelVendedor]="'Titular'" [labelRemito]="'Nro. Doc Porte'"></yrd-modal-seleccionar-remito>
+  </form>
+</div>

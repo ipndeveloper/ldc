@@ -1,0 +1,21 @@
+<div class="form-horizontal">
+    <label for="selectMotivoCupo" class="{{ cssClassEtiqueta }} col-form-label">Motivo Cupo:</label>
+    <div class="{{ cssClassControl }}">
+      <select class="form-control" id="selectMotivoCupo" 
+        #selectMotivoCupo
+        [disabled]="isDisabled" 
+        [value]="selectedEntityId"
+        [ngClass]="{
+          'is-valid' : control?.valid && control?.touched,
+           'is-invalid' : control?.invalid && control?.touched
+          }"
+        (blur)="onTouched(); touched()"
+        (change)="onChange(selectMotivoCupo.value)" >
+        <option *ngIf="opcionSeleccione" value="undefined">Seleccione</option>
+        <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+      </select>
+      <div class="invalid-feedback">
+        <p>El campo Motivo Cupo es requerido.</p>
+      </div>
+    </div>
+  </div>

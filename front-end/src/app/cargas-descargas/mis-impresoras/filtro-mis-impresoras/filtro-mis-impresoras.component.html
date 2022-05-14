@@ -1,0 +1,18 @@
+<fieldset [formGroup]="form" *ngIf="esAdmin">
+  <legend class="col-form-label">Filtro</legend>
+  <div class="col-sm-12 row">
+    <div class="col-sm-7">
+      <yrd-buscador-usuario
+        #usuario
+        formControlName="usuario" 
+        [advancedSearch]="true"
+        [control]="form.controls.usuario"
+        [validationMessages]="validationMessagesUsuario">
+      </yrd-buscador-usuario>
+    </div>
+    <button type="button" class="btn btn-primary"
+      (click)="onBuscar()"
+      i18n>Buscar
+    </button>
+  </div>
+</fieldset>

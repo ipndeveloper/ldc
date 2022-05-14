@@ -1,0 +1,56 @@
+<div [formGroup]="form">
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-desplegable-terminal 
+          formControlName="terminal"
+          #terminal
+          [opcionSeleccione]="true"
+          [control]="form.get('terminal')"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-8'" 
+          [validationMessages]="validationMessagesTerminal"
+          [permiso]="Permission.AdministrarParametrosPorTerminal">
+        </yrd-desplegable-terminal>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-desplegable-tipo-documento-porte
+          formControlName="tipoDocumentoPorte" 
+          [opcionSeleccione]="true"
+          [todosTipoDocumento]="true"
+          [control]="form.get('tipoDocumentoPorte')"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-8'" 
+          [validationMessages]="validationMessagesTipoDocumentoPorte">
+        </yrd-desplegable-tipo-documento-porte>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <yrd-desplegable-tipo-producto
+          formControlName="tipoProducto" 
+          [opcionSeleccione]="true"
+          [control]="form.get('tipoProducto')"
+          [cssClassEtiqueta]="'col-sm-4'"
+          [cssClassControl]="'col-sm-8'" 
+          [validationMessages]="validationMessagesTipoProducto">
+        </yrd-desplegable-tipo-producto>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 form-group">
+        <div class="form-group form-horizontal">
+          <label for="habilitado"
+                class="col-sm-4 col-form-label">Habilitado:
+          </label>
+          <div class="col-sm-8">
+            <input type="checkbox"
+                  class="checkbox"
+                  id="habilitado"
+                  formControlName="habilitado" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

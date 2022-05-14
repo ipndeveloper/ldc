@@ -1,0 +1,13 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-terminal class="col-sm-7"
+      #terminal
+      formControlName="terminal"
+      [validationMessages]="validationMessagesTerminal"
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-6'"
+      [permiso]="Permission.AdministrarParametrosPorTerminal"
+      [control]="form.get('terminal')">
+    </yrd-desplegable-terminal>
+  </div>
+</div>

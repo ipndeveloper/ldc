@@ -1,0 +1,31 @@
+<yrd-modal #modalComponent [formGroup]="modalMotivoForm">
+  <ng-template #modalHeader>
+    <h2>{{ labelHeader }}</h2>
+  </ng-template>
+  <ng-template #modalBody>
+    <yrd-desplegable-motivo-estado-movimiento class="form-group col-sm-12"
+      formControlName="motivoEstadoMovimiento">
+    </yrd-desplegable-motivo-estado-movimiento>
+    <yrd-text-area-con-etiqueta class="form-group col-sm-12"
+      #textoObservaciones
+      formControlName="observacion" 
+      [idForm]="'modalMotivoForm'" 
+      [etiqueta]="'Observación'"
+      [control]="modalMotivoForm.get('observacion')" 
+      [validationMessages]="validationMessagesObservacion"
+      [isFocused]="true">
+    </yrd-text-area-con-etiqueta>  
+  </ng-template>
+  <ng-template #modalFooter>
+    <button id="btnAcceptModal" class="btn btn-success"
+      type="button" 
+      (click)="accept()">Aceptar
+    </button>
+    <button #cancelModal class="btn btn-danger"
+      id="btnCancelModal"
+      type="button" 
+      (keydown)="cancelTabPressed($event)" 
+      (click)="modalComponent.close()">Cancelar
+    </button>
+  </ng-template>
+</yrd-modal>

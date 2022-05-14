@@ -1,0 +1,819 @@
+<messages>
+    <key id="FechaVencimientoMenorAHoy">
+        <value>Fecha de Vencimiento de Carta de Porte debe ser mayor o igual a la fecha de ingreso a la Terminal. </value>
+    </key>
+    <key id="FechaVencimientoLoteMenorA15Dias">
+        <value>La Fecha de Vencimiento del Lote es menor a 15 días. </value>
+    </key>
+    <key id="VerificarLosDatosIngresados">
+        <value>Verificar los datos ingresados.</value>
+    </key>
+    <key id="ErrorValidacion">
+        <value>Error de validación.</value>
+    </key>
+    <key id="DescargaCerealesGuardada">
+        <value>Se Aceptó el ingreso de la descarga para cereales.</value>
+    </key>
+    <key id="ControleLaReferenciaDestinoSojaEpa">
+        <value>Controle la Referencia Destino por la descarga de Soja EPA.</value>
+    </key>
+     <key id="ControleAccionATomarCalado">
+        <value>Para los valores de rubros ingresados la acción sugerida es: </value>
+    </key>
+    <key id="DeseaContinuar">
+        <value>¿Desea continuar?</value>
+    </key>
+    <key id="ElCamionNoSeEncuentraEnEstadoValidoParaIngresoCalidad">
+        <value>El movimiento no se encuentra en el estado adecuado para realizar el ingreso de calidad.</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnEstadoValidoParaAlgunaActividad">
+        <value>El movimiento no se encuentra en estado válido para realizar alguna actividad.</value>
+    </key>
+    <key id="RegistroSalidaConDescargaGuardado">
+        <value>Se Guardó el registro de la salida con descarga.</value>
+    </key>
+    <key id="RegistroSalidaConCargaGuardado">
+        <value>Se Guardó el registro de la salida con Carga.</value>
+    </key>
+    <key id="RegistroSalidasinCargaGuardado">
+        <value>Se Guardó el registro de la salida sin Carga.</value>
+    </key>
+     <key id="ElMovimientoNoSeEncuentraEnEstadoValidoParaControlSalidaExitoso">
+        <value>El movimiento no se encuentra en el estado adecuado para realizar el Control de Salida exitoso.</value>
+    </key>
+      <key id="RegistroSalidaSinDescargaGuardado">
+        <value>Se Guardó el registro de la salida sin descarga.</value>
+    </key>
+    <key id="DeseaConfirmarEstaAccion">
+        <value>¿Desea confirmar esta acción?</value>
+    </key>
+    <key id="DeseaConfirmarLaPlantaSeleccionada">
+        <value>La localidad/provincia de la planta seleccionada difiere de la localidad/provincia informada en el viaje de la OC. ¿Continúa?</value>
+    </key>
+    <key id="localidadProvinciaIngresadasDistintasAOrdenCarga">
+        <value>La Provincia y/o Localidad ingresadas son distintas a la Orden de Carga. ¿Desea continuar?</value>
+    </key>
+    <key id="SeEstaDejandoPendienteORechazandoMovimiento">
+        <value>Se está dejando pendiente o rechazando el movimiento. ¿Desea continuar?</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnEstadoValidoParaCerrarCircuitoPorRechazo">
+        <value>El movimiento no se encuentra en un estado adecuado para Cerrar el Circuito por Rechazo.</value>
+    </key>
+    <key id="NoSeEncontraronResultados">
+        <value>No se encontraron resultados.</value>
+    </key>
+    <key id="PorFavorSeleccioneUnUnicoRegistro">
+        <value>Por favor seleccione un único registro.</value>
+    </key>
+    <key id="DebeHaberAlMenosUnRegistroParaExportar">
+        <value>Debe haber al menos un registro para exportar.</value>
+    </key>
+    <key id="SinRespuestaDelEntregador">
+        <value>Sin respuesta del entregador.</value>
+    </key>
+    <key id="ElMovimientoSeleccionadoAvanzoAlSiguienteEstado">
+        <value>El movimiento seleccionado avanzó al siguiente estado.</value>
+    </key>
+    <key id="LosMovimientosSeleccionadosAvanzaronAlSiguienteEstado">
+        <value>Los movimientos seleccionados avanzaron al siguiente estado.</value>
+    </key>
+    <key id="ElCamionEstaListoParaConstinuarCircuitoPostLab">
+        <value>El camión está listo para Continuar Circuito Post Lab.</value>
+    </key>
+    <key id="ElCamionEstaListoParaContinuarConElRegistroDecisionEntregador">
+        <value>El movimiento esta listo para continuar con el registro de decisión de entregador.</value>
+    </key>
+    <key id="ElCampoNroDocPorteFormato">
+        <value>Nro. Doc. de Porte es requerido y debe contener 12 números.</value>
+    </key>
+    <key id="DebeIngresarNroDocPorteARecuperar">
+        <value>Debe ingresar el Nro. documento de porte a recuperar</value>
+    </key>
+    <key id="DebeSeleccionarAlMenosUnFiltro">
+        <value>Por favor ingrese al menos un criterio de filtro.</value>
+    </key>
+    <key id="ConfirmaLaEliminacionDeCondicionManipuleo">
+        <value>Por favor ingrese al menos un criterio de filtro.</value>
+    </key>
+    <key id="FechaDesdeHastaMenorA7Dias">
+        <value>El rango de fecha ingresado no puede ser mayor a 7 días.</value>
+    </key>
+    <key id="FechaIngresadaMenorOIgualADiaHoy">
+        <value>La fecha ingresada debe ser menor o igual a la fecha del día.</value>
+    </key>
+    <key id="FechaIngresadaHastaMenorOIgualADiaHoy">
+        <value>La fecha hasta debe ser menor o igual a la fecha del día.</value>
+    </key>
+    <key id="FechaIngresadaHastaMayorADiaHoy">
+        <value>La fecha hasta debe ser mayor a la fecha del día.</value>
+    </key>
+    <key id="FechaIngresadaDesdeMenorOIgualADiaHoy">
+        <value>La fecha desde debe ser menor o igual a la fecha del día.</value>
+    </key>
+    <key id="FechaDesdeDebeSerMenorOIgualAFechaHasta">
+        <value>La fecha desde debe ser menor o igual a la fecha hasta.</value>
+    </key>
+    <key id="DebeIngresarHasta250Caracteres">
+        <value>Debe ingresar hasta 250 caracteres.</value>
+    </key>
+    <key id="LaDescargaFueRechazada">
+        <value>La descarga fue rechazada.</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnEstadoValidoModificacion">
+        <value>El movimiento no se encuentra en un estado válido para su modificación.</value>
+    </key>
+    <key id="LaTarjetaFueAsignada">
+        <value>La tarjeta fue asignada.</value>
+    </key>
+    <key id="ExistenCamionesAsignados">
+        <value>Existen camiones asignados</value>
+    </key>
+    <key id="LaCondicionDeManipuleoFueEliminadaConExito">
+        <value>La condición de manipuleo fue eliminada con éxito.</value>
+    </key>
+    <key id="LaEdicionDeLaCondicionDeManipuleoFueGuardadaConExito">
+        <value>La edición de la condición de manipuleo fue guardada con éxito.</value>
+    </key>
+    <key id="LaNuevaCondicionDeManipuleoFueAgregadaConExito">
+        <value>La nueva condición de manipuleo fue agregada con éxito.</value>
+    </key>
+    <key id="ElPorcentajeDeValorMinimoDebeSerMenorAlPorcentajeDeValorMaximo">
+        <value>El % de valor mínimo debe ser menor al % de valor máximo.</value>
+    </key>
+     <key id="ReimpresionExitosa">
+        <value>La reimpresión se ha realizado con éxito</value>
+    </key>
+    <key id="CampoTarjetaSoloNumeros">
+        <value>El campo tarjeta admite sólo números.</value>
+    </key>
+    <key id="VerificarDatosFiltroBusqueda">
+        <value>Verifique los datos ingresados en el filtro de búsqueda.</value>
+    </key>
+    <key id="CampoCodigoBarraCamaraRequerido">
+        <value>Debe ingresar el código de barra de la etiqueta de cámara.</value>
+    </key>
+     <key id="DebeSeleccionarAlMenosUnRubroParaCamara">
+        <value>Debe seleccionar algún rubro para analizar en cámara / laboratorio.</value>
+    </key>
+     <key id="DeberiaEnviarMuestraACamara">
+        <value>Para los valores de rubros ingresados y grado determinado correspondería enviar la muestra a cámara.</value>
+    </key>
+    <key id="NoDeberiaEnviarMuestraACamara">
+        <value>Para los valores de rubros ingresados y grado determinado NO correspondería enviar la muestra a cámara.</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnCircuito">
+        <value>El movimiento identificado no se encuentra en circuito.</value>
+    </key>
+    <key id="PorFavorIngreseUnMovimientoEnCircuito">
+        <value>Por favor ingrese un movimiento en circuito.</value>
+    </key>
+    <key id="PorFavorVerificarLosDatosAntesDeContinuar">
+        <value>¿Confirma los datos ingresados?</value>
+    </key>
+     <key id="LaMuestraSeraDescartada">
+        <value>La muestra será descartada.</value>
+    </key>
+    <key id="LaMuestraFueDescartada">
+        <value>La muestra fue descartada.</value>
+    </key>
+      <key id="LaMuestraSeraAutorizada">
+        <value>La muestra será autorizada.</value>
+    </key>
+      <key id="LaMuestraFueAutorizada">
+        <value>La muestra fue autorizada.</value>
+    </key>
+    <key id="SeActualizoCodigoBarrasDeLaMuestra">
+        <value>Se actualizó el código de barras de la muestra.</value>
+    </key>
+    <key id="LaMuestraSeraReversada">
+        <value>La muestra será reversada.</value>
+    </key>
+    <key id="LaMuestraFueReversada">
+        <value>La muestra fue reversada.</value>
+    </key>
+    <key id="MuestraDebeEstarPendienteAutorizacionParaAccion">
+        <value>La muestra debe estar en estado “Pendiente autorización” para poder recibir esta acción.</value>
+    </key>
+    <key id="MuestraDebeEstarPendienteAutorizacionOAutorizadoEnvioParaAccion">
+        <value>La muestra debe estar en estado “Pendiente autorización” o “Autorizado envío a cámara” para poder recibir esta acción.</value>
+    </key>
+    <key id="MuestraDebeEstarDescartadaParaAccion">
+        <value>La muestra debe estar en estado “Descartada” para poder recibir esta acción.</value>
+    </key>
+    <key id="CampoAdmiteSoloNumeros">
+        <value>El campo sólo admite números.</value>
+    </key>
+    <key id="ReintentoExitoso">
+        <value>La tarea se reintentó exitosamente.</value>
+    </key>
+    <key id="DescarteExitoso">
+        <value>La tarea se descartó exitosamente.</value>
+    </key>
+    <key id="SeCanceloLaNotificacion">
+        <value>La notificación se canceló exitosamente.</value>
+    </key>
+    <key id="ReintentoNotificacionExitoso">
+        <value>La notificación se reintentó exitosamente.</value>
+    </key>
+    <key id="TrabajoGeneracionArchivoMuestraCreado">
+        <value>Trabajo de generación de archivo se creó exitosamente.</value>
+    </key>
+    <key id="DescargaDeArchivoExitoso">
+        <value>El archivo se descargó exitosamente.</value>
+    </key>
+    <key id="TrabajoGeneracionArchivoMuestraSinError">
+        <value>El trabajo no contiene ningún error.</value>
+    </key>
+    <key id="FechaDesdeHastaMenorADiasParametrizados">
+        <value>La diferencia de días ingresada no puede ser mayor a </value>
+    </key>
+    <key id="DescargaSubproductosGuardada">
+        <value>Se Aceptó el ingreso de la descarga para Subproducto.</value>
+    </key>
+    <key id="DescargaNoGranoGuardada">
+        <value>Se Aceptó el ingreso de la descarga para No Grano.</value>
+    </key>
+    <key id="SeReversoSalidaHaciaBalanzaEntrada">
+        <value>Se reversó la salida hacia Balanza Entrada.</value>
+    </key>
+    <key id="SeReversoSalidaHaciaCalado">
+        <value>Se reversó la salida hacia Calado.</value>
+    </key>
+    <key id="SeReversoSalidaHaciaSupervisorCalado">
+        <value>Se reversó la salida hacia Supervisor Calado.</value>
+    </key>
+    <key id="DebeIndicarEstadoRetornoCircuito">
+        <value>Debe indicar en qué estado retorna al circuito.</value>
+    </key>
+    <key id="QuitarDeCircuitoGuardado">
+        <value>Se quitó del circuito el movimiento seleccionado.</value>
+    </key>
+    <key id="DescargaCamionGuardada">
+        <value>Se Aceptó el ingreso de la descarga.</value>
+    </key>
+    <key id="SeAceptoElIngresoDelPesaje">
+        <value>Se aceptó el ingreso del pesaje.</value>
+    </key>
+    <key id="SeCanceloElIngresoDelPesaje">
+        <value>Se canceló el ingreso del pesaje.</value>
+    </key>
+    <key id="RubroSeleccionadoValorMayorACero">
+        <value>El rubro seleccionado debe tener valor mayor a 0.</value>
+    </key>
+    <key id="RebajaConvenidaPorcentajeEntreCeroYCien">
+        <value>La rebaja convenida ingresada debe ser un % comprendido entre 0 y 100.</value>
+    </key>
+    <key id="DebeIngresarUnDocumentoPorte">
+        <value>Debe ingresar un número de Documento de Porte.</value>
+    </key>
+    <key id="DebeIngresarUnDocumentoPorteOCTG">
+        <value>Debe ingresar un número de Documento de Porte ó CTG.</value>
+    </key>
+    <key id="DebeCalcularParaPoderIngresarRebajaConvenida">
+        <value>Debe calcular para poder ingresar rebaja convenida.</value>
+    </key>
+    <key id="DebeSeleccionarAlMenosUnRegistroParaEliminar">
+        <value>Debe seleccionar al menos 1 registro para eliminar.</value>
+    </key>
+    <key id="DecisionRegistrada">
+        <value>La decisión fue registrada exitosamente.</value>
+    </key>
+     <key id="ElCamionCuentaConAnalisisCalidadPrevio">
+        <value>El camión identificado cuenta con un análisis de calidad previo.</value>
+    </key>
+     <key id="YaExisteUnaMuestraConElCodigoBarraIngresado">
+        <value>Ya existe una muestra con el código de barra ingresado.</value>
+    </key>
+    <key id="DebeIngresarUnaReferenciaDestinoParaLaDescarga">
+        <value>Debe ingresar una Referencia de destino para la descarga.</value>
+    </key>
+    <key id="ElCampoXEsRequerido">
+        <value>El Campo {0} es requerido.</value>
+    </key>
+     <key id="ElCampoXEsRequeridoParaBuscar">
+        <value>El Campo {0} es requerido para buscar.</value>
+    </key>
+    <key id="ElCampoXDebeSerMayorAY">
+        <value>El Campo {0} debe ser mayor a {1}.</value>
+    </key>
+    <key id="ElCampoXDebeSerMenorAY">
+        <value>El Campo {0} debe ser menor a {1}.</value>
+    </key>
+    <key id="ElCamionNoSeEncuentraEnUnEstadoValidoParaRealizarEstaAccion">
+        <value>El movimiento no se encuentra en un estado válido para realizar esta acción.</value>
+    </key>
+    <key id="ElVagonNoSeEncuentraEnUnEstadoValidoParaRealizarEstaAccion">
+        <value>El vagón no se encuentra en un estado válido para realizar esta acción.</value>
+    </key>
+    <key id="NoEsPosibleModificarMovimientoEnPuesto">
+        <value>No es posible modificar el movimiento ya que está siendo procesado en algún puesto.</value>
+    </key>
+    <key id="ElNumeroCTGDebeContenerHastaXDigitosYSerDistintoDeCero">
+        <value>El número de CTG no cumple con una longitud válida</value>
+    </key>
+    <key id="NoSePuedeModificarLaCalidadDeUnMovimientoConProductoDelTipoVarios">
+        <value>No se puede modificar la calidad de un movimiento con producto del tipo Varios</value>
+    </key>
+    <key id="DebeSeleccionarAlMenosUnCheck">
+        <value>Debe seleccionar al menos un check en la sección Confirmar Arribo CTG</value>
+    </key>
+    <key id="SeAceptoElRegistroDelPeso">
+        <value>Se aceptó el registro del peso.</value>
+    </key>
+    <key id="DebeSeleccionarUnMotivoDeErrorParaLaAccionSeleccionada">
+        <value>Debe seleccionar un motivo de error para la acción seleccionada.</value>
+    </key>
+    <key id="DeseaVolverAPesar">
+        <value>¿Desea volver a pesar?</value>
+    </key>
+    <key id="DebeLeerElDispositivoAntesDeCalcularLaCalidad">
+        <value>Debe leer el dispositivo antes de calcular la calidad</value>
+    </key>
+    <key id="LaDescargaDeCerealesQuedoEnEstadoPendiente">
+        <value>La descarga de cereales quedó en estado Pendiente.</value>
+    </key>
+    <key id="LaDescargaQuedoEnEstadoPendiente">
+        <value>La descarga quedó en estado Pendiente.</value>
+    </key>
+    <key id="SeDebeIngresarUnValorMayorA">
+        <value>Se debe ingresar un valor mayor a {0}.</value>
+    </key>
+    <key id="ElPorcentajeIngresadoDebeSerMenorOIgualA">
+        <value>El % ingresado debe ser menor o igual a {0}.</value>
+    </key>
+    <key id="SeDebenIngresarNumerosEnteros">
+        <value>Se deben ingresar numeros enteros.</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnUnEstadoValidoParaRecibirEstaAccion">
+        <value>El movimiento no se encuentra en un estado válido para recibir esta acción.</value>
+    </key>
+    <key id="ElMovimientoNoSeEncuentraEnEstadoValidoParaIngresoCalidad">
+        <value>El movimiento no se encuentra en el estado adecuado para realizar el ingreso de calidad.</value>
+    </key>
+    <key id="ElMovimientoCuentaConAnalisisCalidadPrevio">
+        <value>El movimiento identificado cuenta con un análisis de calidad previo.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoPeriodoStockCerrado">
+        <value>No se puede modificar movimiento. El período de Stock ya ha cerrado. Nueva apertura: {0}.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoNoPodraModificarseMovimiento">
+        <value>No podrá modificarse el movimiento. Cantidad aplicada: {0}. Cantidad facturada: {1}. F1116 emitido: {2}.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoNoPodraModificarseCalidadMovimiento">
+        <value>No se puede modificar la calidad ya que el movimiento está aplicado y/o facturado y/o tiene el F1116 emitido. Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoNoPodraModificarseProductoMovimiento">
+        <value>No se puede modificar el producto ya que el movimiento está aplicado y/o facturado y/o tiene el F1116 emitido. Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoNoPodraModificarseDatosPesaje">
+        <value>No se puede modificar el peso ya que el movimiento tiene el F1116 emitido y/o el neto resultante del movimiento supera la cantidad ya aplicada o facturada. Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}. Peso Neto = {3}.</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoPodranModificarseCiertosCamposDelMovimiento">
+        <value>No se puede modificar los siguientes campos del documento de porte ya que el movimiento está aplicado: Corredor, Comprador, Vendedor, Destinatario, Remitente Comercial, Intermediario, Finalidad, Titular CP y kilos de procedencia. Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoCargaNoPodranModificarseCiertosCamposDelMovimiento">
+        <value>Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}</value>
+    </key>
+    <key id="ModificacionFueraDeCircuitoNoPodraModificarseMovimientoAplicadoYF1116Emitido">
+        <value>No se puede modificar el documento ya que el movimiento está aplicado y tiene el F1116 emitido. Estado del movimiento en SAN: Cantidad aplicada = {0}. Cantidad facturada = {1}. F1116 emitido = {2}</value>
+    </key>
+    <key id="ExistenVagonesDelDocumentoDePorteQueNoSePuedenModificarFueraDePuesto">
+        <value>Existen vagones del Documento de Porte que NO se pueden modificar fuera de puesto, los mismos deberán modificarse desde la opción de menú Gestionar Movimientos.</value>
+    </key>
+    <key id="SeCanceloElIngresoDeLaDescarga">
+        <value>Se Canceló el ingreso de la descarga.</value>
+    </key>
+    <key id="LaInterfazNoSeEncuentraEnUnEstadoValidoParaRealizarLaAccion">
+        <value>La interfaz no se encuentra en un estado válido para realizar la acción.</value>
+    </key>
+    <key id="LaFechaStockSANDebeSerMenorOIgualAHoy">
+        <value>La Fecha Stock San debe ser menor o igual a hoy.</value>
+    </key>
+    <key id="ReEjecutandoInterfaces">
+        <value>Re ejecutando interfaces...</value>
+    </key>
+    <key id="InterfacesReEjecutadas">
+        <value>Interfaces re ejecutadas.</value>
+    </key>
+    <key id="FormatoDelCampoXIncorrecto">
+        <value>Formato del campo {0} incorrecto.</value>
+    </key>
+    <key id="DebeIngresarAlMenosUnDestinatario">
+        <value>Debe ingresar al menos un destinatario.</value>
+    </key>
+    <key id="ElDestinatarioQueIntentaIngresarYaSeEncuentraConfigurado">
+        <value>El destinatario que intenta ingresar ya se encuentra configurado.</value>
+    </key>
+    <key id="LaNuevaNotificacionFueAgregadaConExito">
+        <value>La notificación fue agregada con éxito.</value>
+    </key>
+    <key id="LaEdicionDeLaNotificacionFueGuardadaConExito">
+        <value>La edición de la notificación fue guardada con éxito.</value>
+    </key>
+    <key id="DebeSeleccionarAlMenosUnaTerminal">
+        <value>Debe seleccionar al menos una Terminal</value>
+    </key>
+    <key id="DebeSeleccionarAlMenosUnCircuito">
+        <value>Debe seleccionar al menos un circuito</value>
+    </key>
+    <key id="ElNuevoXFueAgregadoConExito">
+        <value>El nuevo {0} fue agregado con éxito</value>
+    </key>
+    <key id="LaNuevaXFueAgregadaConExito">
+        <value>La nueva {0} fue agregada con éxito</value>
+    </key>
+    <key id="SeAgregaronNuevasTarjetasConExito">
+        <value>Se agregaron nuevas tarjetas con éxito</value>
+    </key>
+    <key id="LaEdicionDelXFueGuardadaConExito">
+        <value>La edición del {0} fue guardada con éxito</value>
+    </key>
+    <key id="LaEdicionDeLaXFueGuardadaConExito">
+        <value>La edición de la {0} fue guardada con éxito</value>
+    </key>
+    <key id="ElXFueEliminadoConExito">
+        <value>El {0} fue eliminado con éxito</value>
+    </key>
+    <key id="DebeIngresarAlMenosUnRol">
+        <value>Debe ingresar al menos un rol</value>
+    </key>
+    <key id="TipoDocumentoPorteObligatorioDejarPendiente">
+        <value>El tipo de documento de porte es obligatorio para la acción: Dejar pendiente.</value>
+    </key>
+    <key id="NumeroDocumentoPorteObligatorioDejarPendiente">
+        <value>El número de documento de porte es obligatorio para la acción: Dejar pendiente.</value>
+    </key>
+    <key id="PorFavorIngreseAlMenosUnFiltroParaBuscar">
+        <value>Por favor ingrese al menos un filtro para buscar.</value>
+    </key>
+    <key id="NoEsPosibleModificarYaQueExisteAlMenosUnMovimientoQueEstaSiendoModificadoEnAlgunPuesto">
+        <value>No es posible modificar doc. porte ya que existe al menos un movimiento que está siendo procesado en algún puesto.</value>
+    </key>
+    <key id="TarjetaEnUso">
+        <value>Tarjeta en uso.</value>
+    </key>
+    <key id="FaltaConfigurarLosPermisosDeAccesoALasOpcionesDeMenuEnLaPcIngresada">
+        <value>Falta configurar los permisos de acceso a las opciones de Menú en la PC ingresada.</value>
+    </key>
+    <key id="NoSePuedeModificarUnaPenalizacionDadaDeAltaEnOtraTerminal">
+        <value>No se puede modificar una penalización dada de alta en otra terminal.</value>
+    </key>
+    <key id="ElPesoNetoResultanteEsNegativo">
+        <value>El peso neto resultante es NEGATIVO: Bruto [KG]: {0}, Tara [KG]: {1}, Neto [KG]: {2}.</value>
+    </key>
+    <key id="LaEdicionDeLosParametrosDeXFueGuardadaConExito">
+        <value>La edición de los parámetros de {0} fue guardada con éxito.</value>
+    </key>
+    <key id="LaEdicionDeLosParametrosDeLaXFueGuardadaConExito">
+        <value>La edición de los parámetros de la {0} fue guardada con éxito.</value>
+    </key>
+    <key id="IngreseUnaHoraMinutoCorteCupoValida">
+        <value>Ingrese una hora/minuto de corte de cupo válida.</value>
+    </key>
+    <key id="LaAccionElegidaNoEsValidaEnLaSituacionActual">
+        <value>La acción elegida no es válida en la situación actual.</value>
+    </key>
+    <key id="SeModificoSentidoBalanza">
+        <value>Se modificó el sentido de la balanza por que no corresponde con el estado requerido para el movimiento</value>
+    </key>
+    <key id="SeDebeIngresarUnValorMayorOIgualAX">
+        <value>Se debe ingresar un valor mayor o igual a {0}.</value>
+    </key>
+    <key id="TarjetaInvalidaIntenteNuevamente">
+        <value>Tarjeta inválida. Intente nuevamente.</value>
+    </key>
+    <key id="ElValorDeRecepcionMinimoDeTodoRubroDebeSerMenorOIgualAlValorDeRecepcionMaximoDelMismo">
+        <value>El valor de recepción mínimo de todo rubro debe ser menor o igual al valor de recepción máximo del mismo</value>
+    </key>
+    <key id="NoPuedeDefinirRubrosConElMismoNroDeOrdenDeVisualizacion">
+        <value>No puede definir rubros con el mismo nro. de orden de visualización</value>
+    </key>
+    <key id="LaNuevaCargaFueGuardadaConExito">
+        <value>La nueva Carga fue guardada con éxito.</value>
+    </key>
+    <key id="LaEdicionDeLaCargaFueGuardadaConExito">
+        <value>La edición de la Carga fue guardada con éxito.</value>
+    </key>
+    <key id="SeCanceloElIngresoDeLaCarga">
+        <value>Se Canceló el ingreso de la Carga.</value>
+    </key>
+    <key id="NoEsPosibleIngresarOrdenCargaEstadoIncorrecto">
+        <value>No es posible ingresar la Orden de Carga, el estado del viaje es incorrecto.</value>
+    </key>
+    <key id="FechaActualNoSeEncuentraRangoOrdenCarga">
+        <value>La fecha actual no se encuentra dentro del rango de vigencia de la orden de carga.</value>
+    </key>
+    <key id="ElControlCalidadDeCargaDeCamionesFueGuardadoConExito">
+        <value>El control calidad de carga de camiones fue guardado con éxito.</value>
+    </key>
+    <key id="ElPagoExceptuadoHaSidoRegistradoExitosamente">
+        <value>La excepción de pago ha sido registrado exitosamente.</value>
+    </key>
+    <key id="ElPagoHaSidoRegistradoExitosamente">
+        <value>El pago ha sido registrado exitosamente.</value>
+    </key>
+     <key id="ElMovimientoNoSeEncuentraEnEstadoValidoParaControlCalidadExitoso">
+        <value>El movimiento no se encuentra en el estado adecuado para realizar el control de calidad exitoso.</value>
+    </key>
+    <key id="ElChoferSeEncuentraPenalizadoContinuar">
+        <value>El Chofer de la Orden Carga se encuentra penalizado. ¿Desea continuar?</value>
+    </key>
+    <key id="ElCeeIngresadoDebeTener14DigitosYSerDistintoDeCero">
+        <value>El CEE ingresado debe tener 14 dígitos y ser distinto de cero.</value>
+    </key>
+    <key id="LosDatosIngresadosNoIdentificanUnCamionEnCircuitoDeCarga">
+        <value>Los datos ingresados no identifican un camión en circuito de carga</value>
+    </key>
+    <key id="ElCamionIdentificadoNoRequiereControlPatrimonial">
+        <value>El camión identificado no requiere control patrimonial</value>
+    </key>
+    <key id="LaImpresoraHaSidoMarcadaPorDefectoConExito">
+        <value>La impresora ha sido marcada por defecto con éxito.</value>
+    </key>
+    <key id="ElCampoNumeroDocumentoPorteNoCoindideConElLargoDeLaMascara">
+        <value>El campo Número de Documento de Porte no coincide con el largo de la máscara.</value>
+    </key>
+    <key id="ElCampocodigoCupoNoCoindideConElLargoDeLaMascara">
+        <value>El campo Código Cupo no coincide con el largo de la máscara.</value>
+    </key>
+    <key id="ElDocumentoDePorteNoCoincideConLaPatente">
+        <value>El documento de porte no coincide con la patente.</value>
+    </key>
+    <key id="ElValorIngresadoEnFechaNoCorrespondeAUnaFechaValida">
+        <value>El valor ingresado en {0} no corresponde a una fecha válida.</value>
+    </key>
+    <key id="ExisteUnaNuevaVersionDelSistema">
+        <value>Existe una nueva versión de Yard. Por favor, cierre el navegador y entre de nuevo a Yard para aplicar los cambios.</value>
+    </key>
+    <key id="NuevaVersionDelSistema">
+        <value>Nueva versión Yard</value>
+    </key>
+    <key id="ChecklistControlPatrimonial">
+        <value>Checklist control patrimonial</value>
+    </key>
+    <key id="ElCamionIdentificadoNoTieneDefinidoUnChecklistDeControlPatrimonial">
+        <value>El camión identificado no tiene definido un checklist de control patrimonial</value>
+    </key>
+    <key id="ElCamionIdentificadoNoHaFinalizadoLaCargaConExito">
+        <value>El camión identificado no ha finalizado la carga con éxito</value>
+    </key>
+    <key id ="LosDatosIngresadosNoIdentificanUnCamionEnCircuitoEnUnEstadoValidoParaRealizarLaAccion">
+        <value>Los datos ingresados no identifican un camión en circuito en un estado válido para realizar la acción</value>
+    </key>
+    <key id="ArchivoDebePesarMenosDeX">
+        <value>El total de los archivos debe pesar menos de {0}</value>
+    </key>
+    <key id="ConectandoConElServicioAfip">
+        <value>Conectando con el servicio AFIP</value>
+    </key>
+    <key id="ElServicioAfipNoSeEncuentraDisponible">
+        <value>El servicio de AFIP No se encuentra Disponible</value>
+    </key>
+    <key id="InconsistenciaDeDatos">
+        <value>Los datos no coinciden con los proporcionados por AFIP, se actualizaran los mismos. ¿Desea Continuar?</value>
+    </key>
+    <key id="ElServicioArbaNoSeEncuentraDisponible">
+        <value>El servicio de ARBA No se encuentra Disponible</value>
+    </key>
+    <key id="ElCircuitoSeEncuentraDeshabilitadoONoExistePorFavorReviseLaParametrizacion">
+        <value>El circuito se encuentra deshabilitado o no existe. Por favor, revise la parametrización.</value>
+    </key>
+    <key id="NoSeEncontraronResultadosPorFavorUtiliceLaBusquedaAvanzada">
+        <value>No se encontraron resultados o se encontraron mas de uno. Por favor, utilice la busqueda avanzada.</value>
+    </key>
+    <key id="ElValorIngresadoParaElCampoXNoEsValido">
+        <value>El valor ingresado para el campo "{0}" no es válido.</value>
+    </key>
+    <key id="ElCuitIngresadoNoEsValido">
+        <value>El CUIT ingresado no es válido.</value>
+    </key>
+    <key id="DebeSeleccionarUnaPlanta">
+        <value>Debe seleccionar una planta.</value>
+    </key>
+    
+    <key id="ElProductoNoExisteONoCorrespondeAlCircuito">
+        <value>El producto no existe o no corresponde al circuito.</value>
+    </key>
+    <key id="ElXNoSeEncuentraEnUnEstadoValidoParaRecibirEstaAccion">
+        <value>El {0} no se encuentra en un estado válido para recibir esta acción</value>
+    </key>
+    <key id="SeAceptoElIngresoDeLaDescarga">
+        <value>Se aceptó el ingreso de la descarga</value>
+    </key>
+    <key id="DebeIngresarMenosDeXCaracteres">
+        <value>Debe ingresar menos de {0} caracteres</value>
+    </key>
+    <key id="DebeIngresarAlMenosXCaracteres">
+        <value>Debe ingresar al menos {0} caracteres</value>
+    </key>    
+    <key id="SuUsuarioNoPoseeImpresorasHabilitadas">
+        <value>Su usuario no posee impresoras habilitadas</value>
+    </key>
+    <key id="ElNombreDeADIngresadoNoCorrespondeAUnUsuario">
+        <value>El Nombre AD ingresado no corresponde a un usuario.</value>
+    </key>
+    <key id="RegistrarDecisionEntregador">
+        <value>Registrar Decisión Entregador</value>
+    </key>
+    <key id="LaAccionSeleccionadaNoEsValidaSiNoExistenMotivosDeError">
+        <value>La acción seleccionada no es válida si no existen motivos de error.</value>
+    </key>
+    <key id="LaAnulacionDelCupoSeRealizoConExito">
+        <value>La anulación del cupo se realizó con éxito.</value>
+    </key>
+    <key id="LaDescargaDeInsumosQuedoEnEstadoPendiente">
+        <value>La descarga de insumos quedó en estado Pendiente.</value>
+    </key>
+    <key id="ElTipoDocumentoPorteEsObligatorioDejarPendiente">
+        <value>El tipo de documento de porte es obligatorio para la acción: Dejar pendiente.</value>
+    </key>
+    <key id="ElNumeroDocumentoPorteEsObligatorioDejarPendiente">
+        <value>El número de documento de porte es obligatorio para la acción: Dejar pendiente.</value>
+    </key>
+    <key id="ElCupoIngresadoNoExiste">
+        <value>El Cupo ingresado no existe.</value>
+    </key>
+    <key id="LaFechaDelCupoEsAnteriorOPosteriorALaPermitidaSeIngresaraSinCupo">
+        <value>La fecha del Cupo es anterior o posterior a la permitida. Se ingresará como sin cupo.</value>
+    </key>
+    <key id="ElChoferSeEncuentraInhabilitadoParaElIngreso">
+        <value>El Chofer se encuentra inhabilitado para el ingreso.</value>
+    </key>
+    <key id="ElChoferSeEncuentraPenalizadoParaElIngreso">
+        <value>El Chofer se encuentra penalizado para el ingreso.</value>
+    </key>
+    <key id="LasSedeIngresadaNoExiste">
+        <value>La sede ingresada no existe.</value>
+    </key>
+    <key id="ElCupoNoTieneCorredorAsignadoSeIngresaraComoDefectoX">
+        <value>El Cupo no tiene corredor asignado, se ingresará por defecto {0}</value>
+    </key>
+    <key id="ReviseLaParametrizacionDelCircuito">
+        <value>Revise la parametrización del circuito</value>
+    </key>
+    <key id="DebeIngresarUnNroDeCTGAConsultar">
+        <value>Debe ingresar un nro. de CTG a consultar.</value>
+    </key>
+    <key id="ElProductoNoExisteONoImputaStock">
+        <value>El producto no existe o no imputa stock.</value>
+    </key>
+    <key id="ElTipoDocPorteSeEncuentraDeshabilitadoONoExistePorFavorReviseLaParametrizacion">
+        <value>El Tipo Doc. Porte se encuentra deshabilitado o no existe. Por favor, revise la parametrización</value>
+    </key>
+    <key id="ElCupoEsObligatorioCuandoEsMovimientoConCupoDejarPendiente">
+        <value>El cupo es obligatorio cuando es un ingreso con cupo para la acción: Dejar pendiente</value>
+    </key>
+    <key id="ElCTGEsObligatorioCuandoEsMovimientoConCupoDejarPendienteConCPE">
+        <value>El CTG es obligatorio cuando es un ingreso con cupo para la acción: Dejar pendiente con Carta de Porte Electronica</value>
+    </key>
+    <key id="ElCupoNoEsValido">
+        <value>El cupo no es válido</value>
+    </key>
+    <key id="ElDocumentoDePorteNoSeEncuentraCargadoONoCorrespondeAlCircuito">
+        <value>El Documento de Porte no se encuentra cargado en el sistema o no corresponde al circuito actual.</value>
+    </key>
+    <key id="NoSePuedeUsarCupoPorqueProductoActualTieneCalidad">
+        <value>No se puede usar cupo ingresado porque el producto actual ya tiene calidad.</value>
+    </key>
+    <key id="UsuarioInexistente">
+        <value>Usuario inexistente</value>
+    </key>
+    <key id="EstaSeguroQueDeseaEliminarElRegistroSeleccionado">
+        <value>¿Está seguro que desea eliminar el registro seleccionado?</value>
+    </key>
+    <key id="ElRegistroFueEliminadoExitosamente">
+        <value>El registro fue eliminado exitosamente</value>
+    </key>
+    <key id="ElItemSeAgregoAlSobreTransporteExitosamente">
+        <value>El item se agregó al sobre de transporte exitosamente</value>
+    </key>
+    <key id="ElSobreTransporteHaSidoCerradoConExito">
+        <value>El sobre de transporte ha sido cerrado con éxito.</value>
+    </key>
+    <key id="ElSobreTransporteDebeEstarEnEstadoAbiertoParaPoderCerrarlo">
+        <value>El sobre de transporte debe estar en estado Abierto para poder cerrarlo.</value>
+    </key>
+    <key id="ElSobreTransporteDebeEstarEnEstadoAbiertoParaPoderModificarlo">
+        <value>El sobre de transporte debe estar en estado Abierto para poder modificarlo.</value>
+    </key>
+    <key id="ElSobreTransporteHaSidoAnuladoConExito">
+        <value>El sobre de transporte ha sido anulado con éxito.</value>
+    </key>
+    <key id="ElSobreTransporteDebeEstarEnEstadoAbiertoOCerradoParaPoderAnularlo">
+        <value>El sobre de transporte debe estar en estado Abierto o Cerrado para poder anularlo.</value>
+    </key>
+    <key id="SeIntentoImportarElSobreTransporte">
+        <value>Se intentó importar el sobre de transporte.</value>
+    </key>
+    <key id="ElSobreTransporteDebeEstarEnEstadoCerradoParaPoderImportarlo">
+        <value>El sobre de transporte debe estar en estado Cerrado para poder importarlo.</value>
+    </key>
+    <key id="ElSobreTransporteDebeEstarEnEstadoErrorOErrorTecnicoParaVerSuError">
+        <value>El sobre de transporte debe estar en estado Error o Error Técnico para poder ver su error.</value>
+    </key>
+    <key id="AguardePorFavor">
+        <value>Aguarde por favor...</value>
+    </key>
+    <key id="ElXEsRequerido">
+        <value>El {0} es requerido.</value>
+    </key>
+    <key id="TarjetaLeida">
+        <value>Tarjeta Leída</value>
+    </key>
+    <key id="DesliceTarjetaLector">
+        <value>Deslice la tarjeta por el lector</value>
+    </key>
+    <key id="CodigoTarjetaHastaMayorACodigoTarjetaDesde">
+        <value>El Código Tarjeta Hasta debe ser mayor al Código Tarjeta Desde.</value>
+    </key>
+    <key id="CoeficienteFijoConversionLitros">
+        <value>Coeficiente conversión (L)</value>
+    </key>
+    <key id="NoSeImplementoElAceptarYContinuar">
+        <value>No se implementó el Aceptar y Continuar</value>
+    </key>
+    <key id="NoSePermiteIngresarAccionesRepetidas">
+        <value>No se permite ingresar Acciones repetidas</value>
+    </key>
+    <key id="NoSePermiteIngresarDispositivosRepetidos">
+        <value>No se permite ingresar Dispositivos repetidos</value>
+    </key>
+    <key id="ElTipoProductoSeEncuentraDeshabilitadoONoEstaParametrizado">
+        <value>El tipo de producto se encuentra deshabilitado o no esta parametrizado.</value>
+    </key>  
+    <key id="StockInsuficiente">
+        <value>El stock es insuficiente.</value>
+    </key>
+    <key id="ElProductNoSeEncuentraHabilitadoParaEstaTerminal">
+        <value>El producto no se encuentra habilitado para esta terminal.</value>
+    </key>
+    <key id="ElStockFisicoEsInsuficiente">
+        <value>El stock físico es insuficiente.</value>
+    </key>
+     <key id="ElStockTitularEsInsuficiente">
+        <value>El stock del titular es insuficiente.</value>
+    </key>
+    <key id ="DeseaImprimirElDocumentoEnEsteMomento">
+        <value>¿Desea imprimir el documento en éste momento?</value>
+    </key>
+    <key id ="DebeIngresarUnMotivoDeError">
+        <value>Debe ingresar un motivo de error.</value>
+    </key>
+    <key id ="noSePuedeObtenerStockFisicoTitular">
+        <value>No es posible obtener Stock Físico / Stock por Titular.</value>
+    </key>
+    <key id ="errorConexionSAN">
+        <value>Error de Conexión con SAN.</value>
+    </key>
+    <key id ="SeReversoSalidaHaciaControlCalidad">
+        <value>Se reversó hacia control de calidad.</value>
+    </key>
+    <key id ="SeReversoSalidaHaciaControlPatrimonial">
+        <value>Se reversó hacia control patrimonial.</value>
+    </key>
+    <key id ="ElReembolsoHaSidoRegistradoExitosamente">
+        <value>El Reembolso ha sido registrado exitosamente.</value>
+    </key>    
+    <key id ="ExisteExcepcionDePago">
+        <value>Se encuentra registrada una Excepción de Pago. Si confirma esta opción será reemplazada por un Pago.</value>
+    </key>    
+    <key id ="MovimientoCuentaConTurnoCircular">
+        <value>El movimiento cuenta con un turno vigente en Circular.</value>
+    </key>   
+    <key id ="MovimientoCuentaConTurnoCircularVencido">
+        <value>El movimiento cuenta con un turno en Circular no vigente: {0} | {1}.</value>
+    </key> 
+    <key id ="SeEncontroTurnoCircularCamion">
+        <value>Se encontró un turno activo en Circular para el camión.</value>
+    </key>
+    <key id="ElMovimientoHaFinalizadoElCircuito">
+        <value>El movimiento ha finalizado el circuito.</value>
+    </key>
+    <key id="EstaContinuandoElCircuitoDelMovimiento">
+        <value>Está continuando el circuito del movimiento</value>
+    </key>
+    <key id="EstaContinuandoElCircuitoDelMovimientoConPatenteX">
+        <value>Está continuando el circuito del movimiento con Patente: {0}</value>
+    </key>
+    <key id="EstaContinuandoElCircuitoDelMovimientoConNumeroDeVagonX">
+        <value>Está continuando el circuito del movimiento con Número de Vagón: {0}</value>
+    </key>
+    <key id="NoHayBalanzasHabilitadas">
+        <value>No hay balanzas habilitadas</value>
+    </key>
+    <key id="NoSeEncuentraConfiguradaNotificacionPorFaltaDeParametrizacionMermasEspeciales">
+        <value>No se encuentra configurada la notificación de aviso por falta de parametrización de mermas especiales. Comuníquese con el Administrador</value>
+    </key>
+    <key id="DeseaImprimirLaObleaLaboratorioEnEsteMomento">
+        <value>¿Desea imprimir la Oblea de Laboratorio en este momento?</value>
+    </key>
+    <key id = "NoPuedeSeleccionarMasDe4Balanzas">
+        <value>No puede seleccionar más de 4 balanzas</value>
+    </key>
+    <key id = "NoSeEncontraronBalanzasAutomatizadas">
+        <value>No se encontraron balanzas automatizadas</value>
+    </key>
+    <key id="EsObligatorioMensajeArchestraSiNotificaArchestra">
+        <value>Es obligatorio ingresar un mensaje a Archestra, se desea notificar a dicho sistema.</value>
+    </key>
+</messages>

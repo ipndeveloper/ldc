@@ -1,0 +1,68 @@
+<div [ngClass]="{'collapse' : showCTGData}" id="validarCupoSection" class="container-fluid">
+    <form [formGroup]="form" novalidate>
+        <yrd-circuito
+          [circuitoForm]="form.controls.circuito"
+          [completarTipoProducto]="true"
+          [conCupo]="true"
+          [permiteSeleccion]="true"
+          [seleccionaPrimeraOpcion]="false">
+        </yrd-circuito>
+        <yrd-documento-porte 
+          #documentoPorte
+          [tipoProducto]="tipoProducto"
+          [tipoDocumento]="tipoDocumentoPorte"
+          [esCartaPorteElectronica]="esCartaPorteElectronica"
+          [tipoTransporte]="tipoTransporte"
+          [maskRegex]="tipoDocPorteRegex"
+          [documentoPorteForm]="form.controls.documentoPorte"
+          (recuperarDatoCpe)="onRecuperarDatoCpe()">
+        </yrd-documento-porte>
+        <yrd-cupo
+          #cupoComponent
+          [esConsulta]="esConsulta"
+          [ingresoConCupo]="ingresoConCupo"
+          [ingresoSinCupo]="ingresoSinCupo"
+          [cupoForm]="form.controls.cupo"
+          [maskRegex]="codigoCupoRegex">
+        </yrd-cupo>
+        <yrd-datos-documento-validar-cupo
+          #datosDocumento
+          [esAltaValidacionCupo] ="esAltaValidacionCupo"
+          [estadoCupoDataView]="estadoCupoDataView"
+          [tipoProducto]="tipoProducto"
+          [cupo]="cupo"
+          [esCartaPorteElectronica]="esCartaPorteElectronica"
+          [movimiento]="movimiento"
+          [circuito]= "circuito"
+          [esConsulta]="esConsulta"
+          [tieneCaracteristicaDeCTG]="tieneCaracteristicaDeCTG"
+          [datosDocumento]="form.controls.datosDocumento"
+          (tieneAFIPAutomatico)="onAFIPAutomatico($event)">
+        </yrd-datos-documento-validar-cupo>
+      </form>
+      <div class="mt-3">
+        <div class="float-left" style="margin-bottom: 20pt">
+          <button type="button" class="btn btn-primary" (click)="openModalMotivo()" [disabled]="!ingresoConCupo && !ingresoSinCupo || !tieneCodigoCupoValido || isLoading" [hidden]="esConsulta || esModificacionFueraPuesto">Dejar Pendiente</button>
+          <button type="button" class="btn btn-primary" (click)="openConsultarDatosAfip()" [hidden]="esConsulta" [disabled]="esCartaPorteElectronica || (!ingresoConCupo && !ingresoSinCupo) || !tieneCaracteristicaDeCTG || isLoading">Consultar Datos AFIP</button>
+          <button type="button" class="btn btn-primary" [hidden]="esConsulta || esModificacionFueraPuesto || esAltaValidacionCupo" (click)="openConfirmacionAnulacion()" [disabled]="isLoading" i18n>Anular</button>
+        </div>
+        <div class="float-right" style="margin-bottom: 20pt">
+          <button type="button" class="btn btn-success" (click)="abrirModalTarjeta()" [disabled]="!ingresoConCupo && !ingresoSinCupo || !tieneCodigoCupoValido || isLoading" [hidden]="esConsulta">Aceptar</button>
+          <button type="button" class="btn btn-danger" (click)="cancelar()" [disabled]="!ingresoConCupo && !ingresoSinCupo && esAltaValidacionCupo && !esConsulta || isLoading">Cancelar</button>
+        </div>
+      </div>
+</div>
+
+<div [ngClass]="{'collapse' : !showCTGData}" id="consultarDatosAfipSection" class="container-fluid">
+  <yrd-consultar-datos-afip #consultarDatosAfip></yrd-consultar-datos-afip>
+  <button type="button" class="btn btn-primary float-right" (click)="closeConsultarDatosAfip()">Cerrar</button>
+</div>
+
+<yrd-modal-motivo #modalMotivo (accepted)="dejarPendiente()" [labelHeader]="'Dejar Pendiente'"></yrd-modal-motivo>
+<yrd-modal-asignar-tarjeta #modalAsignarTarjeta (tarjetaAsignada)="onTarjetaAsignada()"></yrd-modal-asignar-tarjeta>
+<yrd-modal-autorizacion #modalAutorizacion (autorizacionCompletada)="onAutorizacionCompletada($event)"></yrd-modal-autorizacion>
+<yrd-modal-confirmar-con-observaciones #modalConfirmacionAnulacion (accepted)="anular($event)" [labelHeader]="deseaConfirmarEstaAccionMessage"></yrd-modal-confirmar-con-observaciones>
+
+
+<!-- <pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+  <label for="{{ idForm }}" class="col-sm-3 col-form-label">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}">
+    <input #inputLocalidad id="{{ idForm }}" type="text" class="form-control" 
+      #typeaheadInstance="ngbTypeahead"
+      (selectItem)="onSelectItem($event)"
+      (blur)="onBlur(inputLocalidad.value)"
+      (keydown)="typeaheadKeydown()" 
+      [value]="printValue" 
+      [disabled]="isDisabled"
+      [ngbTypeahead]="search" 
+      [resultTemplate]="rt"
+      [inputFormatter]="formatter"
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false || searchFailed
+      }" 
+      yrdFocus [isFocused]="isFocused" [element]="localidadElement" />
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+    <span *ngIf="searching">Buscando...</span>
+    <div class="invalid-feedback" *ngIf="searchFailed">Disculpe, no se pudieron cargar las sugerencias.</div>
+  </div>
+</div>
+
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.descripcion" [term]="t"></ngb-highlight>
+</ng-template>

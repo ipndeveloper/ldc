@@ -1,0 +1,49 @@
+<yrd-modal #modalComponent 
+  [formGroup]="agregarTrabajoGeneracionArchivosMuestraForm" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()" 
+  (closing)="onClosing()">
+  
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  
+  <ng-template #modalBody>
+    <div style="height: 300px">
+      <div class="form-horizontal">
+        <yrd-fecha-con-etiqueta class="col-sm-6" 
+          formControlName="fechaAutorizacionDesde"
+          [etiqueta]="'Fecha Autorización Desde (00:00hs)'"
+          [control]="agregarTrabajoGeneracionArchivosMuestraForm.controls.fechaAutorizacionDesde" 
+          [validationMessages]="validationMessagesFechaAutorizacionDesde"
+          [isFocused]="true">
+        </yrd-fecha-con-etiqueta>
+        <yrd-fecha-con-etiqueta class="col-sm-6" 
+          formControlName="fechaAutorizacionHasta"
+          [etiqueta]="'Fecha Autorización Hasta (23:59hs)'"
+          [control]="agregarTrabajoGeneracionArchivosMuestraForm.controls.fechaAutorizacionHasta" 
+          [validationMessages]="validationMessagesFechaAutorizacionHasta">
+        </yrd-fecha-con-etiqueta>
+      </div>
+  
+      <fieldset class="col-sm-4">
+        <legend class="col-form-label">Enviar muestra a Cámara</legend>
+        <div class="custom-control custom-radio">
+          <input id="radioEnviaMailSi" class="custom-control-input" 
+            formControlName="enviaMail" 
+            type="radio" 
+            [value]="true" />
+          <label for="radioEnviaMailSi" class="custom-control-label">Si</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="radioEnviaMailNo" class="custom-control-input" 
+            formControlName="enviaMail" 
+            type="radio" 
+            [value]="false" />
+          <label for="radioEnviaMailNo" class="custom-control-label">No</label>
+        </div>
+      </fieldset>
+    </div>
+  </ng-template>
+
+</yrd-modal>

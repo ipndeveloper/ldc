@@ -1,0 +1,90 @@
+<fieldset [formGroup]="confirmacionArriboCtgForm">
+  <legend class="col-form-label">Confirmación Arribo CTG</legend>
+  <div class="pt-2 row">
+    <div class="col-sm">
+      <h5 *ngIf="confirmoCtg && esCartaPorteElectronica" class="d-flex justify-content-center">
+        <span class="badge badge-success">Arribo confirmado via WS</span>
+      </h5>
+    </div>   
+  </div>
+  <div class= "row" id="inversa">
+      <div class="col-sm-6" *ngIf="!esCartaPorteElectronica">
+          <yrd-numero-con-etiqueta 
+            [cssClassControl]= "'col-sm-4'"
+            formControlName="ctg" 
+            [etiqueta]="'CTG'" 
+            [allowLeadingZeroes]="true"
+            [control]="confirmacionArriboCtgForm.get('ctg')"
+            [validationMessages]="validationMessagesCTG" 
+            yrdMaxLength [maxLength]="maximo">
+          </yrd-numero-con-etiqueta>
+      </div>
+      <div class="col-sm-6">
+        <yrd-buscador-transportista 
+          [hidden]="esCartaPorteElectronica"
+          [cssClassEtiqueta] = "'col-sm-3'"
+          [cssClassControl]= "'col-sm-4'"
+          formControlName="transportista" 
+          [advancedSearch]="true"
+          [control]="confirmacionArriboCtgForm.get('transportista')"
+          [validationMessages]="validationMessagesTransportista">
+        </yrd-buscador-transportista>
+      </div>
+  </div>
+  <div class= "pt-2 row">
+      <div class="col-sm-6">
+          <yrd-numero-con-etiqueta
+            [hidden]= "esCartaPorteElectronica" 
+            [cssClassControl]= "'col-sm-4'"
+            formControlName="codigoCancelacionCtg" 
+            [etiqueta]="'Cód. Cancel. CTG'" 
+            [control]="confirmacionArriboCtgForm.get('codigoCancelacionCtg')"
+            [validationMessages]="validationMessagesCodCancelacionCTG"
+            yrdMaxLength [maxLength]= 8 >
+          </yrd-numero-con-etiqueta>
+      </div>
+      <div class="col-sm-6">
+        <yrd-buscador-chofer
+          [hidden]="esCartaPorteElectronica"
+          [cssClassControl]= "'col-sm-4'" 
+          formControlName="chofer" 
+          [advancedSearch]="true"
+          [control]="confirmacionArriboCtgForm.get('chofer')"
+          [validationMessages]="validationMessagesChofer">
+        </yrd-buscador-chofer>
+      </div>
+  </div>
+  <div class= "pt-2 row">
+      <div class="col-sm-6">
+        <yrd-checkbox-con-etiqueta 
+          [cssClassControl]= "'col-sm-4'"
+          [etiqueta]="'Aceptar Sin Confirmar CTG'" 
+          [control]="confirmacionArriboCtgForm.get('aceptarSinConfirmarCtg')"
+          formControlName="aceptarSinConfirmarCtg">
+        </yrd-checkbox-con-etiqueta>
+      </div>
+      <div class="col-sm-6">
+        <yrd-numero-con-etiqueta
+          [hidden]="!(esPreIngreso && !esCartaPorteElectronica)"
+          [cssClassEtiqueta] = "'col-sm-3'"
+          [cssClassControl]= "'col-sm-4'"
+          formControlName="kilosNeto" 
+          [idForm]="'kgNeto'" 
+          [etiqueta]="'Kgs Neto'"
+          [control]="confirmacionArriboCtgForm.get('kilosNeto')"
+          [validationMessages]="validationMessagesKilosNeto">
+        </yrd-numero-con-etiqueta>
+      </div>
+  </div>
+  <div class= "pt-2 row">
+    <div class="col-sm-4">
+      <yrd-checkbox-con-etiqueta
+        [hidden]="!esCartaPorteElectronica"
+        [cssClassControl]= "'col-sm-4'"
+        [etiqueta]="'Confirmado Manualmente'" 
+        [control]="confirmacionArriboCtgForm.get('confirmadoManualmente')"
+        formControlName="confirmadoManualmente">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>  
+</fieldset>

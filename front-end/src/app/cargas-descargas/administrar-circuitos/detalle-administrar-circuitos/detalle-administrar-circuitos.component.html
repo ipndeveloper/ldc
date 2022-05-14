@@ -1,0 +1,188 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-terminal 
+        formControlName="terminal"
+        #terminal
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesTerminal"
+        [permiso]="Permission.AdministrarCircuitos"
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-movimiento
+        formControlName="tipoMovimiento"
+        [opcionSeleccione]= "true"
+        [validationMessages]="validationMessagesTipoMovimiento"
+        [control]="form.get('tipoMovimiento')">
+      </yrd-desplegable-tipo-movimiento>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-transporte
+        formControlName="tipoTransporte"
+        [opcionSeleccione]= "true"
+        [control]="form.get('tipoTransporte')">
+      </yrd-desplegable-tipo-transporte>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-producto
+        formControlName="tipoProducto" 
+        [completarTipoProducto]="true"
+        [opcionSeleccione]="true"
+        [etiqueta]="'Tipo Producto'"
+        [validationMessages]="validationMessagesTipoProducto"
+        [control]="form.get('tipoProducto')">
+      </yrd-desplegable-tipo-producto>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta 
+        formControlName="nombre"
+        [control]="form.get('nombre')"
+        [etiqueta]="'Nombre'"
+        [validationMessages]="validationMessagesNombre"
+        yrdMaxLength [maxLength]=50>
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-horizontal">
+    <div class="col-sm-6">
+      <fieldset>
+        <legend class="col-form-label">Finalidades</legend>
+        <div class="form-group">
+          <label for="finalidades" class="col-form-label">Finalidades:</label>
+          <div class="col-sm-12 form-control" style="height: 300px">
+            <tree-root #finalidadesTree id="finalidades" [nodes]="finalidades" [options]="options">
+              <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+                <input class="tree-node-checkbox"
+                      type="checkbox"
+                      [disabled]="detalleDeshabilitado"
+                      (click)="node.mouseAction('checkboxClick', $event)"
+                      [checked]="node.isSelected"
+                      [indeterminate]="node.isPartiallySelected"/>
+                <tree-node-expander [node]="node"></tree-node-expander>
+                <div class="node-content-wrapper"
+                  [class.node-content-wrapper-active]="node.isActive"
+                  [class.node-content-wrapper-focused]="node.isFocused"
+                  (click)="node.mouseAction('click', $event)"
+                  (dblclick)="node.mouseAction('dblClick', $event)"
+                  (contextmenu)="node.mouseAction('contextMenu', $event)"
+                  (treeDrop)="node.onDrop($event)"
+                  (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                  (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                  (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+                  [treeAllowDrop]="node.allowDrop"
+                  [allowDragoverStyling]="node.allowDragoverStyling()"
+                  [treeDrag]="node"
+                  [treeDragEnabled]="node.allowDrag()">
+                  <tree-node-content [node]="node" [index]="index">
+                    <ng-template #treeNodeTemplate let-node let-index="index">
+                      <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                      <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                    </ng-template>
+                  </tree-node-content>
+                </div>
+              </ng-template>
+            </tree-root>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <div class="col-sm-6">
+      <fieldset>
+          <legend class="col-form-label">Motivos error Balanza</legend>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label for="motivosDeEntrada" class="col-form-label">Motivos de Entrada:</label>
+                <div class="col-sm-12 form-control" style="height: 300px">
+                  <tree-root #motivosErrorBalanzaEntradaTree id="motivosDeEntrada" [nodes]="motivosErrorBalanzaEntrada" [options]="options">
+                    <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+                      <input class="tree-node-checkbox"
+                            type="checkbox"
+                            [disabled]="detalleDeshabilitado || !node.data.esEditable"
+                            (click)="node.mouseAction('checkboxClick', $event)"
+                            [checked]="node.isSelected"
+                            [indeterminate]="node.isPartiallySelected"/>
+                      <tree-node-expander [node]="node"></tree-node-expander>
+                      <div class="node-content-wrapper"
+                        [class.node-content-wrapper-active]="node.isActive"
+                        [class.node-content-wrapper-focused]="node.isFocused"
+                        (click)="node.mouseAction('click', $event)"
+                        (dblclick)="node.mouseAction('dblClick', $event)"
+                        (contextmenu)="node.mouseAction('contextMenu', $event)"
+                        (treeDrop)="node.onDrop($event)"
+                        (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                        (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                        (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+                        [treeAllowDrop]="node.allowDrop"
+                        [allowDragoverStyling]="node.allowDragoverStyling()"
+                        [treeDrag]="node"
+                        [treeDragEnabled]="node.allowDrag()">
+                        <tree-node-content [node]="node" [index]="index">
+                          <ng-template #treeNodeTemplate let-node let-index="index">
+                            <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                            <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                          </ng-template>
+                        </tree-node-content>
+                      </div>
+                    </ng-template>
+                  </tree-root>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                  <label for="motivosDeSalida" class="col-form-label">Motivos de Salida:</label>
+                  <div class="col-sm-12 form-control" style="height: 300px">
+                    <tree-root #motivosErrorBalanzaSalidaTree id="motivosDeSalida" [nodes]="motivosErrorBalanzaSalida" [options]="options">
+                      <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+                        <input class="tree-node-checkbox"
+                              type="checkbox"
+                              [disabled]="detalleDeshabilitado || !node.data.esEditable"
+                              (click)="node.mouseAction('checkboxClick', $event)"
+                              [checked]="node.isSelected"
+                              [indeterminate]="node.isPartiallySelected"/>
+                        <tree-node-expander [node]="node"></tree-node-expander>
+                        <div class="node-content-wrapper"
+                          [class.node-content-wrapper-active]="node.isActive"
+                          [class.node-content-wrapper-focused]="node.isFocused"
+                          (click)="node.mouseAction('click', $event)"
+                          (dblclick)="node.mouseAction('dblClick', $event)"
+                          (contextmenu)="node.mouseAction('contextMenu', $event)"
+                          (treeDrop)="node.onDrop($event)"
+                          (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                          (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                          (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+                          [treeAllowDrop]="node.allowDrop"
+                          [allowDragoverStyling]="node.allowDragoverStyling()"
+                          [treeDrag]="node"
+                          [treeDragEnabled]="node.allowDrag()">
+                          <tree-node-content [node]="node" [index]="index">
+                            <ng-template #treeNodeTemplate let-node let-index="index">
+                              <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                              <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                            </ng-template>
+                          </tree-node-content>
+                        </div>
+                      </ng-template>
+                    </tree-root>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </fieldset>
+    </div>
+  </div>
+  
+</div>

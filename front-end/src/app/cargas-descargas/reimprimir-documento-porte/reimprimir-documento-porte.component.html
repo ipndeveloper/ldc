@@ -1,0 +1,89 @@
+ <form [formGroup]="reimprimirDocumentoPorteForm" novalidate>
+    <yrd-filtro-busqueda-reimpresion-documento-porte 
+      #filtroReimpresion 
+      (buscarClicked)="onClickBuscar()"
+      [disableButtons]="!disableButtons"
+      [form]='reimprimirDocumentoPorteForm.controls.filtrosForm'>
+    </yrd-filtro-busqueda-reimpresion-documento-porte>
+        <fieldset [formGroup]="reimprimirDocumentoPorteForm.controls.datosMovimiento" class="section-top-padding">
+            <legend class="col-form-label">Datos Documento de Porte</legend>
+            <div class="row">
+              <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="numeroViaje" 
+                  [etiqueta]="'Numero Viaje'">
+                </yrd-texto-con-etiqueta>
+              </div>
+              <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="ordenCarga" 
+                  [etiqueta]="'Orden Carga'">
+                </yrd-texto-con-etiqueta>
+              </div>
+            </div>
+            <div class="pt-2 row">
+              <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="patenteCamion" 
+                  [etiqueta]="'Patente Camion'">
+              </yrd-texto-con-etiqueta>
+              </div>
+              <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="patenteAcoplado" 
+                  [etiqueta]="'Patente Acoplado'">
+                </yrd-texto-con-etiqueta>
+              </div>
+            </div>
+            <div class= "pt-2 row">
+              <div class="col-sm-6">
+                  <yrd-texto-con-etiqueta 
+                    [cssClassControl]="'col-sm-4'"
+                    formControlName="corredorComprador" 
+                    [etiqueta]="'Corredor Comprador'">
+                </yrd-texto-con-etiqueta>
+              </div>
+              <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="remitenteComercial" 
+                  [etiqueta]="'Remitente Comercial'">
+                </yrd-texto-con-etiqueta>
+              </div>
+          </div>
+          <div class= "pt-2 row">
+            <div class="col-sm-6">
+                <yrd-texto-con-etiqueta 
+                  [cssClassControl]="'col-sm-4'"
+                  formControlName="producto" 
+                  [etiqueta]="'Producto'">
+                </yrd-texto-con-etiqueta>
+            </div>
+        </div>
+</fieldset>
+<fieldset [formGroup]="reimprimirDocumentoPorteForm.controls.impresion" class="section-top-padding">
+  <legend class="col-form-label">Impresión</legend>
+  <div class= "row">
+    <div class="col-sm-6">
+      <yrd-desplegable-impresoras-por-usuario
+        #desplegableImpresora
+        [opcionSeleccione]= "true"
+        [cssClassControl]="'col-sm-5'"
+        formControlName="impresora"
+        [control]="reimprimirDocumentoPorteForm.controls.impresion.get('impresora')"
+        [validationMessages]="validationMessagesImpresora">
+      </yrd-desplegable-impresoras-por-usuario>
+    </div>
+  </div>
+</fieldset>
+<div class="mt-3">
+  <div class="float-right">
+    <button id="btnAceptar" [disabled]="disableButtons" type="button" class="btn btn-success" (click)="onClickReimprimir()">Reimprimir</button>
+    <button id="btnCancelar" [disabled]="disableButtons" type="button" class="btn btn-danger" (click)="onClickCancelar()">Cancelar</button>
+  </div>
+</div>
+</form>

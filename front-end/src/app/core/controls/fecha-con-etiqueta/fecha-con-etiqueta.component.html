@@ -1,0 +1,34 @@
+<div class="form-horizontal">      
+    <label for="{{ idForm }}" class="col-form-label {{ cssClassEtiqueta }}" i18n>{{ etiqueta }}:</label>  
+    <div class="{{ cssClassControl }}">
+      <div class="input-group">
+        <input class="form-control"
+            [disabled]="isDisabled"
+            yrdFocus [isFocused]="isFocused" 
+            [element]="fechaElement"
+            type="text"
+            id="{{ idForm }}" 
+            [textMask]="{mask: mask, guide: true, showMask: true, keepCharPositions: true, pipe: autoCorrectedDatePipe}"
+            name="dp" 
+            ngbDatepicker 
+            #inputFecha
+            #d="ngbDatepicker" 
+            (dateSelect)="onSelectedNewDate($event)"
+            (blur)="onBlur(inputFecha.value)"
+            [value]="valor"
+            placeholder="DD/MM/YYYY"
+            [ngClass]="{
+              'is-valid' : validControl,
+              'is-invalid' : validControl === false
+              }">                    
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button" [disabled]="isDisabled">
+              <fa-icon [icon]="faCalendarAlt"></fa-icon>
+            </button>          
+          </div>     
+          <div class="invalid-feedback">
+              <p>{{errorMessage}}</p>
+          </div>   
+        </div>      
+      </div>  
+  </div>

@@ -1,0 +1,3 @@
+<div *ngFor="let balanza of balanzasHabilitadas">
+    <yrd-registrar-peso-vagon #balanzaComponent [balanza]="balanza" [ordenBalanza]="balanzasHabilitadas.indexOf(balanza) + 1"></yrd-registrar-peso-vagon>
+</div>

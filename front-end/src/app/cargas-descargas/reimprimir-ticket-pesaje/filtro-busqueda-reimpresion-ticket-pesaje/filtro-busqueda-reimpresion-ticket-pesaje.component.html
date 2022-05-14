@@ -1,0 +1,55 @@
+<form [formGroup]="filtrosForm">
+  <div class="col-sm-12 form-horizontal">
+    <yrd-desplegable-tipo-documento-porte
+      class="col-sm-4"
+      formControlName="tipoDocPorte"
+      [control]="filtrosForm.get('tipoDocPorte')"
+      [tieneOpcionSeleccione]="false">
+    </yrd-desplegable-tipo-documento-porte>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        [idForm]="'ctg'"
+        formControlName="ctg" 
+        [etiqueta]="'CTG'"
+        yrdMaxLength [maxLength]=12
+        [control]="filtrosForm.get('ctg')"
+        [allowLeadingZeroes]="true">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        [idForm]="'nroDocPorte'"
+        formControlName="nroDocPorte"
+        [etiqueta]="'Nro. Doc. Porte'"
+        yrdMaxLength [maxLength]=13
+        [control]="filtrosForm.get('nroDocPorte')">
+      </yrd-numero-con-etiqueta>
+      </div>
+  </div>
+  <div class="col-sm-12 form-horizontal">
+    <yrd-autocomplete-patente
+      #autocompletePatente
+      class="col-sm-4"
+      formControlName="patente"
+      [etiqueta]="'Patente Camión'"
+      [control]="filtrosForm.get('patente')">
+    </yrd-autocomplete-patente>
+
+    <yrd-numero-con-etiqueta
+      class="col-sm-4"
+      [idForm]="'nroTicket'"
+      formControlName="nroTicket"
+      [etiqueta]="'Nro. Ticket'" 
+      [control]="filtrosForm.get('nroTicket')" >
+    </yrd-numero-con-etiqueta>
+
+    <yrd-autocomplete-vagon
+      #autocompleteVagon
+      class="col-sm-4"
+      [idForm]="'numeroVagon'"
+      formControlName="numeroVagon"
+      [etiqueta]="'Nro. Vagón'"
+      [control]="filtrosForm.get('numeroVagon')">
+    </yrd-autocomplete-vagon>
+  </div>
+</form>

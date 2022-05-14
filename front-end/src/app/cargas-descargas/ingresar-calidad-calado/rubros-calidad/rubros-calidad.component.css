@@ -1,0 +1,16 @@
+yrd-data-grid input[type="number"] {
+    width: 80%;
+}
+
+:host ::ng-deep .datatable-body-row input {
+    margin-left: 0%;
+}
+
+:host ::ng-deep .datatable-body-cell {
+    height: auto !important;
+    word-wrap: break-word;
+}
+
+:host ::ng-deep span {
+    word-wrap: break-word;
+}

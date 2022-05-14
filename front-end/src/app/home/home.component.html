@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <yrd-toolbar style="width: 100%"
+        [ambiente]="ambiente"
+        [ubicacionFisica]="ubicacionFisica">
+    </yrd-toolbar>
+</nav>
+
+<router-outlet></router-outlet>
+
+<div class="fixed-bottom footer">
+    <span>{{ version }}</span>
+    <span class="side-right">{{ ubicacionFisica }}</span>
+</div>

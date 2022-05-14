@@ -1,0 +1,42 @@
+<form [formGroup]="form" novalidate>
+    <fieldset>
+      <yrd-search-form-template  #searchFormComponent 
+        [botonesHabilitados]="botonesHabilitados"
+        [permisosBotones]="permisosBotones"
+        [columns]="columns" 
+        [filters]="filters"
+        [filtrosForm]="form.controls.filtros"
+        [rowsOptions]="rowsOptions">
+  
+        <ng-template #controlFiltersContainer>                
+            <yrd-filtro-administrar-notificaciones
+            #filtro
+            [form]="form.controls.filtros"
+            [opcionFecha] = "true"
+            >
+          </yrd-filtro-administrar-notificaciones>
+        </ng-template>
+
+        <ng-template #controlActionsContainer >
+            <button type="button" class="btn btn-primary" 
+              [disabled]="!selectedRow || selectedRow?.length !== 1" 
+              *ngxPermissionsOnly="Permission.GestionarNotificacionesVerDetalle"
+              (click)="onDetalle()" i18n>Ver Detalle
+            </button>
+            <button type="button" class="btn btn-primary" 
+              [disabled]="!selectedRow || selectedRow?.length < 1"
+              *ngxPermissionsOnly="Permission.GestionarNotificacionesReIntentar"
+              (click)="onReintentar()" i18n>Reintentar
+            </button>
+            <button type="button" class="btn btn-primary" 
+              [disabled]="!selectedRow || selectedRow?.length < 1" 
+              *ngxPermissionsOnly="Permission.GestionarNotificacionesCancelar"
+              (click)="onCancelar()" i18n>Cancelar
+            </button>
+        </ng-template>
+
+      </yrd-search-form-template>
+    </fieldset>
+  </form>
+  <yrd-modal-mostrar-mensaje #modalDetalle [labelHeader]="'Detalle Error'"></yrd-modal-mostrar-mensaje>
+

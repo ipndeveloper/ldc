@@ -1,0 +1,9 @@
+<yrd-modal #modalComponent [formGroup]="confirmarConObservacionesForm" [closeOnAccept]="false"
+           (accepted)="onAccept()" (closing)="onClosing()">
+    <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+    <ng-template #modalBody>
+        <yrd-texto-con-etiqueta *ngIf="muestraObservaciones" [idForm]="'observaciones'" class="col-sm-6" formControlName="observaciones" [etiqueta]="'Observaciones'"
+            [control]="confirmarConObservacionesForm.get('observaciones')" [validationMessages]="validationMessagesObservaciones"
+            [isFocused]="true"></yrd-texto-con-etiqueta>  
+    </ng-template>
+  </yrd-modal>

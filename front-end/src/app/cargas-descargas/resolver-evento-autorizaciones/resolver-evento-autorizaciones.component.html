@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <fieldset>
+      <legend class="col-form-label">Balanza</legend>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-4">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.planta.value"
+              [etiqueta]="'Planta'">
+          </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-4">
+            <yrd-etiqueta-con-valor 
+              [valor]="form.controls.nombreBalanza.value"
+              [etiqueta]="'Nombre Balanza'">
+            </yrd-etiqueta-con-valor>
+          </div>
+        </div>
+      </div>        
+    </fieldset>
+    <ngb-accordion>
+      <ngb-panel title="Movimiento">
+        <ng-template ngbPanelContent>
+           <div class="row">
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor
+                  [valor]="form.controls.tipoDeDocPorte.value" 
+                  [etiqueta]="'Tipo Doc. Porte'">
+                </yrd-etiqueta-con-valor>
+              </div>
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor
+                  [valor]="form.controls.nroDeDocPorte.value" 
+                  [etiqueta]="'Nro. Doc. Porte'">
+                </yrd-etiqueta-con-valor>
+              </div>
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor
+                  [valor]="form.controls.producto.value" 
+                  [etiqueta]="'Producto'">
+                </yrd-etiqueta-con-valor>
+              </div>
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor  
+                  [valor]="form.controls.patenteCapturada.value" 
+                  [etiqueta]="'Patente Capturada'">
+                </yrd-etiqueta-con-valor>
+              </div>
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor
+                  [valor]="form.controls.tarjeta.value" 
+                  [etiqueta]="'Tarjeta'">
+                </yrd-etiqueta-con-valor>
+              </div>
+              <div class="col-sm-6">
+                <yrd-etiqueta-con-valor
+                  [valor]="form.controls.estado.value" 
+                  [etiqueta]="'Estado'">
+                </yrd-etiqueta-con-valor>
+              </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel title="Participantes">
+        <ng-template ngbPanelContent>
+          <div class="row">
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.titular.value" 
+                [etiqueta]="'Titular'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor 
+                [valor]="form.controls.vendedor.value" 
+                [etiqueta]="'Vendedor'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.intermediario.value" 
+                [etiqueta]="'Intermediario'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.remitenteCom.value" 
+                [etiqueta]="'Remitente Com.'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.corredorComprador.value" 
+                [etiqueta]="'Corredor Comprador'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.corredorVendedor.value" 
+                [etiqueta]="'Corredor Vendedor'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+                [valor]="form.controls.destinatario.value" 
+                [etiqueta]="'Destinatario'">
+              </yrd-etiqueta-con-valor>
+            </div>
+            <div class="col-sm-6">
+              <yrd-etiqueta-con-valor
+               [valor]="form.controls.entregador.value" 
+               [etiqueta]="'Entregador'">
+              </yrd-etiqueta-con-valor>
+            </div>
+          </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+  <ngb-accordion>
+    <ngb-panel title="Pesos">
+      <ng-template ngbPanelContent>
+        <yrd-datos-pesaje #datosPesajeComponent class="col-sm-6"
+         [datosPesajeForm]="form.controls.datosPesaje" 
+         [esFueraCircuito]="false" 
+         [esAutomatico]="esAutomatico" 
+         [esEntrada]="esEntrada"
+         [idMovimiento]="movimiento?.id"
+         [patente]="movimiento?.patenteCamion"
+         [tarjeta]="movimiento?.nroTarjeta"
+         [idAccion]="idAccion"> 
+        </yrd-datos-pesaje>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+    <fieldset>
+      <legend class="col-form-label">Autorización</legend>
+        <div class="row">
+         <div class="col-sm-6">
+            <yrd-etiqueta-con-valor
+              [valor]="form.controls.motivoNoDescarga.value"
+              [etiqueta]="'Motivo'">
+            </yrd-etiqueta-con-valor>
+          </div>
+          <div class="col-sm-6">
+            <yrd-texto-con-etiqueta
+              formControlName="observacion"
+              [etiqueta]="'Observación'" >
+            </yrd-texto-con-etiqueta>
+          </div>
+       </div>
+     </fieldset>
+  </form>
+</div>
+<yrd-modal-autorizacion #modalAutorizacion (autorizacionCompletada)="onAutorizacionCompletada()"></yrd-modal-autorizacion>

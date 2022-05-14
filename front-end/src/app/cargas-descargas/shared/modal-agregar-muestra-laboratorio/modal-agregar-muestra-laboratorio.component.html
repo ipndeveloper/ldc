@@ -1,0 +1,11 @@
+<yrd-modal #modalComponent [formGroup]="muestraLaboratorioForm" [closeOnAccept]="false"
+           (accepted)="onAccept()" (closing)="onClosing()">
+    <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+    <ng-template #modalBody>
+        <yrd-texto-con-etiqueta [idForm]="'codigoBarras'" class="col-sm-6" formControlName="codigoBarras" [etiqueta]="'Código de Barra'"
+          [control]="muestraLaboratorioForm.controls.codigoBarras" [validationMessages]="validationMessagesCodigoBarras"
+          [isFocused]="true" yrdMaxLength [maxLength]="17"></yrd-texto-con-etiqueta>  
+          <yrd-text-area-con-etiqueta [idForm]="'observacionesLaboratorio'" formControlName="observaciones" [etiqueta]="'Observación'"
+          [control]="muestraLaboratorioForm.controls.observaciones" [validationMessages]="validationMessagesObservaciones"></yrd-text-area-con-etiqueta>    
+    </ng-template>
+  </yrd-modal>

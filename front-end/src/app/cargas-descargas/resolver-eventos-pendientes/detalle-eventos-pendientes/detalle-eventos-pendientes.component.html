@@ -1,0 +1,55 @@
+<fieldset [formGroup]="form" novalidate>
+  <legend class="col-form-label">Eventos pendientes de resolver</legend>
+  <div class="col-sm-12 row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <yrd-data-grid
+        [columns]="columns"
+        [rows]="rows"
+        [selected]="selectedRows"
+        (select)="onSelect($event)">
+      </yrd-data-grid>
+      <div class="float-right">
+        <button class="btn btn-primary"
+          (click)="onResolverAccion()"
+          [disabled]="selectedRows.length !== 1">Resolver acción
+        </button>
+        <button class="btn btn-danger">Cancelar</button>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</fieldset>
+
+<yrd-modal-resolver-evento-plataforma-requerida
+  #modalResolverPlataformaRequerida>
+</yrd-modal-resolver-evento-plataforma-requerida>
+
+<yrd-modal-resolver-plataforma-descarga
+  #modalResolverPlataformaDescarga>
+</yrd-modal-resolver-plataforma-descarga>
+
+<yrd-modal-resolver-evento-tarjeta-matricula
+  #modalResolverTarjetaMatricula>
+</yrd-modal-resolver-evento-tarjeta-matricula>
+
+<yrd-modal-seleccionar-balanza-salida
+  #modalSeleccionarBalanzaSalida>
+</yrd-modal-seleccionar-balanza-salida>
+
+<yrd-modal-resolver-evento-autorizaciones
+  #modalResolverAutorizaciones>
+</yrd-modal-resolver-evento-autorizaciones>
+
+<ng-template
+  #tableCellTemplate
+  ngx-datatable-cell-template
+  let-value="value"
+  let-isSelected="isSelected"
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+    <input type="checkbox"
+      [checked]="isSelected"
+      (change)="onCheckboxChangeFn($event)" />
+  </label>
+</ng-template>

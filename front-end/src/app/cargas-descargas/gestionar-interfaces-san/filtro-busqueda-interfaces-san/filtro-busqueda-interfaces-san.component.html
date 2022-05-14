@@ -1,0 +1,47 @@
+<form [formGroup]="form">
+  <div class="form-vertical">
+    <div class="row">
+      <yrd-desplegable-servicio-san class="col-sm-4 pt-2" formControlName="servicioSan"
+        [opcionSeleccione]="true"></yrd-desplegable-servicio-san>
+      <yrd-desplegable-estado-interfaz-san class="col-sm-4 pt-2" formControlName="estado"></yrd-desplegable-estado-interfaz-san>
+    </div>
+    <div class="row">
+      <yrd-desplegable-tipo-transporte class="col-sm-4 pt-2" formControlName="tipoTransporte" 
+        [opcionSeleccione]="true"></yrd-desplegable-tipo-transporte>
+      <yrd-desplegable-tipo-movimiento class="col-sm-4 pt-2" formControlName="tipoMovimiento" 
+        [opcionSeleccione]="true"></yrd-desplegable-tipo-movimiento>
+    </div>
+    <div class="row">
+      <yrd-desplegable-tipo-documento-porte 
+        #tipoDocPorte 
+        class="col-sm-4 pt-2" 
+        formControlName="tipoDocPorte"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-documento-porte>
+      <yrd-numero-con-etiqueta
+        [allowLeadingZeroes]="true"
+        formControlName="ctg"
+        #ctg
+        [etiqueta]="'CTG'"
+        yrdMaxLength [maxLength]=12
+        class="col-sm-4 pt-2">
+      </yrd-numero-con-etiqueta>
+      <div class="col-sm-4 pt-2">
+        <div class=" form-horizontal">
+          <label class="col-sm-3 col-form-label">Nro. Doc. Porte:</label>
+          <div class="col-sm-9">
+            <input type="text" formControlName="nroDocPorte" #nroDocPorte class="form-control" maxlength="13"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <yrd-fecha-con-etiqueta class="col-sm-4 pt-2" 
+        formControlName="fechaIngresoDesde" 
+        [etiqueta]="'Fecha Entrada Desde'"></yrd-fecha-con-etiqueta>
+      <yrd-fecha-con-etiqueta class="col-sm-4 pt-1" 
+        formControlName="fechaIngresoHasta" 
+        [etiqueta]="'Fecha Entrada Hasta'"></yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+</form>

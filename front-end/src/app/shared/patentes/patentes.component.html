@@ -1,0 +1,71 @@
+<div class="container-fluid pl-0 pr-0" [formGroup]="patentesForm">
+    <div class="row">
+        <div class="col-sm">
+            <div class="form-horizontal">
+                <label for="patenteChasis"
+                    class="{{ cssClassEtiquetaChasis }} col-form-label">Patente Camión:
+                </label>
+                <div class="{{ cssClassControlChasis }}">
+                    <input type="text"
+                        id="patenteChasis"
+                        class="form-control"
+                        maxlength="7"
+                        formControlName="patenteCamion"
+                        [ngClass]="{
+                            'is-valid' : patentesForm.controls.patenteCamion.valid && patentesForm.controls.patenteCamion.touched,
+                            'is-invalid' : patentesForm.controls.patenteCamion.invalid && patentesForm.controls.patenteCamion.touched
+                        }"
+                        #patenteChasisControl
+                        (blur)="chasisToUpperCase(patenteChasisControl)"
+                        [pattern]="pattern" />
+                    <div class="invalid-feedback">
+                        <div *ngIf="patentesForm.controls.patenteCamion.errors?.pattern">
+                            <p>Formato de Patente inválida.</p>
+                        </div>
+                        <div *ngIf="patentesForm.controls.patenteCamion.errors?.required">
+                            <p>El campo Patente Camión es requerido.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="form-horizontal">
+                <label for="patenteAcoplado" *ngIf="!hidePatenteAcoplado"
+                    class="{{ cssClassEtiquetaAcoplado }} col-form-label">Patente Acoplado:
+                </label>
+                <div class="{{ cssClassControlAcoplado }}" *ngIf="!hidePatenteAcoplado">
+                    <input type="text"
+                        id="patenteAcoplado"
+                        class="form-control"
+                        maxlength="7"
+                        formControlName="patenteAcoplado"
+                        [ngClass]="{
+                            'is-valid' : patentesForm.controls.patenteAcoplado.valid && patentesForm.controls.patenteAcoplado.touched,
+                            'is-invalid' : patentesForm.controls.patenteAcoplado.invalid && patentesForm.controls.patenteAcoplado.touched
+                        }"
+                        #patenteAcopladoControl
+                        (blur)="acopladoToUpperCase(patenteAcopladoControl)"
+                        [pattern]="pattern" />
+                    <div class="invalid-feedback">
+                        <div *ngIf="patentesForm.controls.patenteAcoplado.errors?.pattern">
+                            <p>Formato de Patente inválida.</p>
+                        </div>
+                        <div *ngIf="patentesForm.controls.patenteAcoplado.errors?.required">
+                            <p>El campo Patente Acoplado es requerido.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </div>   
+</div>
+<div *ngIf="patentesForm?.errors">
+    <div *ngIf="patentesForm.errors.patenteCamionDistintaPatenteAcoplado">
+        <span class="text-danger">
+            <small>Patente Camión y Patente Acoplado deben ser distintas.</small>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<div [formGroup]="form">
+  <div class="row">
+    <yrd-desplegable-si-no class="col-sm-6"
+      #habilitado 
+      formControlName="habilitado" 
+      [cssClassControl]="'col-sm-5'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

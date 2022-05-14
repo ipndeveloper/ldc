@@ -1,0 +1,82 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-circuito 
+        formControlName="circuito"
+        #circuito
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesCircuito"
+        [permiso]="Permission.AdministrarActividadesCircuitos"
+        [control]="form.get('circuito')">
+      </yrd-desplegable-circuito>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-estado-movimiento
+        formControlName="estadoInicial"
+        [opcionSeleccione]= "true"
+        [etiqueta]="'Estado Inicial'"
+        [validationMessages]="validationMessagesEstadoInicial"
+        [control]="form.get('estadoInicial')">
+      </yrd-desplegable-estado-movimiento>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-actividad
+        formControlName="actividad"
+        [opcionSeleccione]= "true"
+        [validationMessages]="validationMessagesActividad"
+        [control]="form.get('actividad')">
+      </yrd-desplegable-actividad>  
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <div class="form-group form-horizontal">
+        <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" formArrayName="resultados">
+    <yrd-data-grid 
+      class="col-sm-7"
+      [columns]="columns" 
+      [rows]="rows">
+    </yrd-data-grid>
+  </div>
+
+  <ng-template 
+    #habilitadoResultadoTemplate 
+    ngx-datatable-cell-template 
+    let-row="row">
+
+    <div [formGroup]="row">
+      <input type="checkbox" formControlName="habilitado" />
+    </div>
+  </ng-template>
+
+  <ng-template 
+    #estadoFinalResultadoTemplate 
+    ngx-datatable-cell-template 
+    let-rowIndex="rowIndex" 
+    let-value="value" 
+    let-row="row">
+
+    <div [formGroup]="row">
+      <yrd-desplegable-estado-movimiento
+        formControlName="estadoFinal"
+        [opcionSeleccione]="true"
+        [mostrarEtiqueta]="false"
+        [cssClassControl]="'col-sm-11'"
+        [validationMessages]="validationMessagesEstadoFinal"
+        [control]="row.get('estadoFinal')">
+      </yrd-desplegable-estado-movimiento>  
+    </div>
+  </ng-template>
+</div>

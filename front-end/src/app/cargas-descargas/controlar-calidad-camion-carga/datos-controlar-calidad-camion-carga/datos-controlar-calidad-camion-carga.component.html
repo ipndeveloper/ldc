@@ -1,0 +1,147 @@
+<fieldset [formGroup]="datosMovimientoForm">
+  <legend class="col-form-label">Movimiento</legend>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="tipoDocumentoPorte"
+        [idForm]="'tipoDocumentoPorte'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Tipo Doc. Porte'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="nroDocumentoPorte"
+        [idForm]="'nroDocumentoPorte'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Nro. Doc. Porte'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="producto"
+        [idForm]="'producto'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [etiqueta]="'Producto'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="estado"
+        [idForm]="'estado'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Estado'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="ordenCarga"
+        [idForm]="'ordenCarga'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Orden Carga'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="nroViaje"
+        [idForm]="'nroViaje'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [etiqueta]="'Nro. Viaje'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="titularCP"
+        [idForm]="'titularCP'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Titular CP'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        [idForm]="'vendedor'"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        formControlName="vendedor"
+        [etiqueta]="'Vendedor'">
+      </yrd-texto-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-texto-con-etiqueta
+        formControlName="patente"
+        [idForm]="'patente'"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        formControlName="patente"
+        [etiqueta]="'Patente'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset [formGroup]="decisionMovimientoForm">
+  <legend class="col-form-label">Decisión</legend>
+  <div class="row">
+      <div class="col-sm-3 form-group">
+          <yrd-desplegable-decision-calidad
+            #caracteristica
+            [opcionSeleccione]="true"
+            formControlName="decision"
+            [validationMessages]= "validationMessagesDecision"
+            [control]="decisionMovimientoForm.get('decision')"
+            [cssClassEtiqueta]="'col-sm-4'"
+            [cssClassControl]="'col-sm-6'">
+          </yrd-desplegable-decision-calidad>
+        </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-numero-con-etiqueta 
+        formControlName="coeficiente"
+        [idForm]="'coeficiente'"
+        [control]="decisionMovimientoForm.get('coeficiente')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-6'"
+        [etiqueta]="'Coeficiente'"
+        [validationMessages]= "validationMessagesCoeficienteConversionLitros"
+        [maxDecimalPlaces]="5"
+        [maxLength]="8">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 form-group">
+      <yrd-text-area-con-etiqueta 
+        formControlName="observacion"
+        [cssClassEtiqueta]="'col-sm-1'"
+        [cssClassControl]="'col-sm-11'"
+        [rows]="3"
+        [control]="decisionMovimientoForm.get('observacion')"
+        [etiqueta]="'Observacion'"
+        [maxLength]="500"
+        [validationMessages]="validationMessagesDecision">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <fieldset [formGroup]="form">
+    <legend class="col-form-label">Balanza:</legend>
+    <div class="row">
+      <div class="col-sm-4">
+        <yrd-etiqueta-con-valor
+          [etiqueta]="'Matrícula'"
+          [valor]="form.controls.patente.value">
+        </yrd-etiqueta-con-valor>
+      </div>
+      <div class="col-sm-4">
+        <yrd-etiqueta-con-valor
+          [etiqueta]="'Producto'"
+          [valor]="form.controls.producto.value">
+        </yrd-etiqueta-con-valor>
+      </div>
+      <div class="col-sm-4">
+        <yrd-etiqueta-con-valor
+          [etiqueta]="'Calidad'"
+          [valor]="form.controls.calidad.value">
+        </yrd-etiqueta-con-valor>
+      </div>
+    </div>
+  </fieldset>
+  <yrd-detalle-plataforma-requerida
+    #detallePlataformaRequerida
+    [pathArchestra]="pathArchestra">
+  </yrd-detalle-plataforma-requerida>
+</div>

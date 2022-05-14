@@ -1,0 +1,42 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template
+      #searchFormComponent
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns"
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>
+        <yrd-filtro-administrar-tarjeta-autorizacion #filtro [form]="form.controls.filtros">
+        </yrd-filtro-administrar-tarjeta-autorizacion>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+        <yrd-detalle-administrar-tarjeta-autorizacion
+          #detalle
+          [form]="form.controls.detalle">
+        </yrd-detalle-administrar-tarjeta-autorizacion>
+
+        <div class="float-right section-top-padding">
+          <button class="btn btn-success"
+            type="button"
+            [disabled]="disableButtons || esConsulta"
+            (click)="onClickAceptar()"
+            i18n>Aceptar
+          </button>
+          <button class="btn btn-danger"
+            type="button"
+            [disabled]="disableButtons"
+            (click)="onClickCancelar()"
+            i18n>Cancelar
+          </button>
+        </div>
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>

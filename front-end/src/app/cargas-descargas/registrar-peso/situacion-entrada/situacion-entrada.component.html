@@ -1,0 +1,23 @@
+<fieldset [formGroup]="situacionEntradaForm">
+  <legend class="col-form-label">Ingreso</legend>
+
+  <div class="col-sm-12 form-horizontal">
+    <div class="col-sm-2">
+      <div class="form-horizontal">
+        <input id="radioNoDescargaCarga" name="realizaDescargaCarga" formControlName="realizaDescargaCarga" type="radio" [value]="valorNoDescargoCargo"/>
+        <label for="radioNoDescargaCarga" class="form-label">No {{ textoDescargaCarga }}</label>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="form-horizontal">
+        <input id="radioDescargaCarga" name="realizaDescargaCarga" formControlName="realizaDescargaCarga" type="radio" [value]="valorDescargoCargo"/>
+        <label for="radioDescargaCarga" class="form-label">{{ textoDescargaCarga }}</label>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-horizontal">
+        <yrd-lista-motivos-no-descarga class="col-sm-12" [motivosForm]="situacionEntradaForm.controls.motivos"></yrd-lista-motivos-no-descarga>
+      </div>
+    </div>
+  </div>  
+</fieldset>

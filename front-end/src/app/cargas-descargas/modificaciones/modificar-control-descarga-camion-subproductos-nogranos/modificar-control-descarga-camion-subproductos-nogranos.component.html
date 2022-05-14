@@ -1,0 +1,31 @@
+<div #controlarSubProductosNoGranosSection id="controlarSubProductosNoGranosSection" class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <yrd-circuito [circuitoForm]="form.controls.circuito"></yrd-circuito>
+    <yrd-documento-porte #documentoPorte
+      [tipoProducto]="tipoProductoSeleccionada"
+      [tipoDocumento]="tipoDocumentoSeleccionado"
+      [tipoTransporte]="tipoTransporte"
+      [maskRegex] = "tipoDocPorteRegex"
+      [documentoPorteForm]="form.controls.documentoPorte"
+      [esFueraCircuito]="esFueraCircuito">
+    </yrd-documento-porte>
+    <yrd-fecha-periodo-stock-san *ngIf="esFueraCircuito" [fechaPeriodoStockSanForm]="form.controls.fechaPeriodoStockSan"> </yrd-fecha-periodo-stock-san>
+    <yrd-datos-documento-controlar-descarga-subproductos 
+      #datosDocumento
+      [tipoProducto]="tipoProductoSeleccionada"
+      [esModificacionFueraPuesto]="true"
+      [esFueraCircuito] = "esFueraCircuito"
+      [terminal]="terminal"
+      [debeDeshabilitarControlesPorMovimientoAplicadoEnSan]="debeDeshabilitarControlesPorMovimientoAplicadoEnSan"
+      [circuito]="circuito"></yrd-datos-documento-controlar-descarga-subproductos>
+      <div class="mt-3">      
+        <div class="float-right" style="margin-bottom: 20pt">
+          <button type="button" class="btn btn-success" (click)="aceptar()" i18n>Aceptar</button>
+          <button type="button" class="btn btn-danger" (click)="cancelar()" i18n>Cancelar</button>
+        </div>
+      </div>
+  </form>
+</div>
+<!-- 
+<pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

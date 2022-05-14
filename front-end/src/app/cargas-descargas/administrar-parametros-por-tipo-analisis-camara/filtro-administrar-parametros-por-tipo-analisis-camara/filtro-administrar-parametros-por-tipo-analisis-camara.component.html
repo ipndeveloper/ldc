@@ -1,0 +1,32 @@
+<div [formGroup]="form">
+  <div class="row">
+    <yrd-desplegable-terminal class="col-sm-4"
+      formControlName="terminal"
+      #terminal
+      [control]="form.get('terminal')"
+      [permiso]="Permission.AdministrarParametrosPorTipoAnalisisCamara"
+      [cssClassControl]="'col-sm-7'"
+      [cssClassEtiqueta]="'col-sm-2'"
+      [opcionSeleccione]="true">
+    </yrd-desplegable-terminal>    
+    <yrd-buscador-producto class="col-sm-4"
+      #producto
+      formControlName="producto" 
+      [control]="form.get('producto')"      
+      [cssClassControl]="'col-sm-3'"
+      [advancedSearch]="true"
+      [validationMessages]="validationMessagesProducto">
+    </yrd-buscador-producto>
+    <div class="col-sm-4">
+      <yrd-desplegable-grupo-rubro-analisis                
+        formControlName="tipoAnalisis"        
+        [control]="form.get('tipoAnalisis')"
+        [opcionSeleccione]="true"
+        [terminal]="terminalSeleccionada" 
+        [producto]="productoSeleccionado"
+        [cssClassControl]="'col-sm-6'"
+        [cssClassEtiqueta]="'col-sm-3'">
+      </yrd-desplegable-grupo-rubro-analisis>
+    </div>
+  </div> 
+</div>

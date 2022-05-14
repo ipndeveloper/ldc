@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+  <label *ngIf="habilitarEtiqueta" for="{{ idForm }}" class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:</label>
+  <div class="{{ cssClassControl }}">
+    <input type="text" id="{{ idForm }}" class="form-control"
+      #inputTexto 
+      [disabled]="isDisabled" 
+      [pattern]="pattern"
+      [value]="valor" 
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }" 
+      (blur)='touched()' 
+      (input)="valueChanged(inputTexto.value)"
+      yrdFocus [isFocused]="isFocused" [element]="element" />
+    <div *ngIf="isLoading" class="icon-container">
+      <i class="loader"></i>
+    </div>
+    <div *ngIf="allowIcon" class="icon-container">
+      <fa-icon *ngIf="!!successIcon"
+        [icon]="iconValue"
+        class="{{ iconCSSValue }}">
+      </fa-icon>
+    </div>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Decisión</legend>
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-valor-booleano
+        #decision
+        formControlName="decision"
+        [control]="form.get('decision')"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-6'"
+        [etiquetaPrincipal]="'Decisión:'"
+        [etiquetaTrue]="'Aceptar'"
+        [etiquetaFalse]="'Rechazar'"
+        [validationMessages]="validationMessagesDecision">
+      </yrd-desplegable-valor-booleano>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 form-group">
+      <yrd-text-area-con-etiqueta 
+        formControlName="observacion"
+        id="observacion"
+        [cssClassEtiqueta]="'col-sm-1'"
+        [cssClassControl]="'col-sm-7 padding-left-custom'"
+        [rows]="3"
+        [control]="form.get('observacion')"
+        [etiqueta]="'Observacion'"
+        [maxLength]="500">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-12 form-group">
+      <yrd-archivo-con-etiqueta
+        id="idArchivo"
+        #archivo
+        formControlName="archivos"
+        [idForm]="'idArchivos'"
+        [control]="form.get('archivos')"
+        [etiqueta]="'Archivos'"
+        [cssClassControl]="'col-sm-7'"
+        [cssClassEtiqueta]="'col-sm-1'"
+        [maxSize]="CINCO_MEBIBYTE"
+        [sizeErrorMessage]="ERROR_MESSAGE">
+      </yrd-archivo-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

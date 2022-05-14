@@ -1,0 +1,53 @@
+<fieldset>
+    <form [formGroup]="controlarSalidaForm" novalidate>
+        <yrd-busqueda-movimiento-control-salida #filtroMovimiento
+            [busquedaMovimientoControlSalidaForm]='controlarSalidaForm.controls.filtroMovimiento'
+            [disableButtons]="!disableButtons"
+            (movimientoRecuperado)="completeDataControlSalida($event)">
+        </yrd-busqueda-movimiento-control-salida>
+        <yrd-datos-movimiento-control-salida #datosMovimiento
+            [datosMovimientoForm]="controlarSalidaForm.controls.datosMovimiento"
+            [movimiento]="movimiento"
+            [esCarga]="esCarga"
+            [circuito]="circuito"
+            [esCartaPorte]="esCartaPorte"
+            [tipoDocPorteRegex]="tipoDocPorteRegex"
+            [confirmarImpresionRemito]="confirmarImpresionRemito"
+            [esRegimenElectronico]="esRegimenElectronico"
+            [maximo]="maximo"
+            [esAutomatica]="esAutomatica"
+            [cuit]="cuit">
+        </yrd-datos-movimiento-control-salida>
+        <div class="mt-3">
+            <div class="float-left">
+                <button id="btnRechazar" [disabled]="disableCerrarCircuitoPorRechazo || disableButtons" type="button" class="btn btn-default" (click)="openConfirmacionRechazo(false)">Cerrar Circuito por Rechazo</button>
+                <button id="btnRechazarConCTG" [disabled]="disableRechazonConCTG || disableButtons" type="button" class="btn btn-default" (click)="openConfirmacionRechazo(true)">Cerrar Circuito Rechazo con CTG</button>
+                <button *ngIf="esCarga" id="btnChecklistControlPatrimonial" [disabled]="disableButtons" type="button" class="btn btn-default" (click)="openChecklistControlPatrimonial()">Checklist control patrimonial</button>
+            </div>
+            <div class="float-right">
+                <button type="button" [disabled]="disableButtons" class="btn btn-primary"  [hidden]="!terminal.usaAceptarYContinuar" (click)="aceptarContinuar()">Aceptar y Continuar</button> 
+                <button id="btnAceptar" [disabled]="disableButtons" type="button" class="btn btn-success" (click)="aceptar()">Aceptar</button>
+                <button id="btnCancelar" [disabled]="disableButtons" type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</fieldset>
+<yrd-modal-confirmar-con-observaciones #modalConfirmacionRechazo (accepted)="rechazar($event)" [labelHeader]="deseaConfirmarEstaAccionMessage"></yrd-modal-confirmar-con-observaciones>
+<yrd-modal-confirmar-con-observaciones #modalProvinciaLocalidadDistintas 
+                                        (accepted)="verificarImpresiones()" 
+                                        [labelHeader]="DeseaConfirmarLaPlantaSeleccionada" 
+                                        [muestraObservaciones]="false"
+                                        [observacionesRequerido]="false">
+                                        </yrd-modal-confirmar-con-observaciones>
+<yrd-modal-checklist-control-patrimonial #modalChecklistControlPatrimonial [labelHeader]="checklistControlPatrimonialMessage"></yrd-modal-checklist-control-patrimonial>
+<yrd-modal-confirmar-impresion #modalConfirmarImpresionRemito
+    [labelHeader]="deseaImprimirElDocumentoEnEsteMomento"
+    [form]="controlarSalidaForm.controls.modalImprimeRemito"
+    (confirmacion)="confirmaImpresionRemito($event)">
+</yrd-modal-confirmar-impresion>
+
+<yrd-modal-confirmar-impresion #modalConfirmarImpresionCPE
+    [labelHeader]="deseaImprimirElDocumentoEnEsteMomento"
+    [form]="controlarSalidaForm.controls.modalImprimeCPE"
+    (confirmacion)="confirmaImpresionCPE($event)">
+</yrd-modal-confirmar-impresion>

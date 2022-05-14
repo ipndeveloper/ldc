@@ -1,0 +1,34 @@
+<form [formGroup]="controlarPesajeForm" novalidate>
+    <fieldset>
+      <yrd-search-form-template  #searchFormComponent 
+        [botonesHabilitados]="botonesHabilitados"
+        [permisosBotones]="permisosBotones"
+        [columns]="columns"
+        [filters]="filters"
+        [hasDataEditSection]="true"
+        [canSearch]="disableButtons"
+        [singleSelection]="true"
+        [rowsOptions]="rowsOptions">
+          <ng-template #controlFiltersContainer>                
+            <yrd-filtro-control-pesaje-en-balanza #filtroControlPesajeEnBalanza 
+                  [filtrosForm]="controlarPesajeForm.controls.filtros"></yrd-filtro-control-pesaje-en-balanza>
+          </ng-template>
+  
+          <ng-template #controlActionsContainer >
+          </ng-template>
+  
+          <ng-template #controlEditDataContainer>              
+              <yrd-datos-controlar-pesaje-en-balanza #datosControlPeso [controlPeso]="controlPeso" [datosPesajesForm]="controlarPesajeForm.controls.datos"></yrd-datos-controlar-pesaje-en-balanza>
+              <div class="float-left section-top-padding">                
+                <button type="button" [disabled]="disableButtons" class="btn btn-primary" (click)="onClickExportarAExcel()" i18n>Exportar a Excel</button>
+              </div>
+              <div class="float-right section-top-padding">                
+                <button type="button" [disabled]="disableButtons" class="btn btn-danger" (click)="onClickCerrar()" i18n>Cancelar</button>
+              </div>
+          </ng-template>
+  
+        </yrd-search-form-template>    
+    
+    </fieldset>
+  </form>
+  

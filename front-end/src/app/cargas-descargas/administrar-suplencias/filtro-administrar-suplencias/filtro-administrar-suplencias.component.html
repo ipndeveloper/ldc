@@ -1,0 +1,57 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        #usuarioOrigen
+        formControlName="usuarioOrigen"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('usuarioOrigen')"
+        [etiqueta]="'Usuario Origen'">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="usuarioDestino"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('usuarioDestino')"
+        [etiqueta]="'Usuario Destino'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Desde'"
+        [cssClassControl]="'col-sm-3'"
+        [control]="form.get('fechaDesde')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-fecha-con-etiqueta
+        formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Hasta'"
+        [cssClassControl]="'col-sm-3'"
+        [control]="form.get('fechaHasta')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-si-no
+        formControlName="vigente"
+        [label]="'Vigente'"
+        [cssClassControl]="'col-sm-2'"
+        [control]="form.get('vigente')">
+      </yrd-desplegable-si-no>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-si-no
+        formControlName="estaHabilitado"
+        [label]="'Habilitado'"
+        [cssClassControl]="'col-sm-2'"
+        [control]="form.get('estaHabilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

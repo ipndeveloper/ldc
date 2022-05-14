@@ -1,0 +1,17 @@
+<yrd-modal #modalComponent [hasCloseButton]="false">
+  <ng-template #modalHeader><h4>Solicite generar el QR y escaneelo<a href="" #foco class="foco">_</a></h4></ng-template>
+  <ng-template #modalBody>
+    <p>Tiempo restante: {{ contador }} segundos</p>
+  </ng-template>
+  <ng-template #modalFooter>  
+    <button #cancelModal 
+      id="btnCancelModal" 
+      #cancelButton 
+      type="button" 
+      class="btn btn-danger" 
+      (keydown)="cancelTabPressed($event)" 
+      (click)="modalComponent.close()" >
+      Cancelar
+    </button>
+  </ng-template>
+</yrd-modal>

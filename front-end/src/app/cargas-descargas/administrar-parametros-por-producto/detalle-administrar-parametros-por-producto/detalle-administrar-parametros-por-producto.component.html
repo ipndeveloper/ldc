@@ -1,0 +1,93 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-producto
+        #producto
+        formControlName="producto"
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesTipoProducto"
+        [control]="form.get('producto')">
+      </yrd-desplegable-producto>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta 
+        formControlName="valorLimiteHumedadParaRechazo"
+        [control]="form.get('valorLimiteHumedadParaRechazo')"
+        [etiqueta]="'Límite de humedad para rechazo calidad (%)'"
+        [validationMessages]="validationMessagesValorLimiteHumedadParaRechazo"
+        yrdMaxLength [maxLength]=50>
+      </yrd-texto-con-etiqueta>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-producto
+        #tipoProductoDescarga
+        formControlName="tipoProductoDescarga" 
+        [completarTipoProducto]="true"
+        [opcionSeleccione]="true"
+        [etiqueta]="'Tipo Producto Descarga'"
+        [validationMessages]="validationMessagesTipoProducto"
+        [control]="form.get('tipoProductoDescarga')">
+      </yrd-desplegable-tipo-producto>
+    </div>
+    <div class="col-sm-6">                
+      <div class="form-group form-horizontal">
+        <label class="col-sm-3 col-form-label">Tipo coeficiente conversión litros:</label> 
+        <div class="col-sm-3">
+          <input id="radioFijo" type="radio"
+            formControlName="tipoCoeficienteConversionLitros" 
+            [value]="1" />
+          <label for="radioFijo">Fijo</label>
+          <input id="radioVariable" type="radio"
+            formControlName="tipoCoeficienteConversionLitros" 
+            [value]="2" />
+          <label for="radioVariable">Variable</label>
+        </div>    
+      </div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-producto
+        #tipoProductoCarga
+        formControlName="tipoProductoCarga" 
+        [completarTipoProducto]="true"
+        [opcionSeleccione]="true"
+        [etiqueta]="'Tipo Producto Carga'"
+        [validationMessages]="validationMessagesTipoProducto"
+        [control]="form.get('tipoProductoCarga')">
+      </yrd-desplegable-tipo-producto>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta 
+        formControlName="coeficienteConversionLitros"
+        [control]="form.get('coeficienteConversionLitros')"
+        [etiqueta]="'Coeficiente fijo conversión litros'"
+        [validationMessages]="validationMessagesCoeficienteConversionLitros"
+        yrdMaxLength [maxLength]=50>
+      </yrd-texto-con-etiqueta>
+    </div>  
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="analisisPorTecnologia" class="col-sm-3 col-form-label">Análisis por Tecnología:</label>
+        <div class="col-sm-3">
+          <input type="checkbox"
+            class="checkbox"
+            id="analisisPorTecnologia"
+            formControlName="analisisPorTecnologia" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="equivalenciaArchestra"        
+        [control]="form.get('equivalenciaArchestra')"
+        [etiqueta]="'Equivalencia Archestra'"
+        [validationMessages]="validationMessagesEquivalenciaArchestra">        
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>  
+</div>

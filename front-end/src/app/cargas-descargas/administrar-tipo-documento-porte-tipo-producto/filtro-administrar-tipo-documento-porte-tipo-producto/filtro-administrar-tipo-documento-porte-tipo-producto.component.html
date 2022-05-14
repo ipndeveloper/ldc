@@ -1,0 +1,44 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-terminal
+        formControlName="terminal"
+        #terminal
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarParametrosPorTerminal">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocumentoPorte"
+        [opcionSeleccione]="true"
+        [todosTipoDocumento]="true"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('tipoDocumentoPorte')">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-tipo-producto
+        formControlName="tipoProducto"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('tipoProducto')">
+      </yrd-desplegable-tipo-producto>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-si-no
+        formControlName="habilitado" 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('habilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

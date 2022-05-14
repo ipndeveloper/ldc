@@ -1,0 +1,12 @@
+<fieldset [formGroup]="fechaPeriodoStockSanForm">
+  <legend class="col-form-label">Fecha/Periodo stock SAN</legend>
+  <div class="form-horizontal">
+    <yrd-fecha-con-etiqueta class="col-sm-6" 
+      #fechaStockComponent 
+      formControlName="fechaStock"  
+      [etiqueta]="'Fecha Stock SAN'"
+      [validationMessages]="validationMessagesFechaStock" 
+      [control]="fechaPeriodoStockSanForm.get('fechaStock')">
+    </yrd-fecha-con-etiqueta>
+    </div>
+</fieldset>

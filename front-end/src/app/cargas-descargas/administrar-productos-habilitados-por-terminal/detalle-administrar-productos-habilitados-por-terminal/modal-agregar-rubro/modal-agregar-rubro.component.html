@@ -1,0 +1,73 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="col-sm-12">
+      <yrd-desplegable-rubro-calidad
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        formControlName="rubroCalidad"
+        #rubro
+        [opcionSeleccione]="true"
+        [control]="form.get('rubroCalidad')"
+        [validationMessages]="validationMessagesRubro">
+      </yrd-desplegable-rubro-calidad>
+    </div>
+    <div class="col-sm-12">
+      <yrd-numero-con-etiqueta 
+        formControlName="orden"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('orden')"
+        [etiqueta]="'Orden'">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-12">
+      <yrd-numero-con-etiqueta 
+        [maxDecimalPlaces]="2" 
+        formControlName="minimo"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('minimo')"
+        [etiqueta]="'Valor recepción mínimo'"
+        [validationMessages]="validationMessagesValorMinimo">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-12">
+      <yrd-numero-con-etiqueta 
+        [maxDecimalPlaces]="2" 
+        formControlName="maximo"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('maximo')"
+        [etiqueta]="'Valor recepción máximo'"
+        [validationMessages]="validationMessagesValorMaximo">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-horizontal">
+        <label for="obligatorioSAN" class="col-sm-5 col-form-label">Obligatorio en SAN:</label>
+        <div class="col-sm-7">
+          <input type="checkbox"
+            class="checkbox"
+            id="obligatorioSAN"
+            formControlName="requeridoSAN" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="form-horizontal">
+        <label for="obligatorioPlanta" class="col-sm-5 col-form-label">Obligatorio en Planta:</label>
+        <div class="col-sm-7">
+          <input type="checkbox"
+            class="checkbox"
+            id="obligatorioPlanta"
+            formControlName="requeridoPlanta" />
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</yrd-modal>

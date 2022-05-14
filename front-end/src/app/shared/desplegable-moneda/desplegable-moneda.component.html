@@ -1,0 +1,16 @@
+<div class="form-horizontal">
+  <label for="selectMoneda" class="col-sm-4 col-form-label">Moneda:</label>
+  <div class="col-sm-8">
+    <select class="form-control" id="selectMoneda" #selectMoneda [disabled]="isDisabled" [value]="selectedEntityId" (blur)="onTouched()"
+      (change)="onChange(selectMoneda.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option *ngIf="opcionSeleccione" value="undefined">Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+        <p>El campo Moneda es requerido.</p>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    
+    <yrd-circuito 
+      [circuitoForm]="form.controls.circuito" 
+      [completarTipoProducto]="false">
+    </yrd-circuito>      
+    <yrd-datos-movimiento-modificar-producto-fuera-circuito 
+      #datosMovimiento 
+      [datosMovimientoForm]="form.controls.datosMovimiento">
+    </yrd-datos-movimiento-modificar-producto-fuera-circuito>
+    <yrd-fecha-periodo-stock-san *ngIf="producto?.imputaStock"
+      [fechaPeriodoStockSanForm]="form.controls.fechaPeriodoStockSan">
+    </yrd-fecha-periodo-stock-san>
+    
+    <fieldset>
+      <legend class="col-form-label">Producto</legend>
+      <div class="form-horizontal">
+        <yrd-desplegable-producto-por-grupo class="col-sm-6" 
+          formControlName="producto"
+          #desplegableProducto 
+          [producto]="producto" 
+          [control]="form.get('producto')">
+        </yrd-desplegable-producto-por-grupo>
+      </div>
+    </fieldset>
+
+    <fieldset [ngClass]="{'collapse' : hideCampoEpa}" class="container-fluid" >
+      <legend class="col-form-label">Campo EPA</legend>
+      <div class="form-horizontal">
+        <yrd-desplegable-campo-epa-sustentable class="col-sm-6" 
+          formControlName="campoEpa"
+          [producto]="producto" 
+          [control]="form.get('campoEpa')"
+          [titular]="titular"
+          [fillCampoEpa]="fillCampoEpa">
+        </yrd-desplegable-campo-epa-sustentable>
+        <div class="col-sm-2">
+          <div class="form-horizontal">
+            <label for="noCbx" i18n>Sustentabilidad:</label>
+            <input type="checkbox" class="form-check-input-right" checked="false" formControlName="sustentable">
+          </div>
+        </div>
+      </div>
+      <div class="form-horizontal">
+        <yrd-desplegable-cosecha class="col-sm-6"
+          formControlName="cosecha" 
+          [campoEpaSustentable]="form.get('campoEpa')?.value" 
+          [producto]="form.get('producto')?.value" 
+          [fillCampoEpa]="!fillCosecha" 
+          [control]="form.get('cosecha')">
+        </yrd-desplegable-cosecha>
+        <yrd-buscador-localidad class="col-sm-6" 
+          formControlName="procedencia" 
+          [advancedSearch]="true"
+          [etiqueta]="'Procedencia'" 
+          [control]="form.get('procedencia')">
+        </yrd-buscador-localidad>
+      </div>
+    </fieldset>
+
+    <yrd-rubros-calidad class="container-fluid" [ngClass]="{'collapse' : hideCalidad}" 
+      #rubrosCalidadComponent 
+      [rubrosForm]="form.controls.rubros" 
+      [rubrosCalidad]="rubrosCalidad"
+      [deshabilitarCalculoCalidad]="false" 
+      [selectedRows]="rubrosSelected"
+      [disableSelectRubro]="true" 
+      [operacion]="operacion" 
+      [movimiento]="movimiento"
+      [esAcopio]="esAcopio">
+    </yrd-rubros-calidad>
+
+    <fieldset>
+      <legend class="col-form-label">Destino Físico</legend>
+      <div class="form-horizontal">
+        <yrd-desplegable-silo class="col-sm-6"
+          formControlName="silo"
+          [producto]="producto" 
+          [opcionSeleccione]="true"
+          [control]="form.get('silo')">
+        </yrd-desplegable-silo>
+      </div>
+    </fieldset>
+
+  </form>
+  
+  <div class="mt-3">        
+    <div class="float-right">      
+      <button type="button" class="btn btn-success" (click)="aceptar()">Aceptar</button>
+      <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+  
+</div>
+
+<!-- <pre>Form value: {{ form.getRawValue() | json }}</pre>  
+<pre>Form status: {{ form.status | json }}</pre> -->

@@ -1,0 +1,19 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-desplegable-terminal
+      class="col-sm-6 form-group"
+      formControlName="terminal"
+      #terminal 
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-6'" 
+      [permiso]="Permission.AdministrarDestinosPostCalado"
+      [control]="form.get('terminal')">
+    </yrd-desplegable-terminal>
+    <yrd-desplegable-si-no
+      class="col-sm-6 form-group"
+      formControlName="habilitado" 
+      [cssClassControl]="'col-sm-6'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

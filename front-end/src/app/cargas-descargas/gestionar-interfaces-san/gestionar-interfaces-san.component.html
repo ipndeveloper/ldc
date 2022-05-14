@@ -1,0 +1,37 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template  #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="form.controls.filtros"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-busqueda-interfaces-san [form]="form.controls.filtros"></yrd-filtro-busqueda-interfaces-san>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+          <button type="button" class="btn btn-primary" 
+            (click)="onReEjecutar()" 
+            *ngxPermissionsOnly="Permission.GestionarInterfacesSANReEjecutar"
+            i18n>Re ejecutar
+          </button>
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onVerDetalle()" 
+            *ngxPermissionsOnly="Permission.GestionarInterfacesSANVerDetalle"            
+            i18n>Ver detalle
+          </button>
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onReintentar()" 
+            *ngxPermissionsOnly="Permission.GestionarInterfacesSANReIntentar"            
+            i18n>Reintentar
+          </button>
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>
+<yrd-modal-mostrar-mensaje #modalDetalle [labelHeader]="'Detalle'"></yrd-modal-mostrar-mensaje>

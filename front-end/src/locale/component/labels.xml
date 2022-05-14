@@ -1,0 +1,918 @@
+<labels>
+    <key id="Aceptar">
+        <value>Aceptar</value>
+    </key>
+    <key id="No">
+        <value>No</value>
+    </key>
+    <key id="Si">
+        <value>Si</value>
+    </key>
+     <key id="Rechazar">
+        <value>Rechazar</value>
+    </key>
+    <key id="Todos">
+        <value>Todos</value>
+    </key>
+    <key id="Consultar">
+        <value>Consultar</value>
+    </key>
+    <key id="Modificacion">
+        <value>Modificación</value>
+    </key>
+    <key id="ExportarAExcel">
+        <value>Exportar a Excel</value>
+    </key>
+    <key id="Buscar">
+        <value>Buscar</value>
+    </key>
+    <key id="Limpiar">
+        <value>Limpiar</value>
+    </key>
+    <key id="Busqueda">
+        <value>Búsqueda</value>
+    </key>
+    <key id="ResultadoBusqueda">
+        <value>Resultado de la Búsqueda</value>
+    </key>
+    <key id="Modificar">
+        <value>Modificar</value>
+    </key>
+    <key id="Copiar">
+        <value>Copiar</value>
+    </key>
+    <key id="ContinuarPostLab">
+        <value>Continuar Post-Lab</value>
+    </key>
+    <key id="Tarjeta">
+        <value>Tarjeta</value>
+    </key>
+    <key id="QR">
+        <value>QR</value>
+    </key>
+    <key id="CodigoTarjeta">
+        <value>Código Tarjeta</value>
+    </key>
+    <key id="Patente">
+        <value>Patente</value>
+    </key>
+    <key id="Producto">
+        <value>Producto</value>
+    </key>
+    <key id="Estado">
+        <value>Estado</value>
+    </key>
+    <key id="FechaHoraCalado">
+        <value>Fec/Hr Calado</value>
+    </key>
+    <key id="FechaHoraModificacion">
+        <value>Fec/Hr Modificación</value>
+    </key>
+    <key id="DocumentoPorte">
+        <value>Doc. Porte</value>
+    </key>
+    <key id="CodigoCupo">
+        <value>Código Cupo</value>
+    </key>
+    <key id="Finalidad">
+        <value>Finalidad</value>
+    </key>
+    <key id="Entregador">
+        <value>Entregador</value>
+    </key>
+    <key id="FechaEntrada">
+        <value>Fecha Entrada</value>
+    </key>
+    <key id="TipoDocumentoPorte">
+        <value>Tipo Doc. Porte</value>
+    </key>
+    <key id="NumeroDocumentoPorte">
+        <value>Nro. Doc. Porte</value>
+    </key>
+    <key id="CodigoTrazabilidadGrano">
+        <value>CTG</value>
+    </key>
+    <key id="Turno">
+        <value>Turno</value>
+    </key>
+    <key id="Turno">
+        <value>Turno</value>
+    </key>
+     <key id="Motivo">
+        <value>Motivo</value>
+    </key>
+    <key id="RegistrarDecision">
+        <value>Registrar Decisión</value>
+    </key>
+    <key id="EnCircuito">
+        <value>En Circuito</value>
+    </key>
+    <key id="Rechazados">
+        <value>Rechazados</value>
+    </key>
+    <key id="Agregar">
+        <value>Agregar</value>
+    </key>
+    <key id="Eliminar">
+        <value>Eliminar</value>
+    </key>
+    <key id="Datos">
+        <value>Datos</value>
+    </key>
+    <key id="NroPlataforma">
+        <value>Nro</value>
+    </key>
+    <key id="DescripcionPlataforma">
+        <value>Plataforma</value>
+    </key>
+    <key id="TipoTransporte">
+        <value>Tipo Transp.</value>
+    </key>
+    <key id="Activo">
+        <value>Activo</value>
+    </key>
+    <key id="NroSilo">
+        <value>Nro</value>
+    </key>
+    <key id="DescripcionSilo">
+        <value>Destino</value>
+    </key>
+    <key id="Grado">
+        <value>Grado</value>
+    </key>
+    <key id="ProteinaMinimo">
+        <value>% Prot. Mín.</value>
+    </key>
+    <key id="ProteinaMaximo">
+        <value>% Prot. Máx.</value>
+    </key>
+    <key id="HumedadMinimo">
+        <value>% Hum. Mín.</value>
+    </key>
+    <key id="HumedadMaximo">
+        <value>% Hum. Máx.</value>
+    </key>
+    <key id="Error">
+        <value>Error</value>
+    </key>
+    <key id="AsignarTarjeta">
+        <value>Asignar Tarjeta</value>
+    </key>
+    <key id="ServicioAfip">
+        <value>Servicio AFIP</value>
+    </key>
+    <key id="CartaPorte">
+        <value>Carta de Porte</value>
+    </key>
+    <key id="EstadoCamion">
+        <value>Estado Camión</value>
+    </key>
+    <key id="ValoresHumedad">
+        <value>Valores de Humedad</value>
+    </key>
+    <key id="ValoresProteinas">
+        <value>Valores de Proteínas</value>
+    </key>
+    <key id="NroTicket">
+        <value>Nro. Ticket</value>
+    </key>
+    <key id="TipoMovimiento">
+        <value>Tipo Movimiento</value>
+    </key>
+    <key id="Cosecha">
+        <value>Cosecha</value>
+    </key>
+    <key id="Vendedor">
+        <value>Vendedor</value>
+    </key>
+    <key id="Destinatario">
+        <value>Destinatario</value>
+    </key>
+    <key id="PatenteCamion">
+        <value>Patente Camión</value>
+    </key>
+    <key id="Confirmar">
+        <value>Confirmar</value>
+    </key>
+     <key id="TipoNumeroPorte">
+        <value>Tipo-Nro.Porte</value>
+    </key>
+     <key id="CodBarra">
+        <value>Cod.Barra</value>
+    </key>
+     <key id="EstadoMuestra">
+        <value>Estado Muestra</value>
+    </key>
+     <key id="Camara">
+        <value>Cámara</value>
+    </key>
+     <key id="TipoAnalisis">
+        <value>Tipo Análisis</value>
+    </key>
+    <key id="FechaAut">
+        <value>Fecha Aut.</value>
+    </key>
+     <key id="FechaEnvio">
+        <value>Fecha Envío</value>
+    </key>
+     <key id="Ubicacion">
+        <value>Ubicación</value>
+    </key>
+     <key id="Descartar">
+        <value>Descartar</value>
+    </key>
+    <key id="Autorizar">
+        <value>Autorizar</value>
+    </key>
+    <key id="CambiarCodBarra">
+        <value>Cambiar Cód.Barra</value>
+    </key>
+     <key id="ReversarEstadoMuestra">
+        <value>Reversar Estado Muestra</value>
+    </key>
+       <key id="FechaGeneracion">
+        <value>Fecha generación</value>
+    </key>
+       <key id="ModoAutomaticoManual">
+        <value>Modo Manual/Aut.</value>
+    </key>
+       <key id="EnvioMailAutomaticoManual">
+        <value>Envío e-mail Manual/Aut.</value>
+    </key>
+       <key id="FechaHoraProgramada">
+        <value>Fecha/Hora Programada</value>
+    </key>
+       <key id="DescripcionTarea">
+        <value>Descripción Tarea</value>
+    </key>
+     <key id="AutorizarEnFormaAgil">
+        <value>Autorizar en Forma Ágil</value>
+    </key>
+     <key id="Vagon">
+        <value>Vagón</value>
+    </key>
+    <key id="ReversarSalida">
+        <value>Reversar Salida</value>
+    </key>
+    <key id="FechaSalida">
+        <value>Fecha Salida</value>
+    </key>
+    <key id="RebajaConvenida">
+        <value>Rebaja Convenida</value>
+    </key>
+    <key id="CodigoBarra">
+        <value>Código Barra</value>
+    </key>
+     <key id="Observacion">
+        <value>Observación</value>
+    </key>
+     <key id="EliminarMuestraLaboratorio">
+        <value>Eliminar Muestra Laboratorio</value>
+    </key>
+    <key id="Acoplado">
+        <value>Acoplado</value>
+    </key>
+    <key id="FechaHora">
+        <value>Fecha/Hora</value>
+    </key>
+    <key id="ControlPeso">
+        <value>Control de Peso</value>
+    </key>
+     <key id="Balanza">
+        <value>Balanza</value>
+    </key>
+     <key id="TipoBalanza">
+        <value>Tipo Balanza</value>
+    </key>
+     <key id="Peso">
+        <value>Peso</value>
+    </key>
+    <key id="PesoBruto">
+        <value>Peso Bruto</value>
+    </key>
+    <key id="Moneda">
+        <value>Moneda</value>
+    </key>
+    <key id="MedioDePago">
+        <value>Medio de Pago</value>
+    </key>
+     <key id="BalanzaEntrada">
+        <value>Balanza Entrada</value>
+    </key>
+     <key id="BalanzaSalida">
+        <value>Balanza Salida</value>
+    </key>
+     <key id="Diferencia">
+        <value>Diferencia</value>
+    </key>
+    <key id="CodigoConfirmacionManual">
+        <value>Código Confirmación Manual</value>
+    </key>
+    <key id="FechaAutorizacionDesde">
+        <value>Fecha Autorización Desde</value>
+    </key>
+     <key id="FechaAutorizacionHasta">
+        <value>Fecha Autorización Hasta</value>
+    </key>
+    <key id="FechaDesde">
+        <value>Fecha Desde</value>
+    </key>
+    <key id="FechaHasta">
+        <value>Fecha Hasta</value>
+    </key>
+     <key id="FechaOperacion">
+        <value>Fecha Operación</value>
+    </key>
+    <key id="KilosBruto">
+        <value>Kilos Bruto</value>
+    </key>
+    <key id="KilosTara">
+        <value>Kilos Tara</value>
+    </key>
+    <key id="Transportista">
+        <value>Transportista</value>
+    </key>
+    <key id="NumeroCEE">
+        <value>Numero CEE</value>
+    </key>
+    <key id="KilometrosRecorridos">
+        <value>Kilómetros Recorridos</value>
+    </key>
+    <key id="TarifaDeReferencia">
+        <value>Tarifa de Referencia</value>
+    </key>
+    <key id="TarifaTN">
+        <value>Tarifa TN</value>
+    </key>
+    <key id="FechaCarga">
+        <value>Fecha Carga</value>
+    </key>
+    <key id="FechaVencimiento">
+        <value>Fecha Vencimiento</value>
+    </key>
+    <key id="Titular">
+        <value>Titular</value>
+    </key>
+    <key id="TitularCP">
+        <value>TitularCP</value>
+    </key>
+    <key id="CorredorComprador">
+        <value>Corredor Comprador</value>
+    </key>
+    <key id="Procedencia">
+        <value>Procedencia</value>
+    </key>
+    <key id="Chofer">
+        <value>Chofer</value>
+    </key>
+    <key id="Corredor">
+        <value>Corredor</value>
+    </key>
+    <key id="Decision">
+        <value>Decisión</value>
+    </key>
+    <key id="FechaStockSAN">
+        <value>Fecha Stock SAN</value>
+    </key>
+    <key id="NumeroDeVagon">
+        <value>Número de vagón</value>
+    </key>
+    <key id="CodCancelacionCTG">
+        <value>Código de Cancelación CTG</value>
+    </key>
+    <key id="CTG">
+        <value>CTG</value>
+    </key>
+    <key id="TramiteCOT">
+        <value>Número Trámite COT</value>
+    </key>
+    <key id="COT">
+        <value>Número COT</value>
+    </key>
+    <key id="PesoNeto">
+        <value>Peso Neto</value>
+    </key>
+    <key id="Observaciones">
+        <value>Observaciones</value>
+    </key>
+    <key id="Habilitado">
+        <value>Habilitado</value>
+    </key>
+    <key id="Reintentar">
+        <value>Reintentar</value>
+    </key>
+    <key id="VerError">
+        <value>Ver Error</value>
+    </key>
+    <key id="DescargarArchivo">
+        <value>Descargar Archivo</value>
+    </key>
+    <key id="Usuario">
+        <value>Usuario</value>
+    </key>
+    <key id="Contraseña">
+        <value>Contraseña</value>
+    </key>
+    <key id="Notificacion">
+        <value>Notificación</value>
+    </key>
+    <key id="CamionVagon">
+        <value>Camión/Vagón</value>
+    </key>
+    <key id="Ferrocarril">
+        <value>Ferrocarril</value>
+    </key>
+    <key id="Operativo">
+        <value>Operativo</value>
+    </key>
+    <key id="Cancelar">
+        <value>Cancelar</value>
+    </key>
+    <key id="ServicioSan">
+        <value>Servicio SAN</value>
+    </key>
+    <key id="FechaPocesamiento">
+        <value>Fecha Pocesamiento</value>
+    </key>
+    <key id="SinPasarASan">
+        <value>Sin Pasar a SAN</value>
+    </key>
+    <key id="Terminal">
+        <value>Terminal</value>
+    </key>
+    <key id="Subject">
+        <value>Subject</value>
+    </key>
+    <key id="Tipo">
+        <value>Tipo</value>
+    </key>
+    <key id="Descripcion">
+        <value>Descripción</value>
+    </key>
+    <key id="Cuerpo">
+        <value>Cuerpo</value>
+    </key>
+    <key id="Mail">
+        <value>Mail</value>
+    </key>
+    <key id="Rol">
+        <value>Rol</value>
+    </key>
+    <key id="Fecha">
+        <value>Fecha</value>
+    </key>
+        <key id="FechaYHora">
+        <value>Fecha/Hora</value>
+    </key>
+    <key id="NombreAD">
+        <value>Nombre AD</value>
+    </key>
+    <key id="Nombre">
+        <value>Nombre</value>
+    </key>
+    <key id="Apellido">
+        <value>Apellido</value>
+    </key>
+    <key id="Circuito">
+        <value>Circuito</value>
+    </key>
+    <key id="Actividad">
+        <value>Actividad</value>
+    </key>
+    <key id="Caracteristica">
+        <value>Característica</value>
+    </key>
+    <key id="Cuit">
+        <value>Cuit</value>
+    </key>
+    <key id="Cuil">
+        <value>Cuil</value>
+    </key>
+    <key id="CodigoPostal">
+        <value>Código Postal</value>
+    </key>
+    <key id="CodigoProducto">
+        <value>Código Producto</value>
+    </key>
+    <key id="CodigoCamara">
+        <value>Código Cámara</value>
+    </key>
+    <key id="Codigo">
+        <value>Código</value>
+    </key>
+     <key id="PendienteSupervisor">
+        <value>PendienteSupervisor</value>
+    </key>
+    <key id="TipoProducto">
+        <value>Tipo Producto</value>
+    </key>
+    <key id="Permiso">
+        <value>Permiso</value>
+    </key>
+    <key id="PuestoTrabajo">
+        <value>Puesto de trabajo</value>
+    </key>
+    <key id="ApellidoYNombre">
+        <value>Apellido y Nombre</value>
+    </key>
+    <key id="Impresora">
+        <value>Impresora</value>
+    </key>
+    <key id="UncPath">
+        <value>UNC Path</value>
+    </key>
+    <key id="Dispositivo">
+        <value>Dispositivo</value>
+    </key>
+    <key id="TipoDispositivo">
+        <value>Tipo Dispositivo</value>
+    </key>
+    <key id="EstadoInicial">
+        <value>Estado Inicial</value>
+    </key>
+    <key id="ActividadCircuito">
+        <value>Actividad Circuito</value>
+    </key>
+    <key id="SentidoBalanza">
+        <value>Sentido Balanza</value>
+    </key>
+    <key id="Tope">
+        <value>Tope</value>
+    </key>
+    <key id="AutorizacionBalanza">
+        <value>Autorización Balanza</value>
+    </key>
+    <key id="MotivoSancion">
+        <value>Motivo Sanción</value>
+    </key>
+    <key id="Responsable">
+        <value>Responsable</value>
+    </key>
+    <key id="FechaExpiracion">
+        <value>Fecha Expiración</value>
+    </key>
+    <key id="FechaLevanto">
+        <value>Fecha Levantó</value>
+    </key>
+    <key id="Penalizacion">
+        <value>Penalización</value>
+    </key>
+    <key id="TipoPuesto">
+        <value>Tipo Puesto</value>
+    </key>
+    <key id="Accion">
+        <value>Acción</value>
+    </key>
+    <key id="DireccionIP">
+        <value>Dirección IP</value>
+    </key>
+    <key id="AutorizacionPuestoTarjeta">
+        <value>Autorización en Puesto con Tarjeta</value>
+    </key>
+    <key id="Automatico">
+        <value>Automático</value>
+    </key>
+    <key id="Humedimetro">
+        <value>Humedímetro</value>
+    </key>
+    <key id="CoeficienteConversionLitros">
+        <value>Coef. conversión(lts.)</value>
+    </key>
+    <key id="RubroCalidad">
+        <value>Rubro Calidad</value>
+    </key>
+    <key id="EquivalenciaArchestra">
+        <value>Equivalencia Archestra</value>
+    </key>
+    <key id="TipoTarjeta">
+        <value>Tipo Tarjeta</value>
+    </key>
+    <key id="Abreviatura">
+        <value>Abreviatura</value>
+    </key>
+    <key id="LimiteHumedad">
+        <value>Límite Humedad(%)</value>
+    </key>
+    <key id="LimiteHumedadRechazoCalidad">
+        <value>Límite de Humedad para Rechazo Calidad(%)</value>
+    </key>
+    <key id="HoraCorteCupo">
+        <value>Hora Corte Cupo</value>
+    </key>
+    <key id="Sede">
+        <value>Sede</value>
+    </key>
+    <key id="DiferenciaDiasFiltroGeneracionArchivoMuestra">
+        <value>Diferencia De Dias Para Filtro De Generación de Archivo de Muestras</value>
+    </key>
+    <key id="DiferenciaDiasFiltroControlPeso">
+        <value>Diferencia De Dias Para Filtro De Control de Peso</value>
+    </key>
+    <key id="HoraExpiracionRespuestaEntregador">
+        <value>Hora Expiración Falta Respuesta Entregador</value>
+    </key>
+    <key id="CopiasTicketCalidadVagon">
+        <value>Copias Ticket Calidad Vagon</value>
+    </key>
+    <key id="CopiasTicketCalidadCamion">
+        <value>Copias Ticket Calidad Camión</value>
+    </key>
+    <key id="CopiasTicketPesaje">
+        <value>Copias Ticket Pesaje</value>
+    </key>
+    <key id="CopiasRemito">
+        <value>Copias Remito</value>
+    </key>
+    <key id="FormatoPatente">
+        <value>Formato Patente</value>
+    </key>
+    <key id="Direccion">
+        <value>Dirección</value>
+    </key>
+    <key id="Sociedad">
+        <value>Sociedad</value>
+    </key>
+    <key id="Ingreso">
+        <value>Ingreso</value>
+    </key>
+     <key id="Egreso">
+        <value>Egreso</value>
+    </key>
+     <key id="SituacionEntrada">
+        <value>Situacion Entrada</value>
+    </key>
+     <key id="SituacionSalida">
+        <value>Situacion Salida</value>
+    </key>
+     <key id="Descargo">
+        <value>Descargó</value>
+    </key>
+    <key id="Descarga">
+        <value>Descarga</value>
+    </key>
+    <key id="Carga">
+        <value>Carga</value>
+    </key>
+     <key id="DestinoPostCalado">
+        <value>Destino Post Calado</value>
+    </key>
+    <key id="Destino">
+        <value>Destino</value>
+    </key>
+    <key id="Plataforma">
+        <value>Plataforma</value>
+    </key>
+    <key id="CodigoDesde">
+        <value>Código Desde</value>
+    </key>
+    <key id="CodigoHasta">
+        <value>Código Hasta</value>
+    </key>
+    <key id="Rubro">
+        <value>Rubro</value>
+    </key>
+    <key id="TipoDocumentoPorteTipoProducto">
+        <value>Tipo de Documento Porte por Tipo Producto</value>
+    </key>
+    <key id="GrupoProductos">
+        <value>Grupo de Productos</value>
+    </key>
+    <key id="Orden">
+        <value>Orden</value>
+    </key>
+    <key id="valorRecepcionMinimo">
+        <value>Valor recepción mínimo</value>
+    </key>
+    <key id="valorRecepcionMaximo">
+        <value>Valor recepción Máximo</value>
+    </key>
+      <key id="PorDefecto">
+        <value>Por Defecto</value>
+    </key>
+    <key id="ImpresoraHabilitada">
+        <value>Impresora Habilitada</value>
+    </key>
+    <key id="OrdenCarga">
+        <value>Orden Carga</value>
+    </key>
+    <key id="NroViaje">
+        <value>Nro. Viaje</value>
+    </key>
+    <key id="PatenteAcoplado">
+        <value>Patente Acoplado</value>
+    </key>
+    <key id="FechaVigenciaDesdeHasta">
+        <value>Fecha Vigencia Desde/Hasta</value>
+    </key>
+    <key id="EstadoViaje">
+        <value>Estado Viaje</value>
+    </key>
+    <key id="Camion">
+        <value>Camión</value>
+    </key>
+    <key id="TipoPesada">
+        <value>Tipo Pesada</value>
+    </key>
+    <key id="DescControl">
+        <value>Desc. Control</value>
+    </key>
+    <key id="Cargo">
+        <value>Cargó</value>
+    </key>
+    <key id="Archivo">
+        <value>Archivo</value>
+    </key>
+    <key id="Intermediario">
+        <value>Intermediario</value>
+    </key>
+    <key id="Detalle">
+        <value>Detalle</value>
+    </key>
+    <key id="DescargaCarga">
+        <value>Descarga/Carga</value>
+    </key>
+    <key id="Copiado">
+        <value>Copiado</value>
+    </key>
+    <key id="UsuarioCreacion">
+        <value>Usuario Creación</value>
+    </key>
+    <key id="UsuarioOrigen">
+        <value>Usuario Origen</value>
+    </key>
+    <key id="UsuarioDestino">
+        <value>Usuario Destino</value>
+    </key>
+    <key id="AnularValidacionCupo">
+        <value>Anular Validación Cupo</value>
+    </key>
+    <key id="FechaIngreso">
+        <value>Fecha Ingreso</value>
+    </key>
+     <key id="EstadoCupo">
+        <value>Estado Cupo</value>
+    </key>
+    <key id="Coeficiente">
+        <value>Coeficiente</value>
+    </key>
+    <key id="SedeOrigen">
+        <value>Sede Origen</value>
+    </key>
+    <key id="SedeDestino">
+        <value>Sede Destino</value>
+    </key>
+    <key id="ErrorAfip">
+        <value>Error Afip</value>
+    </key>
+    <key id="MotivoCupo">
+        <value>Motivo Cupo</value>
+    </key>
+    <key id="Remito">
+        <value>Remito</value>
+    </key>
+    <key id="CodigoTipo">
+        <value>Codigo Tipo</value>
+    </key>
+    <key id="ObligatorioSAN">
+        <value>Obligatorio en SAN</value>
+    </key>
+    <key id="ObligatorioPlanta">
+        <value>Obligatorio en Planta</value>
+    </key>
+    <key id="SobreTransporte">
+        <value>Sobre Transporte</value>
+    </key>
+    <key id="Transporte">
+        <value>Transporte</value>
+    </key>
+    <key id="FechaCreacion">
+        <value>Fecha Creación</value>
+    </key>
+    <key id="FechaImportacion">
+        <value>Fecha Importación</value>
+    </key>
+    <key id="NombreUsuarioCreacion">
+        <value>Usuario Creación</value>
+    </key>
+
+    <key id="UbicacionFisica">
+        <value>Ubicacion Fisica</value>
+    </key>
+
+    <key id="ConexionSobresTransporte">
+        <value>Conexión Sobres Transporte</value>
+    </key>
+
+    <key id="ConexionSAN">
+        <value>Conexión con SAN</value>
+    </key>
+
+    <key id="TipoAmbiente">
+        <value>Tipo de ambiente</value>
+    </key>
+    <key id="Ambiente">
+        <value>Ambiente</value>
+    </key>
+    <key id="AmbienteCreacion">
+        <value>Ambiente Creación</value>
+    </key>
+    <key id="Exito">
+        <value>Éxito</value>
+    </key>
+    <key id="Importar">
+        <value>Importar</value>
+    </key>
+    <key id="NombreUsuarioImportacion">
+        <value>Usuario Importación</value>
+    </key>
+    <key id="NumeroTarjeta">
+        <value>Número Tarjeta</value>
+    </key>
+    <key id="Suplencia">
+        <value>Suplencia</value>
+    </key>
+    <key id="AnalisisPorTecnologia">
+        <value>Análisis Por Tecnología</value>
+    </key>
+    <key id="EsEspecial">
+        <value>Es Especial</value>
+    </key>
+    <key id="TiempoLimite">
+        <value>Tiempo Límite</value>
+    </key>
+    <key id="TiempoLimitePorEstado">
+        <value>Tiempo Límite por Estado</value>
+    </key>
+    <key id="LugarCarga">
+        <value>Lugar de carga</value>
+    </key>
+    <key id="LugarDescarga">
+        <value>Lugar de descarga</value>
+    </key>
+    <key id="EsperePorFavor">
+        <value>Procesando, por favor espere</value>
+    </key>
+    <key id="PuntoCarga">
+        <value>Punto de Carga</value>
+    </key>
+    <key id="PlataformaPCarga">
+        <value>Plataforma/P. Carga</value>
+    </key>
+    <key id="TicketDePago">
+        <value>Ticket de Pago</value>
+    </key>
+    <key id="ControlPatrimonial">
+        <value>Control Patrimonial</value>
+    </key>
+    <key id="LeyendaGmp">
+        <value>Leyenda GMP</value>
+    </key>  
+    <key id="FinalidadEnvioPdfTicketBalanza">
+        <value>Finalidad para Envío de PDF de Ticket Balanza</value>
+    </key>
+    <key id="CantidadCopiasOblea">
+        <value>Cantidad de Copias Oblea</value>
+    </key>
+    <key id="Laboratorio">
+        <value>Laboratorio</value>
+    </key>
+    <key id="Aviso">
+        <value>Aviso</value>
+    </key>
+    <key id="BalanzasAutomatizadas">
+        <value>Balanzas Automatizadas</value>
+    </key>
+    <key id="CapacidadMaxima">
+        <value>Capacidad Maxima</value>
+    </key>
+    <key id="SinBalancero">
+        <value>Sin Balancero</value>
+    </key>
+    <key id="TipoEvento">
+        <value>Tipo</value>
+    </key>
+    <key id="RequiereAccion">
+        <value>Requiere Acción</value>
+    </key>
+    <key id="MensajeDashboard">
+        <value>Mensaje Dashboard</value>
+    </key>
+    <key id="MensajeArchestra">
+        <value>Mensaje Archestra</value>
+    </key>
+    <key id="Dashboard">
+        <value>Dashboard</value>
+    </key>
+    <key id="Archestra">
+        <value>Archestra</value>
+    </key>
+    <key id="Correo">
+        <value>Correo</value>
+    </key>
+    <key id="Evento">
+        <value>Evento</value>
+    </key>
+    <key id="TipoGrano">
+        <value>Tipo Grano</value>
+    </key>
+</labels>

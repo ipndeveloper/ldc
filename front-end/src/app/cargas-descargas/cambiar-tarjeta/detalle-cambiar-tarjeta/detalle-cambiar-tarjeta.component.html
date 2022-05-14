@@ -1,0 +1,123 @@
+<fieldset [formGroup]="detalleForm">
+  <legend class="col-form-label">Detalle</legend>
+
+  <div class="form-horizontal">
+
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Tipo Movimiento:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="tipoMovimiento">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Producto:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="producto">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Cód. Cupo:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="codigoCupo">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Estado Cupo:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="estadoCupo">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Patente:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="patenteCamion">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Patente Acoplado:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="patenteAcoplado">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Rtte. Comercial:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="remitenteComercial">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Corredor:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="corredor">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Destinatario:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="destinatario">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Finalidad:</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" formControlName="finalidad">
+        </div>
+      </div>
+    </div>
+  
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label class="col-sm-3 col-form-label">Tarjeta Actual:</label>
+        <div class="col-sm-9">
+          <input #tarjetaActual type="text" class="form-control" formControlName="tarjetaActual">
+        </div>
+      </div>
+    </div>
+  
+    <yrd-numero-con-etiqueta #tarjetaNueva class="col-sm-6" formControlName="tarjetaNueva"
+      yrdMaxLength
+      [control]="detalleForm.get('tarjetaNueva')"
+      [etiqueta]="'Nueva Tarjeta'"
+      [idForm]="'inputTarjetaNueva'"
+      [maxLength]="10"
+      [validationMessages]="validationMessagesTarjeta"
+      [allowLeadingZeroes]="true" 
+      (blur)="onBlurNumeroTarjeta()"></yrd-numero-con-etiqueta>
+    
+  </div>
+  
+  <div class="mt-3">
+    <div class="float-right">
+      <button type="button" class="btn btn-success" [disabled]="botonAceptarDeshabilitado()" (click)="aceptar()">Aceptar</button>
+      <button type="button" class="btn btn-danger" [disabled]="!modoEdicion" (click)="cancelar()">Cancelar</button>
+    </div>
+  </div>
+</fieldset>

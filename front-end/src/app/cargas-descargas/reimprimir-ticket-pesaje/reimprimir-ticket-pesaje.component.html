@@ -1,0 +1,43 @@
+<form [formGroup]="reimprimirTicketPesajeForm" novalidate>
+    <fieldset>
+      <yrd-search-form-template
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones" 
+      [filtrosForm]="reimprimirTicketPesajeForm.controls.filtros"
+      [columns]="columns" 
+      [filters]="filters"
+      [enableOptionalContainer]="true"
+      [optionalContainerLegendTitle]="'Impresión'"
+      [rowsOptions]="rowsOptions">
+
+        <ng-template #controlFiltersContainer>
+          <yrd-filtro-busqueda-reimpresion-ticket-pesaje
+            [filtrosForm]="reimprimirTicketPesajeForm.controls.filtros" >
+          </yrd-filtro-busqueda-reimpresion-ticket-pesaje>
+        </ng-template>
+  
+        <ng-template #controlOptionalContainer>
+            <div class= "pt-2 row">
+              <div class="col-sm-6" [formGroup]="reimprimirTicketPesajeForm.controls.impresion">
+                <yrd-desplegable-impresoras-por-usuario
+                  #desplegableImpresora
+                  [opcionSeleccione]= "true"
+                  [cssClassControl]="'col-sm-5'"
+                  formControlName="impresora"
+                  [control]="reimprimirTicketPesajeForm.controls.impresion.get('impresora')"
+                  [validationMessages]="validationMessagesImpresora">
+                </yrd-desplegable-impresoras-por-usuario>
+              </div>
+            </div>
+        </ng-template>
+
+        <ng-template #controlActionsContainer>
+            <button id="btnAceptar" [disabled]="!selectedRow || selectedRow.length !== 1" type="button"
+              class="btn btn-success btn-md" (click)="onClickReimprimir()">Reimprimir</button>
+        </ng-template>
+      
+        </yrd-search-form-template>
+    </fieldset>
+  </form>
+  

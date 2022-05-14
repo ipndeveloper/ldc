@@ -1,0 +1,27 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="form.controls.filtros"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-gestionar-ordenes-carga 
+          #filtro
+          [filtrosForm]="form.controls.filtros">
+        </yrd-filtro-gestionar-ordenes-carga>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        <button type="button" class="btn btn-primary" 
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          *ngxPermissionsOnly="Permission.GestionarOrdenesCargaIngresar"
+          (click)="onIngresar()" i18n>Ingresar
+        </button>
+    </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>

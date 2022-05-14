@@ -1,0 +1,33 @@
+<form [formGroup]="form" novalidate>
+    <fieldset>
+      <yrd-search-form-template #searchFormComponent 
+        [botonesHabilitados]="botonesHabilitados"
+        [permisosBotones]="permisosBotones"
+        [columns]="columns" 
+        [filters]="filters"
+        [filtrosForm]="form.controls.filtros"
+        [singleSelection]="true"
+        [rowsOptions]="rowsOptions">
+  
+        <ng-template #controlFiltersContainer>                
+          <yrd-filtro-gestionar-cupos 
+            #filtro
+            [filtrosForm]="form.controls.filtros"
+            [filtroEstadoMovimiento]="estadoMovimientoFilters">
+          </yrd-filtro-gestionar-cupos>
+        </ng-template>
+  
+        <ng-template #controlActionsContainer >
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            *ngxPermissionsOnly="Permission.GestionarCuposAnular"
+            (click)="openConfirmacionAnulacion()" i18n>Anular
+          </button>
+        </ng-template>
+      </yrd-search-form-template>
+    </fieldset>
+  </form>
+
+<yrd-modal-confirmar-con-observaciones #modalConfirmacionAnulacion (accepted)="anular($event)" [labelHeader]="deseaConfirmarEstaAccionMessage"></yrd-modal-confirmar-con-observaciones>
+
+  

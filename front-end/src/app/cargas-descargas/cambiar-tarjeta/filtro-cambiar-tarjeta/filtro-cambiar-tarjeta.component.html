@@ -1,0 +1,78 @@
+
+<fieldset [formGroup]="documentoPorteForm">
+  <legend class="col-form-label">Documento de Porte</legend>    
+    <div class="row">
+      <div class="col-sm-4">
+        <yrd-desplegable-tipo-transporte
+          formControlName="tipoTransporte" 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="documentoPorteForm.get('tipoTransporte')"
+          [isFocused]="true"
+          [soloCamionYTren]="true">
+      </yrd-desplegable-tipo-transporte>
+      </div>
+      <div class="col-sm-4">
+        <yrd-desplegable-tipo-documento-porte
+          formControlName="tipoDocumentoPorte"
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-8'"
+          [tieneOpcionSeleccione]="false" 
+          [tipoProducto]="tipoProducto"
+          [tipoTransporte]="tipoTransporte"
+          [control]="documentoPorteForm.get('tipoDocumentoPorte')"
+          [validationMessages]="validationMessagesTipoDocPorte">
+        </yrd-desplegable-tipo-documento-porte>
+      </div>
+      <div class="col-sm-4">
+        <yrd-numero-con-etiqueta 
+          [cssClassControl]= "'col-sm-7'"
+          [cssClassEtiqueta]= "'col-sm-3'"
+          formControlName="ctg" 
+          [etiqueta]="'CTG'" 
+          [habilitarEtiqueta]="true"
+          [allowLeadingZeroes]="true"
+          [control]="documentoPorteForm.get('ctg')"
+          [validationMessages]="validationMessagesCTG"
+          yrdMaxLength [maxLength]=12>
+        </yrd-numero-con-etiqueta>
+      </div> 
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <yrd-texto-mascara-con-etiqueta 
+          formControlName="numeroDocumentoPorte"  
+          #inputNumeroDocumentoPorte 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-9'"
+          [control]="documentoPorteForm.get('numeroDocumentoPorte')"         
+          [etiqueta]="'Nro Doc. de Porte'"
+          [mascara]="maskRegex"
+          [isLoading]="false"
+          [validationMessages]="validationMessagesNroPorte">
+        </yrd-texto-mascara-con-etiqueta>
+      </div>
+      <div class="col-sm-4">
+        <yrd-autocomplete-vagon #autocompleteVagon 
+          formControlName="numeroVagon" 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-9'"
+          [idForm]="'numeroVagon'"
+          [etiqueta]="'Número Vagón'" 
+          [control]="documentoPorteForm.get('numeroVagon')" 
+          [validationMessages]="validationMessagesNumeroVagon">
+        </yrd-autocomplete-vagon>
+      </div>
+      <div class="col-sm-4">
+        <yrd-autocomplete-patente
+          #autocompletePatente
+          formControlName="patenteCamion"
+          [idForm]="'patenteCamion'"  
+          [etiqueta]="'Patente Camión'"
+          [control]="documentoPorteForm.get('patenteCamion')">
+        </yrd-autocomplete-patente>
+      </div>
+    </div>
+    
+</fieldset>
+

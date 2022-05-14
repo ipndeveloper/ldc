@@ -1,0 +1,96 @@
+<form [formGroup]="consultaCamionDescargaForm" novalidate>
+    <fieldset [ngClass]="{'collapse' : !showCalidadAnterior}" id="consultarCalidadAnteriorSection" class="container-fluid">
+        <yrd-consultar-calidad #consultarCalidadAnterior [traeCalidadAnterior]='true'></yrd-consultar-calidad>
+        <button type="button" class="btn btn-primary float-right" (click)="closeConsultarCalidadAnterior()">Volver</button>
+    </fieldset>
+    <fieldset [ngClass]="{'collapse' : showCalidadAnterior}">
+        <yrd-circuito [circuitoForm]="consultaCamionDescargaForm.controls.circuito" [completarTipoProducto]="tipoProductoSeleccionada">
+        </yrd-circuito>
+        <yrd-documento-porte 
+        [esCartaPorteElectronica]="esCartaPorteElectronica"
+        [tipoProducto]="tipoProductoSeleccionada" 
+        [documentoPorteForm]="consultaCamionDescargaForm.controls.documentoPorte">
+        </yrd-documento-porte>
+        <yrd-consulta-camion-descarga-estado [estadoMovimientoForm]="consultaCamionDescargaForm.controls.estadoMovimiento">
+        </yrd-consulta-camion-descarga-estado>
+        <div class="divTabCotainer">
+            <ngb-tabset type="tabs" [destroyOnHide]="false" class="tabsetMain">
+                <ngb-tab title="Documentación">
+                    <ng-template ngbTabContent>
+                        <div *ngIf="esCamion; then datosCamion else datosVagon"></div>
+                        <ng-template #datosCamion>
+                            <yrd-datos-documento-controlar-descarga-cereales 
+                                [terminal]="terminal" 
+                                [movimiento]="movimiento" 
+                                [circuito]="circuito" 
+                                [esConsulta]="true" 
+                                [circuitoContemplaCupo]="circuitoContemplaCupo" 
+                                [formDocumentoPorte]="consultaCamionDescargaForm.controls.documentoPorte"
+                                [confirmoCtg]="confirmoCtg"
+                                [esCartaPorteElectronica]="esCartaPorteElectronica"
+                                *ngIf="!esCarga && esTipoProductoCereal()">
+                            </yrd-datos-documento-controlar-descarga-cereales>
+                            <yrd-datos-documento-controlar-descarga-subproductos [tipoProducto]="tipoProductoSeleccionada" [terminal]="terminal" [circuito]="circuito" [esConsulta]="true" *ngIf="!esCarga && esTipoProductoNoGranoOSubProducto()">
+                            </yrd-datos-documento-controlar-descarga-subproductos>
+                            <yrd-datos-documento-transportes-varios [tipoProducto]="tipoProductoSeleccionada" [esModificacionFueraPuesto]="false" [esConsulta]="true" [mostrarEncabezado]="false" *ngIf="!esCarga && esTipoProductoVarios()">
+                            </yrd-datos-documento-transportes-varios>
+                            <yrd-datos-documento-insumos [tipoProducto]="tipoProductoSeleccionada" [esModificacionFueraPuesto]="false" [esConsulta]="true" [mostrarEncabezado]="false" [circuito]="circuito" *ngIf="seDebeMostararDatosInsumos()">
+                            </yrd-datos-documento-insumos>
+                            <yrd-datos-documento-controlar-carga-camion #datosDocumentoCarga [tipoProducto]="tipoProductoSeleccionada" [esModificacionOConsultaMovimiento]="true" [movimientoCarga]="movimiento" [esConsulta]="true" [mostrarEncabezado]="false" *ngIf="seDebeMostarDatosDocumentoControlarCargaCamion()">
+                            </yrd-datos-documento-controlar-carga-camion>
+                            <yrd-datos-documento-controlar-carga-camion-insumo-vario #datosDocumentoCargaInsumoVario [tipoProducto]="tipoProductoSeleccionada" [esConsulta]="true" [movimientoCarga]="movimiento" [mostrarEncabezado]="false" *ngIf="seDebeMostardatosDocumentoControlarCargaCamionInsumoVario()">
+                            </yrd-datos-documento-controlar-carga-camion-insumo-vario>
+                        </ng-template>
+
+                        <ng-template #datosVagon>
+                            <yrd-datos-documento-controlar-descarga-vagon-cereales #datosDocumento 
+                            [esRegimenElectronico]="esCartaPorteElectronica"
+                            [terminal]="terminal" 
+                            [esConsulta]="true" 
+                            [circuito]="circuito" 
+                            *ngIf="esTipoProductoCereal()">
+                            </yrd-datos-documento-controlar-descarga-vagon-cereales>
+                            <yrd-datos-documento-controlar-descarga-vagon-no-granos #datosDocumento [terminal]="terminal" [esConsulta]="true" [circuito]="circuito" *ngIf="esTipoProductoNoGranoOSubProducto()"></yrd-datos-documento-controlar-descarga-vagon-no-granos>
+                        </ng-template>
+
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab *ngIf="seDebeMostarTabCalidad()">
+                    <ng-template ngbTabTitle>Calidad</ng-template>
+                    <ng-template ngbTabContent>
+                        <div *ngIf="esCalidadCarga">
+                            <yrd-consulta-calidad-carga [decisionMovimientoForm]='consultaCamionDescargaForm.controls.decisionMovimiento' [movimiento]='movimiento'>
+                            </yrd-consulta-calidad-carga>
+                        </div>
+                        <div *ngIf="!esCalidadCarga">
+                            <yrd-consultar-calidad #consultarCalidad [traeCalidadAnterior]='false' [esCarga]='esCarga'></yrd-consultar-calidad>
+                            <div class="mt-3">
+                                <div class="float-left">
+                                    <button id="btnConsultarCaladoAnterior" type="button" class="btn btn-primary" (click)="openConsultarCalidadAnterior()" [disabled]="!movimiento?.tieneRecalado">Consultar Calado Anterior
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab>
+                    <ng-template ngbTabTitle>Stock</ng-template>
+                    <ng-template ngbTabContent>
+                        <yrd-consulta-datos-stock [esCarga]="esCarga" [tipoProducto]="tipoProductoSeleccionada" [formDatosStock]="consultaCamionDescargaForm.controls.datosStock" [movimiento]="movimiento" [movimientoPesaje]="movimientoPesaje" [esAutomatico]="false">
+                        </yrd-consulta-datos-stock>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab *ngIf="esCarga">
+                    <ng-template ngbTabTitle>Control Patrimonial</ng-template>
+                    <ng-template ngbTabContent>
+                        <yrd-consulta-control-patrimonial [movimiento]='movimiento'>
+                        </yrd-consulta-control-patrimonial>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+        </div>
+        <div class="float-right section-top-padding">
+            <button type="button" class="btn btn-danger" (click)="salir()">Cancelar</button>
+        </div>
+    </fieldset>
+</form>

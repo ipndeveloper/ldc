@@ -1,0 +1,271 @@
+<fieldset [formGroup]="datosDocumentoForm" [ngClass]="{ 'main' : !mostrarEncabezado}">
+  <legend *ngIf="mostrarEncabezado" class="col-form-label">Datos Documento</legend>
+
+  <div class="form-horizontal">
+      <yrd-numero-con-etiqueta class="col-sm-6"
+       *ngIf="!esRegimenElectronico"
+        formControlName="numeroCEE" 
+        [etiqueta]="'Nro CEE'" 
+        [idForm]="'numeroCEE'" 
+        [control]="datosDocumentoForm.get('numeroCEE')"
+        [validationMessages]="validationMessagesNumeroCEE" 
+        yrdMaxLength [maxLength]=14>
+      </yrd-numero-con-etiqueta>
+    
+    <div class="col-sm-6" *ngIf="!esRegimenElectronico"></div>
+
+    <yrd-fecha-con-etiqueta class="col-sm-6"
+      formControlName="fechaCarga" 
+      [etiqueta]="'Fecha Carga'"
+      [validationMessages]="validationMessagesFechaCarga" 
+      [control]="datosDocumentoForm.get('fechaCarga')">
+    </yrd-fecha-con-etiqueta>    
+
+    <yrd-fecha-con-etiqueta class="col-sm-6" 
+      formControlName="fechaVencimiento" 
+      [etiqueta]="'Fecha Vencimiento'"
+      [validationMessages]="validationMessagesFechaVencimiento" 
+      [control]="datosDocumentoForm.get('fechaVencimiento')">
+    </yrd-fecha-con-etiqueta>        
+
+    <yrd-buscador-titular class="col-sm-6" 
+      formControlName="titularCartaPorte" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('titularCartaPorte')"
+      [validationMessages]="validationMessagesTitular">
+    </yrd-buscador-titular>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      formControlName="opONCCATitular" 
+      [etiqueta]="'Op ONCCA'">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-buscador-intermediario class="col-sm-6" 
+      formControlName="intermediario"
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('intermediario')"
+      [validationMessages]="validationMessagesIntermediario">
+    </yrd-buscador-intermediario>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      formControlName="opONCCAIntermediario" 
+      [etiqueta]="'Op ONCCA'">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-buscador-remitente-comercial class="col-sm-6" 
+      formControlName="remitenteComercial"
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('remitenteComercial')"
+      [validationMessages]="validationMessagesRemitenteComercial">
+    </yrd-buscador-remitente-comercial>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      formControlName="opONCCARemitenteComercial"
+      [etiqueta]="'Op ONCCA'">
+    </yrd-texto-con-etiqueta>
+
+    <yrd-buscador-vendedor class="col-sm-6" 
+      formControlName="vendedor" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('vendedor')">
+    </yrd-buscador-vendedor>
+
+    <yrd-texto-con-etiqueta class="col-sm-6" 
+      formControlName="opONCCAVendedor" 
+      [etiqueta]="'Op ONCCA'">
+    </yrd-texto-con-etiqueta>
+    
+    <yrd-buscador-corredor class="col-sm-6" 
+      formControlName="corredorComprador" 
+      [advancedSearch]="true"
+      [etiqueta]="'Corredor Comprador'" 
+      [control]="datosDocumentoForm.get('corredorComprador')"
+      [validationMessages]="validationMessagesCorredorComprador">
+    </yrd-buscador-corredor>
+
+    <yrd-buscador-mercado-termino class="col-sm-6" 
+      formControlName="mercadoTermino"
+      [control]="datosDocumentoForm.get('mercadoTermino')">
+    </yrd-buscador-mercado-termino>
+
+    <yrd-buscador-corredor class="col-sm-6" 
+      formControlName="corredorVendedor"
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('corredorVendedor')" 
+      [etiqueta]="'Corredor Vendedor'"
+      [validationMessages]="validationMessagesCorredorVendedor">
+    </yrd-buscador-corredor>
+
+    <yrd-buscador-entregador class="col-sm-6" 
+      formControlName="entregador"
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('entregador')"
+      [validationMessages]="validationMessagesEntregador">
+    </yrd-buscador-entregador>
+
+    <yrd-buscador-destinatario class="col-sm-6" 
+      formControlName="destinatario" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('destinatario')"
+      [validationMessages]="validationMessagesDestinatario">
+    </yrd-buscador-destinatario>
+
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="destino" 
+      [etiqueta]="'Destino'" 
+      [control]="datosDocumentoForm.get('destino')">
+    </yrd-numero-con-etiqueta>
+
+    <yrd-buscador-intermediario-flete class="col-sm-6" 
+      formControlName="intermediarioFlete" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('intermediarioFlete')"
+      [validationMessages]="validationMessagesIntermediarioFlete">
+    </yrd-buscador-intermediario-flete>
+
+    <yrd-buscador-transportista class="col-sm-6" 
+      formControlName="transportista" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('transportista')"
+      [validationMessages]="validationMessagesTransportista">
+    </yrd-buscador-transportista>
+
+    <yrd-buscador-ferrocarril class="col-sm-6" 
+      formControlName="ferrocarril" 
+      [advancedSearch]="true"
+      [control]="datosDocumentoForm.get('ferrocarril')"
+      [validationMessages]="validationMessagesFerrocarril">
+    </yrd-buscador-ferrocarril>
+
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="operativo" 
+      [etiqueta]="'Operativo'" 
+      [idForm]="'operativo'" 
+      [control]="datosDocumentoForm.get('operativo')"
+      [validationMessages]="validationMessagesOperativo" 
+      yrdMaxLength [maxLength]=3>
+    </yrd-numero-con-etiqueta>
+
+    <yrd-desplegable-finalidad class="col-sm-6" 
+      formControlName="finalidad" 
+      [control]="datosDocumentoForm.get('finalidad')"
+      [circuito]="circuito">
+    </yrd-desplegable-finalidad>      
+    
+    <div class="col-sm-6"></div>
+
+    <yrd-buscador-producto class="col-sm-6" 
+      formControlName="producto" 
+      [tipoProducto]="tipoProducto" 
+      [control]="datosDocumentoForm.get('producto')"
+      [advancedSearch]="true"
+      [validationMessages]="validationMessagesProducto">
+    </yrd-buscador-producto>
+
+    <yrd-desplegable-tipo-grano class="col-sm-6" 
+      formControlName="tipoGrano">
+    </yrd-desplegable-tipo-grano>    
+
+    <yrd-establecimiento class="col-sm-4" 
+      [establecimientoForm]="datosDocumentoForm.controls.establecimiento" 
+      [control]="datosDocumentoForm.get('establecimiento.numeroEstablecimiento')">
+    </yrd-establecimiento>
+    <div class="col-sm-2">
+      <div class="form-horizontal">
+        <label for="noCbx" i18n>Sustentabilidad:</label>
+        <input type="checkbox" class="form-check-input-right" checked="false" formControlName="sustentabilidad">
+      </div>
+    </div>
+
+    <yrd-desplegable-campo-epa-sustentable 
+      [producto]="datosDocumentoForm.get('producto')?.value"
+      [titular]="datosDocumentoForm.get('titularCartaPorte')?.value" class="col-sm-6" formControlName="campoEpa"
+      [control]="datosDocumentoForm.get('campoEpa')"
+      [fillCampoEpa]="fillCampoEpa">
+    </yrd-desplegable-campo-epa-sustentable>
+
+    <yrd-desplegable-cosecha class="col-sm-6"
+      formControlName="cosecha" 
+      [producto]="datosDocumentoForm.get('producto')?.value"
+      [control]="datosDocumentoForm.get('cosecha')" 
+      [fillCampoEpa]="!fillCosecha" 
+      [campoEpaSustentable]="datosDocumentoForm.get('campoEpa')?.value"
+      [validationMessages]="validationMessagesCosecha">
+    </yrd-desplegable-cosecha>
+
+    <yrd-autocomplete-localidad class="col-sm-6" formControlName="procedencia" 
+      [etiqueta]="'Procedencia'" 
+      [control]="datosDocumentoForm.get('procedencia')"
+      [validationMessages]="validationMessagesProcedencia">
+    </yrd-autocomplete-localidad>
+    
+    <yrd-autocomplete class="col-sm-6" 
+      formControlName="sedeOrigen"
+      [etiqueta]="'Sede Origen'"
+      [control]="datosDocumentoForm.get('sedeOrigen')"
+      [cssClassControl]="'col-sm-5'"
+      [minLengthToSearch]="1"
+      [service]="autocompleteSedeOrigenService"
+      [validationMessages]="validationMessagesSedeOrigen">
+    </yrd-autocomplete>
+
+    <yrd-autocomplete class="col-sm-6" 
+      formControlName="sedeDestino"
+      [etiqueta]="'Sede Destino'"
+      [control]="datosDocumentoForm.get('sedeDestino')"
+      [cssClassControl]="'col-sm-5'"
+      [minLengthToSearch]="1"
+      [service]="autocompleteSedeDestinoService">
+    </yrd-autocomplete>
+
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="kilometrosRecorridos" 
+      [etiqueta]="'Km Recorridos'" 
+      [idForm]="'kilometrosRecorridos'"
+      [control]="datosDocumentoForm.get('kilometrosRecorridos')" 
+      [validationMessages]="validationMessagesKilometrosRecorridos"
+      yrdMaxLength [maxLength] = 8>
+    </yrd-numero-con-etiqueta>    
+    
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="tarifaReferencia" 
+      [etiqueta]="'Tarifa Referencia'" 
+      [idForm]="'tarifaReferencia'"
+      [control]="datosDocumentoForm.get('tarifaReferencia')" 
+      [maxDecimalPlaces]="2"
+      [validationMessages]="validationMessagesTarifaReferencia"
+      yrdMaxLength [maxLength] = 10>
+    </yrd-numero-con-etiqueta>    
+
+    <yrd-numero-con-etiqueta class="col-sm-6" 
+      formControlName="tarifaTN" 
+      [etiqueta]="'Tarifa TN'" 
+      [idForm]="'tarifaTN'" 
+      [control]="datosDocumentoForm.get('tarifaTN')"
+      [maxDecimalPlaces]="2"
+      [validationMessages]="validationMessagestarifaTN"
+      yrdMaxLength [maxLength] = 10>
+    </yrd-numero-con-etiqueta>         
+  </div> 
+
+  <yrd-texto-con-etiqueta class="col-sm-6" 
+    formControlName="observaciones"
+    [idForm]="'observaciones'"
+    [etiqueta]="'Observaciones'"
+    [control]="datosDocumentoForm.get('observaciones')" 
+    [validationMessages]="validationMessagesObservaciones">
+  </yrd-texto-con-etiqueta>
+
+  <yrd-datos-vagon 
+    #datosVagon
+    [datosVagonForm]="datosDocumentoForm.controls.datosVagon"
+    [esFueraCircuito]="esFueraCircuito">
+  </yrd-datos-vagon>
+  
+  <yrd-confirmacion-arribo-ctg-datos-documento
+    [form]="datosDocumentoForm"
+    [confirmoCtg]="confirmoCtg"
+    [esCartaPorteElectronica]="esRegimenElectronico"
+    [confirmoManualmente]="confirmadoManualmente">
+  </yrd-confirmacion-arribo-ctg-datos-documento>
+</fieldset>

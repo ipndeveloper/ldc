@@ -1,0 +1,57 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-evento 
+        formControlName="tipoEvento" #tipoEvento
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoEvento')" 
+        [permiso]="Permission.AdministrarEventos"
+        [validationMessages]="validationMessagesTipoEvento">
+      </yrd-desplegable-evento>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta 
+        formControlName="mensajeDashboard" 
+        [control]="form.get('mensajeDashboard')" 
+        [etiqueta]="'Mensaje Dashboard'"
+        [validationMessages]="validationMessagesMensajeDashboard">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-accion 
+        formControlName="requiereAccion" 
+        [opcionSeleccione]="true"
+        [control]="form.get('requiereAccion')" >
+      </yrd-desplegable-accion>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta 
+        formControlName="mensajeArchestra" 
+        [control]="form.get('mensajeArchestra')"
+        [etiqueta]="'Mensaje Archestra'"
+        [validationMessages]="validationMessagesMensajeArchestra">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-checkbox-con-etiqueta 
+      formControlName = "enviaArchestra" 
+      [etiqueta]="'Archestra'"
+      [control]="form.get('enviaArchestra')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-checkbox-con-etiqueta 
+      formControlName = "enviaDashboard" 
+      [etiqueta]="'Dashboard'"
+      [control]="form.get('enviaDashboard')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-checkbox-con-etiqueta 
+      formControlName = "enviaEmail" 
+      [etiqueta]="'Correo'"
+      [control]="form.get('enviaEmail')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>
+</div>

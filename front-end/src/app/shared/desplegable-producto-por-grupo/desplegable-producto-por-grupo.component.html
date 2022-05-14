@@ -1,0 +1,15 @@
+<div class="form-horizontal">
+    <label for="selectProducto" class="col-sm-3 col-form-label">Producto:</label>
+    <div class="col-sm-9">
+      <select class="form-control" id="selectProducto" #selectProducto [disabled]="isDisabled" [value]="selectedEntityId"
+        (blur)="onTouched()" (change)="onChange(selectProducto.value)" [ngClass]="{
+          'is-valid' : control?.valid && control?.touched,
+           'is-invalid' : control?.invalid && control?.touched
+          }">
+        <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+      </select>
+      <div class="invalid-feedback">
+          <p>Debe ingresar una plataforma de descarga.</p>      
+      </div>
+    </div>
+  </div>

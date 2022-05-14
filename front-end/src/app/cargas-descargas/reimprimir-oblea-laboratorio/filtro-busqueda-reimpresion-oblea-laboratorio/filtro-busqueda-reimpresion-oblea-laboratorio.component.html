@@ -1,0 +1,21 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <yrd-numero-con-etiqueta
+        #inputNumeroDocumentoPorte
+        formControlName="numeroDocumentoPorte"
+        [control]="form.get('numeroDocumentoPorte')"         
+        [etiqueta]="'Nro Doc. de Porte'"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        yrdMaxLength [maxLength]=12
+        [validationMessages]="validationMessagesNroPorte">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="float-right">
+    <button id="btnBuscar" [disabled]="disableButtons" class="btn btn-primary" (click)="onClickBuscar()">Buscar</button>
+    <button id="btnLimpiar" [disabled]="disableButtons" class="btn btn-warning" (click)="onClickLimpiar()">Limpiar</button>    
+  </div>
+</fieldset>

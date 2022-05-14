@@ -1,0 +1,65 @@
+<fieldset>
+  <legend class="col-form-label">Decisión</legend>
+  <div class="row">
+    <div class="col-sm-12 form-group form-horizontal">
+      <div class="col-sm-11">
+        <yrd-data-grid
+          [columns]="columnsDecision"
+          [rows]="rowsDecision"
+          [selected]="selectedRows" 
+          (select)="onSelect($event)">
+        </yrd-data-grid>
+        <ng-template 
+          #selectDecisionCellTemplate 
+          ngx-datatable-cell-template 
+          let-value="value" 
+          let-isSelected="isSelected" 
+          let-onCheckboxChangeFn="onCheckboxChangeFn">
+          <label class="datatable-checkbox">
+              <input type="checkbox" 
+                [checked]="isSelected" 
+                (change)="onCheckboxChangeFn($event)" />
+          </label>
+        </ng-template>
+      </div>
+      <div class="col-sm-12">
+        <div class="float-right section-top-padding">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="onClickDescargar()"
+            [disabled]="selectedRows.length == 0 "
+            i18n>Descargar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend class="col-form-label">CheckList</legend>
+  <div class="row">
+    <div class="col-sm-12 form-group form-horizontal">
+      <div class="col-sm-11">
+        <yrd-data-grid
+          [columns]="columnsChecklist"
+          [rows]="rowsChecklist">
+        </yrd-data-grid>
+        <ng-template 
+          #tableChecklistTemplate 
+          ngx-datatable-cell-template 
+          let-rowIndex="rowIndex" 
+          let-value="value"
+          let-row="row">
+          <label class="datatable-checkbox">
+            <input
+              type="checkbox"
+              [checked]="row.estaAprobado" 
+              disabled />
+          </label>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</fieldset>

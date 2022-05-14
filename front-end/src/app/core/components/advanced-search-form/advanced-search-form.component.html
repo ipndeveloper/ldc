@@ -1,0 +1,43 @@
+<yrd-modal #modalComponent class="advanced-search" (closing)="onClosing()">
+  <ng-template #modalHeader>
+    <h2>Búsqueda Avanzada: {{ entityName }}</h2>
+  </ng-template>
+
+  <ng-template #modalBody>
+    <fieldset>  
+      <legend class="col-form-label">Búsqueda</legend>
+      <ng-container *ngTemplateOutlet="filtersContainer"></ng-container>        
+      <div class="float-right section-top-padding">
+        <button type="button" class="btn btn-primary" 
+          (click)="onClickSearch()" 
+          [disabled]="!filters.any()">Buscar</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="col-form-label">Resultado de Búsqueda</legend>
+      <div *ngIf="isContentLoading"
+        class="spinner">
+      </div>
+      <ng-container *ngIf="!isContentLoading">
+        <yrd-data-grid 
+          #dataGrid 
+          [rows]="rows" 
+          [selected]="selected" 
+          [columns]="columns" 
+          [pagination]="false"
+          (select)="onSelect($event)">
+        </yrd-data-grid>
+      </ng-container>
+    </fieldset>  
+  </ng-template>
+
+  <ng-template #modalFooter>
+    <button type="button" class="btn btn-success" 
+      (click)="onAccept()"
+      [disabled]="selected.length !== 1">Aceptar</button>
+    <button type="button" class="btn btn-danger" 
+      (click)="modalComponent.close()">Cancelar</button>
+  </ng-template>
+</yrd-modal>
+  

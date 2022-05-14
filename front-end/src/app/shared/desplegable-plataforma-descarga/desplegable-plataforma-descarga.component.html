@@ -1,0 +1,16 @@
+<div class="form-horizontal">
+  <label for="selectPlataformaDescarga" class="col-sm-3 col-form-label">Plataforma:</label>
+  <div class="col-sm-9">
+    <select class="form-control" id="selectPlataformaDescarga" #selectPlataformaDescarga [disabled]="isDisabled" [value]="selectedEntityId"
+      (blur)="touched(); onTouched()" (change)="onChange(selectPlataformaDescarga.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option value="undefined" selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+        <p>{{ errorMessage }}</p>      
+    </div>
+  </div>
+</div>

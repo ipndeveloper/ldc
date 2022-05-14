@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <form [formGroup]="consultarCalidadForm" novalidate>
+    <yrd-rubros-calidad #rubrosCalidadComponent
+      [rubrosForm]="consultarCalidadForm.controls.rubros" 
+      [rubrosCalidad]="rubrosCalidad"
+      [deshabilitarCalculoCalidad]="true" 
+      [esConsulta]="true"
+      [selectedRows]="rubrosSelected" 
+      [disableSelectRubro]="true"
+      [esAcopio]="esAcopio">
+    </yrd-rubros-calidad>
+
+    <div *ngIf="mostrarMermasEspeciales">
+        <yrd-mermas-especiales
+          #mermasEspecialesComponent 
+          [form]="consultarCalidadForm" 
+          [mermasEspeciales]="mermasEspeciales">
+        </yrd-mermas-especiales>
+    </div>
+    
+    <yrd-datos-laboratorio #datosLaboratorioComponent></yrd-datos-laboratorio>
+    <div class="form-horizontal">
+      <div class="col-sm-6">
+        <yrd-ingresar-calidad-camara 
+          [ingresoCamaraForm]="consultarCalidadForm.controls.datosCamara"
+          [operacion]="operacion"
+          [esCarga]="esCarga"
+          [producto]="producto"
+          [usaMuestraTipoAcopio]="usaMuestraTipoAcopio"
+          [ctg]="ctg">
+        </yrd-ingresar-calidad-camara>
+      </div>
+    </div>
+    <yrd-ingresar-calidad-observaciones 
+      class="col-sm-12" 
+      [esCalidadAnterior]="false" 
+      [observacionesForm]="consultarCalidadForm.controls.observaciones">
+    </yrd-ingresar-calidad-observaciones>    
+  </form>
+</div>

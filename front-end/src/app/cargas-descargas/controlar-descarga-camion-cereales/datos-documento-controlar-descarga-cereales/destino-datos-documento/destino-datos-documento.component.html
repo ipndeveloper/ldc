@@ -1,0 +1,12 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Destino</legend>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta 
+        formControlName="destino" 
+        [etiqueta]="'Código RUCCA destino'" 
+        [control]="form.get('destino')">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

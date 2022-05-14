@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-sm-12">
+    <label class="col-form-label">{{ titulo }}</label>
+    <div class="col-sm-12 form-control" #treeElementContainer [style.height]="height">
+      <tree-root #entidadTransportableTree [nodes]="entidades" [options]="options">
+        <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+          <tree-node-expander [node]="node"></tree-node-expander>
+          <div class="node-content-wrapper">
+            <tree-node-content [node]="node" [index]="index">
+              <ng-template #treeNodeTemplate let-node let-index="index">
+                <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                <span [class]="node.data.className" [class.title]="true">{{ node.data.nombre }}</span>
+              </ng-template>
+            </tree-node-content>
+          </div>
+        </ng-template>
+      </tree-root>
+    </div>
+  </div>
+</div>

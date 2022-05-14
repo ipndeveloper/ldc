@@ -1,0 +1,46 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template  #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="form.controls.filtros"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-busqueda-movimientos #filtroComponent
+                                         [filtrosForm]="form.controls.filtros"
+                                         [filters]="filters"></yrd-filtro-busqueda-movimientos>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        <button type="button" class="btn btn-primary btn-space-left" 
+          [disabled]="!selectedRow || !esMovimientoCarga || selectedRow?.length !== 1" 
+          (click)="onClickModificarControl(true)"
+          *ngxPermissionsOnly="Permission.GestionarMovimientosModificarDatosOrdenCarga"
+          i18n>Modificar Datos O. Carga</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          (click)="onClickModificarControl()"
+          *ngxPermissionsOnly="Permission.GestionarMovimientosModificarCupoYControl"
+          i18n>Modificar Cupo y Control</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          (click)="onClickModificarBalanza()" 
+          *ngxPermissionsOnly="Permission.GestionarMovimientosModificarBalanza"
+          i18n>Modificar Balanza</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          (click)="onClickModificarProducto()" 
+          *ngxPermissionsOnly="Permission.GestionarMovimientosModificarProducto"
+          i18n>Modificar Producto</button>
+        <button type="button" class="btn btn-primary btn-space-left" 
+          [disabled]="!selectedRow || selectedRow?.length !== 1" 
+          (click)="onClickModificarCalidad()" 
+          *ngxPermissionsOnly="Permission.GestionarMovimientosModificarCalidad"
+          i18n>Modificar Calidad</button>      
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>

@@ -1,0 +1,32 @@
+<yrd-modal #modalComponent 
+  [hasCloseButton]="false" 
+  [showHeader]="true"
+  [showFooter]="false"
+  [isLoadingModal]="!showMessage">
+
+  <ng-template #modalHeader>
+    <h4>{{ titulo }}</h4>
+  </ng-template>
+
+  <ng-template #modalBody>
+    <div *ngIf="showMessage">
+      {{ mensaje }}
+    </div>
+    <div class="wrapper" *ngIf="!showMessage">
+      <div class="spinner-container">
+        <div class="spinner-layer spinner-layer--blue">
+          <div class="spinner-clipper spinner-clipper--left">
+            <div class="spinner-circle"></div>
+          </div>        
+          <div class="spinner--patch">
+            <div class="spinner-circle"></div>
+          </div>
+          <div class="spinner-clipper spinner-clipper--right">
+            <div class="spinner-circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+</yrd-modal>

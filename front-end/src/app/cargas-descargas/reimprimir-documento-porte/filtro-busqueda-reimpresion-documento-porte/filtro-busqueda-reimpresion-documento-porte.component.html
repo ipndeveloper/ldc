@@ -1,0 +1,43 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <yrd-desplegable-tipo-documento-porte
+        formControlName="tipoDocumentoPorte"
+        [tieneOpcionSeleccione]="false" 
+        [tipoProducto]="tipoProducto"
+        [tipoTransporte]="tipoTransporte"
+        [control]="form.get('tipoDocumentoPorte')"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [validationMessages]="validationMessagesTipoDocPorte">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+    <div class="form-group col-sm-3">
+      <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [control]="form.get('ctg')"
+        [allowLeadingZeroes]="true"
+        yrdMaxLength [maxLength]=12
+        [validationMessages]="validationMessagesCtg">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="form-group col-sm-3">
+      <yrd-texto-mascara-con-etiqueta
+        #inputNumeroDocumentoPorte
+        formControlName="numeroDocumentoPorte"
+        [control]="form.get('numeroDocumentoPorte')"         
+        [etiqueta]="'Nro Doc. de Porte'"
+        [mascara]="tipoDocPorteRegex"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        [validationMessages]="validationMessagesNroPorte">
+      </yrd-texto-mascara-con-etiqueta>
+    </div>
+  </div>
+  <div class="float-right">
+    <button id="btnBuscar" [disabled]="disableButtons" class="btn btn-primary" (click)="onClickBuscar()">Buscar</button>
+    <button id="btnLimpiar" [disabled]="disableButtons" class="btn btn-warning" (click)="onClickLimpiar()">Limpiar</button>
+  </div>
+</fieldset>

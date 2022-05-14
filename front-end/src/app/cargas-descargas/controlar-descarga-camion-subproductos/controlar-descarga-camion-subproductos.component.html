@@ -1,0 +1,52 @@
+<div #controlarSubproductosSection id="controlarSubproductosSection" class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <yrd-circuito 
+      [circuitoForm]="form.controls.circuito"
+      [completarTipoProducto]="true"
+      [permiteSeleccion]=true
+      [subproductos]=true>
+    </yrd-circuito>
+    <yrd-documento-porte 
+      #documentoPorte
+      [tipoProducto]="tipoProductoSeleccionada" 
+      [tipoTransporte]="tipoTransporte"  
+      [tipoDocumento]="tipoDocumentoSeleccionado" 
+      [spinnerDocumentoPorte]="buscandoPrecargaMovimiento"  
+      [maskRegex]="tipoDocPorteRegex"
+      [documentoPorteForm]="form.controls.documentoPorte"
+      [cupea]="circuitoContemplaCupo"
+      [esConsulta]="esConsulta"
+      [disableBotonBuscar]="disableBotonBuscarPrecargaMovimiento"
+      (buscarMovimientoClicked)="buscarPreCargaMovimiento()">
+    </yrd-documento-porte>
+    <yrd-datos-documento-controlar-descarga-subproductos
+      #datosDocumento
+      [tipoProducto]="tipoProductoSeleccionada"
+      [terminal]="terminal"
+      [esConsulta]="esConsulta"
+      [circuitoContemplaCupo]="circuitoContemplaCupo"
+      [circuito]="circuito"
+      [esAlta]="esAlta">
+    </yrd-datos-documento-controlar-descarga-subproductos>
+    <div class="mt-3">
+      <div class="float-left" style="margin-bottom: 20pt">
+        <button type="button" class="btn btn-primary" (click)="openModalMotivo()" [hidden]="esConsulta" [disabled]="botonesDeshabilitados">Dejar Pendiente</button>
+        <button type="button" class="btn btn-primary" (click)="modalRechazarDescarga.abrir(idMovimiento)" [hidden]="!esModificacion" [disabled]="botonesDeshabilitados">Rechazar</button>
+      </div>
+      <div class="float-right" style="margin-bottom: 20pt">
+        <button type="button" class="btn btn-primary" (click)="abrirModalTarjeta(true)" [hidden]="esConsulta || !terminal.usaAceptarYContinuar" [disabled]="botonesDeshabilitados">Aceptar y Continuar</button>
+        <button type="button" class="btn btn-success" (click)="abrirModalTarjeta(false)" [hidden]="esConsulta" [disabled]="botonesDeshabilitados">Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelar()" [disabled]="botonesDeshabilitados">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<yrd-modal-motivo #modalMotivo (accepted)="dejarPendiente()" [labelHeader]="'Dejar Pendiente'"></yrd-modal-motivo>
+<yrd-modal-rechazar-descarga #modalRechazarDescarga (descargaRechazada)="onDescargaRechazada()"></yrd-modal-rechazar-descarga>
+<yrd-modal-asignar-tarjeta #modalAsignarTarjeta (tarjetaAsignada)="onTarjetaAsignada()"></yrd-modal-asignar-tarjeta>
+<yrd-modal-autorizacion #modalAutorizacion (autorizacionCompletada)="onAutorizacionCompletada($event)"></yrd-modal-autorizacion>
+<yrd-modal-seleccionar-remito #seleccionarRemito (remitoSeleccionado)="onRemitoSeleccionado($event)" (modalCerrado)="onModalSeleccionarRemitoCerrado()"></yrd-modal-seleccionar-remito>
+
+<!-- <pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

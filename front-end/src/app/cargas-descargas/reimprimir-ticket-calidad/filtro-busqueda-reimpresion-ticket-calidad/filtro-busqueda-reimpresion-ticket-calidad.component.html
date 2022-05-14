@@ -1,0 +1,38 @@
+<fieldset [formGroup]="filtrosForm">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal form-group">
+    <yrd-autocomplete-patente 
+      #autocompletePatente class="col-sm-3" 
+      [idForm]="'patente'" 
+      formControlName="patente" 
+      [etiqueta]="'Patente'" 
+      [control]="filtrosForm.get('patente')" 
+      [isFocused]="true">
+    </yrd-autocomplete-patente>
+    <yrd-autocomplete-vagon 
+      #autocompleteVagon class="col-sm-3" 
+      [idForm]="'vagon'" 
+      formControlName="vagon" 
+      [etiqueta]="'Vagón'" 
+      [control]="filtrosForm.get('vagon')">
+    </yrd-autocomplete-vagon>
+    <yrd-numero-con-etiqueta class="col-sm-3" 
+      [idForm]="'tarjeta'" 
+      formControlName="tarjeta" 
+      [etiqueta]="'Tarjeta'" 
+      [disabled]="!terminalUtilizaTarjeta"
+      [control]="filtrosForm.get('tarjeta')"
+      [allowLeadingZeroes]="true">
+    </yrd-numero-con-etiqueta>
+    <yrd-texto-con-etiqueta class="col-sm-3"
+      [idForm]="'turno'" 
+      formControlName="turno" 
+      [etiqueta]="'Turno'" 
+      [control]="filtrosForm.get('turno')">
+    </yrd-texto-con-etiqueta>    
+  </div>
+  <div class="float-right">
+    <button id="btnBuscar" [disabled]="disableButtons" class="btn btn-primary" (click)="getMovimientoReimpresionTicket()">Buscar</button>
+    <button id="btnLimpiar" [disabled]="disableButtons" class="btn btn-warning" (click)="limpiar()">Limpiar</button>    
+  </div>
+</fieldset>

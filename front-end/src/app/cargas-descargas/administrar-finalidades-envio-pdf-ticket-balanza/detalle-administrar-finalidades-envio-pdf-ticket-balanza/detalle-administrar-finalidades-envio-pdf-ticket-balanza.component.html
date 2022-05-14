@@ -1,0 +1,46 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-circuito
+        #circuito
+        formControlName="circuito"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('circuito')"
+        [soloHabilitados]="true"
+        [permiso]="permission.AdministrarFinalidadesEnvioPdfTicketBalanza"
+        [validationMessages]="validationMessagesCircuito">
+      </yrd-desplegable-circuito>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-finalidad
+        #finalidad
+        formControlName="finalidad"
+        [opcionSeleccione]="true"
+        [control]="form.get('finalidad')"
+        [obtenerTodos]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-5'"
+        [validationMessages]="validationMessagesFinalidad">
+      </yrd-desplegable-finalidad>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <div class="form-group form-horizontal">
+        <label for="estaHabilitado"
+          class="col-sm-3 col-form-label">Habilitado:
+        </label>
+        <div class="col-sm-5">
+          <input type="checkbox"
+            class="checkbox"
+            id="estaHabilitado"
+            formControlName="estaHabilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

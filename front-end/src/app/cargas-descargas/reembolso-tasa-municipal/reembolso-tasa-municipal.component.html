@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <form [formGroup]="form" novalidate>    
+    <yrd-filtro-reembolso-tasa-municipal
+      #filtro
+      [form]="form.controls.filtro"
+      (buscarClicked)="onClickBuscar()">
+    </yrd-filtro-reembolso-tasa-municipal>
+    <yrd-detalle-reembolso-tasa-municipal
+      #detalle
+      [form]="form.controls.movimiento"
+      (reembolsarClicked)="onClickReembolsar()"
+      (limpiarClicked)="onClickCancelar()"
+      [disableButtons]="disableButtons">
+    </yrd-detalle-reembolso-tasa-municipal>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template 
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-administrar-impresoras
+          #filtro
+          [form]="form.controls.filtros">
+        </yrd-filtro-administrar-impresoras>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+        <yrd-detalle-administrar-impresoras 
+          #detalle 
+          [form]="form.controls.detalle"
+          [esConsulta]="esConsulta"
+          [esModificacion]="editId !== 0"
+          [isLoading]="isLoading">
+        </yrd-detalle-administrar-impresoras>
+        
+        <div class="float-right section-top-padding">
+          <button type="button" class="btn btn-success"
+            [disabled]="disableButtons || esConsulta || isLoading" 
+            (click)="onClickAceptar()"
+            i18n>Aceptar
+          </button>
+          <button type="button" class="btn btn-danger"
+            [disabled]="disableButtons || isLoading" 
+            (click)="onClickCancelar()" 
+            i18n>Cancelar
+          </button>
+        </div>
+      </ng-template>
+
+    </yrd-search-form-template>    
+  </fieldset>
+</form>
+
+<!-- <pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

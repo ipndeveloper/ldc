@@ -1,0 +1,85 @@
+<!-- Filters Section -->
+<fieldset [hidden]="!hasFilterSection">
+  <legend class="col-form-label">{{ filtersLegendTitle }}</legend>
+  <ng-container *ngTemplateOutlet="filtersContainer"></ng-container>
+  <div class="float-right section-top-padding">
+    <button type="button" class="btn btn-primary" (click)="onClickSearch()" [disabled]="!canSearch">{{ searchTitleButton }}</button>
+    <button type="button" class="btn btn-warning"(click)="onClickClear()" [disabled]="!canSearch">{{ clearTitleButton }}</button>
+  </div>
+</fieldset>
+
+<!-- Results Section -->
+<fieldset>
+  <legend class="col-form-label">{{ resultsLegendTitle }}</legend>
+  <yrd-data-grid #dataGrid
+                 [rows]="rows"
+                 [selected]="selectedRowsByUser"
+                 [columns]="columns"
+                 [pagination]="true"
+                 [singleSelection]="singleSelection"
+                 (select)="onSelect($event)">
+  </yrd-data-grid>
+</fieldset>
+
+<!-- Data Optional Edit Section -->
+<fieldset *ngIf="enableOptionalContainer">
+  <legend class="col-form-label">{{ optionalContainerLegendTitle }}</legend>
+  <ng-container *ngTemplateOutlet="optionalContainer"></ng-container>
+</fieldset>
+
+<!-- Actions Section -->
+<fieldset style="margin-top: 10px">
+  <div class="float-left section-top-padding">
+    <button type="button" class="btn btn-primary"
+            (click)="onClickExcelExport()" 
+            [hidden]="!botonesHabilitados[2]"
+            [disabled]="!canSearch || rows.length === 0"
+            *ngxPermissionsOnly="permisosBotones[2]">
+      {{ excelExportTitleButton }}
+    </button>
+  </div>
+  <div class="float-right section-top-padding">
+    <ng-container *ngTemplateOutlet="actionsContainer"></ng-container>
+    <button type="button" class="btn btn-primary"
+            (click)="onClickView()"
+            [hidden]="!botonesHabilitados[3]"
+            [disabled]="!canSearch || !selectedRowsByUser || selectedRowsByUser?.length !== 1"
+            *ngxPermissionsOnly="permisosBotones[3]">
+      {{ viewTitleButton }}
+    </button>
+    <button type="button" class="btn btn-primary"
+            (click)="onClickAdd()"
+            [hidden]="!botonesHabilitados[1]"
+            [disabled]="!canSearch"
+            *ngxPermissionsOnly="permisosBotones[1]">
+      {{ addTitleButton }}
+    </button>
+    <button type="button" class="btn btn-primary"
+            (click)="onClickEdit()"
+            [hidden]="!botonesHabilitados[0]"
+            [disabled]="!canSearch || !selectedRowsByUser || multipleSelectionValidation"
+            *ngxPermissionsOnly="permisosBotones[0]">
+      {{ editTitleButton }}
+    </button>
+    <button type="button" class="btn btn-primary"
+            (click)="onClickCopy()"
+            [hidden]="!botonesHabilitados[5]"
+            [disabled]="!canSearch || !selectedRowsByUser || selectedRowsByUser?.length !== 1"
+            *ngxPermissionsOnly="permisosBotones[5]">
+      {{ copyTitleButton }}
+    </button>
+    <button type="button" class="btn btn-primary"
+            (click)="onClickDelete()"
+            [hidden]="!botonesHabilitados[4]"
+            [disabled]="!canSearch || !selectedRowsByUser || selectedRowsByUser?.length !== 1"
+            *ngxPermissionsOnly="permisosBotones[4]">
+      {{ removeTitleButton }}
+    </button>
+  </div>
+</fieldset>
+
+<!-- Data Edit Section -->
+<fieldset [hidden]="!hasDataEditSection" [disabled]="canSearch">
+  <legend class="col-form-label">{{ dataEditLegendTitle }}</legend>
+  <ng-container *ngTemplateOutlet="editDataContainer"></ng-container>
+</fieldset>

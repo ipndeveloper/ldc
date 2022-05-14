@@ -1,0 +1,12 @@
+<div class="form-horizontal">
+    <div class="col-sm-12">
+      <input type="text" id="{{ idForm }}" [disabled]="isDisabled" #inputTexto class="form-control" (input)="valueChanged(inputTexto.value)"
+        [value]="valor" [ngClass]="{
+          'is-valid' : validControl,
+          'is-invalid' : validControl === false
+          }" (blur)='touched()' yrdFocus [isFocused]="isFocused" [element]="element" />
+      <div class="invalid-feedback">
+        <p>{{errorMessage}}</p>
+      </div>
+    </div>
+  </div>

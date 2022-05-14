@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-terminal 
+        formControlName="terminal"
+        #terminal 
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'" 
+        [permiso]="Permission.AdministrarRangosCodigoBarraCamara"      
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-si-no
+        formControlName="vigente" 
+        [label]="'Vigente'"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-3'"
+        [control]="form.get('vigente')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

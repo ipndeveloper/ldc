@@ -1,0 +1,4 @@
+:host ::ng-deep button .primary
+{
+  background: green !important;
+} 

@@ -1,0 +1,11 @@
+.fixed-bottom.footer {
+    background-color: #32556e;
+    color: #fff;
+    padding-left: 15px;
+    font-size: 11px;
+}
+  
+.side-right {
+    padding-right: 5px;
+    float: right;
+}

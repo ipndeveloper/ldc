@@ -1,0 +1,4 @@
+:host ::ng-deep input[type="number"], 
+:host ::ng-deep select {
+    width: 40%;
+}

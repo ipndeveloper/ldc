@@ -1,0 +1,21 @@
+{
+    "hotkeys": {
+      "alt+a": ["Aceptar ", "Aceptar"],
+      "alt+c": ["Cancelar ", "Cancelar"],
+      "alt+o": ["Aceptar y Continuar", "AceptarYContinuar"],
+      "alt+p": ["Dejar Pendiente", "DejarPendiente"],
+      "alt+r": ["Rechazar ", "Rechazar"],
+      "alt+f": ["Consultar Datos AFIP", "ConsultarDatosAFIP"],
+      "alt+i": ["Identificar Camión", "IdentificarCamion"],
+      "alt+g": ["Agregar ", "Agregar"],
+      "alt+e": ["Eliminar ", "Eliminar"],
+      "alt+l": ["Consultar Calado Anterior", "ConsultarCaladoAnterior"],
+      "alt+d": ["Lectura Dispositivo", "LecturaDispositivo"],
+      "alt+u": ["Calcular ", "Calcular"],
+      "alt+b": ["Rebaja Convenida", "RebajaConvenida"],
+      "alt+t": ["Actualizar ", "Actualizar"],
+      "alt+n": ["Anular ", "Anular"],
+      "alt+h": ["Habilitar Balanza", "HabilitarBalanza"],
+      "alt+m": ["Tomar Peso", "TomarPeso"]
+    }
+}

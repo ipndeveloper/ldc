@@ -1,0 +1,14 @@
+<fieldset [formGroup]="detalleForm">
+  <legend class="col-form-label">Plataformas disponibles</legend>
+  <div class="col-sm-12">
+    <yrd-data-grid #dataGrid
+      [columns]="columns"
+      [rows]="rows"
+      [selected]="selectedRow"
+      [pagination]="true"
+      [limitRecords]="5"
+      [singleSelection]="true"
+      [rowHeight]="30">
+    </yrd-data-grid>
+  </div>
+</fieldset>

@@ -1,0 +1,74 @@
+<fieldset [formGroup]="datosPesajeForm">
+  <legend class="col-form-label">Pesos</legend>
+  <div class="col-sm-12">
+    <table class="table-bordered col-sm-9">
+      <thead>
+        <th>Pesaje</th>
+        <th>Peso Doc. Porte</th>
+        <th>Balanza</th>
+        <th>Diferencia</th>
+        <th [hidden]="!esConsulta && !esAutomatico">R</th>
+        <th [hidden]="!esConsulta">M/A</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bruto [KG]</td>
+          <td><input type="number" class="form-control" formControlName="brutoDocPorte"/></td>
+          <td>
+            <input type="text" 
+              #pesoEntrada
+              class="form-control" 
+              formControlName="kilosBruto" 
+              (blur)="dispararControlPesajeBruto()" 
+              [textMask]="{mask: mask}" />
+          </td>
+          <td><input type="number" class="form-control" formControlName="brutoDiferencia"/></td>
+          <td [hidden]="!esConsulta && !esAutomatico"><input type="checkbox" class="form-control" formControlName="brutoEsRepesaje"/></td>
+          <td [hidden]="!esConsulta"><input type="text" class="form-control" formControlName="entradaManualAutomatico"/></td>
+        </tr>
+        <tr>
+          <td>Tara [KG]</td>
+          <td><input type="number" class="form-control" formControlName="taraDocPorte" /></td>
+          <td>
+            <input type="text"
+              #pesoSalida
+              class="form-control" 
+              formControlName="kilosTara" 
+              (blur)="dispararControlPesajeTara()" 
+              [textMask]="{mask: mask}" />
+          </td>
+          <td><input type="number" class="form-control" formControlName="taraDiferencia"/></td>
+          <td [hidden]="!esConsulta && !esAutomatico"><input type="checkbox" class="form-control" formControlName="taraEsRepesaje"/></td>
+          <td [hidden]="!esConsulta"><input type="text" class="form-control" formControlName="salidaManualAutomatico"/></td>
+        </tr>
+        <tr>
+          <td>Neto [KG]</td>
+          <td><input type="number" class="form-control" formControlName="netoDocPorte"/></td>
+          <td><input type="number" class="form-control" formControlName="netoBalanza"/></td>
+          <td><input type="number" class="form-control" formControlName="netoDiferencia"/></td>
+          <td [hidden]="!esConsulta && !esAutomatico"></td>
+          <td [hidden]="!esConsulta"></td>
+        </tr>  
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-5">
+    <yrd-texto-con-etiqueta class="col-sm-6"
+      *ngIf="esFueraCircuito" 
+      [idForm]="'coeficienteConversionLitros'" 
+      formControlName="coeficienteConversionLitros" 
+      [etiqueta]="'Coeficiente Conversión Litros'">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="col-sm-9">
+    <div class="float-right">
+      <button type="button" class="btn btn-primary" 
+        *ngIf="!esFueraCircuito" 
+        #btnTomarPeso 
+        (click)="tomarPeso()"
+        [disabled]="isLoading"
+        [hidden]="!esAutomatico">Tomar Peso
+      </button>
+    </div>
+  </div>
+</fieldset>

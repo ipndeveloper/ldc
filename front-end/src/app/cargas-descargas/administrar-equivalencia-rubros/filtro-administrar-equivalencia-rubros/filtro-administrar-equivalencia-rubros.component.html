@@ -1,0 +1,36 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+    <yrd-buscador-producto
+      class="col-sm-6"
+      #producto
+      formControlName="producto"
+      [cssClassControl]="'col-sm-3'"
+      [control]="form.get('producto')"
+      [advancedSearch]="true">
+    </yrd-buscador-producto>
+    <yrd-desplegable-camara
+      class="col-sm-6 form-group"
+      formControlName="camara"
+      #camara
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-6'" 
+      [control]="form.get('camara')">
+    </yrd-desplegable-camara>
+  </div>
+  <div class="form-horizontal">
+    <yrd-desplegable-rubro-calidad
+      class="col-sm-6 form-group"
+      formControlName="rubro"
+      #rubro 
+      [opcionSeleccione]="true"
+      [cssClassControl]="'col-sm-6'"
+      [control]="form.get('rubro')">
+    </yrd-desplegable-rubro-calidad>
+    <yrd-desplegable-si-no
+      class="col-sm-6 form-group"
+      formControlName="habilitado" 
+      [cssClassControl]="'col-sm-6'"
+      [control]="form.get('habilitado')">
+    </yrd-desplegable-si-no>
+  </div>
+</div>

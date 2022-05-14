@@ -1,0 +1,33 @@
+<fieldset [formGroup]="busquedaMovimientoQuitarDeCircuitoForm" class="section-top-padding">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal">        
+    <yrd-desplegable-tipo-transporte class="col-sm-4" 
+      formControlName="tipoTransporte" 
+      [control]="busquedaMovimientoQuitarDeCircuitoForm.get('tipoTransporte')"
+      [isFocused]="true">
+    </yrd-desplegable-tipo-transporte>
+      
+    <yrd-autocomplete-patente #autocompletePatente class="col-sm-4" 
+      [idForm]="'patenteCamion'" 
+      formControlName="patenteCamion" 
+      [etiqueta]="'Patente Camión'" 
+      [control]="busquedaMovimientoQuitarDeCircuitoForm.get('patenteCamion')" 
+      [validationMessages]="validationMessagesPatenteCamion">
+    </yrd-autocomplete-patente>
+  
+    <yrd-autocomplete-vagon #VagonInput class="col-sm-4"
+      formControlName="numeroVagon"
+      [idForm]="'numeroVagon'"  
+      [etiqueta]="'Vagón'" 
+      [control]="busquedaMovimientoQuitarDeCircuitoForm.get('numeroVagon')" 
+      [validationMessages]="validationMessagesNumeroVagon">
+    </yrd-autocomplete-vagon>
+  </div>    
+  <div class="mt-12">
+    <div class="float-right section-top-padding">
+      <button type="button" id="btnBuscar" class="btn btn-primary" [disabled]="disableButtons" (click)="getMovimientoQuitarDeCircuito()">Buscar</button>
+      <button type="button" id="btnLimpiar"class="btn btn-warning" [disabled]="disableButtons" (click)="limpiar()">Limpiar</button>
+    </div>
+  </div>
+  
+</fieldset>

@@ -1,0 +1,75 @@
+<form [formGroup]="form">
+  <fieldset>
+    <fieldset>
+      <legend class="col-form-label">Movimiento</legend>
+      <div class="form-horizontal section-top-padding">
+        <div class="col-sm-12 form-horizontal">
+        <div class="col-sm-4">
+          <yrd-desplegable-tipo-documento-porte
+            #tipoDocumentoPorte
+            formControlName="tipoDocumentoPorte" 
+            [tipoTransporte]="tipoTransporteCamion"
+            [control]="form.get('tipoDocumentoPorte')"
+            [validationMessages]="validationMessagesTipoDocumentoPorte"
+            [tieneOpcionSeleccione]="false">
+          </yrd-desplegable-tipo-documento-porte>
+        </div>
+        <div class="col-sm-4">
+          <yrd-numero-con-etiqueta
+            formControlName="ctg" 
+            [control]="form.get('ctg')"
+            [etiqueta]="'CTG'"
+            yrdMaxLength [maxLength]="13"
+            [allowLeadingZeroes]="true">
+          </yrd-numero-con-etiqueta>
+        </div>
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            formControlName="numeroDocumentoPorte" 
+            [control]="form.get('numeroDocumentoPorte')"
+            [etiqueta]="'Nro. Doc. Porte'"
+            [cssClassControl]="'col-sm-7'"
+            yrdMaxLength [maxLength]="13"
+            [validationMessages]="validationMessagesNumeroDocumentoPorte">
+          </yrd-texto-con-etiqueta>
+        </div>
+      </div>
+      <div class="col-sm-12 form-horizontal">
+        <div class="col-sm-4">
+          <yrd-autocomplete-patente
+            formControlName="patente"
+            [etiqueta]="'Patente'" 
+            [control]="form.get('patente')" 
+            [validationMessages]="validationMessagesPatente">
+          </yrd-autocomplete-patente>
+        </div>
+        <div class="col-sm-8" *ngIf="lecturaTarjeta.lecturaEnModoAutomatico"></div>
+        <div class="form-group col-sm-4">
+          <div>
+            <yrd-lectura-tarjeta
+              #lecturaTarjeta
+              [form]="form" 
+              [previousValidation]="validateDocPorteYPatente"
+              [mostrarTarjeta]="false"
+              [cssClassBotonInner]="'btn btn-primary'"
+              [textoBoton]="'Asignar Tarjeta'"
+              [cssClassRow]="cssClassRowLecturaTarjeta"
+              (tarjetaLeida)="onTarjetaLeida()">
+            </yrd-lectura-tarjeta>
+          </div>
+        </div>
+      </div>
+        <div class="col-sm-4" *ngIf="!lecturaTarjeta.lecturaEnModoAutomatico"></div>
+        <div class="form-group col-sm-4" *ngIf="!lecturaTarjeta.lecturaEnModoAutomatico">
+          <div class="float-right">
+            <button type="button" class="btn btn-primary" 
+              [disabled]="!formValid" 
+              (click)="onAsignarTarjeta()">Asignar Tarjeta
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </fieldset>
+  </fieldset>
+</form>

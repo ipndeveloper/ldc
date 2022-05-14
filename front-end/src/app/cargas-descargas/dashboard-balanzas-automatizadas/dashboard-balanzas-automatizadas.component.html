@@ -1,0 +1,22 @@
+<form [formGroup]="form">
+  <fieldset>
+    <legend class="col-form-label">Dashboard Balanzas Automatizadas</legend>
+    <div formArrayName="balanzas" class="form-horizontal">
+      <div [formGroupName]="i" *ngFor="let balanza of balanzas.controls; let i=index" class="col-sm-6">
+        <yrd-detalle-balanza
+            [balanza]="form.get('balanzas').controls[i].controls.balanza.value"
+            [numeroBalanza]="i + 1"
+            [balanzaAutomatizadaLog]="logBalanzaAutomatizada" >
+        </yrd-detalle-balanza>
+      </div>
+    </div>
+    <div>
+      <button id="btnSeleccionarBalanzas" type="button" class="btn btn-primary" (click)="openSeleccionarBalanzas()"
+        *ngxPermissionsOnly="permisoSeleccionarBalanzas">Seleccionar balanzas</button>
+    </div>
+  </fieldset>
+</form>
+
+<yrd-modal-seleccionar-balanzas #modalSeleccionarBalanzas [form]="form.controls.modalSeleccionarBalanzas"
+  (accepted)="seleccionarBalanzas()">
+</yrd-modal-seleccionar-balanzas>

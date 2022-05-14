@@ -1,0 +1,42 @@
+<form [formGroup]="gestionarCalidadCaladoForm" novalidate>
+  <fieldset>
+    <yrd-search-form-template
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="gestionarCalidadCaladoForm.controls.filtros"
+      [rowsOptions]="rowsOptions"
+      [singleSelection]="true">
+
+        <ng-template #controlFiltersContainer>                
+          <yrd-filtro-busqueda-gestionar-calidad-calado
+            [filtrosForm]="gestionarCalidadCaladoForm.controls.filtros" 
+            [estadoMovimientoFilters]="estadoMovimientoFilters">
+          </yrd-filtro-busqueda-gestionar-calidad-calado>
+        </ng-template>
+
+        <ng-template #controlActionsContainer>
+            <button type="button" class="btn btn-primary btn-space-left" 
+              *ngxPermissionsOnly="Permission.GestionarCalidadCaladoSinRespuestaEntregador"
+              (click)="onClickSinRespEntregador()"
+              [disabled]="sinRespuestaEntregadorDeshabilitado"
+              i18n>Sin Respuesta Entregador
+            </button>
+            <button type="button" class="btn btn-primary" 
+              (click)="onClickContinuarPostLab()" 
+              *ngxPermissionsOnly="Permission.GestionarCalidadCaladoContinuarCircuitoPostLab"              
+              i18n>Continuar Circuito Post-Lab
+            </button>
+        </ng-template>
+
+    </yrd-search-form-template>    
+  </fieldset>
+</form>
+
+<yrd-modal-confirmar-con-observaciones #modalConfirmacionSinRespuestaEntregador (accepted)="confirmacionSinRespuestaEntregador($event)" [labelHeader]="deseaConfirmarEstaAccionMessage"></yrd-modal-confirmar-con-observaciones>
+
+<!-- 
+<pre>Form value: {{ gestionarCalidadCaladoForm.getRawValue() | json }}</pre>
+  <pre>Form status: {{ gestionarCalidadCaladoForm.status | json }}</pre> -->

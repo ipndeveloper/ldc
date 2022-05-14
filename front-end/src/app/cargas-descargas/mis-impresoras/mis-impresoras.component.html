@@ -1,0 +1,13 @@
+<fieldset [formGroup]="form">
+  <yrd-filtro-mis-impresoras
+    #filtro
+    [form]="form.controls.filtro"
+    [esAdmin]="esAdmin"
+    (buscarClicked)="onBuscar()">
+  </yrd-filtro-mis-impresoras>
+  <yrd-detalle-mis-impresoras
+    #detalle
+    [form]="form.controls.detalle"
+    (marcarPorDefectoClicked)="onMarcarPorDefecto($event)">
+  </yrd-detalle-mis-impresoras>
+</fieldset>

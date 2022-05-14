@@ -1,0 +1,40 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+      <fieldset [formGroup]="form">
+          <legend class="col-form-label">{{textoFieldset}}</legend>  
+          <div class="col-sm-12 form-horizontal">
+            <div class="col-sm-4">
+              <div class="form-horizontal">
+                <input id="radioNoDescargaCarga" #realizaDescargaCarga name="realizaDescargaCarga" formControlName="realizaDescargaCarga" type="radio" [value]="valorNoDescargoCargo"/>
+                <label for="radioNoDescargaCarga" class="form-label">No {{ textoDescargaCarga }}</label>
+              </div>             
+            </div>   
+            <div class="col-sm-4">
+                <div class="form-horizontal">
+                  <input id="radioDescargaCarga" name="realizaDescargaCarga" formControlName="realizaDescargaCarga" type="radio" [value]="valorDescargoCargo"/>
+                  <label for="radioDescargaCarga" class="form-label">{{ textoDescargaCarga }}</label>
+                </div>
+            </div>
+            <div class="col-sm-4" *ngIf="!esDescarga && !esEntrada">
+              <div class="form-horizontal">
+                <input id="radioCargoConError" name="realizaDescargaCarga" formControlName="realizaDescargaCarga" type="radio" [value]="valorCargoConError"/>
+                <label for="radioCargoConError" class="form-label">{{ textoDescargaCarga }} con Error</label>
+              </div>
+            </div>          
+          </div>
+         
+          <div class="col-sm-12 form-horizontal">
+            <yrd-lista-motivos-no-descarga class="col-sm-12" 
+              [motivosForm]="form.controls.motivos">
+            </yrd-lista-motivos-no-descarga>
+          </div>
+        </fieldset>
+  </ng-template>
+</yrd-modal>
+
+  

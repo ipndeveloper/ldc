@@ -1,0 +1,201 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-terminal 
+        #terminal
+        formControlName="terminal"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesTerminal"
+        [permiso]="Permission.AdministrarPuestosTrabajo"        
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-4">
+      <yrd-desplegable-tipo-puesto-trabajo
+        formControlName="tipoPuestoTrabajo"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [opcionSeleccione]= "true"
+        [validationMessages]="validationMessagesTipoPuestoTrabajo"
+        [control]="form.get('tipoPuestoTrabajo')">
+      </yrd-desplegable-tipo-puesto-trabajo>  
+    </div>
+  </div> 
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-texto-con-etiqueta 
+        formControlName="nombre"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [control]="form.get('nombre')"
+        [etiqueta]="'Nombre'"
+        [validationMessages]="validationMessagesNombre">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-texto-con-etiqueta 
+        formControlName="direccionIP"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('direccionIP')"
+        [etiqueta]="'Dirección IP'"
+        [validationMessages]="validationMessagesDireccionIP">
+      </yrd-texto-con-etiqueta>
+    </div>   
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group form-horizontal">
+        <label for="utilizaTarjeta"
+          class="col-sm-7 col-form-label">Autorización en Puesto con Tarjeta:
+        </label>
+        <div class="col-sm-5">
+          <input type="checkbox"
+            class="checkbox"
+            id="utilizaTarjeta"
+            formControlName="utilizaTarjeta" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group form-horizontal">
+        <label for="habilitado"
+          class="col-sm-3 col-form-label">Habilitado:
+        </label>
+        <div class="col-sm-9">
+          <input type="checkbox"
+            class="checkbox"
+            id="habilitado"
+            formControlName="habilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group form-horizontal">
+        <label class="col-form-label col-sm-1">Acciones:</label>
+        <div class="col-sm-11">
+          <yrd-data-grid 
+            [columns]="columnsAcciones" 
+            [rows]="rowsAcciones" 
+            [selected]="selectedRowsAcciones" 
+            (select)="onSelectAcciones($event)">
+          </yrd-data-grid>
+          <div class="float-right">
+            <button class="btn btn-primary" 
+              #botonAgregarAccion 
+              (click)="onAgregarAccion()"
+              [disabled]="disableActions || esConsulta || isLoading">Agregar
+            </button>
+            <button class="btn btn-primary" 
+              #botonModificarAccion 
+              (click)="onModificarAccion()"
+              [disabled]="disableActions || esConsulta || isLoading || selectedRowsAcciones.length !== 1">Modificar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form-group form-horizontal">
+        <label class="col-form-label col-sm-1">Dispositivos:</label>
+        <div class="col-sm-11">
+          <yrd-data-grid 
+            [columns]="columnsDispositivos" 
+            [rows]="rowsDispositivos" 
+            [selected]="selectedRowsDispositivos" 
+            (select)="onSelectDispositivos($event)">
+          </yrd-data-grid>
+          <div class="float-right">
+            <button class="btn btn-primary"
+              #botonAgregarDispositivo 
+              (click)="onAgregarDispositivo()"
+              [disabled]="disableActions || esConsulta || isLoading">Agregar
+            </button>
+            <button class="btn btn-primary" 
+              #botonModificarDispositivo 
+              (click)="onModificarDispositivo()"
+              [disabled]="disableActions || esConsulta || isLoading || selectedRowsDispositivos.length !== 1">Modificar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template 
+  #selectAccionesHeaderTemplate 
+  ngx-datatable-header-template 
+  let-value="value" 
+  let-allRowsSelected="allRowsSelected"
+  let-selectFn="selectFn">
+  <input type="checkbox" 
+    [checked]="allRowsSelected" 
+    (change)="selectFn(!allRowsSelected)" 
+    [disabled]="disableActions || esConsulta" />
+</ng-template>
+
+<ng-template 
+  #selectAccionesCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" 
+        [checked]="isSelected" 
+        (change)="onCheckboxChangeFn($event)" 
+        [disabled]="disableActions || esConsulta" />
+  </label>
+</ng-template>
+
+<ng-template 
+  #selectDispositivosHeaderTemplate 
+  ngx-datatable-header-template 
+  let-value="value" 
+  let-allRowsSelected="allRowsSelected"
+  let-selectFn="selectFn">
+  <input type="checkbox" 
+    [checked]="allRowsSelected" 
+    (change)="selectFn(!allRowsSelected)" 
+    [disabled]="disableActions || esConsulta" />
+</ng-template>
+
+<ng-template 
+  #selectDispositivosCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" 
+        [checked]="isSelected" 
+        (change)="onCheckboxChangeFn($event)" 
+        [disabled]="disableActions || esConsulta" />
+  </label>
+</ng-template>
+
+<yrd-modal-agregar-accion 
+  #modalAccion 
+  [form]="form.controls.datosModalAccionPuestoTrabajo"
+  [formListaAcciones]="form.controls.accionesPuestoTrabajo"
+  (accepted)="onAcceptedAccionPuestoTrabajo()"
+  (closing)="onClosingAccionPuestoTrabajo()">
+</yrd-modal-agregar-accion>
+
+
+<yrd-modal-agregar-dispositivo 
+  #modalDispositivo 
+  [form]="form.controls.datosModalDispositivoPuestoTrabajo"
+  [terminalActual]="terminalActual"
+  [formListaDispositivos]="form.controls.dispositivosPuestoTrabajo"
+  (accepted)="onAcceptedDispositivoPuestoTrabajo()"
+  (closing)="onClosingDispositivoPuestoTrabajo()">
+</yrd-modal-agregar-dispositivo>

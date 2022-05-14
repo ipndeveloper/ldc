@@ -1,0 +1,14 @@
+<div class="form-horizontal" [formGroup]="form">
+  <label for="selectDecision" class="col-sm-3 col-form-label" i18n>Decisión:</label>
+  <div class="col-sm-9">
+    <select class="form-control" formControlName="decision">
+      <option value="" selected>Seleccione</option>
+      <option *ngIf="AprobarActivado" [value]="aprobado" [selected]="seleccionarDecision"> Aprobado</option>
+      <option *ngIf="RechazarActivado" [value]="rechazar" [selected]="seleccionarDecision"> Rechazado</option>
+      <option *ngIf="ReCalarActivado" [value]="reCalar" [selected]="seleccionarDecision"> ReCalar</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>Debe ingresar una Decisión.</p>
+    </div>
+  </div>
+</div>

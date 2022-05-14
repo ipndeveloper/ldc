@@ -1,0 +1,43 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+        <yrd-buscador-chofer 
+            #chofer
+            formControlName="chofer" 
+            [cssClassEtiqueta]="'col-sm-3'"
+            [cssClassControl]="'col-sm-5'"
+            [advancedSearch]="true"
+            [control]="form.get('chofer')">
+        </yrd-buscador-chofer>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="apellidoYNombre"
+        [etiqueta]="'Apellido y Nombre Chofer'"
+        [control]="form.get('apellidoYNombre')"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-6'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-desplegable-si-no
+        formControlName="vigente"
+        [label]="'Vigente'"
+        [control]="form.get('vigente')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-5'">
+      </yrd-desplegable-si-no>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-si-no
+        formControlName="habilitado"
+        [label]="'Habilitado'"
+        [control]="form.get('habilitado')"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-4'">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

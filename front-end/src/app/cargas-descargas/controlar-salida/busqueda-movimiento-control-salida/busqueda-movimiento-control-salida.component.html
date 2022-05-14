@@ -1,0 +1,47 @@
+<fieldset [formGroup]="busquedaMovimientoControlSalidaForm">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal">
+    <yrd-desplegable-tipo-transporte class="col-sm-4" 
+      formControlName="tipoTransporte" 
+      [control]="busquedaMovimientoControlSalidaForm.get('tipoTransporte')"
+      [soloCamionYTren]="true"
+      [isFocused]="true">
+    </yrd-desplegable-tipo-transporte>
+  </div>
+  <div class="form-horizontal pt-2">
+    <yrd-autocomplete-patente class="col-sm-4" 
+      #autocompletePatente
+      formControlName="patenteCamion"
+      [idForm]="'patenteCamion'"  
+      [etiqueta]="'Patente Camión'" 
+      [control]="busquedaMovimientoControlSalidaForm.get('patenteCamion')" 
+      [validationMessages]="validationMessagesPatenteCamion">
+    </yrd-autocomplete-patente>
+    <yrd-autocomplete-vagon class="col-sm-4" 
+      #autocompleteVagon 
+      formControlName="numeroVagon"    
+      [idForm]="'numeroVagon'"
+      [etiqueta]="'Número Vagón'" 
+      [control]="busquedaMovimientoControlSalidaForm.get('numeroVagon')" 
+      [validationMessages]="validationMessagesNumeroVagon">
+    </yrd-autocomplete-vagon>    
+  </div>
+  <div class="form-horizontal">  
+    <yrd-lectura-tarjeta class="col-sm-4 pt-2" 
+      #tarjeta
+      [cssClassBoton]="'col-sm-3'"
+      [form]="busquedaMovimientoControlSalidaForm" 
+      (tarjetaLeida)="onTarjetaLeida()">
+    </yrd-lectura-tarjeta>
+    <div class="col-sm-1">
+      <input id="sinTarjeta" type="checkbox" formControlName="sinTarjeta"/>
+      <label for="sinTarjeta">Sin Tarjeta</label>
+    </div>  
+  </div>
+  <div class="float-right section-top-padding">
+    <button id="btnBuscar" [disabled]="botonBuscarDeshabilitado"  class="btn btn-primary" (click)="getMovimientoControlSalida()">Buscar</button>
+    <button id="btnLimpiar" [disabled]="botonBuscarDeshabilitado" class="btn btn-warning" (click)="limpiar()">Limpiar</button>
+  </div>
+</fieldset>
+
+<yrd-modal-seleccionar-remito #seleccionarRemito (remitoSeleccionado)="onRemitoSeleccionado($event)"></yrd-modal-seleccionar-remito>

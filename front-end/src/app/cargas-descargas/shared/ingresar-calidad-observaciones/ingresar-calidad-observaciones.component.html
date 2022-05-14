@@ -1,0 +1,20 @@
+<div [formGroup]="observacionesForm">
+  <div class="col-sm-8" *ngIf="!esCalidadAnterior">
+    <yrd-desplegable-referencia-destino
+      formControlName="referenciaDestino"
+      [disabled]="esFueraDeCircuito"
+      [control]="observacionesForm.controls.referenciaDestino"
+      [opcionSeleccione]="true"
+      [validationMessages]="validationMessagesReferenciaDestino">
+    </yrd-desplegable-referencia-destino>
+  </div>
+  <div class="col-sm-9 form-horizontal">
+    <label class="col-form-label col-sm-4">Observación LDC:</label>
+    <textarea formControlName="observacionLDC" type="text" class="form-control col-sm-8"></textarea>
+  </div>
+  <div class="col-sm-9 form-horizontal">
+      <label class="col-form-label col-sm-4">Observación Entregador:</label>
+      <textarea formControlName="observacionEntregador" type="text" class="form-control col-sm-8"></textarea>
+  </div>  
+</div>
+

@@ -1,0 +1,15 @@
+:host ::ng-deep input {
+    -webkit-box-flex:0;
+    flex:0 0 58.333333%;
+    max-width:58.333333%;
+}
+
+:host ::ng-deep label {
+    -webkit-box-flex:0;
+    flex:0 0 41.666667%;
+    max-width:41.666667%;
+}
+
+:host ::ng-deep .form-horizontal {
+    flex-wrap: inherit;
+}

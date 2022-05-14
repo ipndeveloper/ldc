@@ -1,0 +1,59 @@
+<div class="form-horizontal">
+  <label
+    for="{{ idForm }}"
+    class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:
+  </label>
+  <div class="{{ cssClassControl }} custom-file">
+    <input
+      type="file"
+      #inputArchivo
+      id="{{ idForm }}"
+      [disabled]="isDisabled"
+      class="custom-file-input"
+      (input)="valueChanged(inputArchivo.value)"
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }"
+      (blur)='touched()'
+      yrdFocus
+      [isFocused]="isFocused"
+      [element]="element"
+      single
+    />
+    <div *ngIf="isLoading" class="icon-container">
+      <i class="loader"></i>
+    </div>
+    <label class="custom-file-label"
+      for="{{ idForm }}">{{ listaArchivos.length === 0 ? 'Seleccione un archivo...' : 'Seleccione otro archivo...' }}
+    </label>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 form-group">
+    <div *ngFor="let archivo of listaArchivos">
+      <div class="form-horizontal">
+        <div class="{{ cssClassEtiqueta }}"></div>
+        <div class="{{ cssClassControl }}">
+          <div class="input-group custom-input-group">
+              <input type="text"
+                class="form-control"
+                placeholder="{{ archivo.nombre }}.{{ archivo.extension }}"
+                readonly>
+              <div class="input-group-append">
+                <button
+                  class="btn btn-danger custom-btn-danger"
+                  type="button"
+                  (click)="onClickEliminar(archivo)">X
+                </button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

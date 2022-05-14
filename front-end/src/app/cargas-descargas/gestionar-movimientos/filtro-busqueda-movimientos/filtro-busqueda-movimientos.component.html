@@ -1,0 +1,72 @@
+<form [formGroup]="filtrosForm">
+  <fieldset class="section-top-padding">
+    <legend class="col-form-label">Documento de Porte</legend>
+    <div class="form-horizontal ">
+      <input name="opcionFiltro" formControlName="opcionFiltro" type="radio" [value]="1" />
+      <yrd-desplegable-tipo-documento-porte #tipoDocPorte class="col-sm-4" formControlName="tipoDocPorte"
+        [control]="filtrosForm.get('tipoDocPorte')"></yrd-desplegable-tipo-documento-porte>
+      <div class="col-sm-4">
+        <div class=" form-horizontal">
+          <label class="col-sm-4 col-form-label">Nro. Doc. Porte/CTG:</label>
+          <div class="col-sm-8">
+              <input 
+              #nroDocPorte 
+              type="text" 
+              formControlName="nroDocPorte" 
+              class="form-control" 
+              oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+              maxlength="13"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="col-form-label">Movimiento</legend>
+    <div class="form-horizontal">      
+      <fieldset class="col-sm-4">      
+        <div class="form-horizontal"  style="margin-top: 10px">
+          <input name="opcionFiltro" formControlName="opcionFiltro" type="radio" [value]="2" id="opcionFiltroEnCircuito" />
+          <label for="opcionFiltroEnCircuito" class="form-label">En Circuito</label>
+          
+          <yrd-autocomplete-patente class="col-sm-12" 
+            [etiqueta]="'Patente'" 
+            [idForm]="'patenteCamion'"
+            [control]="filtrosForm.get('patente')"
+            formControlName="patente"></yrd-autocomplete-patente>
+
+          <yrd-autocomplete-vagon class="col-sm-12" 
+            [etiqueta]="'Vagón'" 
+            [idForm]="'numeroVagon'"
+            [control]="filtrosForm.get('vagon')"
+            formControlName="vagon"></yrd-autocomplete-vagon>
+            
+          <yrd-numero-con-etiqueta class="col-sm-12" formControlName="tarjeta"
+            [control]="filtrosForm.get('tarjeta')" 
+            [etiqueta]="'Tarjeta'"
+            [allowLeadingZeroes]="true"></yrd-numero-con-etiqueta>
+        </div>      
+      </fieldset>
+
+      <fieldset class="col-sm-8">
+        <div class="form-horizontal" style="margin-top: 10px">
+          <input name="opcionFiltro" formControlName="opcionFiltro" type="radio" [value]="3" id="opcionFiltroFueraCircuito"/>
+          <label for="opcionFiltroFueraCircuito" class="form-label">Fuera Circuito</label>
+        </div>
+        <div class="form-horizontal">
+          <yrd-desplegable-tipo-movimiento [opcionTodos]= "true" class="col-sm-6" formControlName="tipoMovimiento"></yrd-desplegable-tipo-movimiento>
+          <yrd-desplegable-tipo-transporte [opcionTodos]= "true" class="col-sm-6" formControlName="tipoTransporte"></yrd-desplegable-tipo-transporte>
+          
+          <yrd-fecha-con-etiqueta class="col-sm-6" 
+            formControlName="fechaOperacionDesde" 
+            [etiqueta]="'Fecha Op./Salida Desde'"></yrd-fecha-con-etiqueta>
+
+          <yrd-fecha-con-etiqueta class="col-sm-6" 
+            formControlName="fechaOperacionHasta" 
+            [etiqueta]="'Fecha Op./Salida Hasta'"></yrd-fecha-con-etiqueta>
+        </div>
+      </fieldset>
+    </div>
+  </fieldset>
+</form>

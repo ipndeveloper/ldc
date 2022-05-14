@@ -1,0 +1,32 @@
+<form [formGroup]="filtrosForm"> 
+  <div class="row">
+    <div class="col-sm-3">
+      <yrd-desplegable-servicio-afip formControlName="servicioAfip"></yrd-desplegable-servicio-afip>
+    </div>
+    <div class="col-sm-4">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaDesde" 
+        [etiqueta]="'Fecha Ingreso Desde'" 
+        [control]="filtrosForm.get('fechaDesde')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaHasta" 
+        [etiqueta]="'Fecha Ingreso Hasta'" 
+        [control]="filtrosForm.get('fechaHasta')">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+  <div class="row pt-2">
+    <div class="col-sm-3">
+      <yrd-numero-con-etiqueta
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [control]="filtrosForm.get('ctg')"
+        [allowLeadingZeroes]="true"
+        yrdMaxLength [maxLength]=12>
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</form>

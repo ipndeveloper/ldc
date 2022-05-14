@@ -1,0 +1,42 @@
+<form [formGroup]="gestionarControlForm" novalidate>
+  <fieldset>
+    <yrd-search-form-template #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="gestionarControlForm.controls.filtros"
+      [rowsOptions]="rowsOptions"
+      [singleSelection]="true">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-busqueda-control [filtrosForm]="gestionarControlForm.controls.filtros"
+                                     [filtroEstadoMovimiento]="estadoMovimientoFilters">
+        </yrd-filtro-busqueda-control>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >
+        
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onClickModificarDocPorteVagones()"
+            *ngxPermissionsOnly="Permission.GestionarControlModificarDocPorteVagones" 
+            i18n>Modif. Doc. Porte Vagones</button>
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onClickAsignarTarjeta()" 
+            *ngxPermissionsOnly="Permission.GestionarControlAsignarTarjeta" 
+            i18n>Asignar Tarjeta</button>
+          <button type="button" class="btn btn-primary" 
+            [disabled]="!selectedRow || selectedRow?.length !== 1" 
+            (click)="onClickRechazarDescarga()"
+            *ngxPermissionsOnly="Permission.GestionarControlRechazar" 
+            i18n>Rechazar</button>
+        
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>
+
+<yrd-modal-asignar-tarjeta #modalAsignarTarjeta (tarjetaAsignada)="onTarjetaAsignada()"></yrd-modal-asignar-tarjeta>
+<yrd-modal-rechazar-descarga #modalRechazarDescarga (descargaRechazada)="onDescargaRechazada()"></yrd-modal-rechazar-descarga>

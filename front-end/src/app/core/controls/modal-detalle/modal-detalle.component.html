@@ -1,0 +1,11 @@
+<yrd-modal #modalComponent>
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+    <p class="col-sm-12" style="height: 300px">
+      {{ detalle }}
+    </p> 
+  </ng-template>
+  <ng-template #modalFooter>
+    <button id="btnAcceptModal" type="button" class="btn btn-success" (click)="accept()">Aceptar</button>
+  </ng-template>
+</yrd-modal>

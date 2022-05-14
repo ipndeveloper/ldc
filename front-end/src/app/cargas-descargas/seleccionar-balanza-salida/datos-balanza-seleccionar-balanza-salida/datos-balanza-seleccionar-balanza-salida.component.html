@@ -1,0 +1,23 @@
+<fieldset>
+  <legend class="col-form-label">Balanza</legend>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-etiqueta-con-valor
+        [valor]="datosBalanzaForm.controls.nombrePlanta.value"
+       [etiqueta]="'Planta'">
+     </yrd-etiqueta-con-valor>
+    </div>
+    <div class="col-sm-4">
+      <yrd-etiqueta-con-valor
+        [valor]="datosBalanzaForm.controls.nombreBalanza.value"
+       [etiqueta]="'Nombre Balanza'">
+     </yrd-etiqueta-con-valor>
+    </div>
+    <div class="col-sm-4">
+     <yrd-etiqueta-con-valor
+      [valor]="datosBalanzaForm.controls.pesoCapturado.value"
+      [etiqueta]="'Peso Capturado'">
+      </yrd-etiqueta-con-valor>
+    </div>
+  </div>
+</fieldset>

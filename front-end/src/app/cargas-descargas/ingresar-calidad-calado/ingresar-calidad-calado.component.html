@@ -1,0 +1,103 @@
+<div class="container-fluid"  [ngClass]="{'collapse' : showCalidadAnterior}">
+  <form [formGroup]="ingresarCalidadCaladoForm" novalidate>
+    
+    <yrd-filtro-movimiento #filtroMovimiento 
+      [filtroMovimientoForm]="ingresarCalidadCaladoForm.controls.filtroMovimiento"
+      [esVagon]="esVagon"
+      [esModificacion]="esModificacion"
+      (movimientoRecuperado)="completeDataCalado($event)">
+    </yrd-filtro-movimiento>
+    
+    <yrd-circuito 
+      [circuitoForm]="ingresarCalidadCaladoForm.controls.circuito" 
+      [completarTipoProducto]="completarTipoProducto">
+    </yrd-circuito>
+    
+    <yrd-datos-movimiento 
+      [datosMovimientoForm]="ingresarCalidadCaladoForm.controls.datosMovimiento" 
+      [movimiento]="movimiento">
+    </yrd-datos-movimiento>
+
+    <yrd-rubros-calidad #rubrosCalidadComponent 
+      [rubrosForm]="ingresarCalidadCaladoForm.controls.rubros" 
+      [rubrosCalidad]="rubrosCalidad"
+      [disableButtons]="disableButtons"
+      [deshabilitarCalculoCalidad]="deshabilitarCalculoCalidad" 
+      [selectedRows]="rubrosSelected"
+      [rubrosPorTipoAnalisis]="rubrosPorTipoAnalisis" 
+      [disableSelectRubro]="disableSelectRubro"
+      [operacion]="operacion"
+      [movimiento]="movimiento"
+      [lecturaAutomatica]="lecturaAutomatica"
+      [esCarga]="esCarga"
+      [esAcopio]="esAcopio"
+      (leerDispositivoClicked)="onLeerDispositivoClicked()">
+    </yrd-rubros-calidad>
+
+    <yrd-mermas-especiales *ngIf="habilitaGrillaMermasEspeciales"
+      #mermasEspecialesComponent 
+      [form]="ingresarCalidadCaladoForm" 
+      [mermasEspeciales]="mermasEspeciales">
+    </yrd-mermas-especiales>
+
+    <yrd-datos-laboratorio #datosLaboratorioComponent 
+      (formReady)="onDatosLaboratorioFormReady($event)">
+    </yrd-datos-laboratorio>
+    
+    <div class="form-horizontal">
+      <div class="col-sm-6">
+        <yrd-ingresar-calidad-accion 
+          [accionForm]="ingresarCalidadCaladoForm.controls.accion" 
+          [accionesHabilitadas]="accionesHabilitadas">
+        </yrd-ingresar-calidad-accion>
+      </div>
+      <div class="col-sm-6">
+        <yrd-ingresar-calidad-camara #datosCamaraComponent 
+          [ingresoCamaraForm]="ingresarCalidadCaladoForm.controls.datosCamara"
+          [operacion]="operacion"
+          [esCarga]="esCarga"
+          [producto]="producto"
+          [usaMuestraTipoAcopio]="terminal.usaMuestraTipoAcopio"
+          [ctg]="ctg">
+        </yrd-ingresar-calidad-camara>
+      </div>
+    </div>
+    
+    <yrd-ingresar-calidad-observaciones class="col-sm-12" 
+      [esCalidadAnterior]="false"
+      [observacionesForm]="ingresarCalidadCaladoForm.controls.observaciones">
+    </yrd-ingresar-calidad-observaciones>   
+
+    <div class="mt-3">
+      <div class="float-left">        
+        <button id="btnConsultarCaladoAnterior" type="button" class="btn btn-primary" (click)="openConsultarCalidadAnterior()" [disabled]="deshabilitarCalidadAnterior()">Consultar Calado Anterior</button>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <div class="float-right">
+        <button id="btnAceptarContinuar"
+          [disabled]="disableButtons" type="button" class="btn btn-primary"
+          [hidden]="!terminal.usaAceptarYContinuar || mostrarAceptar" 
+          (click)="aceptarContinuar()">Aceptar y Continuar</button>
+
+        <button id="btnAceptar" [disabled]="disableButtons" type="button" class="btn btn-success" (click)="aceptar()" [hidden]="mostrarAceptar">Aceptar</button>
+        <button id="btnCancelar" [disabled]="disableButtons" type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      
+      </div>
+  </div>  
+  </form>
+</div>
+<div [ngClass]="{'collapse' : !showCalidadAnterior}" 
+  id="consultarCalidadAnteriorSection" class="container-fluid">
+  <yrd-consultar-calidad [traeCalidadAnterior]="traeCalidadAnterior()" #consultarCalidad></yrd-consultar-calidad>
+  <button type="button" class="btn btn-danger float-right" (click)="closeConsultarCalidadAnterior()">Cancelar</button>
+</div>
+
+<yrd-modal-confirmar-impresion #modalConfirmarImpresionObleaLaboratorio
+  [labelHeader]="deseaImprimirLaObleaLaboratorioEnEsteMomento"
+  [form]="ingresarCalidadCaladoForm.get('modalImprimeObleaLaboratorio')"
+  (confirmacion)="confirmaImpresionOblea($event)">
+</yrd-modal-confirmar-impresion>
+
+<!-- <pre>Form value: {{ ingresarCalidadCaladoForm.value | json }}</pre> -->

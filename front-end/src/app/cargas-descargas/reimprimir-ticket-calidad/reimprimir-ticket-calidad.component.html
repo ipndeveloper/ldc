@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <form [formGroup]="reimprimirTicketCalidadForm" novalidate>
+    <yrd-filtro-busqueda-reimpresion-ticket-calidad
+      #filtroMovimiento
+      [filtrosForm]='reimprimirTicketCalidadForm.controls.filtroMovimiento'
+      (movimientoRecuperado)="completeData($event)">
+    </yrd-filtro-busqueda-reimpresion-ticket-calidad>
+
+    <fieldset [formGroup]="reimprimirTicketCalidadForm.controls.datosMovimiento">
+      <legend class="col-form-label">Movimiento</legend>
+      <div class="pt-2 row">
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            [idForm]="'tipoDocumentoPorte'"
+            [cssClassControl]="'col-sm-6'"
+            formControlName="tipoDocumentoPorte"
+            [etiqueta]="'Tipo Doc. Porte'">
+          </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            [idForm]="'nroDocumentoPorte'"
+            [cssClassControl]="'col-sm-6'"
+            formControlName="nroDocumentoPorte"
+            [etiqueta]="'Nro. Doc. Porte'">
+          </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            [idForm]="'ctg'"
+            [cssClassControl]="'col-sm-6'"
+            formControlName="ctg"
+            [etiqueta]="'CTG'">
+          </yrd-texto-con-etiqueta>
+        </div>
+      </div>
+      <div class="pt-2 row">
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            [idForm]="'producto'"
+            [cssClassControl]="'col-sm-6'"
+            formControlName="producto"
+            [etiqueta]="'Producto'">
+          </yrd-texto-con-etiqueta>
+        </div>
+        <div class="col-sm-4">
+          <yrd-texto-con-etiqueta
+            [idForm]="'estado'"
+            [cssClassControl]="'col-sm-6'"
+            formControlName="estado"
+            [etiqueta]="'Estado'">
+          </yrd-texto-con-etiqueta>  
+        </div>
+      </div>
+    </fieldset>
+    <fieldset [formGroup]="reimprimirTicketCalidadForm.controls.impresion" class="section-top-padding">
+      <legend class="col-form-label">Impresión</legend>
+      <div class= "pt-2 row">
+        <div class="col-sm-6">
+          <yrd-desplegable-impresoras-por-usuario
+            #desplegableImpresora
+            [opcionSeleccione]= "true"
+            [cssClassControl]="'col-sm-5'"
+            formControlName="impresora"
+            [control]="reimprimirTicketCalidadForm.controls.impresion.get('impresora')"
+            [validationMessages]="validationMessagesImpresora">
+          </yrd-desplegable-impresoras-por-usuario>
+        </div>
+      </div>
+    </fieldset>
+    <div class="mt-3">
+      <div class="float-right">
+        <button id="btnAceptar" [disabled]="disableButtons" type="button" class="btn btn-success" (click)="imprimir()">Imprimir</button>
+        <button id="btnCancelar" [disabled]="disableButtons" type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      </div>
+    </div>
+  </form>
+</div>
+

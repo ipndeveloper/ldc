@@ -1,0 +1,186 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-terminal #terminal
+        formControlName="terminal"
+        [permiso]="Permission.AdministrarProductosHabilitadosPorTerminal"
+        [cssClassControl]="'col-sm-5'"
+        [opcionSeleccione]="true"
+        [validationMessages]="validationMessagesTerminal"
+        [control]="form.get('terminal')">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-cosecha
+        formControlName="cosechaPorDefecto"
+        [terminalActual]="form.get('terminal')?.value"
+        [producto]="form.get('producto')?.value"
+        [control]="form.get('form.cosechaPorDefecto')"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-5'"
+        [etiqueta]="'Cosecha por defecto'">
+      </yrd-desplegable-cosecha>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-producto #producto
+        formControlName="producto"
+        [control]="form.get('producto')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="leyendaNormaCalidad"
+        [etiqueta]="'Leyenda Norma de calidad'"
+        [cssClassControl]="'col-sm-6'"
+        [control]="form.get('leyendaNormaCalidad')">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta #habilitado
+        formControlName="habilitado" 
+        [control]="form.get('habilitado')"
+        [etiqueta]="'Habilitado'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-rubro-analisis #GrupoAnalisis
+        formControlName="grupoAnalisisDefecto"
+        [cssClassControl]="'col-sm-5'"
+        [producto]="productoSeleccionado"
+        [terminal]="terminalSeleccionada"
+        [control]="form.get('grupoAnalisisDefecto')"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-tipo-rubro-analisis>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta
+        formControlName="imprimeOblea" 
+        [control]="form.get('imprimeOblea')"
+        [etiqueta]="'Imprime Oblea'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta
+        formControlName="cantidadCopiasOblea"
+        [cssClassControl]="'col-sm-6'"
+        [control]="form.get('cantidadCopiasOblea')"
+        [etiqueta]="'Cantidad de Copias Oblea'"
+        [validationMessages]="validationMessagesCopiasOblea">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta
+        formControlName="gestionaCot" 
+        [control]="form.get('gestionaCot')"
+        [etiqueta]="'Gestiona Cot'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta
+        formControlName="usaSustentabilidad" 
+        [control]="form.get('usaSustentabilidad')"
+        [etiqueta]="'Usa Sustentabilidad'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="listaSilos" class="col-sm-3 col-form-label">Silos:</label>
+        <div class="col-sm-6 form-control" style="height: 300px">
+          <tree-root #silosTree id="listaSilos" [nodes]="listaSilos" [options]="options">
+            <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+              <input class="tree-node-checkbox" type="checkbox" [disabled]="esConsulta"
+                (click)="node.mouseAction('checkboxClick', $event)" [checked]="node.isSelected"
+                [indeterminate]="node.isPartiallySelected" />
+              <tree-node-expander [node]="node"></tree-node-expander>
+              <div class="node-content-wrapper" [class.node-content-wrapper-active]="node.isActive"
+                [class.node-content-wrapper-focused]="node.isFocused" (click)="node.mouseAction('click', $event)"
+                (dblclick)="node.mouseAction('dblClick', $event)"
+                (contextmenu)="node.mouseAction('contextMenu', $event)" (treeDrop)="node.onDrop($event)"
+                (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                (treeDropDragEnter)="node.mouseAction('dragEnter', $event)" [treeAllowDrop]="node.allowDrop"
+                [allowDragoverStyling]="node.allowDragoverStyling()" [treeDrag]="node"
+                [treeDragEnabled]="node.allowDrag()">
+                <tree-node-content [node]="node" [index]="index">
+                  <ng-template #treeNodeTemplate let-node let-index="index">
+                    <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                    <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                  </ng-template>
+                </tree-node-content>
+              </div>
+            </ng-template>
+          </tree-root>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="listaGrados" class="col-sm-3 col-form-label">Grado envio a cámara por defecto:</label>
+        <div class="col-sm-6 form-control" style="height: 300px">
+          <tree-root #gradoTree id="listaGrados" [nodes]="listaGrados" [options]="options">
+            <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+              <input class="tree-node-checkbox" type="checkbox" [disabled]="gradoHabilitado"
+                (click)="node.mouseAction('checkboxClick', $event)" [checked]="node.isSelected"
+                [indeterminate]="node.isPartiallySelected" />
+              <tree-node-expander [node]="node"></tree-node-expander>
+              <div class="node-content-wrapper" [class.node-content-wrapper-active]="node.isActive"
+                [class.node-content-wrapper-focused]="node.isFocused" (click)="node.mouseAction('click', $event)"
+                (dblclick)="node.mouseAction('dblClick', $event)"
+                (contextmenu)="node.mouseAction('contextMenu', $event)" (treeDrop)="node.onDrop($event)"
+                (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                (treeDropDragEnter)="node.mouseAction('dragEnter', $event)" [treeAllowDrop]="node.allowDrop"
+                [allowDragoverStyling]="node.allowDragoverStyling()" [treeDrag]="node"
+                [treeDragEnabled]="node.allowDrag()">
+                <tree-node-content [node]="node" [index]="index">
+                  <ng-template #treeNodeTemplate let-node let-index="index">
+                    <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                    <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                  </ng-template>
+                </tree-node-content>
+              </div>
+            </ng-template>
+          </tree-root>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 form-group form-horizontal">
+      <label class="col-form-label col-sm-1">Rubros:</label>
+      <div class="col-sm-11">
+        <yrd-data-grid
+          [columns]="columnsRubros"
+          [rows]="rowsRubros"
+          [selected]="selectedRowsRubros"
+          [pagination]="true"
+          [singleSelection]="true">
+        </yrd-data-grid>
+        <div class="float-right">
+          <button class="btn btn-primary"
+            (click)="onModificarRubro()"
+            [disabled]="esConsulta || isLoading">Modificar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<yrd-modal-agregar-rubro #modalRubro
+  [form]="form.controls.datosModalRubro"
+  (accepted)="onAcceptedModalRubro()">
+</yrd-modal-agregar-rubro>

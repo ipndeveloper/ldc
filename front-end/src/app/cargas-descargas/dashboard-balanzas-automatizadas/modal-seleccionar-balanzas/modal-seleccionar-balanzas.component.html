@@ -1,0 +1,56 @@
+<yrd-modal
+  #modalComponent
+  [formGroup]="form"
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  <ng-template #modalBody>
+    <div formArrayName="checklist">
+      <yrd-data-grid
+        [columns]="columns"
+        [rows]="rows"
+        [selected]="selectedRows"
+        (select)="onSelect($event)">
+      </yrd-data-grid>
+    </div>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button
+      #cancelModal
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-success"
+      (click)="onAccept()">Aceptar
+    </button>
+    <button
+      #cancelModal
+      id="btnCancelModal"
+      #cancelButton
+      type="button"
+      class="btn btn-danger"
+      (click)="close()">
+      Cancelar
+    </button>
+  </ng-template>
+</yrd-modal>
+
+
+<ng-template
+  #selectCellTemplate
+  ngx-datatable-cell-template
+  let-rowIndex="rowIndex"
+  let-value="value"
+  let-row="row"
+  let-isSelected="isSelected"
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+    <input
+      type="checkbox"
+      [checked]="row.controls.seleccionada.value"
+      [formControl]="row.controls.seleccionada" />
+  </label>
+</ng-template>

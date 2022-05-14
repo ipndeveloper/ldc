@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+  <label for="selectTipoDocumentoPorte"
+         class="{{ cssClassEtiqueta }} col-form-label">Tipo Doc. Porte:
+  </label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control"
+            id="selectTipoDocumentoPorte"
+            #selectTipoDocumentoPorte
+            [disabled]="isDisabled"
+            [value]="selectedEntityId"
+            (blur)="onTouched(); touched()"
+            (change)="onChange(selectTipoDocumentoPorte.value)" 
+            [ngClass]="{
+              'is-valid' : validControl,
+              'is-invalid' : validControl === false
+            }">
+      <option *ngIf="tieneOpcionSeleccione"
+               value="undefined"
+               selected>Seleccione
+      </option>
+      <option *ngFor="let entidad of entities"
+              [value]="entidad.id">{{ entidad.descripcion }}
+      </option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

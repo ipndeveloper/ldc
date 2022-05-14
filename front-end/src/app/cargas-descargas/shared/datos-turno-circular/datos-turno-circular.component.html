@@ -1,0 +1,17 @@
+<fieldset>
+  <legend class="col-form-label">Circular</legend>
+  <div class="row form-group">
+    <div class="col-sm-3">
+      Turno Circular: <strong class="col-form-label"> {{ turno ? turno.vigente === true ? 'SI' : 'NO' : 'NO' }}</strong>
+    </div>
+    <div class="col-sm-3">
+      Vigencia desde: <strong class="col-form-label"> {{ turno ? turno.vigente === true ? turno.fechaDesde : '' : '' }}</strong>
+    </div>
+    <div class="col-sm-3">
+      Vigencia hasta: <strong class="col-form-label"> {{ turno ? turno.vigente === true ? turno.fechaHasta : '' : '' }}</strong>
+    </div>
+    <div class="col-sm-3">
+      Tolerancia: <strong class="col-form-label"> {{ turno ? turno.vigente === true ? turno.tolerancia : '' : '' }}</strong>
+    </div>
+  </div>
+</fieldset>

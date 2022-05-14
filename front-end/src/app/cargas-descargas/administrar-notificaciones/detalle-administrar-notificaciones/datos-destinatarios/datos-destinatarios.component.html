@@ -1,0 +1,46 @@
+<div [formGroup]="form" class="form-horizontal">
+  <label class="col-form-label col-sm-3">Destinatarios:</label>
+  <div class="col-sm-9">
+    <yrd-data-grid 
+      [columns]="columns" 
+      [rows]="rows" 
+      [selected]="selectedRows" 
+      (select)="onSelect($event)">
+    </yrd-data-grid>
+    <div class="float-right">
+      <button class="btn btn-primary" 
+        (click)="onAgregar()"
+        [disabled]="form.disabled || disableActions || esConsulta">Agregar
+      </button>
+      <button class="btn btn-primary" 
+        (click)="onModificar()"
+        [disabled]="disableActions || esConsulta || selectedRows.length !== 1">Modificar
+      </button>
+      <button class="btn btn-default" 
+        (click)="onEliminar()"
+        [disabled]="disableActions || esConsulta || selectedRows.length !== 1">Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template 
+  #selectDestinatarioCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" 
+        [checked]="isSelected" 
+        (change)="onCheckboxChangeFn($event)" 
+        [disabled]="disableActions || esConsulta" />
+  </label>
+</ng-template>
+
+<yrd-modal-agregar-destinatario 
+  #modalDestinatario 
+  [form]="form.controls.datosModalDestinatario"
+  (accepted)="onAcceptedDestinatario()"
+  (closing)="onClosingDestinatario()">
+</yrd-modal-agregar-destinatario>

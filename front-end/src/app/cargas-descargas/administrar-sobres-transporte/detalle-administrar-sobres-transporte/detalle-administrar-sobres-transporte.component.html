@@ -1,0 +1,60 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <yrd-texto-con-etiqueta 
+          formControlName="nombre" 
+          #nombre
+          [control]="form.get('nombre')" 
+          [etiqueta]="'Nombre'"
+          [validationMessages]="validationMessagesNombre"
+          yrdMaxLength [maxLength]=100>
+        </yrd-texto-con-etiqueta>
+      </div>
+      <div class="form-group form-horizontal" [ngStyle]="{'display': displayUsuarios}">
+        <label for="usuarios" class="col-sm-3 col-form-label">Usuarios:</label>
+        <div class="col-sm-9 form-control" style="max-height: 200px">
+          <tree-root #usuariosTree id="usuarios" [nodes]="nodes" [options]="options">
+            <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+              <input class="tree-node-checkbox"
+                    type="checkbox"
+                    [disabled]="detalleDeshabilitado || node.data.deshabilitado"
+                    (click)="node.mouseAction('checkboxClick', $event)"
+                    [checked]="node.isSelected"
+                    [indeterminate]="node.isPartiallySelected"/>
+              <tree-node-expander [node]="node"></tree-node-expander>
+              <div class="node-content-wrapper"
+                [class.node-content-wrapper-active]="node.isActive"
+                [class.node-content-wrapper-focused]="node.isFocused"
+                (click)="node.mouseAction('click', $event)"
+                (dblclick)="node.mouseAction('dblClick', $event)"
+                (contextmenu)="node.mouseAction('contextMenu', $event)"
+                (treeDrop)="node.onDrop($event)"
+                (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+                [treeAllowDrop]="node.allowDrop"
+                [allowDragoverStyling]="node.allowDragoverStyling()"
+                [treeDrag]="node"
+                [treeDragEnabled]="node.allowDrag()">
+                <tree-node-content [node]="node" [index]="index">
+                  <ng-template #treeNodeTemplate let-node let-index="index">
+                    <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                    <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                  </ng-template>
+                </tree-node-content>
+              </div>
+            </ng-template>
+          </tree-root>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <yrd-detalle-sobre-transporte *ngIf="!!detalleSobreTransporte"
+        [detalleSobreTransporte]="detalleSobreTransporte">
+      </yrd-detalle-sobre-transporte>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="form-group">
+      <yrd-desplegable-tipo-dispositivo 
+        formControlName="tipoDispositivo"
+        #tipoDispositivo
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoDispositivo')"
+        [validationMessages]="validationMessagesTipoDispositivo">
+      </yrd-desplegable-tipo-dispositivo>
+    </div>
+    <div class="form-group">
+      <yrd-desplegable-dispositivo 
+        formControlName="dispositivo"
+        [opcionSeleccione]="true"
+        [control]="form.get('dispositivo')"
+        [terminal]="terminalActual"
+        [tipoDispositivo]="tipoDispositivoActual"
+        [validationMessages]="validationMessagesDispositivo">
+      </yrd-desplegable-dispositivo>
+    </div>
+    <div class="form-group form-horizontal">
+      <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+      <div class="col-sm-9">
+        <input type="checkbox" class="checkbox" id="habilitado" #checkbox formControlName="habilitado" />
+      </div>
+    </div>
+  </ng-template>
+</yrd-modal>

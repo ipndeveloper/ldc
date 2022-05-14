@@ -1,0 +1,25 @@
+<div class="form-horizontal">
+  <label for="{{ idForm }}" *ngIf="mostrarEtiqueta"
+    class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:
+  </label>
+  <div class="{{ cssClassControl }}">
+    <textarea id="{{ idForm }}"
+      class="form-control" 
+      #inputTexto
+      [maxLength]="maxLength" 
+      [disabled]="isDisabled"   
+      [value]="valor"
+      [rows]="rows"
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }"
+      (blur)='onBlur()'
+      (input)="valueChanged(inputTexto.value)"
+      yrdFocus [isFocused]="isFocused" [element]="element">
+    </textarea>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

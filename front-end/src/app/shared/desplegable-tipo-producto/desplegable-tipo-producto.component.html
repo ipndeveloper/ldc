@@ -1,0 +1,29 @@
+<div class="form-horizontal">
+  <label for="selectTipoProducto"
+    class="{{ cssClassEtiqueta }} col-form-label">{{ etiqueta }}:
+  </label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control"
+      id="selectTipoProducto" 
+      #selectTipoProducto
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }"
+      [disabled]="isDisabled" 
+      [value]="selectedEntityId"
+      (blur)="touched()" 
+      (change)="onChange(selectTipoProducto.value)">
+      <option *ngIf="opcionSeleccione"
+        value=undefined
+        selected>Seleccione
+      </option>
+      <option *ngFor="let entidad of entities"
+        [value]="entidad.id">{{ entidad.descripcion }}
+      </option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

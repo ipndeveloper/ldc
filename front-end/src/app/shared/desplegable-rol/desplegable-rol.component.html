@@ -1,0 +1,25 @@
+<div class="form-horizontal">
+  <label for="selectrol" class="col-sm-3 col-form-label" *ngIf="tieneEtiqueta">Rol:</label>
+  <div [ngClass]="{
+    'col-sm-12': !tieneEtiqueta,
+    'col-sm-9': tieneEtiqueta
+  }">
+    <select class="form-control" 
+      id="selectrol" 
+      #rol 
+      [disabled]="isDisabled" 
+      [value]="selectedEntityId"
+      (blur)="onTouched()" 
+      (change)="onChange(rol.value)" 
+      [ngClass]="{
+        'is-valid' : validControl,
+        'is-invalid' : validControl === false
+      }">
+      <option value="undefined" selected>Seleccione</option>
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>{{errorMessage}}</p>
+    </div>
+  </div>
+</div>

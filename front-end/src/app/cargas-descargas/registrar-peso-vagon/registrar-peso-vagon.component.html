@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <fieldset>
+    <legend class="col-form-label">{{balanza.nombre}}</legend>
+    <form [formGroup]="registrarPesoForm" novalidate>
+        <yrd-busqueda-movimiento-pesaje-vagon #busquedaMovimiento [disableButtons]="!disableButtons"  [busquedaMovimientoForm]="registrarPesoForm.controls.busquedaMovimiento" (searchClicked)="getMovimientoPesaje()"></yrd-busqueda-movimiento-pesaje-vagon>     
+        <yrd-datos-movimiento-pesaje-vagon [datosMovimientoForm]="registrarPesoForm.controls.datosMovimiento"></yrd-datos-movimiento-pesaje-vagon>      
+        <div class="form-horizontal">
+          <yrd-datos-pesaje #datosPesajeComponent class="col-sm-6" 
+            [datosPesajeForm]="registrarPesoForm.controls.datosPesaje" 
+            [esFueraCircuito]="false" 
+            [esAutomatico]="esAutomatico" 
+            [esEntrada]="esEntrada"
+            [idMovimiento]="movimiento?.id"
+            [patente]="movimiento?.patente"
+            [tarjeta]="movimiento?.tarjeta"
+            [idAccion]="idAccion">
+          </yrd-datos-pesaje>
+          <fieldset class="col-sm-6">
+            <legend class="col-form-label">Descarga</legend>
+            <yrd-desplegable-condicion-manipuleo  formControlName="lugarDescargaCarga" 
+            [control]="registrarPesoForm.get('lugarDescargaCarga')" 
+            [movimientoPesaje]="movimiento"            
+            [validationMessages]="validationMessagesCondicionManipuleo"
+            [ordenPlataforma]="ordenBalanza">
+            </yrd-desplegable-condicion-manipuleo>
+          </fieldset>       
+        </div>   
+    </form>
+    <div class="mt-3">        
+      <div class="float-right">
+        <button type="button" [disabled]=  "disableButtons" [hidden] ="!terminal.usaAceptarYContinuar" class="btn btn-primary" (click)="aceptarContinuar()">Aceptar y Continuar</button>      
+        <button type="button" [disabled] = "disableButtons" class="btn btn-success" (click)="aceptar()">Aceptar</button>
+        <button type="button" [disabled] = "false" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      </div>
+    </div>
+  </fieldset>  
+  <!-- <pre>Form value: {{ registrarPesoForm.getRawValue() | json }}</pre>  
+  <pre>Form status: {{ registrarPesoForm.status | json }}</pre> -->
+</div>
+<yrd-modal-autorizacion #modalAutorizacion (autorizacionCompletada)="onAutorizacionCompletada($event)"></yrd-modal-autorizacion>

@@ -1,0 +1,55 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Cupo</legend>
+  <div class="pt-2 row form-group">
+    <div class="col-sm-4" *ngIf="ingresoConCupo || esAlta || esConsulta">
+        <div class="form-check">
+            <input type="radio" id="radioConCupo" class="form-check-input" formControlName="conCupo" [value]="true">
+            <label for="radioConCupo" class="form-check-label">Con Cupo</label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <yrd-texto-mascara-con-etiqueta 
+            #inputCodigoCupo
+            [cssClassControl]="'col-sm-8'"
+            formControlName="codigoCupo" 
+            [control]="form.get('codigoCupo')"         
+            [etiqueta]="'Codigo Cupo'"
+            [mascara]="codigoCupoRegex"
+            (blur)="cambioCupo()"
+            [validationMessages]="validationMessagesCodigoCupo">
+        </yrd-texto-mascara-con-etiqueta>
+    </div>
+    <div class="col-sm-4" *ngIf="ingresoSinCupo || esAlta || esConsulta">
+        <div class="form-check">
+            <input type="radio" id="radioSinCupo" class="form-check-input" formControlName="conCupo" [value]="false">
+            <label for="radioSinCupo" class="form-check-label">Sin Cupo</label>
+        </div>
+    </div>
+  </div>    
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        formControlName="estadoCupo" 
+        [etiqueta]="'Estado'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('estadoCupo')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        formControlName="turnoPlaya" 
+        [etiqueta]="'Turno'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('turnoPlaya')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        formControlName="usuarioCupoSAN" 
+        [etiqueta]="'Usuario de SAN'"
+        [cssClassControl]="'col-sm-7'"
+        [control]="form.get('usuarioCupoSAN')">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

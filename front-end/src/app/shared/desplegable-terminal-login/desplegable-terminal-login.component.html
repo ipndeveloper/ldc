@@ -1,0 +1,15 @@
+<select class="form-control" id="selectTerminal" #selectTerminal
+  [disabled]="isDisabled" 
+  [value]="selectedEntityId"
+  (blur)="onTouched()" 
+  (change)="onChange(selectTerminal.value)" 
+  [ngClass]="{
+    'is-valid' : validControl && control.touched,
+    'is-invalid' : validControl === false
+  }">
+  <option value="undefined" selected>Seleccione</option>
+  <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+</select>
+<div class="invalid-feedback">
+  <p>{{errorMessage}}</p>
+</div>

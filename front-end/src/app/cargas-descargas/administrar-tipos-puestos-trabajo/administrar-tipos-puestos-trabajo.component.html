@@ -1,0 +1,48 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template 
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-administrar-tipos-puestos-trabajo
+          #filtro
+          [form]="form.controls.filtros">
+        </yrd-filtro-administrar-tipos-puestos-trabajo>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+        <yrd-detalle-administrar-tipos-puestos-trabajo 
+          #detalle 
+          [form]="form.controls.detalle"
+          [esConsulta]="esConsulta"
+          [esModificacion]="editId !== 0"
+          [isLoading]="isLoading">
+        </yrd-detalle-administrar-tipos-puestos-trabajo>
+        
+        <div class="float-right section-top-padding">
+          <button type="button"
+                  class="btn btn-success"
+                  [disabled]="disableButtons || esConsulta || isLoading" 
+                  (click)="onClickAceptar()"
+                  i18n>Aceptar
+          </button>
+          <button type="button"
+                  class="btn btn-danger"
+                  [disabled]="disableButtons || isLoading" 
+                  (click)="onClickCancelar()" 
+                  i18n>Cancelar
+          </button>
+        </div>
+      </ng-template>
+
+    </yrd-search-form-template>    
+  </fieldset>
+</form>

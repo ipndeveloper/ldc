@@ -1,0 +1,35 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-circuito
+        #circuito
+        formControlName="circuito"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [soloHabilitados]="true"
+        [permiso]="permission.AdministrarFinalidadesEnvioPdfTicketBalanza"
+        [control]="form.get('circuito')">
+      </yrd-desplegable-circuito>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-finalidad
+        #finalidad
+        formControlName="finalidad"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [obtenerTodos]="true"
+        [control]="form.get('finalidad')">
+      </yrd-desplegable-finalidad>
+    </div>
+    <div class="col-sm-4 form-group">
+      <yrd-desplegable-si-no
+        formControlName="estaHabilitado" 
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-6'"
+        [control]="form.get('estaHabilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

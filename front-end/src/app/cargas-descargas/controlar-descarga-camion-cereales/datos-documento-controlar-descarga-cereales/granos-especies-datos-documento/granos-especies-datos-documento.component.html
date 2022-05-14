@@ -1,0 +1,126 @@
+ <fieldset [formGroup]="form">
+  <legend class="col-form-label">Granos / Especies</legend>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-producto
+        formControlName="producto" 
+        [etiqueta]="'Grano / Especie'"
+        [tipoProducto]="tipoProducto" 
+        [control]="form.get('producto')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesProducto">
+      </yrd-buscador-producto>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-grano 
+        formControlName="tipoGrano"
+        [etiqueta]="'Tipo'">
+      </yrd-desplegable-tipo-grano>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-cosecha
+        formControlName="cosecha" 
+        [producto]="form.get('producto')?.value"
+        [control]="form.get('cosecha')" 
+        [fillCampoEpa]="!fillCosecha" 
+        [campoEpaSustentable]="form.get('campoEpa')?.value"
+        [validationMessages]="validationMessagesCosecha">
+      </yrd-desplegable-cosecha>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-3" formGroupName="kilosBrutosTaraGroup">
+      <yrd-numero-con-etiqueta
+        formControlName="kilosBruto"
+        [cssClassEtiqueta]="'col-sm-5 mr-4'" 
+        [cssClassControl]="'col-sm-5 ml-2 pl-1'" 
+        [idForm]="'kgBruto'"  
+        [etiqueta]="'Peso Bruto (Kgrs.)'" 
+        [control]="form.get('kilosBrutosTaraGroup.kilosBruto')"
+        [validationMessages]="validationMessagesKilosBrutos" 
+        [maxLength]="5">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-3" formGroupName="kilosBrutosTaraGroup">
+      <yrd-numero-con-etiqueta
+        formControlName="kilosTara" 
+        [cssClassEtiqueta]="'col-sm-6 mr-4'" 
+        [cssClassControl]="'col-sm-5'" 
+        [idForm]="'kgTara'" 
+        [etiqueta]="'Peso Tara (Kgrs.)'" 
+        [control]="form.get('kilosBrutosTaraGroup.kilosTara')"
+        [validationMessages]="validationMessagesKilosTara" 
+        [maxLength]="5">
+      </yrd-numero-con-etiqueta>
+      <span class="help-block" *ngIf="(form.get('kilosBrutosTaraGroup.kilosTara')?.touched || 
+                                        form.get('kilosBrutosTaraGroup.kilosTara')?.dirty) && 
+                                      form.get('kilosBrutosTaraGroup')?.errors">
+        <span *ngIf="form.get('kilosBrutosTaraGroup')?.errors?.greaterThan">
+          <span class="text-danger">
+            <small>Kilos Brutos deben ser superior a Kilos Tara.</small>
+          </span>
+        </span>
+      </span>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="kilosNeto" 
+        [cssClassEtiqueta]="'col-sm-4 mr-4'" 
+        [cssClassControl]="'col-sm-4 pl-0'" 
+        [idForm]="'kgNeto'" 
+        [etiqueta]="'Peso Neto (Kgrs.)'"
+        [control]="form.get('kilosNeto')">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-tipo-pesada 
+        formControlName="tipoPesada" 
+        [control]="form.get('tipoPesada')">
+      </yrd-desplegable-tipo-pesada>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-establecimiento 
+        [establecimientoForm]="form.controls.establecimiento"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassCheckbox]="'col-sm-3'"
+        [control]="form.get('establecimiento.numeroEstablecimiento')">
+      </yrd-establecimiento>
+    </div>
+    <div class="col-sm-6">
+      <yrd-autocomplete-localidad 
+        formControlName="procedencia" 
+        [etiqueta]="'Localidad de Procedencia'" 
+        [control]="form.get('procedencia')"
+        [validationMessages]="validationMessagesProcedencia">
+      </yrd-autocomplete-localidad>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <div class="form-horizontal">
+        <label for="chkSustentabilidad" class="col-form-label col-sm-3" i18n>Sustentabilidad:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="form-check-input-right" 
+            id="chkSustentabilidad" 
+            checked="false" 
+            formControlName="sustentabilidad" />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-campo-epa-sustentable
+        formControlName="campoEpa"
+        [producto]="form.get('producto')?.value"
+        [titular]="form.get('titularCartaPorte')?.value" 
+        [control]="form.get('campoEpa')"
+        [fillCampoEpa]="fillCampoEpa">
+      </yrd-desplegable-campo-epa-sustentable>
+    </div>
+  </div>
+</fieldset>

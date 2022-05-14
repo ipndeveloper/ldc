@@ -1,0 +1,58 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-tipo-documento-porte
+        #tipoDocumentoPorte
+        formControlName="tipoDocumentoPorte"
+        [control]="form.get('tipoDocumentoPorte')"
+        [tieneOpcionSeleccione]="false"
+        [tipoTransporte]="tipoTransporte.Camion"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-8'"
+        [validationMessages]="validationMessagesTipoDocPorte"
+        [tieneOpcionSeleccione]="false">
+      </yrd-desplegable-tipo-documento-porte>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-numero-con-etiqueta
+        #inputCtg
+        formControlName="ctg"
+        [control]="form.get('ctg')"         
+        [etiqueta]="'CTG'"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-8'"
+        yrdMaxLength [maxLength]=12
+        [allowLeadingZeroes]="true">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-texto-mascara-con-etiqueta
+        #inputNumeroDocumentoPorte
+        formControlName="numeroDocumentoPorte"
+        [control]="form.get('numeroDocumentoPorte')"         
+        [etiqueta]="'Nro Doc. de Porte'"
+        [mascara]="tipoDocPorteRegex"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-8'"
+        [validationMessages]="validationMessagesNroPorte">
+      </yrd-texto-mascara-con-etiqueta>
+    </div>
+  </div>
+    <div class="row">
+      <div class="form-group col-sm-8">
+        <yrd-buscador-vendedor
+          formControlName="vendedor"
+          [control]="form.get('vendedor')"
+          [cssClassEtiqueta]="'col-sm-1'"
+          [cssClassControl]="'col-sm-3'"
+          [advancedSearch]="true"
+          [validationMessages]="validationMessagesVendedor">
+        </yrd-buscador-vendedor>
+      </div>
+    </div>
+  <div class="float-right">
+    <button id="btnBuscar" [disabled]="!disableButtons" class="btn btn-primary" (click)="onClickBuscar()">Buscar</button>
+    <button id="btnLimpiar" [disabled]="!disableButtons" class="btn btn-warning" (click)="onClicklimpiar()">Limpiar</button>    
+  </div>
+</fieldset>

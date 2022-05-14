@@ -1,0 +1,35 @@
+<fieldset [formGroup]="filtroMovimientoForm">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal">
+
+    <yrd-autocomplete-patente #autocompletePatente class="col-sm-3" formControlName="patenteCamion"
+      *ngIf="!esVagon" 
+      [idForm]="'patenteCamion'"
+      [etiqueta]="'Patente Camión'" 
+      [control]="filtroMovimientoForm.get('patenteCamion')" 
+      [validationMessages]="validationMessagesPatenteCamion"></yrd-autocomplete-patente>
+
+    <yrd-autocomplete-vagon #autocompleteVagon class="col-sm-3" formControlName="numeroVagon" 
+      *ngIf="esVagon" 
+      [idForm]="'numeroVagon'"
+      [etiqueta]="'Número Vagón'" 
+      [control]="filtroMovimientoForm.get('numeroVagon')" 
+      [validationMessages]="validationMessagesNumeroVagon"></yrd-autocomplete-vagon>
+
+    <yrd-lectura-tarjeta class="col-sm-3" 
+      #tarjeta
+      [form]="filtroMovimientoForm" 
+      (tarjetaLeida)="onTarjetaLeida()">
+    </yrd-lectura-tarjeta>
+
+    <div class="col-sm-3">
+      <button id="btnBuscar" *ngIf="!esModificacion"  class="btn btn-primary"
+        [disabled]="botonBuscarDeshabilitado" 
+        (click)="getMovimientoCalado()">
+        <span *ngIf="!esVagon" i18n>Identificar Camión</span>
+        <span *ngIf="esVagon" i18n>Identificar Vagón</span>
+      </button>
+    </div>
+
+  </div>
+</fieldset>

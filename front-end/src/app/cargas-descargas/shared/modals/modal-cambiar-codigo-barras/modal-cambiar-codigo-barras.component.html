@@ -1,0 +1,20 @@
+<yrd-modal #modalComponent
+  [formGroup]="cambiarCodigoBarrasForm"
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+    <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+    <ng-template #modalBody>
+      <yrd-numero-con-etiqueta
+        [idForm]="'codigoBarras'"
+        class="col-sm-6"
+        formControlName="codigoBarras"
+        [etiqueta]="'Código de Barra'"
+        [control]="cambiarCodigoBarrasForm.controls.codigoBarras"
+        [isFocused]="true"
+        [maxLength]="17"
+        [allowLeadingZeroes]="true"
+        [validationMessages]="validationMessagesCodigoBarras">
+      </yrd-numero-con-etiqueta>
+    </ng-template>
+</yrd-modal>

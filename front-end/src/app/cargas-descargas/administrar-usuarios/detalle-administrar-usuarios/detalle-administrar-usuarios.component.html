@@ -1,0 +1,110 @@
+<div [formGroup]="form" class="col-sm-9">
+  <div class="form-group">
+    <yrd-texto-con-etiqueta 
+      formControlName="nombreAD"
+      #nombreAD
+      [control]="form.get('nombreAD')"
+      [etiqueta]="'Nombre AD'"
+      [validationMessages]="validationMessagesNombreAD"
+      [isLoading]="buscandoEnAD">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="form-group">
+    <yrd-texto-con-etiqueta 
+      formControlName="nombre"
+      [control]="form.get('nombre')"
+      [etiqueta]="'Nombre'">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="form-group">
+    <yrd-texto-con-etiqueta 
+      formControlName="apellido"
+      [control]="form.get('apellido')"
+      [etiqueta]="'Apellido'">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="form-group">
+    <yrd-texto-con-etiqueta 
+      formControlName="mail"
+      [control]="form.get('mail')"
+      [etiqueta]="'Mail'"
+      [validationMessages]="validationMessagesMail">
+    </yrd-texto-con-etiqueta>
+  </div>
+  <div class="form-group form-horizontal">
+    <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+    <div class="col-sm-9">
+      <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+    </div>
+  </div>
+  <div class="form-group form-horizontal">
+    <label class="col-form-label col-sm-3">Roles:</label>
+    <div class="col-sm-9">
+      <yrd-data-grid 
+        [columns]="columns" 
+        [rows]="rows" 
+        [selected]="selectedRows" 
+        (select)="onSelect($event)">
+      </yrd-data-grid>
+      <div class="float-right">
+        <button class="btn btn-primary" 
+          (click)="onAgregar()"
+          [disabled]="disableActions || esConsulta || isLoading">Agregar
+        </button>
+        <button class="btn btn-primary" 
+          (click)="onModificar()"
+          [disabled]="disableActions || esConsulta || isLoading || selectedRows.length !== 1">Modificar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-horizontal">
+    <label class="col-form-label col-sm-3">Impresoras:</label>
+    <div class="col-sm-9">
+      <yrd-data-grid 
+        [columns]="columnsImpresoras" 
+        [rows]="rowsImpresoras" 
+        [selected]="selectedRowsImpresoras" 
+        (select)="onSelectImpresora($event)">
+      </yrd-data-grid>
+      <div class="float-right">
+        <button class="btn btn-primary" 
+          (click)="onAgregarImpresora()"
+          [disabled]="disableActions || esConsulta || isLoading">Agregar
+        </button>
+        <button class="btn btn-primary" 
+          (click)="onModificarImpresora()"
+          [disabled]="disableActions || esConsulta || isLoading || selectedRowsImpresoras.length !== 1">Modificar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template 
+  #selectRolesTerminalCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" 
+        [checked]="isSelected" 
+        (change)="onCheckboxChangeFn($event)" 
+        [disabled]="disableActions || esConsulta" />
+  </label>
+</ng-template>
+
+<yrd-modal-agregar-rol-terminal 
+  #modalRolTerminal 
+  [form]="form.controls.datosModalRolTerminal"
+  (accepted)="onAcceptedRolTerminal()"
+  (closing)="onClosingRolTerminal()">
+</yrd-modal-agregar-rol-terminal>
+
+<yrd-modal-agregar-impresora 
+  #modalImpresora 
+  [form]="form.controls.datosModalImpresora"
+  (accepted)="onAcceptedImpresora()"
+  (closing)="onClosingImpresora()">
+</yrd-modal-agregar-impresora>

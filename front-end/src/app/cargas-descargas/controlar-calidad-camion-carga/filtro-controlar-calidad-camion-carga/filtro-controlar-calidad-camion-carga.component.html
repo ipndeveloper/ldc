@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+  <div class="form-horizontal">
+
+    <div class="col-sm-4 form-group">
+      <yrd-autocomplete-patente
+        #autocompletePatente
+        formControlName="patente"
+        [idForm]="'patenteCamion'"
+        [etiqueta]="'Patente Camión'" 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('patente')">
+      </yrd-autocomplete-patente>
+    </div>
+
+    <div class="col-sm-4 form-group">
+      <yrd-numero-con-etiqueta
+        formControlName="tarjeta"
+        [idForm]="'tarjeta'" 
+        [etiqueta]="'Tarjeta'"
+        [allowLeadingZeroes]="true" 
+        [control]="form.get('tarjeta')">
+      </yrd-numero-con-etiqueta>
+    </div>
+
+    <div class="col-sm-4">
+      <yrd-buscador-producto
+          formControlName="producto"
+          [advancedSearch]="true"
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-4'">
+        </yrd-buscador-producto>
+    </div>
+
+    <yrd-numero-con-etiqueta    
+      class="col-sm-4"
+      formControlName="numeroDocumento"
+      [cssClassControl]="'col-sm'"      
+      [control]="form.get('numeroDocumento')"
+      yrdMaxLength [maxLength]=12
+      [etiqueta]="'Numero Doc Porte'">
+    </yrd-numero-con-etiqueta>
+    
+  </div>
+</div>

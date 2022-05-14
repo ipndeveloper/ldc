@@ -1,0 +1,23 @@
+<fieldset [formGroup]="accionForm">
+  <legend class="col-form-label">Acción</legend>
+  <div class="col-sm-12">
+      <div *ngIf="aptoDescargaActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="aptoDescarga"> Apto Descarga <br>
+      </div>
+      <div *ngIf="aceptarCalidadActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="aptoDescarga"> Aceptar Calidad <br>
+      </div>
+      <div *ngIf="rechazarActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="rechazar"> Rechazar <br>
+      </div>
+      <div *ngIf="pendienteSupervisorActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="pendienteSupervisor"> Pendiente Supervisor <br>
+      </div>
+      <div *ngIf="pendienteEntregadorActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="pendienteEntregador"> Pendiente Entregador <br>
+      </div>
+      <div *ngIf="pendienteLaboratorioActivado">
+          <input class="radio" formControlName="accion" type="radio" [value]="pendienteLaboratorio"> Pendiente Laboratorio          
+      </div>
+    </div>    
+</fieldset>

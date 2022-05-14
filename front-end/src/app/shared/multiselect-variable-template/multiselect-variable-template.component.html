@@ -1,0 +1,14 @@
+<div class="form-horizontal">
+  <div class="col-sm-12">
+    <select class="form-control" multiple 
+      #variableTemplate 
+      id="selectVariableTemplate" 
+      [disabled]="isDisabled"
+      [ngStyle]="{
+        'height': height
+      }"
+      (change)="onChange($event.target.options)">
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+  </div>
+</div>

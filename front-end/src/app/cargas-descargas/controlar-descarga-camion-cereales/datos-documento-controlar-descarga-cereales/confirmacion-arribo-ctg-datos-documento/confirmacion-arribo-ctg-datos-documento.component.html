@@ -1,0 +1,45 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Confirmación Arribo CTG</legend>  
+  <div class="row">
+    <div class="col-sm">
+      <h5 *ngIf="confirmoCtg && esCartaPorteElectronica && !confirmoManualmente" class="d-flex justify-content-center">
+        <span class="badge badge-success">Arribo confirmado via WS</span>
+      </h5>  
+      <h5 *ngIf="esCartaPorteElectronica && confirmoManualmente" class="d-flex justify-content-center">
+        <span class="badge badge-success">Arribo confirmado manualmente</span>
+      </h5>
+    </div>   
+  </div>
+  <div class="row form-group" formGroupName="confirmacionArriboCtg">
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta
+        formControlName="aceptarSinConfirmarCtg" 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [etiqueta]="'Aceptar Sin Confirmar C.T.G.'" 
+        [control]="form.get('confirmacionArriboCtg.aceptarSinConfirmarCtg')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-numero-con-etiqueta
+        formControlName="codigoCancelacionCtg"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [hidden]="esCartaPorteElectronica"
+        [etiqueta]="'Código de Cancelación C.T.G.'" 
+        [control]="form.get('confirmacionArriboCtg.codigoCancelacionCtg')"
+        [validationMessages]="validationMessagesCodCancelacionCTG"
+        yrdMaxLength [maxLength]=8>
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-checkbox-con-etiqueta *ngIf="esCartaPorteElectronica"
+        formControlName="confirmadoManualmente"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'" 
+        [etiqueta]="'Confirmado Manualmente'" 
+        [control]="form.get('confirmacionArriboCtg.confirmadoManualmente')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

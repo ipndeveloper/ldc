@@ -1,0 +1,10 @@
+.foco {
+    color: white !important;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+}
+
+.foco:focus {
+    outline: none;
+}

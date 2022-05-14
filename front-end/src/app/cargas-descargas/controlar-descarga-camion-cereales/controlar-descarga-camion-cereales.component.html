@@ -1,0 +1,69 @@
+<div #controlarCerealesSection [ngClass]="{'collapse' : showCTGData}" id="controlarCerealesSection" class="container-fluid" >
+  <form [formGroup]="form" novalidate>
+    <yrd-identificar-camion-cereal-cupo
+      #identificarCamion
+      *ngIf="circuitoContemplaCupo && esAlta"
+      [form]="form.controls.documentoPorte"
+      [spinnerDocumentoPorte]="buscandoPrecargaMovimiento"
+      [maskRegex]="tipoDocPorteRegex"
+      [tipoProducto]="tipoProductoSeleccionada"
+      [tipoTransporte]="tipoTransporte"
+      [disableBotonBuscar]="disableBotonBuscarPrecargaMovimiento"
+      [esCartaPorteElectronica]="esCartaPorteElectronica"
+      (buscarMovimientoClicked)="buscarPreCargaMovimiento()">
+    </yrd-identificar-camion-cereal-cupo>
+    <yrd-circuito 
+      [circuitoForm]="form.controls.circuito"
+      [completarTipoProducto]="completarTipoProducto">
+    </yrd-circuito>
+    <yrd-datos-documento-controlar-descarga-cereales 
+      #datosDocumento
+      [terminal]="terminal"
+      [esConsulta]="esConsulta"
+      [movimiento]="movimiento"
+      [maskRegex]="tipoDocPorteRegex"
+      [esFueraCircuito]="false"
+      [tipoTransporte]="tipoTransporte"
+      [circuitoContemplaCupo]="circuitoContemplaCupo"
+      [formDocumentoPorte]="form.controls.documentoPorte"
+      [circuito]="circuito"
+      [esAlta]="esAlta"
+      [falloAfip]="falloAfip"
+      [ingresoConCupo]="ingresoConCupo"
+      [ingresoSinCupo]="ingresoSinCupo"
+      [esCartaPorteElectronica]="esCartaPorteElectronica"
+      [confirmoCtg]="confirmoCtg"
+      [movimientoPrecargado]="movimientoPrecargado"
+      (blurObservaciones)="setFocoAceptarYContinuar()"
+      (esAfipAutomatico)="onEsAfipAutomatico($event)"
+      (recuperarDatoCpe)="onRecuperarDatoCpe()">
+    </yrd-datos-documento-controlar-descarga-cereales>
+    <div class="mt-3">
+      <div class="float-left" style="margin-bottom: 20pt">
+        <button type="button" class="btn btn-primary" #btnDejarPendiente (click)="openModalMotivo()" [hidden]="esConsulta" [disabled]="botonesDeshabilitados">Dejar Pendiente</button>
+        <button type="button" class="btn btn-primary" (click)="openConsultarDatosAfip()" [hidden]="esConsulta || esModificacion" [disabled]="esCartaPorteElectronica || botonesDeshabilitados" (blur)="blurConsultarDatosAfip()">Consultar Datos AFIP</button>
+        <button type="button" class="btn btn-primary" (click)="modalRechazarDescarga.abrir(idMovimiento)" [hidden]="!esModificacion" [disabled]="botonesDeshabilitados" (blur)="blurRechazar()">Rechazar</button>     
+      </div>
+      <div class="float-right" style="margin-bottom: 20pt">
+        <button type="button" class="btn btn-primary" #btnAceptarYContinuar (click)="abrirModalTarjeta(true)" [hidden]="esConsulta || !terminal.usaAceptarYContinuar" [disabled]="botonesDeshabilitados">Aceptar y Continuar</button>
+        <button type="button" class="btn btn-success" #btnAceptar (click)="abrirModalTarjeta(false)" [hidden]="esConsulta" [disabled]="botonesDeshabilitados">Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="cancelar()" (blur)="setFocoDejarPendiente()">Cancelar</button>
+        <a href="" class="foco">_</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div [ngClass]="{'collapse' : !showCTGData}" id="consultarDatosAfipSection" class="container-fluid">
+  <yrd-consultar-datos-afip #consultarDatosAfip></yrd-consultar-datos-afip>
+  <button type="button" class="btn btn-primary float-right" (click)="closeConsultarDatosAfip()">Cerrar</button>
+</div>
+
+<yrd-modal-motivo #modalMotivo (accepted)="dejarPendiente()" [labelHeader]="'Dejar Pendiente'"></yrd-modal-motivo>
+<yrd-modal-rechazar-descarga #modalRechazarDescarga (descargaRechazada)="onDescargaRechazada()"></yrd-modal-rechazar-descarga>
+<yrd-modal-asignar-tarjeta #modalAsignarTarjeta (tarjetaAsignada)="onTarjetaAsignada()"></yrd-modal-asignar-tarjeta>
+<yrd-modal-autorizacion #modalAutorizacion (autorizacionCompletada)="onAutorizacionCompletada($event)"></yrd-modal-autorizacion>
+<yrd-modal-seleccionar-movimiento #modalSeleccionarMovimiento (movimientoSeleccionado)="onDocPorteSeleccionado($event)"></yrd-modal-seleccionar-movimiento>
+
+<!-- <pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

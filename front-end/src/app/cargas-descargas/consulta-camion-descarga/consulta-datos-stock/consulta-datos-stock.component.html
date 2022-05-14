@@ -1,0 +1,25 @@
+<div [formGroup]="formDatosStock">
+  <div class="col-sm-12">
+      <yrd-datos-pesaje #datosPesaje
+        [datosPesajeForm]="formDatosStock.controls.datosPesaje" 
+        [esFueraCircuito]="false" 
+        [esAutomatico]="esAutomatico"
+        [esConsulta]="true">
+      </yrd-datos-pesaje>
+  </div>
+  <div class="col-sm-12" *ngIf="!esCarga && !esMovimientoInsumo">
+      <yrd-detalle-mermas #detalleMermas
+        [form]="formDatosStock.controls.datosMermas" 
+        [movimiento]="movimiento">
+      </yrd-detalle-mermas>
+  </div>
+  <div class="col-sm-12">
+      <yrd-datos-stock
+        [datosStockForm]="formDatosStock.controls.detalle"
+        [movimiento]="movimiento"
+        [movimientoPesaje]="movimientoPesaje"
+        [netoBalanza]="netoBalanza"
+        [totalMermas]="totalMermas">
+      </yrd-datos-stock>
+  </div>
+</div>

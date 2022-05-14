@@ -1,0 +1,68 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Datos del Transporte</legend>
+  <div class="row form-group">
+    <div class="col-sm-4" formGroupName="patentes">
+      <yrd-texto-con-etiqueta 
+        formControlName="patenteCamion" 
+        [etiqueta]="'Camión'"
+        [control]="form.get('patentes.patenteCamion')"
+        [validationMessages]="validationMessagesPatenteCamion"
+        [pattern]="patentesPattern"
+        (blur)="onBlurPatenteCamion()">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4" formGroupName="patentes">
+      <yrd-texto-con-etiqueta 
+        formControlName="patenteAcoplado" 
+        [etiqueta]="'Acoplado'"
+        [control]="form.get('patentes.patenteAcoplado')"
+        [validationMessages]="validationMessagesPatenteAcoplado"
+        [pattern]="patentesPattern"
+        (blur)="onBlurPatenteAcoplado()">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta 
+        formControlName="kilometrosRecorridos" 
+        [etiqueta]="'Km a recorrer'" 
+        [idForm]="'kilometrosRecorridos'"
+        [control]="form.get('kilometrosRecorridos')" 
+        [validationMessages]="validationMessagesKilometrosRecorridos"
+        yrdMaxLength [maxLength] = 8>
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-4">
+      <yrd-checkbox-con-etiqueta
+        formControlName="fleteCargoLdc"
+        [cssClassEtiqueta]="'col-sm-5'"
+        [cssClassControl]="'col-sm-7'"
+        [etiqueta]="'Flete Contratado LDC'"
+        [control]="form.get('fleteCargoLdc')">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta
+        formControlName="tarifaReferencia" 
+        [etiqueta]="'Tarifa Referencia'" 
+        [idForm]="'tarifaReferencia'"
+        [control]="form.get('tarifaReferencia')" 
+        [maxDecimalPlaces]="2"
+        [validationMessages]="validationMessagesTarifaReferencia"
+        yrdMaxLength [maxLength] = 10>
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-numero-con-etiqueta 
+        formControlName="tarifaTN" 
+        [etiqueta]="'Tarifa TN'" 
+        [idForm]="'tarifaTN'" 
+        [control]="form.get('tarifaTN')"
+        [maxDecimalPlaces]="2"
+        [validationMessages]="validationMessagesTarifaTN"
+        yrdMaxLength [maxLength] = 10>
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

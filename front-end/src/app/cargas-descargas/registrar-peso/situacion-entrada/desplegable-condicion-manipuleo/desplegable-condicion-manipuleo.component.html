@@ -1,0 +1,99 @@
+<div class="container-fluid pl-0 pr-0">
+  <div class="row mb-2">
+    <div class="col-sm-3 align-self-center">
+      <label class="col-form-label" for="selectTipoProducto">Lugar de {{ descripcionTipoMovimiento }}:</label>
+    </div>
+    <div class="col-sm-6" *ngIf="!esSalida && !esConsulta">
+      <select class="form-control"
+        id="selectTipoProducto"
+        #selectTipoProducto
+        [disabled]="isDisabled"
+        [value]="selectedEntityId"
+        (blur)="onTouched(); touched()"
+        (change)="onChange(selectTipoProducto.value)"
+        [ngClass]="{
+          'is-valid' : control?.valid && control?.touched,
+          'is-invalid' : control?.invalid && control?.touched
+        }">
+        <option *ngFor="let entidad of entities" [value]="entidad?.id">{{ entidad?.descripcion }}</option>
+      </select>
+      <div class="invalid-feedback">
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+    <div class="col-sm-6" *ngIf="esSalida || esConsulta">
+      <input type="text" 
+        class="form-control" 
+        [value]="lugarDescargaCarga" 
+        disabled/>
+    </div>
+    <div class="col-sm-3" *ngIf="mostrarActualizar">
+      <button class="btn btn-primary w-100 h-100" type="button" [disabled]="deshabilitarActualizarManipuelo" (click)="actualizar()">Actualizar</button>
+    </div>
+  </div>
+  <div *ngIf="esCarga">
+    <div class="row align-items-center mb-2">
+      <div class="col-sm">
+        <label class="col-form-label">Stock titular:</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="text"
+          class="form-control"
+          [value]="stockTitular" disabled/>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+    <div class="row align-items-center mb-2">
+      <div class="col-sm">
+        <label class="col-form-label">Stock físico:</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="text"
+          class="form-control"
+          [value]="stockFisico" disabled/>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+    <div class="row align-items-center mb-2">
+      <div class="col-sm mb-1">
+        <label class="col-form-label"></label>
+      </div>
+      <div class="col-sm-9"></div>
+    </div>
+  </div>
+  <div *ngIf="!esCarga">
+    <div class="row align-items-center mb-2">
+      <div class="col-sm-3">
+        <label class="col-form-label">% Proteina Min/Máx:</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" [value]="selectedEntity?.proteinaMin" disabled/>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" [value]="selectedEntity?.proteinaMax" disabled/>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    <div class="row align-items-center mb-2">
+      <div class="col-sm-3">
+        <label class="col-form-label" for="selectTipoProducto">% Humedad Min/Máx:</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" [value]="selectedEntity?.humedadMin" disabled/>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" [value]="selectedEntity?.humedadMax" disabled/>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-sm">
+        <label class="col-form-label">Grado:</label>
+      </div>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" [value]="selectedEntity?.grado" disabled/>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+  </div>
+</div>

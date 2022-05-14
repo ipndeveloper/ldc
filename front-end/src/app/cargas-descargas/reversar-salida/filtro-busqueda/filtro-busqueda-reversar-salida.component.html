@@ -1,0 +1,42 @@
+<div [formGroup]="filtrosForm">
+        <div class="form-horizontal">
+                <yrd-desplegable-tipo-transporte class="col-sm-4" formControlName="tipoTransporte" [opcionSeleccione]="true"
+                [isFocused]="true"></yrd-desplegable-tipo-transporte>
+                <yrd-desplegable-tipo-movimiento class="col-sm-4" formControlName="tipoMovimiento" [opcionSeleccione]="true"></yrd-desplegable-tipo-movimiento>
+                <yrd-desplegable-estado-movimiento class="col-sm-4" formControlName="estadoMovimiento" [filters]="estadoMovimientoFilters"></yrd-desplegable-estado-movimiento>
+        </div>
+        <div class="form-horizontal">
+        <yrd-autocomplete-patente #autocompletePatente class="col-sm-4" 
+                [idForm]="'patente'" 
+                formControlName="patente" 
+                [etiqueta]="'Patente'">
+        </yrd-autocomplete-patente>
+        <yrd-autocomplete-vagon #autocompleteNumeroVagon class="col-sm-4" 
+                [idForm]="'vagon'" 
+                formControlName="numeroVagon" 
+                [etiqueta]="'Vagón'">
+        </yrd-autocomplete-vagon>
+                <yrd-buscador-producto class="col-sm-4" 
+                        formControlName="producto"
+                        [advancedSearch]="true">
+                </yrd-buscador-producto>
+        </div>
+        <div class="form-horizontal">
+                <yrd-desplegable-tipo-documento-porte [opcionSeleccione]="true" class="col-sm-4" #tipoDocPorte formControlName="tipoDocPorte"></yrd-desplegable-tipo-documento-porte>
+                <yrd-numero-con-etiqueta [idForm]="'ctg'" class="col-sm-4" formControlName="ctg" [etiqueta]="'CTG'" yrdMaxLength [maxLength]= 12 [allowLeadingZeroes]="true"></yrd-numero-con-etiqueta>
+                <div class="col-sm-4">
+                        <div class="form-horizontal">
+                          <label class="col-sm-3 col-form-label">Nro. Doc. Porte:</label>
+                          <div class="col-sm-9">
+                              <input class="form-control"
+                              type="text" 
+                              oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');"
+                              maxlength = "13"  
+                              #nroDocPorte
+                                formControlName="nroDocPorte"
+                                />
+                          </div>
+                        </div>
+                </div>
+        </div>
+</div>

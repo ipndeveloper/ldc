@@ -1,0 +1,30 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form" 
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>{{ labelHeader }}</h4></ng-template>
+  <ng-template #modalBody>
+    <div class="form-group">
+      <yrd-desplegable-accion 
+        formControlName="accion"
+        #accion
+        [opcionSeleccione]="true"
+        [control]="form.get('accion')"
+        [validationMessages]="validationMessagesAccion">
+      </yrd-desplegable-accion>
+    </div>
+    <div class="form-group form-horizontal">
+      <label for="automatico" class="col-sm-3 col-form-label">Automático:</label>
+      <div class="col-sm-9">
+        <input type="checkbox" class="checkbox" id="automatico" #automatico formControlName="automatico" />
+      </div>
+    </div>
+    <div class="form-group form-horizontal">
+      <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+      <div class="col-sm-9">
+        <input type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+      </div>
+    </div>
+  </ng-template>
+</yrd-modal>

@@ -1,0 +1,8 @@
+:host ::ng-deep select {
+    width: 40%;
+    margin-left: 5%;
+}
+
+textarea {
+    resize: none;
+}

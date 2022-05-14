@@ -1,0 +1,44 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template 
+      #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [singleSelection]="true"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>                
+        <yrd-filtro-administrar-plataformas
+          #filtro
+          [form]="form.controls.filtros">
+        </yrd-filtro-administrar-plataformas>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+          <yrd-detalle-administrar-plataformas
+          #detalle
+          [form]="form.controls.detalle">
+        </yrd-detalle-administrar-plataformas>
+      </ng-template>
+    </yrd-search-form-template>    
+    <div class="float-right section-top-padding">
+        <button type="button" class="btn btn-success"
+          [disabled]="disableButtons || esConsulta || isLoading" 
+          (click)="onClickAceptar()"
+          i18n>Aceptar
+        </button>
+        <button type="button" class="btn btn-danger"
+          [disabled]="disableButtons || isLoading" 
+          (click)="onClickCancelar()" 
+          i18n>Cancelar
+        </button>
+      </div>
+  </fieldset>
+</form>
+<!-- 
+<pre>Form value: {{ form.getRawValue() | json }}</pre>
+<pre>Form status: {{ form.status | json }}</pre> -->

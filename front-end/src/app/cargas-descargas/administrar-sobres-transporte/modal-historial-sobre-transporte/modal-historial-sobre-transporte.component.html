@@ -1,0 +1,11 @@
+<yrd-modal #modalComponent [hasCloseButton]="true" [showFooter]="false">
+  <ng-template #modalHeader>
+    <h4>Historial Sobre Transporte</h4>
+  </ng-template>
+  <ng-template #modalBody>
+    <yrd-data-grid 
+      [columns]="columns" 
+      [rows]="historial">
+    </yrd-data-grid>
+  </ng-template>
+</yrd-modal>

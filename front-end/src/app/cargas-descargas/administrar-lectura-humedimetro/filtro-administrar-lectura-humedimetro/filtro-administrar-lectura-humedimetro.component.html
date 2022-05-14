@@ -1,0 +1,46 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-terminal
+        #terminal
+        formControlName="terminal"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [control]="form.get('terminal')"
+        [permiso]="permiso"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-humedimetro
+        #humedimetro
+        formControlName="humedimetro"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [opcionSeleccione]="true"
+        [control]="form.get('humedimetro')">
+      </yrd-desplegable-humedimetro>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-buscador-producto
+        #producto
+        formControlName="producto"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [control]="form.get('producto')"
+        [advancedSearch]="true">
+      </yrd-buscador-producto>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-si-no
+        #estaHabilitado
+        formControlName="estaHabilitado"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [control]="form.get('estaHabilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

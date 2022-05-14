@@ -1,0 +1,156 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Intervinientes</legend>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-titular 
+        formControlName="titularCartaPorte" 
+        [advancedSearch]="true"
+        [control]="form.get('titularCartaPorte')"
+        [validationMessages]="validationMessagesTitular">
+      </yrd-buscador-titular>
+    </div>
+    <div class="col-sm-6">
+      <yrd-buscador-vendedor
+        formControlName="vendedor" 
+        [advancedSearch]="true"
+        [control]="form.get('vendedor')">
+      </yrd-buscador-vendedor>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-intermediario
+        formControlName="intermediario"
+        [advancedSearch]="true"
+        [control]="form.get('intermediario')"
+        [validationMessages]="validationMessagesIntermediario">
+      </yrd-buscador-intermediario>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="opONCCAIntermediario" 
+        [etiqueta]="'Op ONCCA'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-remitente-comercial
+        formControlName="remitenteComercial" 
+        [advancedSearch]="true"
+        [control]="form.get('remitenteComercial')"
+        [validationMessages]="validationMessagesRemitenteComercial">
+      </yrd-buscador-remitente-comercial>
+    </div>
+    <div class="col-sm-6">
+      <yrd-texto-con-etiqueta
+        formControlName="opONCCARemitenteComercial" 
+        [etiqueta]="'Op ONCCA'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-corredor
+        formControlName="corredorComprador" 
+        [advancedSearch]="true"      
+        [etiqueta]="'Corredor Comprador'" 
+        [control]="form.get('corredorComprador')"
+        [validationMessages]="validationMessagesCorredorComprador">
+      </yrd-buscador-corredor>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-mercado-termino
+        formControlName="mercadoTermino" 
+        [control]="form.get('mercadoTermino')">
+      </yrd-buscador-mercado-termino>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-corredor 
+        formControlName="corredorVendedor" 
+        [advancedSearch]="true"      
+        [etiqueta]="'Corredor Vendedor'"
+        [control]="form.get('corredorVendedor')"
+        [validationMessages]="validationMessagesCorredorVendedor">
+      </yrd-buscador-corredor>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-entregador
+        formControlName="entregador" 
+        [etiqueta]="'Representante / Entregador'"
+        [advancedSearch]="true"
+        [control]="form.get('entregador')"
+        [validationMessages]="validationMessagesEntregador">
+      </yrd-buscador-entregador>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-destinatario 
+        formControlName="destinatario" 
+        [advancedSearch]="true"
+        [control]="form.get('destinatario')"
+        [validationMessages]="validationMessagesDestinatario">
+      </yrd-buscador-destinatario>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-intermediario-flete
+        formControlName="intermediarioFlete" 
+        [etiqueta]="'Intermediario del Flete'"
+        [advancedSearch]="true"
+        [control]="form.get('intermediarioFlete')"
+        [validationMessages]="validationMessagesIntermediarioFlete">
+      </yrd-buscador-intermediario-flete>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6" formGroupName="confirmacionArriboCtg">
+      <yrd-buscador-transportista
+        formControlName="transportista" 
+        [advancedSearch]="true"
+        [control]="form.get('confirmacionArriboCtg.transportista')"
+        [validationMessages]="validationMessagesTransportista">
+      </yrd-buscador-transportista>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6" formGroupName="confirmacionArriboCtg">
+      <yrd-buscador-chofer
+        [cssClassControl]= "'col-sm-4'" 
+        formControlName="chofer" 
+        [advancedSearch]="true"
+        [control]="form.get('confirmacionArriboCtg.chofer')"
+        [validationMessages]="validationMessagesChofer">
+      </yrd-buscador-chofer>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-desplegable-finalidad 
+        formControlName="finalidad" 
+        [control]="form.get('finalidad')"
+        [seleccionaPrimeraOpcion]="false"
+        [circuito]="circuito">
+      </yrd-desplegable-finalidad>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-motivo-cupo *ngIf="circuitoContemplaCupo"
+        [opcionSeleccione]="true"
+        [finalidad]="finalidad"
+        formControlName="motivoCupo" 
+        [control]="form.get('motivoCupo')"
+        [seleccionaPrimeraOpcion]="false"
+        [validationMessages]="validationMessagesMotivoCupo">
+      </yrd-desplegable-motivo-cupo>
+    </div>
+  </div>
+ 
+</fieldset>

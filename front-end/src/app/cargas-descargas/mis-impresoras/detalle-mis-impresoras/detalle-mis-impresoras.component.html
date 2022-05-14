@@ -1,0 +1,34 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Impresoras</legend>
+  <div class="col-sm-12 row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <yrd-data-grid 
+        [columns]="columns" 
+        [rows]="rows" 
+        [selected]="selectedRows" 
+        (select)="onSelect($event)">
+      </yrd-data-grid>
+      <div class="float-right">
+        <button class="btn btn-primary" 
+          (click)="onMarcarPorDefecto()"
+          [disabled]="selectedRows.length !== 1">Marcar por Defecto
+        </button>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</fieldset>
+
+<ng-template 
+  #tableCellTemplate 
+  ngx-datatable-cell-template 
+  let-value="value" 
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+    <input type="checkbox" 
+      [checked]="isSelected" 
+      (change)="onCheckboxChangeFn($event)" />
+  </label>
+</ng-template>

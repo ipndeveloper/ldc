@@ -1,0 +1,7 @@
+<fieldset [formGroup]="estadoMovimientoForm">
+  <legend class="col-form-label">Estado</legend>
+  <div class="form-horizontal">
+    <yrd-texto-con-etiqueta class="col-sm-6" formControlName="estado" [etiqueta]="'Estado'"
+      [control]="estadoMovimientoForm.get('estado')"></yrd-texto-con-etiqueta>
+    </div>
+</fieldset>

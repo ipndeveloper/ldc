@@ -1,0 +1,164 @@
+<fieldset [formGroup]="estadoCupoForm">
+  <legend class="col-form-label">Estado de Cupo</legend>
+  <div class="pt-2 row">
+      <div class="col-sm-6"></div>
+      <div class="col-sm-2">
+          <strong class="text-center">Otorgados</strong>
+      </div>
+      <div class="col-sm-2">
+          <strong class="text-center">Ingresados</strong>
+      </div>
+      <div class="col-sm-2">
+          <strong class="text-center">Saldo</strong>
+      </div>
+  </div>
+  <div class="pt-2 row" formGroupName="estadoCupoVigente">
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta 
+        [cssClassControl]="'col-sm-6'"
+        formControlName="fechaCupo" 
+        [etiqueta]="'Vigente'"
+        [control]="estadoCupoForm.get('estadoCupoVigente.fechaCupo')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-checkbox-con-etiqueta
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="estadoCupoForm.get('estadoCupoVigente.habilitado')"
+        [habilitarEtiqueta]= "false">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta
+        [cssClassControl]="'col-sm-12'"
+        formControlName="otorgados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoVigente.otorgados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta
+        [cssClassControl]="'col-sm-12'"
+        formControlName="ingresados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoVigente.ingresados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-12'"
+        formControlName="saldo" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoVigente.saldo')">
+      </yrd-numero-con-etiqueta>
+    </div>
+</div>
+  <div class="pt-2 row" formGroupName="estadoCupoAnterior">
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta 
+        [cssClassControl]="'col-sm-6'"
+        formControlName="fechaCupo" 
+        [etiqueta]="'Anterior'"
+        [control]="estadoCupoForm.get('estadoCupoAnterior.fechaCupo')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-checkbox-con-etiqueta
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="estadoCupoForm.get('estadoCupoAnterior.habilitado')"
+        [habilitarEtiqueta]="false">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta
+        [cssClassControl]="'col-sm-12'"
+        formControlName="otorgados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoAnterior.otorgados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta
+        [cssClassControl]="'col-sm-12'"
+        formControlName="ingresados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoAnterior.ingresados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-12'"
+        formControlName="saldo" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoAnterior.saldo')">
+      </yrd-numero-con-etiqueta>
+    </div>
+  </div>
+<div class="pt-2 row" formGroupName="estadoCupoSiguiente">
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta 
+        [cssClassControl]="'col-sm-6'"
+        formControlName="fechaCupo" 
+        [etiqueta]="'Siguiente'"
+        [control]="estadoCupoForm.get('estadoCupoSiguiente.fechaCupo')">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-checkbox-con-etiqueta
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="estadoCupoForm.get('estadoCupoSiguiente.habilitado')"
+        [habilitarEtiqueta]= "false">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-12'"
+        formControlName="otorgados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoSiguiente.otorgados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-12'"
+        formControlName="ingresados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoSiguiente.ingresados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta 
+        [cssClassControl]="'col-sm-12'"
+        formControlName="saldo" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('estadoCupoSiguiente.saldo')">
+      </yrd-numero-con-etiqueta>
+    </div>
+</div>
+<div class="pt-2 row" formGroupName="sinCupo">
+    <div class="col-sm-4">
+        <label class="col-form-label">Sin Cupo:</label>
+    </div>
+    <div class="col-sm-2">
+      <yrd-checkbox-con-etiqueta
+        formControlName="habilitado"
+        [cssClassControl]="'col-sm-4'"
+        [control]="estadoCupoForm.get('sinCupo.habilitado')"
+        [habilitarEtiqueta]= "false">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-2">
+      <yrd-numero-con-etiqueta
+        [cssClassControl]="'col-sm-12'"
+        formControlName="ingresados" 
+        [habilitarEtiqueta]= "false"
+        [control]="estadoCupoForm.get('sinCupo.ingresados')">
+      </yrd-numero-con-etiqueta>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+</fieldset>

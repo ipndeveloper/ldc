@@ -1,0 +1,41 @@
+<form [formGroup]="filtrosForm" class="section-top-padding">
+    <div class="form-horizontal">
+        <yrd-desplegable-tipo-transporte class="col-sm-4"
+            formControlName="tipoTransporte" 
+            [control]="filtrosForm.get('tipoTransporte')"
+            [opcionSeleccione]="true">
+        </yrd-desplegable-tipo-transporte>
+        <yrd-desplegable-tipo-movimiento class="col-sm-4"
+          formControlName="tipoMovimiento"
+          [opcionSeleccione]= "true"
+          [control]="filtrosForm.get('tipoMovimiento')">
+        </yrd-desplegable-tipo-movimiento>
+        <yrd-desplegable-estado-movimiento class="col-sm-4"
+            formControlName="idEstadoMovimiento" 
+            [filters]="estadoMovimientoFilters">
+        </yrd-desplegable-estado-movimiento>
+    </div>
+    <div class="form-horizontal">
+        <yrd-numero-con-etiqueta class="col-sm-4"
+            formControlName="tarjeta"
+            [idForm]="'tarjeta'"
+            [etiqueta]="'Tarjeta'"
+            [allowLeadingZeroes]="true" 
+            [validationMessages]="validationMessagesTarjeta"
+            [control]="filtrosForm.get('tarjeta')" >
+        </yrd-numero-con-etiqueta>
+        <yrd-autocomplete-patente class="col-sm-4"
+            #autocompletePatente 
+            formControlName="patente"
+            [idForm]="'patente'" 
+            [etiqueta]="'Patente Camión'"
+            [control]="filtrosForm.get('patente')" 
+            [validationMessages]="validationMessagesPatente">
+        </yrd-autocomplete-patente>
+        <yrd-autocomplete-vagon class="col-sm-4"
+            formControlName="vagon"
+            [idForm]="'vagon'"
+            [etiqueta]="'Numero Vagón'">
+        </yrd-autocomplete-vagon>       
+    </div>
+</form>

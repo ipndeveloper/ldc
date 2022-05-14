@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="6af459f444da8b576f25fc9727b913ed7e6aea51" datatype="html">
+        <source>Estado:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/shared/desplegable-estado-movimiento/desplegable-estado-movimiento.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c2f199c3c2b72069be27152eecdad9f8b9f94d0" datatype="html">
+        <source>Dejar Pendiente</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-transportes-varios/controlar-descarga-camion-transportes-varios.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0fbeb304fbd81e2f901aaece2394ed0d411bd870" datatype="html">
+        <source>Aceptar y Continuar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-transportes-varios/controlar-descarga-camion-transportes-varios.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="35ad82bbaa7e8b24c1bdf03f3260422c5910a1fb" datatype="html">
+        <source>Aceptar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-transportes-varios/controlar-descarga-camion-transportes-varios.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e8d22cdef9f5780e31395340125d873f9df518c3" datatype="html">
+        <source>Cancelar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-transportes-varios/controlar-descarga-camion-transportes-varios.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1654c329677d99c3e62afff7f4dada8c5265d4cd" datatype="html">
+        <source>Asignar Tarjeta</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/gestionar-control/gestionar-control.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a8387c8ad811ecb5ad300b409d66dc14fda7a3fd" datatype="html">
+        <source>Rechazar</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/gestionar-control/gestionar-control.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d4f122679c640584287c05c319703139fc0cf5b2" datatype="html">
+        <source>Sustentabilidad:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/controlar-descarga-camion-cereales/datos-documento-controlar-descarga-cereales/datos-documento-controlar-descarga-cereales.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="158f3561299dea7f50630110a8c9f75aeda4900b" datatype="html">
+        <source>Sin Respuesta Entregador</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/gestionar-calidad-calado/gestionar-calidad-calado.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ba0536380377df3579bfbc35ad13e626ea38723e" datatype="html">
+        <source>Continuar Circuito Post-Lab</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/gestionar-calidad-calado/gestionar-calidad-calado.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d18fd38793f373bbf6fd8c21f6ffe1f22f264098" datatype="html">
+        <source>Registrar Decisión</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/cargas-descargas/gestionar-descargas-por-entregador/gestionar-descargas-por-entregador.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

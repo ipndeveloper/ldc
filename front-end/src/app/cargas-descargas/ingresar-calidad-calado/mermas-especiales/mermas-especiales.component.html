@@ -1,0 +1,12 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Mermas Especiales</legend>
+  <div formArrayName="mermasEspeciales">
+    <yrd-data-grid 
+      [pagination]="false" 
+      [columns]="columns" 
+      [rows]="rows"
+      [rowHeight]="25"
+      [disableSelection]="true">
+    </yrd-data-grid>
+  </div>
+</fieldset>

@@ -1,0 +1,14 @@
+<div [formGroup]=form>
+  <div class="row">
+    <div class="col-sm-3 form-group">
+      <yrd-texto-con-etiqueta
+        #estado
+        formControlName="estado"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [etiqueta]="'Estado'"
+        [control]="form.get('estado')">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<fieldset [formGroup]="datosLaboratorioForm">
+  <legend class="col-form-label">Laboratorio</legend>
+  <div class="row">
+    <div class="col-sm-6">
+      <yrd-data-grid [columns]="columns" [rows]="rows" [selected]="selectedRows" (select)="onSelect($event)"></yrd-data-grid>
+      <div class="float-right">
+        <button class="btn btn-primary" (click)="onClickAgregarMuestraLaboratorio()"
+        [disabled]="disableActions">Agregar</button>
+        <button class="btn btn-default" (click)="onclickEliminarMuestraLaboratorio()"
+        [disabled]="disableActions">Eliminar</button>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <yrd-desplegable-decision-laboratorio [seleccionarDecision] = "true" class="col-sm-12" [form]="datosLaboratorioForm" ></yrd-desplegable-decision-laboratorio>
+      <div class="mt-2">
+        <yrd-text-area-con-etiqueta [idForm]="'observacionesLaboratorio'" formControlName="observaciones" [etiqueta]="'Observación'"
+          [control]="datosLaboratorioForm.controls.observaciones"></yrd-text-area-con-etiqueta>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+<ng-template #selectMuestraHeaderTemplate ngx-datatable-header-template let-value="value" let-allRowsSelected="allRowsSelected"
+  let-selectFn="selectFn">
+  <input type="checkbox" [checked]="allRowsSelected" (change)="selectFn(!allRowsSelected)" [disabled]="disableActions"
+  />
+</ng-template>
+<ng-template #selectMuestraCellTemplate ngx-datatable-cell-template let-value="value" let-isSelected="isSelected" let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+      <input type="checkbox" [checked]="isSelected" (change)="onCheckboxChangeFn($event)" [disabled]="disableActions" />
+  </label>
+</ng-template>
+
+<yrd-modal-agregar-muestra-laboratorio #modalMuestraLaboratorio (accepted)="onAcceptMuestraLaboratorio($event)"></yrd-modal-agregar-muestra-laboratorio>

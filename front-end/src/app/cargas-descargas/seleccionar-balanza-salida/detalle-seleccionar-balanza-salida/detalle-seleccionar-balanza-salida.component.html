@@ -1,0 +1,13 @@
+<fieldset [formGroup]="detalleForm">
+  <legend class="col-form-label">Balanzas de Salida</legend>
+  <div class="col-md-12">
+    <select class="form-control"
+            formControlName="seleccionBalanza"
+            id="selectBalanzaSalida">
+      <option *ngFor="let balanza of balanzasDisponibles"
+              [value]="balanza.id">{{ balanza.terminal }} - {{ balanza.nombre }} - Salida
+      </option>
+    </select>
+  </div>
+</fieldset>
+

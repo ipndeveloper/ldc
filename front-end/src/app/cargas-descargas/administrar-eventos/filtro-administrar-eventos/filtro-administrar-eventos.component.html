@@ -1,0 +1,33 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <yrd-desplegable-evento
+        formControlName="tipoEvento"
+        #tipoEvento
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('tipoEvento')"
+        [permiso]="Permission.AdministrarEventos"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-evento>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-si-no
+        formControlName="requiereAccion"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('requiereAccion')"
+        [label]="label">
+      </yrd-desplegable-si-no>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-texto-con-etiqueta
+        formControlName="mensajeDashboard"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('mensajeDashboard')"
+        [etiqueta]="'Mensaje Dashboard'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</div>

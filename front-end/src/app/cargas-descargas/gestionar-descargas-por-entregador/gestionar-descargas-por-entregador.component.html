@@ -1,0 +1,40 @@
+<form [formGroup]="gestionarDescargasEntregadorForm" novalidate>
+  <fieldset>
+    <yrd-search-form-template  #searchFormComponent 
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns" 
+      [filters]="filters"
+      [filtrosForm]="gestionarDescargasEntregadorForm.controls.filtros"
+      [rowsOptions]="rowsOptions">
+
+      <ng-template #controlFiltersContainer>
+        <yrd-filtro-busqueda-entregadores #filtroEntregadores [filtrosForm]="gestionarDescargasEntregadorForm.controls.filtros" [estadoMovimientoFilters]="estadoMovimientoFilters"
+          [terminal]="terminal"></yrd-filtro-busqueda-entregadores>
+      </ng-template>
+
+      <ng-template #controlActionsContainer>
+        <button type="button" class="btn btn-primary btn-space-left" 
+            (click)="onClickAptoDescarga()"
+            *ngxPermissionsOnly="Permission.GestionarDescargasPorEntregadorRegistrarDecision"
+            [disabled]="registrarDecisionDeshabilitado"
+            i18n>Apto Descarga</button>     
+
+        <button type="button" class="btn btn-primary btn-space-left" 
+            (click)="onClickRechazar()"
+            *ngxPermissionsOnly="Permission.GestionarDescargasPorEntregadorRegistrarDecision"
+            [disabled]="registrarDecisionDeshabilitado"
+            i18n>Rechazar</button>
+
+        <button type="button" class="btn btn-primary btn-space-left" 
+          (click)="onClickRegistrarDecision()"
+          *ngxPermissionsOnly="Permission.GestionarDescargasPorEntregadorRegistrarDecision"
+          i18n>Registrar Decisión</button>
+      </ng-template>
+
+      </yrd-search-form-template>
+  </fieldset>
+</form>
+
+<!-- <pre>Form value: {{ gestionarDescargasEntregadorForm.value | json }}</pre>
+<pre>Form status: {{ gestionarDescargasEntregadorForm.status | json }}</pre> -->

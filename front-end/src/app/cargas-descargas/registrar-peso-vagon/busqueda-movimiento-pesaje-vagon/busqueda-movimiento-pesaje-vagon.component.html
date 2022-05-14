@@ -1,0 +1,25 @@
+<fieldset [formGroup]="busquedaMovimientoForm">
+  <legend class="col-form-label">Búsqueda</legend>
+  <div class="form-horizontal">
+    <yrd-autocomplete-vagon class="col-sm-3" 
+      #autocompleteVagon 
+      formControlName="numeroVagon" 
+      [idForm]="'numeroVagon'" 
+      [etiqueta]="'Nro. Vagón'" 
+      [control]="busquedaMovimientoForm.get('numeroVagon')" 
+      [validationMessages]="validationMessagesNumeroVagon">
+    </yrd-autocomplete-vagon>
+    
+    <yrd-lectura-tarjeta class="col-sm-4" 
+      #tarjeta
+      [form]="busquedaMovimientoForm" 
+      (tarjetaLeida)="onTarjetaLeida()">
+    </yrd-lectura-tarjeta>
+
+    <div class="col-sm-1 float-left">
+      <button class="btn btn-primary"
+        (click)="onClickIdentificarVagon()"
+        [disabled]="botonIdentificarVagonDeshabilitado" i18n>Identificar Vagón</button>
+      </div>
+  </div>
+</fieldset>

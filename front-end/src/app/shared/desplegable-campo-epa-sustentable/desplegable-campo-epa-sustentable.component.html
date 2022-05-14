@@ -1,0 +1,16 @@
+<div class="form-horizontal">
+  <label for="selectCampoEpaSustentable" class="col-sm-3 col-form-label">Campo EPA/Sustentable:</label>
+  <div class="{{ cssClassControl }}">
+    <select class="form-control" id="selectCampoEpaSustentable" #selectCampoEpaSustentable
+     [disabled]="isDisabled" [value]="selectedEntity?.id" (blur)="onTouched()"
+      (change)="onChange(selectCampoEpaSustentable.value)" [ngClass]="{
+        'is-valid' : control?.valid && control?.touched,
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>Debe ingresar un Campo EPA/Sustentable.</p>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<form [formGroup]="form" novalidate>
+  <fieldset>
+    <yrd-search-form-template
+      #searchFormComponent
+      [botonesHabilitados]="botonesHabilitados"
+      [permisosBotones]="permisosBotones"
+      [columns]="columns"
+      [filters]="filters"
+      [hasDataEditSection]="true"
+      [canSearch]="disableButtons"
+      [rowsOptions]="rowsOptions"
+      [editTitleButton]="'Habilitar/Deshabilitar'">
+
+      <ng-template #controlFiltersContainer>
+        <yrd-filtro-administrar-tarjeta
+          #filtro
+          [form]="form.controls.filtros">
+        </yrd-filtro-administrar-tarjeta>
+      </ng-template>
+
+      <ng-template #controlActionsContainer >        
+        <button type="button" class="btn btn-primary" 
+          *ngxPermissionsOnly="Permission.AdministrarTarjetasImportarExcel"          
+          (click)="onClickImportarExcel()"          
+          i18n>Importar Excel</button>
+      </ng-template>
+
+      <ng-template #controlEditDataContainer>
+        <yrd-detalle-administrar-tarjeta
+          #detalle
+          [form]="form.controls.detalle"
+          [esAltaMasiva]="esAltaMasiva">
+        </yrd-detalle-administrar-tarjeta>
+
+        <div class="float-right section-top-padding">
+          <button
+            type="button"
+            class="btn btn-success"
+            [disabled]="disableButtons || esConsulta || isLoading"
+            (click)="onClickAceptar()"
+            i18n>Aceptar
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            [disabled]="disableButtons || isLoading"
+            (click)="onClickCancelar()"
+            i18n>Cancelar
+          </button>
+        </div>
+      </ng-template>
+    </yrd-search-form-template>
+  </fieldset>
+</form>
+
+<yrd-modal-importar-excel 
+  #modalImportarExcel 
+  [form]="form.controls.datosImportacionExcel"
+  (accepted)="onAcceptedImportarArchivoExcel()"
+  >
+</yrd-modal-importar-excel>

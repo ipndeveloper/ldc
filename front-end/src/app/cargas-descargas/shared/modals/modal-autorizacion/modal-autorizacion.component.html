@@ -1,0 +1,68 @@
+<yrd-modal #modalComponent [formGroup]="form" [hasCloseButton]="false">
+  <ng-template #modalHeader>
+    <h4>Autorización [{{ nombresRolesRequeridos }}]<a href="" #foco class="foco">_</a></h4>
+  </ng-template>
+  <ng-template #modalBody>  
+    <div class="form-horizontal">
+
+      <!-- USUARIO Y PASS CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA -->
+      <yrd-texto-con-etiqueta #usuario class="col-sm-12" formControlName="usuario"
+        *ngIf="!puestoTrabajoUtilizaTarjeta"
+        [idForm]="'usuario'" 
+        [etiqueta]="'Usuario'" 
+        [control]="form.get('usuario')"
+        [validationMessages]="validationsUsuario">
+      </yrd-texto-con-etiqueta>
+      <yrd-password-con-etiqueta class="col-sm-12" formControlName="password"
+        *ngIf="!puestoTrabajoUtilizaTarjeta"  
+        [idForm]="'password'" 
+        [etiqueta]="'Contraseña'" 
+        [control]="form.get('password')"
+        [validationMessages]="validationsPassword">
+      </yrd-password-con-etiqueta>
+      <!-- /USUARIO Y PASS CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA -->
+
+      <!-- MENSAJE CUANDO EL PUESTO DE TRABAJO UTILIZA TARJETA Y LA LECTURA ESTA EN MODO AUTOMATICO Y NO SE LEYO TARJETA -->
+      <h5 *ngIf="puestoTrabajoUtilizaTarjeta && lecturaEnModoAutomatico && !mostrarObservacionesPorLecturaAutomatica">Deslice la tarjeta por el lector...</h5>
+      <!-- /MENSAJE CUANDO EL PUESTO DE TRABAJO UTILIZA TARJETA Y LA LECTURA ESTA EN MODO AUTOMATICO Y NO SE LEYO TARJETA  -->
+
+      <!-- NUMERO TARJETA CUANDO EL PUESTO DE TRABAJO UTILIZA TARJETA Y LA LECTURA NO ESTA EN MODO AUTOMATICO -->
+      <yrd-texto-con-etiqueta #tarjeta class="col-sm-12" formControlName="codigoTarjeta" 
+        *ngIf="puestoTrabajoUtilizaTarjeta && !lecturaEnModoAutomatico"
+        [control]="form.get('codigoTarjeta')"
+        [etiqueta]="'Tarjeta'" 
+        [idForm]="'nroTarjeta'" 
+        [validationMessages]="validationMessagesTarjeta">
+      </yrd-texto-con-etiqueta>
+      <!-- NUMERO TARJETA CUANDO EL PUESTO DE TRABAJO UTILIZA TARJETA Y LA LECTURA NO ESTA EN MODO AUTOMATICO -->
+
+      <!-- OBSERVACIONES CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA O (UTILIZA Y ESTA EN MODO AUTOMATICO Y LEYO LA TARJETA) O (UTILIZA TARJETA Y NO ESTA EN MODO AUTOMATICO) -->
+      <yrd-text-area-con-etiqueta #observaciones class="col-sm-12" formControlName="observacion"
+        *ngIf="!puestoTrabajoUtilizaTarjeta || mostrarObservacionesPorLecturaAutomatica || (puestoTrabajoUtilizaTarjeta && !lecturaEnModoAutomatico)"
+        [idForm]="'observacion'" 
+        [etiqueta]="'Observación'" 
+        [control]="form.get('observacion')"
+        [maxLength]="100">
+      </yrd-text-area-con-etiqueta>
+      <!-- /OBSERVACIONES CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA O (UTILIZA Y ESTA EN MODO AUTOMATICO Y LEYO LA TARJETA) O (UTILIZA TARJETA Y NO ESTA EN MODO AUTOMATICO) -->
+    
+    </div> 
+  </ng-template>
+  <ng-template #modalFooter>
+    
+    <!-- CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA O (UTILIZA Y ESTA EN MODO AUTOMATICO Y ESTÁ EN OBSERVACIONES) O (UTILIZA Y NO ESTA EN MODO AUTOMATICO) -->
+    <button #aceptarModal id="btnAceptarModal" 
+      *ngIf="!puestoTrabajoUtilizaTarjeta || (puestoTrabajoUtilizaTarjeta && lecturaEnModoAutomatico && mostrarObservacionesPorLecturaAutomatica) || (puestoTrabajoUtilizaTarjeta && !lecturaEnModoAutomatico)"
+      type="button" 
+      class="btn btn-success"
+      (click)="aceptar()">Aceptar
+    </button>
+    <!-- /CUANDO EL PUESTO DE TRABAJO NO UTILIZA TARJETA O (UTILIZA Y ESTA EN MODO AUTOMATICO Y ESTÁ EN OBSERVACIONES) O (UTILIZA Y NO ESTA EN MODO AUTOMATICO) -->
+    
+    <button #cancelModal id="btnCancelModal" 
+      type="button" 
+      class="btn btn-danger" 
+      (click)="cancelar()">Cancelar
+    </button>
+  </ng-template>
+</yrd-modal>

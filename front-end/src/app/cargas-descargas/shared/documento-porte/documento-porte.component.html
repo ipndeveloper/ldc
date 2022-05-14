@@ -1,0 +1,162 @@
+
+<fieldset [formGroup]="documentoPorteForm">
+  <legend class="col-form-label">Documento de Porte</legend>    
+    <div class="row">
+      <div class="col-sm" *ngIf="habilitarControlesTipoTransporte">
+        <yrd-desplegable-tipo-transporte
+          formControlName="tipoTransporte" 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="documentoPorteForm.get('tipoTransporte')"
+          [isFocused]="true"
+          [soloCamionYTren]="soloCamionYTren">
+        </yrd-desplegable-tipo-transporte>
+      </div>
+      <div class="col-sm pb-1">
+        <yrd-desplegable-tipo-documento-porte
+          formControlName="tipoDocumentoPorte"
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-9'"
+          [tieneOpcionSeleccione]="false" 
+          [tipoProducto]="tipoProducto"
+          [tipoTransporte]="tipoTransporte"
+          [control]="documentoPorteForm.get('tipoDocumentoPorte')"
+          [validationMessages]="validationMessagesTipoDocPorte">
+        </yrd-desplegable-tipo-documento-porte>
+      </div>
+      <div *ngIf="esCartaPorteElectronica && esVagon" class="col-sm pb-1">
+        <yrd-numero-con-etiqueta 
+        [cssClassControl]= "'col-sm-9'"
+        [cssClassEtiqueta]= "'col-sm-3'"
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [habilitarEtiqueta]="true"
+        [allowLeadingZeroes]="true"
+        [control]="documentoPorteForm.get('ctg')"
+        [validationMessages]="validationMessagesCTG"
+        (blur)="OnBlurRecuperarDatoCpe()"
+        yrdMaxLength [maxLength]=12>
+        </yrd-numero-con-etiqueta>
+      </div>
+      <div class="col-sm" *ngIf="!esCartaPorteElectronica || esVagon">
+        <yrd-texto-mascara-con-etiqueta 
+          formControlName="numeroDocumentoPorte"  
+          #inputNumeroDocumentoPorte 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-9'"
+          [control]="documentoPorteForm.get('numeroDocumentoPorte')"         
+          [etiqueta]="'Nro Doc. de Porte'"
+          [mascara]="maskRegex"
+          [isLoading]="spinnerDocumentoPorte"
+          [validationMessages]="validationMessagesNroPorte">
+        </yrd-texto-mascara-con-etiqueta>
+      </div>
+     <div *ngIf="esCartaPorteElectronica && !esVagon" class="col-sm pb-1">
+        <yrd-numero-con-etiqueta 
+        [cssClassControl]= "esVagonCerealElectronica ? 'col-sm-6' : 'col-sm-4'"
+        [cssClassEtiqueta]= "esVagonCerealElectronica ? 'col-sm-3' : 'col-sm-2'"
+        formControlName="ctg" 
+        [etiqueta]="'CTG'" 
+        [habilitarEtiqueta]="true"
+        [allowLeadingZeroes]="true"
+        [control]="documentoPorteForm.get('ctg')"
+        [validationMessages]="validationMessagesCTG"
+        (blur)="OnBlurRecuperarDatoCpe()"
+        yrdMaxLength [maxLength]=12>
+        </yrd-numero-con-etiqueta>
+      </div>
+      <div class="col-sm" *ngIf="(!esFueraCircuito && esVagon) || (!esFueraCircuito && !esVagon && cupea)">
+        <button class="btn btn-primary" 
+          *ngIf="!esFueraCircuito && esVagon && !esCartaPorteElectronica" 
+          [disabled]="esModificacionDocPorte || esConsulta" 
+          (click)="recuperarDocPorte()" 
+          i18n>Recuperar Doc. Porte</button>
+
+        <button class="btn btn-primary" 
+          *ngIf="!esFueraCircuito && !esVagon && cupea" 
+          [disabled]="esModificacionDocPorte || esConsulta || disableBotonBuscar" 
+          (click)="buscarMovimiento()" i18n>Buscar</button>
+      </div>
+    </div>
+    <div class="row" *ngIf="esCartaPorteElectronica && !esVagon">
+      <div class="col-sm">
+        <yrd-texto-mascara-con-etiqueta 
+          formControlName="numeroDocumentoPorte"  
+          #inputNumeroDocumentoPorte 
+          [cssClassEtiqueta]="'col-sm-3'"
+          [cssClassControl]="'col-sm-6'"
+          [control]="documentoPorteForm.get('numeroDocumentoPorte')"         
+          [etiqueta]="'Nro Doc. de Porte'"
+          [mascara]="maskRegex"
+          [isLoading]="spinnerDocumentoPorte"
+          [validationMessages]="validationMessagesNroPorte">
+        </yrd-texto-mascara-con-etiqueta>
+      </div>
+      <div class="col-sm">
+        <yrd-buscador-titular 
+          [cssClassEtiqueta]="'col-sm-2'"
+          [cssClassControl]="'col-sm-4'"
+          formControlName="titularCartaPorteCPE" 
+          [advancedSearch]="true"
+          [control]="documentoPorteForm.get('titularCartaPorteCPE')"
+          [validationMessages]="validationMessagesTitular">
+        </yrd-buscador-titular>
+      </div>
+    </div>
+  <div class="row" *ngIf="habilitarControlesTipoTransporte">
+    <div class="col-sm-4">
+      <yrd-autocomplete-vagon #autocompleteVagon 
+        formControlName="numeroVagon" 
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [idForm]="'numeroVagon'"
+        [etiqueta]="'Número Vagón'" 
+        [control]="documentoPorteForm.get('numeroVagon')" 
+        [validationMessages]="validationMessagesNumeroVagon">
+      </yrd-autocomplete-vagon>
+    </div>
+    <div class="col-sm-4">
+      <yrd-autocomplete-patente
+        #autocompletePatente
+        formControlName="patenteCamion"
+        [idForm]="'patenteCamion'"  
+        [etiqueta]="'Patente Camión'"
+        [control]="documentoPorteForm.get('patenteCamion')" 
+        [validationMessages]="validationMessagesPatenteCamion">
+      </yrd-autocomplete-patente>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-5'"
+        *ngIf="esFueraCircuito && !esVagon" 
+        class="col-sm-6" 
+        formControlName="fechaEntrada" 
+        [etiqueta]="'Fecha Entrada'">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-5'"
+        *ngIf="esFueraCircuito && !esVagon"
+        class="col-sm-6" 
+        formControlName="fechaSalida" 
+        [etiqueta]="'Fecha Salida'">
+      </yrd-texto-con-etiqueta>
+    </div>
+    <div class="col-sm-4">
+      <yrd-texto-con-etiqueta 
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-5'"
+        *ngIf="esFueraCircuito && !esVagon && !esCarga" 
+        class="col-sm-6" 
+        formControlName="fechaOperacion" 
+        [etiqueta]="'Fecha Operación'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+</fieldset>
+

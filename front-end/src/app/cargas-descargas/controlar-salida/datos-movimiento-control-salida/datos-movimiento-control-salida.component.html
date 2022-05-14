@@ -1,0 +1,123 @@
+<div [formGroup]="datosMovimientoForm">
+    <fieldset>
+        <legend class="col-form-label">Movimiento</legend>
+
+        <div class="form-horizontal">
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'tipoTransporte'" class="col-sm-4 pt-2" formControlName="tipoTransporte" [etiqueta]="'Tipo Transporte'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'tipoMovimiento'" class="col-sm-4 pt-2" formControlName="tipoMovimiento" [etiqueta]="'Tipo Movimiento'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'producto'" class="col-sm-4 pt-2" formControlName="producto" [etiqueta]="'Producto'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'tipoDocumentoPorte'" class="col-sm-4 pt-2" formControlName="tipoDocumentoPorte" [etiqueta]="'Tipo Doc. Porte'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'nroDocumentoPorte'" class="col-sm-4 pt-2" formControlName="nroDocumentoPorte" [etiqueta]="'Nro. Doc. Porte'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'ctg'" class="col-sm-4 pt-2" formControlName="ctg" [etiqueta]="'CTG'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'patente'" class="col-sm-4 pt-2" formControlName="patente" [etiqueta]="'Patente'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'numeroVagon'" class="col-sm-4 pt-2" formControlName="numeroVagon" [etiqueta]="'Numero Vagon'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'estado'" class="col-sm-4 pt-2" formControlName="estado" [etiqueta]="'Estado'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'titular'" class="col-sm-4 pt-2" formControlName="titular" [etiqueta]="'Titular CP'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'vendedor'" class="col-sm-4 pt-2" formControlName="vendedor" [etiqueta]="'Vendedor'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'entregador'" class="col-sm-4 pt-2" formControlName="entregador" [etiqueta]="'Entregador'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'turnoPlaya'" class="col-sm-4 pt-2" formControlName="turnoPlaya" [etiqueta]="'Turno Playa'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'estadoCupo'" class="col-sm-4 pt-2" formControlName="estadoCupo" [etiqueta]="'Estado Cupo'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'nroCupo'" class="col-sm-4 pt-2" formControlName="nroCupo" [etiqueta]="'Nro. Cupo'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+                <yrd-texto-con-etiqueta [idForm]="'ordenCarga'" class="col-sm-4 pt-2" formControlName="ordenCarga" [etiqueta]="'Orden Carga'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'numeroViaje'" class="col-sm-4 pt-2" formControlName="numeroViaje" [etiqueta]="'Nro. Viaje'"></yrd-texto-con-etiqueta>
+                <yrd-texto-con-etiqueta [idForm]="'destinatarioRazonSocial'" class="col-sm-4 pt-2" formControlName="destinatarioRazonSocial" [etiqueta]="'Destinatario'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12 form-horizontal">
+            <yrd-texto-con-etiqueta [idForm]="'fechaHoraEntrada'" class="col-sm-4 pt-2" formControlName="fechaHoraEntrada" [etiqueta]="'Fecha/Hora Entrada'"></yrd-texto-con-etiqueta>
+            <!-- Se agrega un col-sm-4 para alinear Destinatario con Destino -->
+            <div class="col-sm-4 pt-2"></div>
+            <yrd-texto-con-etiqueta [idForm]="'establecimientoDestinoRazonSocial'" class="col-sm-4 pt-2" formControlName="establecimientoDestinoRazonSocial" [etiqueta]="'Destino'"></yrd-texto-con-etiqueta>
+            </div>
+            <div class="col-sm-12" *ngIf="esCarga && confirmarImpresionRemito || esCartaPorte">
+                <yrd-text-area-con-etiqueta class="col-sm-12" #observaciones
+                    formControlName="observaciones"
+                    [cssClassEtiqueta]="'col-sm-1'"
+                    [cssClassControl]="'col-sm-11'"
+                    [rows]="3"
+                    [control]="datosMovimientoForm.get('observaciones')"
+                    [etiqueta]="'Observaciones'"
+                    [maxLength]="250">
+                </yrd-text-area-con-etiqueta>
+            </div>
+        </div>
+    </fieldset>
+    <div *ngIf="esCarga" class="row form-horizontal">
+        <div class="col-sm-4">
+            <fieldset>
+                <legend class="col-form-label">Solicitar Nro. C.O.T.</legend>
+                <yrd-numero-con-etiqueta yrdMaxLength formControlName="numeroTramiteCOT" [idForm]="'numeroTramiteCOT'" [etiqueta]="'Nro. Trámite C.O.T.'" [maxLength]=12 [control]="datosMovimientoForm.get('numeroTramiteCOT')">
+                </yrd-numero-con-etiqueta>
+                <yrd-numero-con-etiqueta yrdMaxLength formControlName="numeroCOT" [idForm]="'numeroCOT'" [etiqueta]="'Nro. C.O.T.'" [validationMessages]="validationMessagesNumeroCOT" [maxLength]=12 [control]="datosMovimientoForm.get('numeroCOT')">
+                </yrd-numero-con-etiqueta>
+            </fieldset>
+        </div>
+        <div class="col-sm-8">
+            <fieldset>
+                <legend class="col-form-label">Solicitar Nro. CTG</legend>
+                <div class="row">
+                    <div class="col-sm-6 pt-2">
+                        <yrd-texto-con-etiqueta
+                            formControlName="codigoCupo" 
+                            [control]="datosMovimientoForm.get('codigoCupo')"         
+                            [etiqueta]="'Codigo Cupo'">
+                        </yrd-texto-con-etiqueta>
+                    </div>
+                    <div class="col-sm-6  pt-2">
+                        <yrd-autocomplete-planta
+                            formControlName="planta"
+                            [etiqueta]="'Planta'"
+                            [minLengthToSearch]="1"
+                            [cssClassControl]="'col-sm-5'"
+                            [control]="datosMovimientoForm.get('planta')" 
+                            [validationMessages]="validationMessagesPlanta"
+                            [cuit]="cuit"
+                            [esRegimenElectronico]="esRegimenElectronico"
+                            [esAutomatico]="esAutomatica"
+                            (plantaEsRequerido)="disabledPlanta($event)">
+                        </yrd-autocomplete-planta>
+                    </div>
+                    <div class="col-sm-6 pt-2">
+                        <yrd-numero-con-etiqueta yrdMaxLength
+                            formControlName="numeroCTG"
+                            [idForm]="'numeroCTG'"
+                            [etiqueta]="'CTG'"
+                            [maxLength]="maximo"
+                            [allowLeadingZeroes]="maximo != 8"
+                            [control]="datosMovimientoForm.get('numeroCTG')">
+                        </yrd-numero-con-etiqueta>
+                    </div>
+                    <div class="col-sm-6 pt-2">
+                        <yrd-buscador-corredor
+                        formControlName="corredorVendedor"
+                        [advancedSearch]="true"
+                        [control]="datosMovimientoForm.get('corredorVendedor')" 
+                        [etiqueta]="'Corredor Vendedor'"
+                        [validationMessages]="validationMessagesCorredorVendedor">
+                        </yrd-buscador-corredor>
+                      </div>
+                    <div class="col-sm-6 pt-2" *ngIf="esRegimenElectronico">
+                        <yrd-texto-mascara-con-etiqueta class="form-group"
+                            formControlName="numeroDocumentoPorte"  
+                            #inputNumeroDocumentoPorte 
+                            [control]="datosMovimientoForm.get('numeroDocumentoPorte')"         
+                            [etiqueta]="'Num. Doc. Porte'"
+                            [mascara]="tipoDocPorteRegex"
+                            [validationMessages]="validationMessagesNroPorte">
+                        </yrd-texto-mascara-con-etiqueta>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>

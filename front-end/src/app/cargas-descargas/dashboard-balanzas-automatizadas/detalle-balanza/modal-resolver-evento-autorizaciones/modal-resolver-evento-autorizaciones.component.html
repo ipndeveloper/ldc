@@ -1,0 +1,40 @@
+<yrd-modal-action
+#modalComponent>
+<ng-template #modalHeader>
+  <h4>{{ labelHeader }}</h4>
+</ng-template>
+<ng-template #modalBody>
+  <yrd-resolver-evento-autorizaciones
+  #resolverEventoAutorizaciones
+  [command] = "command"
+  (cerrarPopUp) = "onCerrarPopUp()">
+  </yrd-resolver-evento-autorizaciones>
+</ng-template>
+<ng-template #modalFooter>
+  <button
+    #botonAprobar
+    id="btnCancelModal"
+    #cancelButton
+    type="button"
+    class="btn btn-success"
+    (click)="onAprobar()">Autorizar
+  </button>
+  <button
+    #cancelModal
+    id="btnCancelModal"
+    #cancelButton
+    type="button"
+    class="btn btn-success"
+    (click)="onRechazar()">Rechazar
+  </button>
+  <button
+    #cancelModal
+    id="btnCancelModal"
+    #cancelButton
+    type="button"
+    class="btn btn-danger"
+    (click)="onCerrarPopUp()">
+    Cancelar
+  </button>
+</ng-template>
+</yrd-modal-action>

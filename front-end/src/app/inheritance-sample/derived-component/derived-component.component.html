@@ -1,0 +1,23 @@
+
+<yrd-base-component #baseComponentComponent title="Titulo del Componente Base" 
+                    page="1" pageCount="5" 
+                    previousText="Front" nextText="Back" >
+                    <ng-template #controlHeader><h2>Titulo del componente base sobreescrito</h2></ng-template>
+</yrd-base-component>
+
+<h2>{{ title }}</h2>
+<button class="btn btn-success" (click)="previousPage()" [disabled]="!hasPrevious()">{{ previousText }}</button> 
+<button class="btn btn-success" (click)="nextPage()" [disabled]="!hasNext()">{{ nextText }}</button>
+<p>Página {{ page }} de {{ pageCount }}</p>
+<br>
+<!-- En estrellitas
+<ngb-rating [(rate)]="page" max=5></ngb-rating>
+<ng-template #t let-fill="fill">
+  <span *ngIf="fill === 100" class="star full">&hearts;</span>
+  <span *ngIf="fill === 0" class="star">&hearts;</span>
+  <span *ngIf="fill < 100 && fill > 0" class="star">
+    <span class="half" [style.width.%]="fill">&hearts;</span>&hearts;
+  </span>
+</ng-template>
+      
+<ngb-rating [(rate)]="page" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating> -->

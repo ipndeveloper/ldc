@@ -1,0 +1,17 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Observaciones</legend>
+  <div class="row form-group">
+    <div class="col-sm-12">
+      <yrd-text-area-con-etiqueta 
+        formControlName="observaciones"
+        [rows]="3"
+        [control]="form.get('observaciones')"
+        [mostrarEtiqueta]="false"
+        [cssClassControl]="'col-sm-12'"
+        [maxLength]="250"
+        (blur)="setFocoAceptarYContinuar()"
+        [validationMessages]="validationMessagesObservaciones">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </div>
+</fieldset>

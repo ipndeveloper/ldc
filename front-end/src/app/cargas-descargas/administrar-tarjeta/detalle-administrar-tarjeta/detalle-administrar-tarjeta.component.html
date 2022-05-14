@@ -1,0 +1,95 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-desplegable-terminal
+        #terminal
+        formControlName="terminal"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('terminal')"
+        [opcionSeleccione]="true"
+        [permiso]="permission.AdministrarTarjetas"
+        [validationMessages]="validationMessagesTerminal"
+        [utilizaTarjeta]="true">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="col-sm-6 form-group">
+      <yrd-checkbox-con-etiqueta
+        #habilitada
+        formControlName="habilitada"
+        [cssClassEtiqueta]="'col-sm-2'"
+        [cssClassControl]="'col-sm-2'"
+        [control]="form.get('habilitada')"
+        [etiqueta]="'Habilitada'">
+      </yrd-checkbox-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <yrd-texto-con-etiqueta
+        #tipoTarjeta
+        formControlName="tipoTarjeta"
+        [cssClassControl]="'col-sm-5'"
+        [control]="form.get('tipoTarjeta')"
+        [etiqueta]="'Tipo Tarjeta'">
+      </yrd-texto-con-etiqueta>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 form-group">
+      <fieldset>
+        <legend class="col-form-label">Alta individual</legend>
+        <div class="row pb-3">
+          <div class="col-sm-12">
+            <div class="form-check">
+              <input type="radio" class="form-check-input"
+                formControlName="altaIndividual"
+                [value]="true" />
+            </div>
+          </div>
+        </div>
+        <div class="row pb-4">
+          <div class="col-sm-12 pb-2">
+            <yrd-codigo-tarjeta-con-etiqueta
+              [etiqueta]="'Código Tarjeta'"
+              [form]="form.controls.individual"
+              [validationMessagesNumero]="validationMessagesNumero">
+            </yrd-codigo-tarjeta-con-etiqueta>
+          </div>
+        </div>
+        <div class="row pb-3"></div>
+      </fieldset>
+    </div>
+    <div class="col-sm-6 form-group">
+      <fieldset>
+        <legend class="col-form-label">Alta masiva</legend>
+        <div class="row pb-3">
+          <div class="col-sm-12">
+            <div class="form-check">
+              <input type="radio" class="form-check-input"
+                formControlName="altaIndividual"
+                [value]="false" />
+            </div>
+          </div>
+        </div>
+        <div class="row pb-2">
+          <div class="col-sm-12">
+            <yrd-codigo-tarjeta-con-etiqueta
+              [etiqueta]="'Código Tarjeta Desde'"
+              [form]="form.get('masiva.desde')"
+              [validationMessagesNumero]="validationMessagesNumero">
+            </yrd-codigo-tarjeta-con-etiqueta>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 pb-1">
+            <yrd-codigo-tarjeta-con-etiqueta
+              [etiqueta]="'Código Tarjeta Hasta'"
+              [form]="form.get('masiva.hasta')"
+              [validationMessagesNumero]="validationMessagesNumero">
+            </yrd-codigo-tarjeta-con-etiqueta>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Detalle Mermas</legend>
+  <div formArrayName="mermas">
+    <yrd-data-grid [columns]="columns" [rows]="rows" [rowHeight]="25"></yrd-data-grid>
+  </div>
+  <div *ngIf="mostrarMermasEspeciales" formArrayName="mermasEspeciales">
+    <yrd-data-grid [columns]="columnsMermasEspeciales" [rows]="rowsMermasEspeciales" [rowHeight]="25"></yrd-data-grid>
+  </div>
+  <div class="form-horizontal pull-right">
+    <div class="col-sm-8"></div>
+    <yrd-texto-con-etiqueta class="col-sm-4" formControlName="totalMermas" [etiqueta]="'Total Mermas'"></yrd-texto-con-etiqueta>
+  </div>
+</fieldset>

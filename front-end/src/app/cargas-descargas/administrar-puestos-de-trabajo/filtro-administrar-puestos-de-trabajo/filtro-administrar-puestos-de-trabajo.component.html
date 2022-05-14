@@ -1,0 +1,31 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-terminal
+        #terminal
+        formControlName="terminal"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-9'"
+        [permiso]="Permission.AdministrarPuestosTrabajo"
+        [control]="form.get('terminal')"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-tipo-puesto-trabajo
+        formControlName="tipoPuestoTrabajo"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [opcionSeleccione]="true"
+        [control]="form.get('tipoPuestoTrabajo')">
+      </yrd-desplegable-tipo-puesto-trabajo>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-si-no
+        formControlName="habilitado"
+        [cssClassEtiqueta]="'col-sm-3'"
+        [cssClassControl]="'col-sm-4'"
+        [control]="form.get('habilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+</div>

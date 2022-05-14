@@ -1,0 +1,8 @@
+:host ::ng-deep input {
+    width: 90%;
+    margin-left: 10%;
+}
+
+.aling-end {
+    justify-content: end;
+}

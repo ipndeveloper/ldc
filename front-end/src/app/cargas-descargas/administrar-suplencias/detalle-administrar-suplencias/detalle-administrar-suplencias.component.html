@@ -1,0 +1,55 @@
+<div [formGroup]="form">
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-buscador-usuario
+        #usuarioOrigen
+        formControlName="usuarioOrigen"
+        [etiqueta]="'Usuario Origen'"
+        [control]="form.get('usuarioOrigen')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesUsuarioOrigen">
+      </yrd-buscador-usuario>
+    </div>
+    <div class="col-sm-6">
+      <yrd-buscador-usuario
+        formControlName="usuarioDestino"
+        [etiqueta]="'Usuario Destino'"
+        [control]="form.get('usuarioDestino')"
+        [advancedSearch]="true"
+        [validationMessages]="validationMessagesUsuarioDestino">
+      </yrd-buscador-usuario>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <yrd-fecha-con-etiqueta
+        #fechaDesde
+        formControlName="fechaDesde"
+        [control]="form.get('fechaDesde')"
+        [etiqueta]="'Fecha Desde'"
+        [cssClassControl]="'col-sm-3'"
+        [validationMessages]="validationMessagesFechaDesde">
+      </yrd-fecha-con-etiqueta>
+    </div>
+    <div class="col-sm-6">
+      <yrd-fecha-con-etiqueta 
+        formControlName="fechaHasta"
+        [control]="form.get('fechaHasta')"
+        [etiqueta]="'Fecha Hasta'"
+        [cssClassControl]="'col-sm-3'"
+        [validationMessages]="validationMessagesFechaHasta">
+      </yrd-fecha-con-etiqueta>
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-sm-6">
+      <div class="form-group form-horizontal">
+        <label for="estaHabilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+        <div class="col-sm-9">
+          <input type="checkbox" class="checkbox" id="estaHabilitado" formControlName="estaHabilitado" />
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

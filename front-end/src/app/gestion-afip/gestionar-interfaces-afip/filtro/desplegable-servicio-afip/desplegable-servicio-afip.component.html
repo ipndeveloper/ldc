@@ -1,0 +1,14 @@
+<div class="form-horizontal">
+  <label for="selectServicioAfip" class="col-sm-3 col-form-label">Servicio AFIP:</label>
+  <div class="col-sm-9">
+    <select class="form-control" id="selectServicioAfip" #selectServicioAfip [disabled]="isDisabled" [value]="selectedEntityId"
+      (blur)="onTouched()" (change)="onChange(selectServicioAfip.value)" [ngClass]="{
+         'is-invalid' : control?.invalid && control?.touched
+        }">
+      <option *ngFor="let entidad of entities" [value]="entidad.id">{{ entidad.descripcion }}</option>
+    </select>
+    <div class="invalid-feedback">
+      <p>El campo Servicio AFIP es requerido.</p>
+    </div>
+  </div>
+</div>

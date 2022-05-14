@@ -1,0 +1,33 @@
+<div #controlarCerealesSection id="controlarCerealesSection" class="container-fluid">
+  <form [formGroup]="form" novalidate>
+    <yrd-circuito [circuitoForm]="form.controls.circuito"></yrd-circuito>
+    <yrd-documento-porte #documentoPorte
+      [tipoProducto]="tipoProductoSeleccionada"
+      [tipoDocumento]="tipoDocumentoSeleccionado"
+      [tipoTransporte]="tipoTransporte"
+      [maskRegex] = "tipoDocPorteRegex"
+      [esCartaPorteElectronica]="esCartaPorteElectronica"
+      [documentoPorteForm]="form.controls.documentoPorte"
+      [esFueraCircuito]="true"
+      [esVagon]="true">
+    </yrd-documento-porte>
+    <yrd-fecha-periodo-stock-san 
+      [fechaPeriodoStockSanForm]="form.controls.fechaPeriodoStockSan">
+    </yrd-fecha-periodo-stock-san>
+    <yrd-datos-documento-controlar-descarga-vagon-cereales #datosDocumento
+      [terminal]="terminal"
+      [esFueraCircuito]="true"
+      [esRegimenElectronico]="esCartaPorteElectronica"
+      [confirmoCtg]="confirmoCtg"
+      [confirmadoManualmente]="confirmadoManualmente"
+      [debeDeshabilitarControlesPorMovimientoAplicadoEnSan]="debeDeshabilitarControlesPorMovimientoAplicadoEnSan"
+      [circuito]="circuito">
+    </yrd-datos-documento-controlar-descarga-vagon-cereales>
+      <div class="mt-3">      
+        <div class="float-right" style="margin-bottom: 20pt">
+          <button type="button" class="btn btn-success" (click)="aceptar()" i18n>Aceptar</button>
+          <button type="button" class="btn btn-danger" (click)="cancelar()" i18n>Cancelar</button>
+        </div>
+      </div>
+  </form>
+</div>

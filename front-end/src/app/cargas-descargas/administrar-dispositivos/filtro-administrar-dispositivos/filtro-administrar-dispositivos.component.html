@@ -1,0 +1,32 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="form-group col-sm-3">
+      <yrd-desplegable-terminal
+        formControlName="terminal"
+        #terminal
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('terminal')"
+        [permiso]="Permission.AdministrarDispositivos"
+        [opcionSeleccione]="true">
+      </yrd-desplegable-terminal>
+    </div>
+    <div class="form-group col-sm-4">
+      <yrd-desplegable-tipo-dispositivo
+        formControlName="tipoDispositivo"
+        [opcionSeleccione]="true"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('tipoDispositivo')">
+      </yrd-desplegable-tipo-dispositivo>
+    </div>
+    <div class="form-group col-sm-3">
+      <yrd-desplegable-si-no
+        formControlName="habilitado"
+        [cssClassEtiqueta]="'col-sm-4'"
+        [cssClassControl]="'col-sm-8'"
+        [control]="form.get('habilitado')">
+      </yrd-desplegable-si-no>
+    </div>
+  </div>
+</div>

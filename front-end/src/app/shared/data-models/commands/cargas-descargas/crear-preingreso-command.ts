@@ -1,0 +1,40 @@
+import { Autorizacion } from '../../../../cargas-descargas/shared/autorizacion/autorizacion';
+
+export class CrearPreingresoCommand {
+    public id: number;
+    public idCircuito: number;
+    public idTipoDocumentoPorte: number;
+    public numeroDocumentoPorte: string;
+    public idTipoProducto: number;
+    public codigoCupo: string;
+    public idProducto: number;
+    public idVendedor: number;
+    public idCorredorComprador: number;
+    public idDestinatario: number;
+    public idSedeOrigen: number;
+    public idFinalidad: number;
+    public idMotivoCupo: number;
+    public idTitular?: number;
+    public idCampoEpa?: number;
+    public idCartaSustentable?: number;
+    public idCosecha?: number;
+    public idProcedencia?: number;
+    public idActividad: number;
+    public aceptarSinConfirmarCtg: boolean;
+    public confirmadoManualmente: boolean;
+    public codigoCancelacionCtg: number;
+    public codigoTrazabilidadGrano: number;
+    public idTransportista: number;
+    public idChofer: number;
+    public kilosNeto: number;
+    public observacionDelMotivo: string;
+    public idMotivoEstadoMovimiento: number;
+    public esDejarPendiente: boolean | null;
+    public esModificacion: boolean | null;
+    public idEstadoInicialCupo: number;
+    public numeroTarjeta: string;
+    public autorizaciones: Autorizacion[];
+    public codigoFiscalTransportista: string;
+    public idTurnoCircular: number | null;
+    public turnoCircularVigente: boolean;
+}

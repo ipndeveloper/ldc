@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="form-group">
+        <yrd-desplegable-circuito
+          #desplegableCircuito
+          [opcionSeleccione]="true"
+          formControlName="circuito"
+          [cssClassControl]="'col-sm-7'"
+          [control]="form.get('circuito')"
+          [permiso]="Permission.AdministrarCaracteristicas"
+          [validationMessages]="validationMessagesCircuito">
+        </yrd-desplegable-circuito>
+      </div>
+      <div class="form-group">
+        <yrd-desplegable-actividad
+          #desplegableActividad
+          [opcionSeleccione]="true"
+          formControlName="actividadCircuito"
+          [cssClassControl]="'col-sm-7'"
+          [control]="form.get('actividadCircuito')"
+          [validationMessages]="validationMessagesActividad">
+        </yrd-desplegable-actividad>
+      </div>
+      <div class="form-group">
+        <yrd-desplegable-caracteristica
+          #desplegableCaracteristica
+          [opcionSeleccione]="true"
+          formControlName="caracteristicaCircuito"
+          [cssClassControl]="'col-sm-7'"
+          [control]="form.get('caracteristicaCircuito')"
+          [validationMessages]="validationMessagesCaracteristica">
+        </yrd-desplegable-caracteristica>
+      </div>
+      <div class="form-group">
+        <div class="form-group form-horizontal">
+          <label for="habilitado" class="col-sm-3 col-form-label">Habilitado:</label>
+          <div class="col-sm-7" >
+            <input #habilitado type="checkbox" class="checkbox" id="habilitado" formControlName="habilitado" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

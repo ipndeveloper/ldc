@@ -1,0 +1,29 @@
+<yrd-modal #modalComponent [formGroup]="reversarSalidaForm" [closeOnAccept]="false"
+          (accepted)="onAccept()" (closing)="onClosing()">
+  <ng-template #modalHeader>
+    <h4>{{ labelHeader }}</h4>
+  </ng-template>
+  <ng-template #modalBody>
+    <label>Retorna a:</label>
+
+    <div *ngFor="let resultado of resultados" class="custom-control custom-radio custom-control-inline">
+      <input class="custom-control-input"
+        #radioRetornaA 
+        formControlName="destinoRetornoMovimiento" 
+        type="radio"
+        id="radio{{resultado.id}}"
+        [value]="resultado.id" />
+      <label for="radio{{resultado.id}}" class="custom-control-label">{{ resultado.descripcion }}</label>
+    </div>
+
+    <div class="mt-2">
+      <yrd-text-area-con-etiqueta 
+        formControlName="observaciones" 
+        [idForm]="'textAereaObservaciones'" 
+        [etiqueta]="'Observación'"
+        [control]="reversarSalidaForm.controls.observaciones" 
+        [validationMessages]="validationMessagesObservaciones">
+      </yrd-text-area-con-etiqueta>
+    </div>
+  </ng-template>
+</yrd-modal>

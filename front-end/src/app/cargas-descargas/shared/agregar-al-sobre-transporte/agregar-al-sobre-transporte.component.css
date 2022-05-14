@@ -1,0 +1,4 @@
+button.dropdown-item:hover {
+    background-color: #428bca; /* Green */
+    color: white;
+}

@@ -1,0 +1,41 @@
+<fieldset [formGroup]="form">
+  <legend class="col-form-label">Checklist</legend>
+  <div formArrayName="checklist">
+    <yrd-data-grid
+      [columns]="columns"
+      [rows]="rows"
+      [selected]="selectedRows"
+      (select)="onSelect($event)">
+    </yrd-data-grid>
+  </div>
+</fieldset>
+
+<ng-template 
+  #tableCellTemplate 
+  ngx-datatable-cell-template 
+  let-rowIndex="rowIndex"
+  let-value="value" 
+  let-row="row"
+  let-isSelected="isSelected" 
+  let-onCheckboxChangeFn="onCheckboxChangeFn">
+  <label class="datatable-checkbox">
+    <input
+      type="checkbox" 
+      [checked]="row.controls.estaAprobado.value" 
+      (change)="onCheckboxChangeFn($event)"
+      [formControl]="row.controls.estaAprobado" />
+  </label>
+</ng-template>
+
+<ng-template
+  #valorObservacionTemplate
+  ngx-datatable-cell-template
+  let-rowIndex="rowIndex"
+  let-value="value"
+  let-row="row">
+  <input
+    #inputRow
+    type="string"
+    class="form-control"
+    [formControl]="row.controls.observaciones" />
+</ng-template>

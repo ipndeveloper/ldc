@@ -1,0 +1,30 @@
+<yrd-modal #modalComponent 
+  [formGroup]="form"
+  [closeOnAccept]="false"
+  (accepted)="onAccept()"
+  (closing)="onClosing()">
+  <ng-template #modalHeader><h4>Importar Excel</h4></ng-template>
+  <ng-template #modalBody>
+    <fieldset>
+      <legend class="col-form-label">Selección de Archivo</legend>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <yrd-archivo-con-etiqueta
+            id="idArchivo"
+            #archivo
+            formControlName="archivos"
+            [idForm]="'idArchivos'"
+            [control]="form.get('archivos')"
+            [etiqueta]="'Seleccionar Archivo'"
+            [cssClassControl]="'col-sm-8'"
+            [cssClassEtiqueta]="'col-sm-4'"
+            [maxSize]="CINCO_MEBIBYTE"
+            [sizeErrorMessage]="ERROR_MESSAGE"
+            [validationMessages]="validationMessagesArchivo">
+          </yrd-archivo-con-etiqueta>
+        </div>
+      </div>
+    </fieldset>
+  </ng-template>
+
+</yrd-modal>

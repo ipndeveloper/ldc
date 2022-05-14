@@ -1,0 +1,80 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="form-group">
+        <yrd-texto-con-etiqueta
+          formControlName="descripcion"
+          #descripcion
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('descripcion')"
+          [etiqueta]="'Descripción'"
+          [validationMessages]="validationMessagesDescripcion"
+        >
+        </yrd-texto-con-etiqueta>
+      </div>
+
+      <div class="form-group">
+        <yrd-desplegable-tipo-producto
+          formControlName="tipoProducto"
+          #tipoProducto
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('tipoProducto')"
+        >
+        </yrd-desplegable-tipo-producto>
+      </div>
+
+      <div class="form-group">
+        <yrd-checkbox-con-etiqueta
+          formControlName="habilitado"
+          #habilitado
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('habilitado')"
+          [etiqueta]="'Habilitado'"
+        >
+        </yrd-checkbox-con-etiqueta>
+      </div>
+
+      <div class="form-horizontal">
+        <label for="productos" class="col-sm-3 col-form-label">Productos:</label>
+        <div class="col-sm-5 form-control" style="height: 300px">
+          <tree-root #productosTree id="productos" [nodes]="productos" [options]="options">
+            <ng-template #treeNodeWrapperTemplate let-node let-index="index">
+              <input
+                class="tree-node-checkbox"
+                type="checkbox"
+                [disabled]="detalleDeshabilitado"
+                (click)="node.mouseAction('checkboxClick', $event)"
+                [checked]="node.isSelected"
+                [indeterminate]="node.isPartiallySelected"
+              />
+              <tree-node-expander [node]="node"></tree-node-expander>
+              <div
+                class="node-content-wrapper"
+                [class.node-content-wrapper-active]="node.isActive"
+                [class.node-content-wrapper-focused]="node.isFocused"
+                (click)="node.mouseAction('click', $event)"
+                (dblclick)="node.mouseAction('dblClick', $event)"
+                (contextmenu)="node.mouseAction('contextMenu', $event)"
+                (treeDrop)="node.onDrop($event)"
+                (treeDropDragOver)="node.mouseAction('dragOver', $event)"
+                (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"
+                (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"
+                [treeAllowDrop]="node.allowDrop"
+                [allowDragoverStyling]="node.allowDragoverStyling()"
+                [treeDrag]="node"
+                [treeDragEnabled]="node.allowDrag()"
+              >
+                <tree-node-content [node]="node" [index]="index">
+                  <ng-template #treeNodeTemplate let-node let-index="index">
+                    <span [class]="node.data.className + 'Index'">{{ index }}</span>
+                    <span [class]="node.data.className" [class.title]="true">{{ node.data.title }}</span>
+                  </ng-template>
+                </tree-node-content>
+              </div>
+            </ng-template>
+          </tree-root>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

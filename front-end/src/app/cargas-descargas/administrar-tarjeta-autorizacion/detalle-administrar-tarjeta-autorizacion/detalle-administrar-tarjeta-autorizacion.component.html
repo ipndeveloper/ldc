@@ -1,0 +1,60 @@
+<div [formGroup]="form">
+  <div class="row">
+    <div class="col-sm-9">
+      
+      <div class="form-group">
+        <yrd-desplegable-terminal
+          formControlName="terminal"
+          #terminal
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('terminal')"
+          [opcionSeleccione]="true"
+          [permiso]="Permission.AdministrarTarjetas"
+          [validationMessages]="validationMessagesTerminal">
+        </yrd-desplegable-terminal>
+      </div>
+      
+      <div class="form-group">
+        <yrd-texto-con-etiqueta
+          formControlName="tipoTarjeta"
+          #tipoTarjeta
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('tipoTarjeta')"
+          [etiqueta]="'Tipo Tarjeta'">
+        </yrd-texto-con-etiqueta>
+      </div>
+
+      <div class="form-group">
+        <yrd-texto-con-etiqueta
+          formControlName="numero"
+          #numero
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('numero')"
+          [etiqueta]="'Código de Tarjeta'"
+          [validationMessages]="validationMessagesNumero">
+        </yrd-texto-con-etiqueta>
+      </div>
+
+      <div class="form-group">
+        <yrd-buscador-usuario
+          formControlName="usuario"
+          [etiqueta]="'Usuario'"
+          [control]="form.get('usuario')"
+          [advancedSearch]="true"
+          [validationMessages]="validationMessagesUsuario">
+        </yrd-buscador-usuario>
+      </div>
+
+      <div class="form-group">
+        <yrd-checkbox-con-etiqueta
+          formControlName="habilitada"
+          #habilitada
+          [cssClassControl]="'col-sm-4'"
+          [control]="form.get('habilitada')"
+          [etiqueta]="'Habilitada'">
+        </yrd-checkbox-con-etiqueta>
+      </div>
+    
+    </div>
+  </div>
+</div>

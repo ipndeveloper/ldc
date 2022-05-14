@@ -1,0 +1,15 @@
+
+<yrd-modal #modalComponent [formGroup]="form">
+  <ng-template #modalHeader><h2>Consulta Códigos Muestra</h2></ng-template>
+  <ng-template #modalBody>           
+    <yrd-data-grid #dataGrid 
+      [rows]="rows"
+      [selected]="selected"
+      [columns]="columns"
+      (select)="onSelect($event)"></yrd-data-grid>        
+  </ng-template>
+  <ng-template #modalFooter>  
+    <button #cancelModal id="btnCancelModal" #cancelButton type="button" class="btn btn-danger" (keydown)="cancelTabPressed($event)" (click)="modalComponent.close()" >Cerrar</button>
+  </ng-template>
+</yrd-modal>
+

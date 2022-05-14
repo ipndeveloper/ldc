@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-sm-12">
+    <yrd-movimiento-datos-documento
+      [form]="datosDocumentoForm"
+      [esConsulta]="esConsulta">
+    </yrd-movimiento-datos-documento>
+  </div>  
+</div>
+<div class="row" *ngIf="circuitoContemplaCupo">
+  <div class="col-sm-12">
+    <yrd-cupo-datos-documento
+      [form]="datosDocumentoForm"
+      [ingresoConCupo]="ingresoConCupo"
+      [ingresoSinCupo]="ingresoSinCupo"
+      [esAlta]="esAlta"
+      [esConsulta]="esConsulta"
+      [codigoCupoRegex]="codigoCupoRegex"
+      (informarCambioCupo)="recuperarCupo()">
+    </yrd-cupo-datos-documento>
+  </div>  
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <fieldset>
+      <legend class="col-form-label">Documento</legend>
+      <div class="row">
+        <div class="col-sm-12">
+          <yrd-carta-porte-datos-documento
+            #cartaPorteDatosDocumento
+            [form]="datosDocumentoForm"
+            [formDocumentoPorte]="formDocumentoPorte"
+            [maskRegex]="maskRegex"
+            [esAlta]="esAlta"
+            [esConsulta]="esConsulta"
+            [esFueraCircuito]="esFueraCircuito"
+            [tipoProducto]="tipoProducto"
+            [tipoTransporte]="tipoTransporte"
+            [circuitoContemplaCupo]="circuitoContemplaCupo"
+            [terminal]="terminal"
+            [maximo]="maximo"
+            [movimientoPrecargado]="movimientoPrecargado"
+            (recuperarDatoCpe)="OnBlurRecuperarDatoCpe()"
+            [esCartaPorteElectronica]="esCartaPorteElectronica"
+            [esModificacionFueraDePuesto]="esModificacionFueraDePuesto"
+            [tieneAfipAutomatico] = "tieneAfipAutomatico">
+          </yrd-carta-porte-datos-documento>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <yrd-intervinientes-datos-documento
+            [form]="datosDocumentoForm"
+            [finalidad]="finalidad"
+            [circuito]="circuito"
+            [circuitoContemplaCupo]="circuitoContemplaCupo">
+          </yrd-intervinientes-datos-documento>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <yrd-granos-especies-datos-documento
+            [form]="datosDocumentoForm"
+            [tipoProducto]="tipoProducto"
+            [fillCampoEpa]="fillCampoEpa"
+            [fillCosecha]="fillCosecha">
+          </yrd-granos-especies-datos-documento>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <yrd-destino-datos-documento
+            [form]="datosDocumentoForm">
+          </yrd-destino-datos-documento>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <yrd-datos-transporte-datos-documento
+            [form]="datosDocumentoForm">
+          </yrd-datos-transporte-datos-documento>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <yrd-confirmacion-arribo-ctg-datos-documento
+      [form]="datosDocumentoForm"
+      [esCartaPorteElectronica]="esCartaPorteElectronica"
+      [confirmoManualmente]="confirmoManualmente"
+      [confirmoCtg]="confirmoCtg">
+    </yrd-confirmacion-arribo-ctg-datos-documento>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <yrd-datos-ldc-datos-documento
+      [form]="datosDocumentoForm"
+      [autocompleteSedeOrigenService]="autocompleteSedeOrigenService"
+      [autocompleteSedeDestinoService]="autocompleteSedeDestinoService">
+    </yrd-datos-ldc-datos-documento>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <yrd-observaciones-datos-documento
+      [form]="datosDocumentoForm"
+      (blurObservaciones)="onBlurObservaciones()">
+    </yrd-observaciones-datos-documento>
+  </div>
+</div>
+<div class="row" *ngIf="esConsulta">
+  <div class="col-sm-12">
+    <yrd-datos-turno-circular
+      [turno]="turnoCircular">
+    </yrd-datos-turno-circular>
+  </div>
+</div>

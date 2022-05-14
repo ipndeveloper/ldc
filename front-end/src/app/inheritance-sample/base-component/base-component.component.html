@@ -1,0 +1,5 @@
+<h2>{{ title }}</h2>
+<ng-container *ngTemplateOutlet="header"></ng-container>
+<a (click)="previousPage()" href="javascript:void(0)">Atrás</a>
+<span>{{ page }} / {{ pageCount }}</span>
+<a (click)="nextPage()" href="javascript:void(0)" >Adelante</a>
